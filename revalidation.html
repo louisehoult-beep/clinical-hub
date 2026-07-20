@@ -20,6 +20,15 @@
   .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
   .trust b{color:var(--slate);font-weight:700;}
   .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .acct{background:var(--cool);border-bottom:1px solid var(--line);padding:13px 20px;}
+  .acctlead{font-size:13px;color:#33404d;line-height:1.45;}
+  .acctlead b{color:var(--slate);}
+  .acctrow{display:flex;gap:8px;margin-top:9px;}
+  .acctrow input{flex:1;min-width:0;border:1.5px solid var(--greige);border-radius:9px;padding:10px 11px;font-size:15px;font-family:inherit;background:#fff;color:var(--body);}
+  .acctrow button{flex:0 0 auto;background:var(--slate);color:#fff;border:0;border-radius:9px;padding:10px 14px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .acctrow button.ghost{background:#fff;color:var(--slate);border:1.5px solid var(--greige);}
+  .acctnote{font-size:11.5px;color:#77818c;margin-top:7px;line-height:1.45;}
+  .acctnote a{color:var(--ox);}
   .cycle{display:flex;gap:10px;margin-top:14px;background:rgba(255,255,255,.07);border-radius:12px;padding:12px 14px;align-items:center;}
   .cycle .big{font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff;line-height:1;}
   .cycle .lab{font-size:11px;color:#cfc7ba;text-transform:uppercase;letter-spacing:1px;}
@@ -102,7 +111,7 @@
 </style>
 </head>
 <body>
-<div class="mocklabel">Preview · your data stays on this device · smart scan features coming soon</div>
+<div class="mocklabel">Preview · your pack syncs to your account · smart scan features coming soon</div>
 <div class="phone"><div class="scroll">
 
   <header>
@@ -122,6 +131,25 @@
   </header>
 
   <div class="trust"><span class="shield">✓</span> Built around the NMC's <b>eight revalidation requirements</b> · verified July 2026</div>
+
+  <div class="acct">
+    <div id="acctOut">
+      <div class="acctlead">☁️ <b>Sign in to keep your pack safe</b> — saved securely, and there on every device.</div>
+      <div class="acctrow">
+        <input type="email" id="acctEmail" placeholder="your@email.com" autocomplete="email">
+        <button onclick="hubSignIn()">Email me a link</button>
+      </div>
+      <div class="acctnote">No password to remember — we email you a link that signs you straight in.</div>
+    </div>
+    <div id="acctIn" style="display:none">
+      <div class="acctlead">☁️ <b>Saved to your account</b> — <span id="acctWho"></span></div>
+      <div class="acctrow">
+        <button class="ghost" onclick="hubExport()">Download all my data</button>
+        <button class="ghost" onclick="hubSignOut()">Sign out</button>
+      </div>
+      <div class="acctnote"><a href="#" onclick="hubDelete();return false;">Delete my account and everything in it</a></div>
+    </div>
+  </div>
 
   <div class="overall">
     <div class="row"><h2>Your pack</h2><span class="pct" id="overallPct">0% ready</span></div>
@@ -174,6 +202,8 @@
 <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="hub-cloud.js"></script>
 <script>
 // ---------- state ----------
 var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
@@ -182,7 +212,17 @@ var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
   cpdItems:[], reflItems:[], evidence:[], hoursItems:[], feedbackItems:[]
 };
 if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
-function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();}
+function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();cloudPush();}
+
+// Push to the cloud too, but not on every keystroke.
+var _pushTimer=null;
+function cloudPush(){
+  if(!window.Hub || !Hub.signedIn()) return;
+  clearTimeout(_pushTimer);
+  _pushTimer=setTimeout(function(){
+    Hub.save('revalidation', S).catch(function(e){ toast('Could not save to your account'); });
+  }, 900);
+}
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
 
 // ---------- requirements model ----------
@@ -412,6 +452,62 @@ function saveHours(){var h=parseFloat(val('hAdd'))||0;var n=val('hNote');S.hours
 
 function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
 render();
+
+// ---------- account (magic link, no password) ----------
+function hubSignIn(){
+  var e=val('acctEmail');
+  if(!e || e.indexOf('@')<0){ toast('Pop in a valid email'); return; }
+  toast('Sending your link…');
+  Hub.sendLink(e).then(function(){
+    show('<h3>Check your email</h3><p class="lead">We\'ve sent a link to <b>'+esc(e)+'</b>. Tap it and you\'ll be signed straight in — no password needed.</p>'+
+         '<div class="simnote">If it doesn\'t arrive within a minute or two, check your junk folder. Work inboxes (including NHS ones) sometimes hold these back.</div>'+
+         '<button class="btn ghost" onclick="hide()">Close</button>');
+  }).catch(function(err){
+    show('<h3>Couldn\'t send the link</h3><p class="lead">'+esc(err.message||'Something went wrong.')+'</p><button class="btn ghost" onclick="hide()">Close</button>');
+  });
+}
+function hubSignOut(){ Hub.signOut().then(function(){ toast('Signed out'); }); }
+function hubExport(){
+  Hub.downloadAllMyData().then(function(){ toast('Downloaded everything we hold ✓'); })
+    .catch(function(e){ toast('Could not download right now'); });
+}
+function hubDelete(){
+  show('<h3>Delete your account?</h3><p class="lead">This permanently removes your pack, your reflections and every file you\'ve uploaded. <b>It cannot be undone.</b></p>'+
+       '<div class="simnote">If you just want a copy first, close this and choose “Download all my data”.</div>'+
+       '<button class="btn" onclick="hubDeleteConfirm()">Yes, delete everything</button>'+
+       '<button class="btn ghost" onclick="hide()">Cancel</button>');
+}
+function hubDeleteConfirm(){
+  Hub.deleteMyAccount().then(function(){
+    try{ localStorage.removeItem('revalv1'); }catch(x){}
+    hide(); toast('Your account and data have been deleted');
+    setTimeout(function(){ location.reload(); }, 1200);
+  }).catch(function(e){ toast('Could not delete — please try again'); });
+}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+// Start the cloud layer; pull the saved pack down if they're signed in.
+if(window.Hub){
+  Hub.init().then(function(){
+    Hub.onChange(function(u){
+      document.getElementById('acctOut').style.display = u ? 'none' : '';
+      document.getElementById('acctIn').style.display  = u ? '' : 'none';
+      if(u) document.getElementById('acctWho').textContent = u.email;
+    });
+    if(Hub.signedIn()){
+      Hub.load('revalidation').then(function(cloud){
+        if(cloud && Object.keys(cloud).length){
+          S = cloud;
+          if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
+          localStorage.setItem('revalv1', JSON.stringify(S));
+          render();
+        } else {
+          Hub.save('revalidation', S);   // first sign-in: keep what's already on the device
+        }
+      });
+    }
+  }).catch(function(){ /* offline or blocked — the tool still works on-device */ });
+}
 </script>
 </body>
 </html>
