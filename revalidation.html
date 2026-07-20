@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NMC Revalidation Companion — prototype</title>
+<title>Revalidation Portfolio Builder — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--slate2:#3B4654;--stone:#CBBFAE;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--card:#fff;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.10);}
@@ -128,7 +128,7 @@
 
   <header>
     <div class="eyebrow">The Clinical Hub</div>
-    <h1>Revalidation Companion</h1>
+    <h1>Revalidation Portfolio Builder</h1>
     <div class="tag">Everything the NMC needs — built as you go.</div>
     <div class="cycle">
       <div style="flex:1">
@@ -172,6 +172,11 @@
   <div class="banner">Reflections stay in <b>your</b> words. This tool prompts and organises — it never writes your reflection for you. That's what keeps it honest for the NMC.</div>
 
   <div class="hero">
+    <div class="h">Already got a portfolio started?</div>
+    <button class="act alt" style="grid-column:1/-1" onclick="openImport()">
+      <div class="ic">📥</div><div class="t">Import my existing portfolio</div>
+      <div class="d">From RCNi or anywhere else — save it here and see what's still outstanding</div>
+    </button>
     <div class="h">Do the hard bits in seconds</div>
     <button class="act" onclick="openCert()">
       <div class="ic">📷</div><div class="t">Add CPD from a certificate</div>
@@ -397,6 +402,49 @@ function saveTimesheet(){
 function openEvidence(){
   var items=S.evidence.length? S.evidence.map(function(e){return '<div class="evrow"><div><b>'+e.title+'</b><div class="evmeta">'+e.type+' · supports '+e.section+' · '+e.date+'</div></div><span class="evtick">✓</span></div>';}).join('') : '<p class="lead">No evidence yet. Scan a certificate, timesheet or payslip and it appears here.</p>';
   show('<h3>My evidence log</h3><p class="lead">Every document you\'ve scanned — kept safely and downloaded with your pack.</p>'+items+'<button class="btn ghost" style="margin-top:14px" onclick="hide()">Close</button>');
+}
+
+// ---- import an existing portfolio (RCNi or anywhere else) ----
+function openImport(){
+  if(!window.Hub || !Hub.signedIn()){
+    show('<h3>Sign in first</h3><p class="lead">Importing saves your file to your own account, so we need you signed in first. Scroll up and pop in your email — it only takes a second.</p><button class="btn ghost" onclick="hide()">OK</button>');
+    return;
+  }
+  show('<h3>Import my existing portfolio</h3><p class="lead">Already keeping a portfolio on RCNi or somewhere else? Upload what you\'ve downloaded from it and we\'ll save it safely to your account here too.</p>'+
+    '<label>Your portfolio file</label><input type="file" id="importFile" accept=".pdf,.doc,.docx,.csv,.xlsx,.zip,image/*">'+
+    '<div class="simnote">We can\'t yet read the numbers out of the file automatically — that\'s a smart feature we\'re still building. For now, upload it to keep it safe, then tell us your totals on the next screen and we\'ll update your tracker straight away.</div>'+
+    '<button class="btn" onclick="doImportUpload()">Save this file &amp; continue</button>');
+}
+function doImportUpload(){
+  var input=document.getElementById('importFile');
+  var file=input && input.files && input.files[0];
+  if(!file){ toast('Choose a file first'); return; }
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your file to your account…</p></div>';
+  Hub.uploadEvidence(file, {title:file.name, doc_type:'Portfolio import', section:'Multiple', doc_date: new Date().toISOString().slice(0,10)})
+    .then(function(row){
+      S.evidence.push({type:'Portfolio import',title:file.name,section:'Multiple (imported)',date:row.doc_date || ''});
+      save();
+      showImportTotals();
+    })
+    .catch(function(err){
+      show('<h3>Couldn\'t save that file</h3><p class="lead">'+esc(err.message||'Something went wrong — please try again.')+'</p><button class="btn ghost" onclick="hide()">Close</button>');
+    });
+}
+function showImportTotals(){
+  show('<h3>Saved ✓ — now tell us your totals</h3><p class="lead">Open your downloaded file and copy the totals across. These <b>add to</b> anything you\'ve already logged here — we won\'t double up if you leave something blank.</p>'+
+    '<label>Practice hours</label><input type="number" id="impHours" value="0" min="0">'+
+    '<label>CPD hours (of which participatory)</label><div class="acctrow"><input type="number" id="impCpd" value="0" min="0" placeholder="Total CPD"><input type="number" id="impCpdPart" value="0" min="0" placeholder="Participatory"></div>'+
+    '<label>Pieces of practice-related feedback</label><input type="number" id="impFeedback" value="0" min="0">'+
+    '<label>Written reflective accounts</label><input type="number" id="impRefl" value="0" min="0" max="5">'+
+    '<button class="btn" onclick="applyImportTotals()">Update my tracker</button>');
+}
+function applyImportTotals(){
+  var h=parseFloat(val('impHours'))||0, c=parseFloat(val('impCpd'))||0, cp=parseFloat(val('impCpdPart'))||0, f=parseFloat(val('impFeedback'))||0, r=parseFloat(val('impRefl'))||0;
+  S.hours+=h; S.cpd+=c; S.cpdPart+=cp; S.feedback=Math.min(5,S.feedback+f); S.reflections=Math.min(5,S.reflections+r);
+  if(h) S.hoursItems.push({hours:h,org:'Imported from existing portfolio',setting:'—',dates:'—'});
+  if(c) S.cpdItems.push({title:'Imported from existing portfolio',hours:c,part:cp>=c});
+  hide(); save();
+  toast('Tracker updated ✓ — see what\'s still outstanding below');
 }
 
 // ---- download pack in the NMC's format ----

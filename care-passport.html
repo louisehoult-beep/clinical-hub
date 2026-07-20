@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Care Standard Passport — prototype</title>
+<title>Care Standard Portfolio Builder — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--stone:#CBBFAE;--greige:#D8D2C8;--line:#E4DED4;--ok:#3f6b3f;--okbg:#e5efe5;--shadow:0 2px 10px rgba(30,27,24,.08);}
@@ -103,7 +103,7 @@
 
   <header>
     <div class="eyebrow">The Clinical Hub · Elevate Care</div>
-    <h1>The Care Standard Passport</h1>
+    <h1>Care Standard Portfolio Builder</h1>
     <div class="tag">Your proof of good practice — in your pocket, wherever you work.</div>
     <div class="idcard">
       <div class="avatar" id="initial">?</div>
@@ -147,7 +147,7 @@
     <button class="btn ghost" style="margin-bottom:10px" onclick="openProfile()">👤 View my shareable passport profile</button>
   </div>
 
-  <footer>Prototype · The Care Standard Passport · Elevate Care<br>A voluntary standard. Based on the Care Certificate 16 standards + good-practice framework.</footer>
+  <footer>Prototype · Care Standard Portfolio Builder · Elevate Care<br>A voluntary standard. Based on the Care Certificate 16 standards + good-practice framework.</footer>
 
 </div></div>
 
@@ -264,10 +264,10 @@ function openRec(){
 }
 function genRec(){
   var n=val('rName')||'someone I work with', e=val('rEmail');
-  var body='Hi '+n+',%0D%0A%0D%0AI\'m building my Care Standard Passport — a record of my practice as a carer. Would you be willing to write a few honest lines about how I care for people? It really helps me show what I do well and where I\'m growing.%0D%0A%0D%0AYou can reply here or use my link: [Care Standard Passport link]%0D%0A%0D%0AThank you so much.';
-  var mailto='mailto:'+encodeURIComponent(e)+'?subject='+encodeURIComponent('A recommendation for my Care Standard Passport')+'&body='+body;
+  var body='Hi '+n+',%0D%0A%0D%0AI\'m building my Care Standard portfolio — a record of my practice as a carer. Would you be willing to write a few honest lines about how I care for people? It really helps me show what I do well and where I\'m growing.%0D%0A%0D%0AYou can reply here or use my link: [Care Standard Portfolio Builder link]%0D%0A%0D%0AThank you so much.';
+  var mailto='mailto:'+encodeURIComponent(e)+'?subject='+encodeURIComponent('A recommendation for my Care Standard portfolio')+'&body='+body;
   show('<h3>Ready to send</h3><p class="lead">Opens in your own email app. When '+n+' replies, it adds to your recommendations.</p>'+
-    '<div class="draft">Hi '+n+',\n\nI\'m building my Care Standard Passport — a record of my practice as a carer. Would you write a few honest lines about how I care for people?\n\nReply here or use my link: [Passport link]\n\nThank you so much.</div>'+
+    '<div class="draft">Hi '+n+',\n\nI\'m building my Care Standard portfolio — a record of my practice as a carer. Would you write a few honest lines about how I care for people?\n\nReply here or use my link: [Portfolio Builder link]\n\nThank you so much.</div>'+
     '<a class="btn" style="display:block;text-align:center;text-decoration:none" href="'+mailto+'">Open in my email app</a>'+
     '<button class="btn ghost" onclick="simRec()">Simulate a reply coming back</button>');
 }
