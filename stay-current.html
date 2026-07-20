@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stay Current — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 16px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:6px 4px 8px;}
+
+  a.item{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-bottom:11px;box-shadow:var(--shadow);transition:.12s;}
+  a.item:active{transform:scale(.99)}
+  .item .row1{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .date{font-size:11px;font-weight:700;color:var(--ox);letter-spacing:.3px;}
+  .src{font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;}
+  .src.nmc{background:#e6ecf5;color:#2c4a8a;}
+  .src.rcn{background:#eaf1fb;color:#0c3a78;}
+  .src.cqc{background:var(--okbg);color:var(--ok);}
+  .item h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;color:var(--ink);margin:0 0 5px;line-height:1.25;}
+  .item .why{font-size:12.5px;color:#6b7078;line-height:1.5;}
+  .item .why b{color:var(--slate);}
+  .item .arrow{float:right;color:var(--ox);font-weight:700;}
+  .aud-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#8a8f96;margin-top:7px;}
+
+  .note{background:var(--cool);border-left:4px solid var(--slate);border-radius:8px;padding:11px 13px;font-size:12px;color:#33404d;margin:6px 16px 12px;line-height:1.5;}
+  .note b{color:var(--slate);}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
+    section .eb{grid-column:1/-1;}
+    a.item{margin-bottom:12px;}
+    .note{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Hand-verified today · automated refresh is the planned next build</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Stay Current</h1>
+    <div class="tag">What's changed this week for carers and nurses — straight from NMC, RCN and CQC.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Sourced from <b>NMC, RCN &amp; CQC</b> official news · checked 20/07/2026</div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <section>
+    <div class="eb">This week</div>
+
+    <a class="item" data-aud="nurse" href="https://www.nmc.org.uk/news/news-and-updates/last-week-for-people-to-have-their-say-in-landmark-nursing-and-midwifery-practice-learning-consultation/" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">20 Jul</span><span class="src nmc">NMC</span></div>
+      <h3>Last week to have your say on practice learning changes <span class="arrow">→</span></h3>
+      <div class="why">The consultation on how future nurses and midwives are trained closes this week. <b>If you want a say, this is your last chance.</b></div>
+    </a>
+
+    <a class="item" data-aud="nurse" href="https://www.nmc.org.uk/news/news-and-updates/nmc-seeks-approval-for-landmark-consultation-on-the-code-and-revalidation/" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">16 Jul</span><span class="src nmc">NMC</span></div>
+      <h3>NMC to consult on changes to the Code and revalidation <span class="arrow">→</span></h3>
+      <div class="why">A public consultation on updating the Code and revalidation is expected to run <b>July–October 2026</b>. Worth watching if you're mid-cycle.</div>
+    </a>
+
+    <a class="item" data-aud="carer" href="https://www.cqc.org.uk/news/cqc-publishes-report-first-national-assessment-programme-local-authorities" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">14 Jul</span><span class="src cqc">CQC</span></div>
+      <h3>CQC publishes first national review of how councils deliver social care <span class="arrow">→</span></h3>
+      <div class="why">The first-ever national assessment of local authorities' adult social care duties. <b>Relevant if you work in or manage a commissioned service.</b></div>
+    </a>
+
+    <a class="item" data-aud="nurse" href="https://www.rcn.org.uk/news-and-events/news/uk-rcn-disappointed-to-see-nhs-pay-process-begin-before-talks-conclude-160726" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">16 Jul</span><span class="src rcn">RCN</span></div>
+      <h3>RCN: NHS pay process started before talks concluded <span class="arrow">→</span></h3>
+      <div class="why">The health secretary has written to the NHS Pay Review Body about 2027/28 pay — before union talks were finished. <b>One to watch if pay affects you.</b></div>
+    </a>
+
+    <a class="item" data-aud="all" href="https://www.cqc.org.uk/news/controlled-drugs-annual-update-report-2025-published" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">09 Jul</span><span class="src cqc">CQC</span></div>
+      <h3>CQC's annual controlled drugs report published <span class="arrow">→</span></h3>
+      <div class="why">Its yearly oversight report on how controlled drugs are managed. <b>Directly relevant if you handle or administer medication.</b></div>
+    </a>
+
+    <a class="item" data-aud="nurse" href="https://www.nmc.org.uk/news/news-and-updates/nmc-reminds-nurses-midwives-and-nursing-associates-of-responsibility-to-respect-and-protect-patient-confidentiality/" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">08 Jul</span><span class="src nmc">NMC</span></div>
+      <h3>NMC reminder: protecting patient confidentiality <span class="arrow">→</span></h3>
+      <div class="why">A reminder of your professional duty to protect patient confidentiality — <b>worth a re-read, whatever stage you're at.</b></div>
+    </a>
+
+    <a class="item" data-aud="carer" href="https://www.cqc.org.uk/news/emily-miles-appointed-chief-executive-care-quality-commission" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">16 Jul</span><span class="src cqc">CQC</span></div>
+      <h3>Emily Miles appointed CQC Chief Executive <span class="arrow">→</span></h3>
+      <div class="why">A new leader at the top of the regulator that inspects care providers across England.</div>
+    </a>
+
+  </section>
+
+  <div class="note"><b>How this works:</b> hand-checked against the official NMC, RCN and CQC news pages. An automated weekly refresh is the planned next build — for now, this is a manually verified snapshot, not a live feed. Always click through to the source for the full story.</div>
+
+  <footer>Prototype · The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN or CQC. Checked 20/07/2026 — always verify anything time-critical on the source site.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('a.item[data-aud]').forEach(function(it){
+        var aud=it.dataset.aud;
+        it.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+</script>
+</body>
+</html>
