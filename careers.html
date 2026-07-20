@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Careers &amp; Pay — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  .ladder{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .step{display:flex;align-items:center;gap:11px;padding:9px 0;}
+  .step .n{width:26px;height:26px;border-radius:50%;background:var(--cool);color:var(--slate);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .step.hi .n{background:var(--slate);color:#fff;}
+  .step .lbl{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .step .sub2{font-size:11.5px;color:#8a8f96;}
+  .arrow-d{text-align:center;color:var(--greige);font-size:16px;line-height:1;margin:-3px 0;padding-left:13px;}
+
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:6px;font-size:12.5px;}
+  th{background:var(--slate);color:#fff;text-align:left;padding:9px 11px;font-weight:600;}
+  td{padding:9px 11px;border-bottom:1px solid var(--line);color:var(--body);}
+  tr:last-child td{border-bottom:0;}
+  tr:nth-child(even) td{background:var(--cool);}
+  .note{font-size:11.5px;color:#8a8f96;margin:6px 0 4px;line-height:1.5;}
+  .note b{color:var(--slate);}
+
+  .pathway{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:var(--shadow);margin-bottom:12px;}
+  .pathway .grp-name{font-size:11px;font-weight:700;color:var(--ox);text-transform:uppercase;letter-spacing:.5px;margin:11px 0 6px;}
+  .pathway .grp-name:first-child{margin-top:0;}
+  .chiplist{display:flex;flex-wrap:wrap;gap:6px;}
+  .chiplist span{background:var(--cool);color:var(--slate);font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:16px;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
+  a.card:active{transform:scale(.99)}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+  .src{font-size:10.5px;color:#a7acb3;font-weight:600;letter-spacing:.5px;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
+
+  .funnel{margin:8px 20px 6px;background:linear-gradient(160deg,#6B2A34,#54212a);color:#fff;border-radius:15px;padding:16px 16px 14px;box-shadow:var(--shadow);}
+  .funnel .fe{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
+  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin:5px 0 5px;}
+  .funnel p{font-size:12.5px;color:#eadfe0;line-height:1.5;margin:0 0 11px;}
+  .funnel a{display:block;text-align:center;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:12px;border-radius:10px;font-size:14px;}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;}
+    .funnel{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Pay figures change every April · verified 20/07/2026</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Careers &amp; Pay</h1>
+    <div class="tag">Where you are, where you could go next — for carers and nurses alike.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Built from <b>NHS Employers, Health Careers &amp; DHSC</b> sources · verified July 2026</div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <!-- THE LADDER -->
+  <section data-aud="all">
+    <div class="eb">The whole path, in one place</div>
+    <h2>The carer → nurse ladder</h2>
+    <p class="sub">A real, fundable route — each rung is a genuine step, not a leap.</p>
+    <div class="ladder">
+      <div class="step"><div class="n">1</div><div><div class="lbl">Care worker</div><div class="sub2">Care Certificate · entry point</div></div></div>
+      <div class="arrow-d">↓</div>
+      <div class="step"><div class="n">2</div><div><div class="lbl">Senior carer</div><div class="sub2">Level 3 Diploma · lead worker</div></div></div>
+      <div class="arrow-d">↓</div>
+      <div class="step hi"><div class="n">3</div><div><div class="lbl">Nursing Associate — Band 4</div><div class="sub2">The bridge role · apprenticeship route</div></div></div>
+      <div class="arrow-d">↓</div>
+      <div class="step hi"><div class="n">4</div><div><div class="lbl">Registered Nurse — Band 5</div><div class="sub2">Top-up degree or apprenticeship</div></div></div>
+      <div class="arrow-d">↓</div>
+      <div class="step"><div class="n">5</div><div><div class="lbl">Specialist / ward manager — Band 6–7+</div><div class="sub2">Senior, specialist &amp; advanced practice</div></div></div>
+    </div>
+  </section>
+
+  <!-- NHS PAY BANDS -->
+  <section data-aud="nurse">
+    <div class="eb">For nursing roles</div>
+    <h2>NHS pay bands (Agenda for Change)</h2>
+    <p class="sub">England, 2026/27, full-time annual. Changes every April — always check the live figure before relying on it.</p>
+    <table>
+      <tr><th>Band</th><th>Typical role</th></tr>
+      <tr><td>2</td><td>Healthcare / care assistant</td></tr>
+      <tr><td>3</td><td>Senior HCA / support worker</td></tr>
+      <tr><td>4</td><td>Nursing Associate / Assistant Practitioner</td></tr>
+      <tr><td>5</td><td>Registered Nurse (newly qualified)</td></tr>
+      <tr><td>6–7</td><td>Senior / specialist nurse, ward manager, ANP</td></tr>
+      <tr><td>8+</td><td>Matron / advanced practice / lead nurse</td></tr>
+    </table>
+    <p class="note">Scotland, Wales and Northern Ireland run <b>separate</b> pay scales — the table above is England only.</p>
+  </section>
+
+  <!-- CARE WORKFORCE PATHWAY -->
+  <section data-aud="carer">
+    <div class="eb">For care roles</div>
+    <h2>The Care Workforce Pathway</h2>
+    <p class="sub">DHSC &amp; Skills for Care's official career structure for adult social care in England.</p>
+    <div class="pathway">
+      <div class="grp-name">Direct care</div>
+      <div class="chiplist"><span>New to care</span><span>Care/support worker</span><span>Enhanced care worker</span><span>Supervisor/leader</span><span>Practice leader</span><span>Personal assistant</span></div>
+      <div class="grp-name">Leadership &amp; management</div>
+      <div class="chiplist"><span>Deputy manager</span><span>Registered manager</span><span>Nominated individual</span><span>Corporate management</span></div>
+      <div class="grp-name">Specialist &amp; support roles</div>
+      <div class="chiplist"><span>Activity co-ordinator</span><span>Care technologist</span><span>L&amp;D practitioner</span><span>Quality assurance lead</span><span>Admin</span><span>Catering</span><span>Domestic</span><span>Maintenance</span></div>
+    </div>
+    <p class="note">Rolling out in stages since Jan 2024 — check the <b>live GOV.UK overview</b> for the current full list.</p>
+  </section>
+
+  <!-- FIND A JOB -->
+  <section data-aud="all">
+    <div class="eb">Ready to move</div>
+    <h2>Find a job</h2>
+    <a class="card" href="https://www.healthcareers.nhs.uk" target="_blank" rel="noopener"><div class="ct"><span>Health Careers <span class="src">· NHS</span></span><span class="arrow">→</span></div><div class="cd">Official NHS careers info, role profiles &amp; pay.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.jobs.nhs.uk" target="_blank" rel="noopener"><div class="ct"><span>NHS Jobs <span class="src">· NHS</span></span><span class="arrow">→</span></div><div class="cd">The official NHS vacancy board.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.adultsocialcare.co.uk" target="_blank" rel="noopener"><div class="ct"><span>Made With Care <span class="src">· DHSC</span></span><span class="arrow">→</span></div><div class="cd">The social care jobseeker site — real vacancies, real stories.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.skillsforcare.org.uk" target="_blank" rel="noopener"><div class="ct"><span>Skills for Care <span class="src">· Skills for Care</span></span><span class="arrow">→</span></div><div class="cd">Careers, training &amp; the Care Workforce Pathway.</div><span class="badge">Free</span></a>
+  </section>
+
+  <div class="funnel">
+    <div class="fe">Moving into commercial healthcare?</div>
+    <h3>Turn clinical experience into a new career</h3>
+    <p>Thinking about medical devices, pharma or commercial healthcare? Lou's Clinical to Commercial Playbook prepares clinicians for exactly those interviews.</p>
+    <a href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener">Explore the Clinical to Commercial Playbook →</a>
+  </div>
+
+  <footer>Prototype · The Clinical Hub · Careers &amp; Pay<br>Pay figures verified July 2026 — always check NHS Employers / Health Careers for the current rate.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+</script>
+</body>
+</html>

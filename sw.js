@@ -3,13 +3,14 @@
    forever and updates never reach anyone who has visited before. Static assets stay
    cache-first (with a quiet background refresh) because they're cheap and rarely change.
    Bump CACHE whenever the shipped asset list changes. */
-const CACHE = 'clinical-hub-v2';
+const CACHE = 'clinical-hub-v3';
 const ASSETS = [
   'index.html',
   'revalidation.html',
   'care-passport.html',
   'cv-tailor.html',
   'resources.html',
+  'careers.html',
   'hub-cloud.js',
   'manifest.webmanifest'
 ];
