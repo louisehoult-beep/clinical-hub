@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courses — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--paybg:#f3e9dc;--pay:#9A6A2E;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
+  a.card:active{transform:scale(.99)}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
+  .badge.paid{background:var(--paybg);color:var(--pay);}
+
+  .funnel{margin:8px 20px 6px;background:linear-gradient(160deg,#6B2A34,#54212a);color:#fff;border-radius:15px;padding:16px 16px 14px;box-shadow:var(--shadow);}
+  .funnel .fe{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
+  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin:5px 0 5px;}
+  .funnel p{font-size:12.5px;color:#eadfe0;line-height:1.5;margin:0 0 11px;}
+  .funnel a{display:block;text-align:center;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:12px;border-radius:10px;font-size:14px;}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;}
+    .funnel{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · links verified 20/07/2026</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Courses</h1>
+    <div class="tag">Free and paid learning to take you further — for carers and nurses alike.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Every course individually checked and live as of <b>July 2026</b></div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <section data-aud="all">
+    <div class="eb">Elevate &amp; Thrive</div>
+    <h2>Ready for the next step?</h2>
+    <a class="card" href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener"><div class="ct"><span>The Clinical Interview Playbook Bundle</span><span class="arrow">→</span></div><div class="cd">Interview preparation for nurses and clinicians moving into medical devices, pharma, clinical education or commercial healthcare. Includes 1 month free access to the NHS Intelligence Hub.</div><span class="badge paid">£149</span></a>
+  </section>
+
+  <section data-aud="nurse">
+    <div class="eb">Free CPD</div>
+    <h2>Free courses for nurses</h2>
+    <a class="card" href="https://rcnilearning.com/online-learning-for-nurses/free/course" target="_blank" rel="noopener"><div class="ct"><span>RCNi Learning — Free CPD Modules</span><span class="arrow">→</span></div><div class="cd">Bitesize peer-reviewed modules (drug calculations, ECG rhythm recognition, diabetic foot care) — save straight to your revalidation portfolio.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://portal.e-lfh.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>e-Learning for Healthcare (e-lfh)</span><span class="arrow">→</span></div><div class="cd">NHS England's free platform — 400+ programmes covering safeguarding, end of life care and much more.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.open.edu/openlearn/nursing-hub" target="_blank" rel="noopener"><div class="ct"><span>OpenLearn Nursing Hub</span><span class="arrow">→</span></div><div class="cd">73 free short courses from the Open University across adult, children's, learning disability and mental health nursing.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.futurelearn.com/subjects/healthcare-medicine-courses/nursing" target="_blank" rel="noopener"><div class="ct"><span>FutureLearn — Healthcare &amp; Nursing</span><span class="arrow">→</span></div><div class="cd">Free-to-audit short courses from universities and NHS partners — pay only for a certificate.</div><span class="badge">Free</span></a>
+  </section>
+
+  <section data-aud="nurse">
+    <div class="eb">Go further</div>
+    <h2>Paid courses &amp; qualifications for nurses</h2>
+    <a class="card" href="https://www.nottingham.ac.uk/healthsciences/cpd/courses/non-medical-prescribing-nmp.aspx" target="_blank" rel="noopener"><div class="ct"><span>Non-Medical Prescribing (V300) — Nottingham</span><span class="arrow">→</span></div><div class="cd">NMC-approved independent/supplementary prescribing, fully online.</div><span class="badge paid">Paid</span></a>
+    <a class="card" href="https://www.dundee.ac.uk/short/non-medical-prescribing" target="_blank" rel="noopener"><div class="ct"><span>Non-Medical Prescribing — Dundee</span><span class="arrow">→</span></div><div class="cd">3-month part-time route, online / Dundee / Kirkcaldy.</div><span class="badge paid">Paid</span></a>
+    <a class="card" href="https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-nurse-practitioner-masters-msc" target="_blank" rel="noopener"><div class="ct"><span>MSc Advanced Clinical Practice (ANP) — Southampton</span><span class="arrow">→</span></div><div class="cd">HEE-accredited Advanced Nurse Practitioner pathway, Level 7.</div><span class="badge paid">Paid</span></a>
+    <a class="card" href="https://rcnilearning.com/online-learning-for-nurses/cpd" target="_blank" rel="noopener"><div class="ct"><span>RCNi Learning — full CPD library</span><span class="arrow">→</span></div><div class="cd">170+ modules across 40 specialties, subscription-based.</div><span class="badge paid">Paid</span></a>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">Free learning</div>
+    <h2>Free courses for carers</h2>
+    <a class="card" href="https://carelearning.org.uk/free-care-skills-courses/" target="_blank" rel="noopener"><div class="ct"><span>Care Learning — free courses</span><span class="arrow">→</span></div><div class="cd">220+ free health and social care courses with downloadable certificates — moving &amp; handling, infection control, nutrition and more.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://portal.e-lfh.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>Care Certificate e-learning (e-lfh)</span><span class="arrow">→</span></div><div class="cd">The NHS's free knowledge modules covering the Care Certificate standards.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.open.edu/openlearn/nursing-hub" target="_blank" rel="noopener"><div class="ct"><span>OpenLearn — Caring for adults</span><span class="arrow">→</span></div><div class="cd">Introductory Open University course for anyone in a caring role.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.dementiafriends.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>Dementia Friends — Alzheimer's Society</span><span class="arrow">→</span></div><div class="cd">Free short awareness session — a great first step toward specialising in dementia care.</div><span class="badge">Free</span></a>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">Go further</div>
+    <h2>Paid courses for carers</h2>
+    <a class="card" href="https://careskillstraining.org/course/health-and-social-care-level-3-diploma/" target="_blank" rel="noopener"><div class="ct"><span>Health &amp; Social Care Level 3 Diploma</span><span class="arrow">→</span></div><div class="cd">CPD-accredited, 8 hours on-demand — Care Skills Training.</div><span class="badge paid">Paid</span></a>
+    <a class="card" href="https://www.scie.org.uk/e-learning/care-certificate/" target="_blank" rel="noopener"><div class="ct"><span>Care Certificate e-learning bundle — SCIE</span><span class="arrow">→</span></div><div class="cd">All 15 CQC standards, 250+ videos, online mentor support.</div><span class="badge paid">Paid</span></a>
+    <a class="card" href="https://learninghub.alzheimers.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>Alzheimer's Society Learning Hub</span><span class="arrow">→</span></div><div class="cd">14 dementia-specific modules for care professionals — go deeper than Dementia Friends.</div><span class="badge paid">Paid</span></a>
+  </section>
+
+  <div class="funnel">
+    <div class="fe">See where this leads</div>
+    <h3>What's Next</h3>
+    <p>Every course above builds toward a real career route — see the whole map.</p>
+    <a href="whats-next.html">Explore What's Next →</a>
+  </div>
+
+  <footer>Prototype · The Clinical Hub · Courses<br>Every link individually verified live, July 2026.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+</script>
+</body>
+</html>

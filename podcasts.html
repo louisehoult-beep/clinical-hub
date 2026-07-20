@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcasts — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
+  a.card:active{transform:scale(.99)}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · checked for a live recent episode · verified 20/07/2026</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Podcasts</h1>
+    <div class="tag">Real voices, real careers — listen on your commute.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Every show checked for a <b>genuinely recent episode</b> — no abandoned feeds</div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <section data-aud="nurse">
+    <div class="eb">For nurses</div>
+    <h2>Nursing podcasts</h2>
+    <a class="card" href="https://www.nursingtimes.net/navigating-nursing/" target="_blank" rel="noopener"><div class="ct"><span>Navigating Nursing</span><span class="arrow">→</span></div><div class="cd">Nursing Times — nurses across every field talk through their career path and where they're headed next. Genuinely aspirational.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/gb/podcast/more-than-a-nurse-real-stories-honest-transitions/id1892701368" target="_blank" rel="noopener"><div class="ct"><span>More Than A Nurse</span><span class="arrow">→</span></div><div class="cd">Hosted by Danielle Maynard, ex-NHS nurse turned social entrepreneur — real stories of what comes next beyond the ward.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/gb/podcast/nursing-standard-podcast/id1291474670" target="_blank" rel="noopener"><div class="ct"><span>Nursing Standard Podcast</span><span class="arrow">→</span></div><div class="cd">RCNi's professional-issues podcast — pay, staffing and policy, straight from the profession.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/gb/podcast/lets-talk-nursing/id1771030119" target="_blank" rel="noopener"><div class="ct"><span>Let's Talk Nursing</span><span class="arrow">→</span></div><div class="cd">British Journal of Nursing — person-centred care, wellbeing and career development.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/gb/podcast/the-bjn-podcast/id1530540830" target="_blank" rel="noopener"><div class="ct"><span>The BJN Podcast</span><span class="arrow">→</span></div><div class="cd">Deep dives into clinical practice, technology and policy with sector specialists.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/us/podcast/the-nursing-in-practice-podcast/id1829461950" target="_blank" rel="noopener"><div class="ct"><span>The Nursing in Practice Podcast</span><span class="arrow">→</span></div><div class="cd">Primary and community nursing news and guidance.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/gb/podcast/the-g-word/id1549030035" target="_blank" rel="noopener"><div class="ct"><span>Behind the Genes</span><span class="arrow">→</span></div><div class="cd">Genomics England — NHS genomic medicine, patient stories and a look at genomics career routes.</div><span class="badge">Free</span></a>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">For carers</div>
+    <h2>Care sector podcasts</h2>
+    <a class="card" href="https://podcasts.apple.com/us/podcast/the-care-exchange-from-skills-for-care/id1544976465" target="_blank" rel="noopener"><div class="ct"><span>The Care Exchange — Skills for Care</span><span class="arrow">→</span></div><div class="cd">Hosted by Skills for Care locality managers — culture, retention and career progression in social care.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://podcasts.apple.com/gb/podcast/learn-on-the-go-the-community-care-podcast/id1268644821" target="_blank" rel="noopener"><div class="ct"><span>Learn on the go — Community Care</span><span class="arrow">→</span></div><div class="cd">Practitioners and researchers unpacking social care practice and legal change.</div><span class="badge">Free</span></a>
+  </section>
+
+  <footer>Prototype · The Clinical Hub · Podcasts<br>Every show checked for a live, recent episode — July 2026.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+</script>
+</body>
+</html>

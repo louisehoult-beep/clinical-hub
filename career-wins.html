@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Wins — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  .win{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:13px;padding:14px 15px;margin-bottom:11px;box-shadow:var(--shadow);}
+  .win .wn{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .win .wc{font-size:12px;color:var(--ox);font-weight:600;margin-top:2px;}
+  .win .wd{font-size:12.5px;color:#6b7078;margin-top:5px;line-height:1.5;}
+  .win .wsrc{font-size:10.5px;color:#a7acb3;margin-top:6px;}
+  .win .wsrc a{color:#a7acb3;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
+  a.card:active{transform:scale(.99)}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
+
+  .funnel{margin:8px 20px 6px;background:linear-gradient(160deg,#6B2A34,#54212a);color:#fff;border-radius:15px;padding:18px 16px 16px;box-shadow:var(--shadow);}
+  .funnel .fe{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
+  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin:5px 0 5px;}
+  .funnel p{font-size:12.5px;color:#eadfe0;line-height:1.5;margin:0 0 11px;}
+  .funnel a{display:block;text-align:center;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:12px;border-radius:10px;font-size:14px;}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;}
+    .funnel{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · winners sourced from official award bodies only · verified 20/07/2026</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Career Wins</h1>
+    <div class="tag">Real nurses, real carers, doing brilliant things — celebrated properly.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Every name here is from an <b>official award ceremony or NHS trust announcement</b> — never scraped from social media</div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <section data-aud="nurse">
+    <div class="eb">Recent winners</div>
+    <h2>Nursing</h2>
+    <div class="win"><div class="wn">Teresa O'Nwere-Tan</div><div class="wc">Nurse of the Year — Nursing Times Awards 2025</div><div class="wd">Advanced Nurse Practitioner, Nexus Health Group / NHS South East London ICB.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+    <div class="win"><div class="wn">Emma Firth</div><div class="wc">Nurse Leader of the Year — Nursing Times Awards 2025</div><div class="wd">Practice Plus Group, prison nursing.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+    <div class="win"><div class="wn">Dr Crystal Oldman</div><div class="wc">Lifetime Achievement — Chief Nursing Officers' Award, Nursing Times Awards 2025</div><div class="wd">Recognised for a career in district and community nursing.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+    <div class="win"><div class="wn">Beth Dennis</div><div class="wc">Student Nurse of the Year: Children — Student Nursing Times Awards 2025</div><div class="wd">Birmingham City University.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+    <div class="win"><div class="wn">Siofra Mckeon Erskine</div><div class="wc">Apprentice Nurse of the Year (inaugural) — Student Nursing Times Awards 2025</div><div class="wd">Leeds Teaching Hospitals NHS Trust.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+    <div class="win"><div class="wn">Christina Abarno, Cyril Mathew &amp; Martha Stepney</div><div class="wc">NHS Chief Nursing Officer Award 2025</div><div class="wd">Healthcare Support Workers, Oxford University Hospitals NHS FT.</div><div class="wsrc">Source: ouh.nhs.uk</div></div>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">Recent winners</div>
+    <h2>Care</h2>
+    <div class="win"><div class="wn">Heman Kiyanga</div><div class="wc">Care Home Worker Award — Great British Care Awards National Final 2025</div><div class="wd">Anchor.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
+    <div class="win"><div class="wn">Endurance Onichabor</div><div class="wc">Home Care Worker Award — Great British Care Awards National Final 2025</div><div class="wd">Ivolve Care and Support.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
+    <div class="win"><div class="wn">Nina Stephens</div><div class="wc">Care Home Registered Manager Award — Great British Care Awards National Final 2025</div><div class="wd">RMBI Care Co.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
+    <div class="win"><div class="wn">Jill Davies</div><div class="wc">Leadership Award — Markel 3rd Sector Care Awards 2025</div><div class="wd">Palliative Care Clinical Lead, DHU Healthcare's Palliative Care Urgent Response Service.</div><div class="wsrc">Source: dhuhealthcare.com</div></div>
+  </section>
+
+  <!-- AWARD PROGRAMMES -->
+  <section data-aud="nurse">
+    <div class="eb">Could be you next</div>
+    <h2>Nursing award programmes</h2>
+    <a class="card" href="https://www.nursingtimes.net/events/nursingtimesawards/" target="_blank" rel="noopener"><div class="ct"><span>Nursing Times Awards</span><span class="arrow">→</span></div><div class="cd">The sector's flagship awards — ~25 categories, annual ceremony each October.</div><span class="badge">Enter</span></a>
+    <a class="card" href="https://studentawards.nursingtimes.net/" target="_blank" rel="noopener"><div class="ct"><span>Student Nursing Times Awards</span><span class="arrow">→</span></div><div class="cd">For student and apprentice nurses — ~24 categories, annual each spring.</div><span class="badge">Enter</span></a>
+    <a class="card" href="https://www.rcn.org.uk/Get-Involved/RCN-awards" target="_blank" rel="noopener"><div class="ct"><span>RCN Awards</span><span class="arrow">→</span></div><div class="cd">Presented at RCN Congress — includes the Award of Merit.</div><span class="badge">Enter</span></a>
+    <a class="card" href="https://www.england.nhs.uk/nursingmidwifery/chief-nursing-officer-for-england/awards/" target="_blank" rel="noopener"><div class="ct"><span>NHS Chief Nursing Officer Awards</span><span class="arrow">→</span></div><div class="cd">Rolling recognition for nurses, midwives &amp; support workers who go above and beyond — nominated via your trust.</div><span class="badge">Enter</span></a>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">Could be you next</div>
+    <h2>Care award programmes</h2>
+    <a class="card" href="https://www.care-awards.co.uk/" target="_blank" rel="noopener"><div class="ct"><span>Great British Care Awards</span><span class="arrow">→</span></div><div class="cd">Regional heats each autumn feeding a national final — the biggest recognition event in UK care.</div><span class="badge">Enter</span></a>
+    <a class="card" href="https://uk.markel.com/about-us/news-and-insights/markel-3rd-sector-care-awards-2025" target="_blank" rel="noopener"><div class="ct"><span>Markel 3rd Sector Care Awards</span><span class="arrow">→</span></div><div class="cd">Recognises charity and not-for-profit care and support providers.</div><span class="badge">Enter</span></a>
+    <div class="win"><div class="wd" style="margin-top:0">Plus: many NHS trusts and care providers run their own annual staff awards (STAR Awards, Staff Recognition Awards, "Golden Stars" and similar) — ask your employer what's running.</div></div>
+  </section>
+
+  <!-- SUBMISSION -->
+  <section data-aud="all">
+    <div class="eb">Your turn</div>
+    <h2>Tell us your news</h2>
+    <p class="sub">Been promoted? Won an award? Passed a big qualification? We'd love to celebrate it here.</p>
+    <a class="card" id="tellUsCard" href="#"><div class="ct"><span>Share your win</span><span class="arrow">→</span></div><div class="cd">Opens your email app with a short prompt — takes two minutes.</div><span class="badge">Free</span></a>
+  </section>
+
+  <div class="funnel">
+    <div class="fe">Building toward your next win?</div>
+    <h3>See what's possible next</h3>
+    <p>The What's Next page maps real routes — clinical, leadership, teaching and beyond.</p>
+    <a href="whats-next.html">Explore What's Next →</a>
+  </div>
+
+  <footer>Prototype · The Clinical Hub · Career Wins<br>All winners sourced from official award-body or NHS trust pages — never social media. Verified July 2026.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+  var body='Hi,%0D%0A%0D%0AI\'d like to share some good news for the Career Wins page on The Clinical Hub:%0D%0A%0D%0A[Tell us what happened — a promotion, an award, a qualification, anything you\'re proud of]%0D%0A%0D%0AName (or how you\'d like to be credited):%0D%0ARole/setting:%0D%0A%0D%0AThank you!';
+  document.getElementById('tellUsCard').href='mailto:contact@elevateandthrive.uk?subject='+encodeURIComponent('My Career Win — The Clinical Hub')+'&body='+body;
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinars — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
+  a.card:active{transform:scale(.99)}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
+  .note{font-size:11.5px;color:#8a8f96;margin:2px 0 14px;line-height:1.5;}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · verified 20/07/2026</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Webinars</h1>
+    <div class="tag">Free professional development, wherever you're logging in from.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Genuine, currently-running programmes — checked individually</div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <section data-aud="nurse">
+    <div class="eb">For nurses</div>
+    <h2>Nursing webinars</h2>
+    <a class="card" href="https://www.nursingtimes.net/events/nursing-times-webinars/" target="_blank" rel="noopener"><div class="ct"><span>Nursing Times Webinars</span><span class="arrow">→</span></div><div class="cd">Ongoing programme covering clinical skills, virtual wards, digital tools and workforce topics.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Webinar-Hub-Professional-Services" target="_blank" rel="noopener"><div class="ct"><span>RCN Webinar Hub</span><span class="arrow">→</span></div><div class="cd">RCN's hub for professional-development and accreditation webinars.</div><span class="badge">Free</span></a>
+  </section>
+
+  <section data-aud="all">
+    <div class="eb">Seeking employment</div>
+    <h2>Career development webinars</h2>
+    <a class="card" href="https://www.nhselect.nhs.uk/Career-development-series" target="_blank" rel="noopener"><div class="ct"><span>NHS Elect — Career Development Series</span><span class="arrow">→</span></div><div class="cd">Free, open sessions on CV/application writing, interview technique and assessment centres.</div><span class="badge">Free</span></a>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">For carers</div>
+    <h2>Care sector webinars</h2>
+    <a class="card" href="https://www.skillsforcare.org.uk/news-and-events/Events-and-networks.aspx" target="_blank" rel="noopener"><div class="ct"><span>Skills for Care — Events &amp; Networks</span><span class="arrow">→</span></div><div class="cd">Regular free online forums — Nursing Workforce Forum, Nursing Education Forum and workforce-development drop-ins.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.skillsforcare.org.uk/Support-for-leaders-and-managers/Support-for-registered-managers/Registered-manager-webinars/Registered-manager-webinars.aspx" target="_blank" rel="noopener"><div class="ct"><span>Skills for Care — Registered Manager Webinars</span><span class="arrow">→</span></div><div class="cd">Topic-based sessions for those in or moving into care management — medicines, supervision, CQC, digital skills.</div><span class="badge">Free</span></a>
+  </section>
+
+  <footer>Prototype · The Clinical Hub · Webinars<br>Every source individually verified live, July 2026.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+</script>
+</body>
+</html>
