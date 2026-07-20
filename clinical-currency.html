@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinical Currency — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
+  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
+  a.card:active{transform:scale(.99)}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
+  .note{font-size:11.5px;color:#8a8f96;margin:2px 0 14px;line-height:1.5;}
+
+  .funnel{margin:8px 20px 6px;background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;border-radius:15px;padding:16px 16px 14px;box-shadow:var(--shadow);}
+  .funnel .fe{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
+  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin:5px 0 5px;}
+  .funnel p{font-size:12.5px;color:#dfe3e8;line-height:1.5;margin:0 0 11px;}
+  .funnel a{display:block;text-align:center;background:#fff;color:var(--slate);font-weight:700;text-decoration:none;padding:12px;border-radius:10px;font-size:14px;}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;}
+    .funnel{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · every source individually verified live · 20/07/2026</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Clinical Currency</h1>
+    <div class="tag">Stay sharp in your specialty — NICE guidance and specialist updates, in one place.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Every source checked live — nothing guessed, nothing stale</div>
+
+  <div class="tabs" id="audTabs">
+    <button class="on" data-aud="all">Everyone</button>
+    <button data-aud="carer">Carers</button>
+    <button data-aud="nurse">Nurses</button>
+  </div>
+
+  <section data-aud="nurse">
+    <div class="eb">The national picture</div>
+    <h2>NICE guidance</h2>
+    <p class="sub">Where new and updated guidelines actually get published.</p>
+    <a class="card" href="https://www.nice.org.uk/guidance/published" target="_blank" rel="noopener"><div class="ct"><span>NICE Published Guidance</span><span class="arrow">→</span></div><div class="cd">Every guideline, quality standard and technology appraisal — searchable, filterable by date.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.nice.org.uk/guidance/indevelopment" target="_blank" rel="noopener"><div class="ct"><span>Guidance in Development</span><span class="arrow">→</span></div><div class="cd">~390 items currently being developed, with expected publication dates — see what's coming.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.nice.org.uk/nice-newsletters-and-alerts" target="_blank" rel="noopener"><div class="ct"><span>NICE Newsletters &amp; Alerts</span><span class="arrow">→</span></div><div class="cd">Free email alerts — including options tailored to your specialty.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://cks.nice.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>NICE Clinical Knowledge Summaries</span><span class="arrow">→</span></div><div class="cd">300+ point-of-care topic summaries — current guidance made practical, fast.</div><span class="badge">Free</span></a>
+  </section>
+
+  <section data-aud="nurse">
+    <div class="eb">Go deeper</div>
+    <h2>By specialty</h2>
+    <p class="sub">Real, currently-active professional bodies — not a generic reading list.</p>
+    <a class="card" href="https://trenddiabetes.online/" target="_blank" rel="noopener"><div class="ct"><span>Trend Diabetes (TREND-UK)</span><span class="arrow">→</span></div><div class="cd">Diabetes nursing — frameworks, toolkits, events.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://wounds-uk.com/resources/" target="_blank" rel="noopener"><div class="ct"><span>Wounds UK</span><span class="arrow">→</span></div><div class="cd">Best Practice Statements and consensus documents for wound care.</div><span class="badge">Free for HCPs</span></a>
+    <a class="card" href="https://societyoftissueviability.org/resources/" target="_blank" rel="noopener"><div class="ct"><span>Society of Tissue Viability</span><span class="arrow">→</span></div><div class="cd">Clinical guidelines, pressure-ulcer &amp; seating guidance.</div><span class="badge">Free to browse</span></a>
+    <a class="card" href="https://www.england.nhs.uk/national-infection-prevention-and-control-manual-nipcm-for-england/" target="_blank" rel="noopener"><div class="ct"><span>National IPC Manual (NHS England)</span><span class="arrow">→</span></div><div class="cd">The mandatory, version-tracked national infection prevention &amp; control guidance.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://arns.co.uk/" target="_blank" rel="noopener"><div class="ct"><span>Association of Respiratory Nurse Specialists</span><span class="arrow">→</span></div><div class="cd">The only nursing-led respiratory body — resources, endorsed courses, monthly updates.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.mariecurie.org.uk/professionals/palliative-care-knowledge-zone" target="_blank" rel="noopener"><div class="ct"><span>Marie Curie Palliative Care Knowledge Zone</span><span class="arrow">→</span></div><div class="cd">Free, open-access guidance — symptom management, emergencies, advance care planning.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.bbuk.org.uk/professionals/" target="_blank" rel="noopener"><div class="ct"><span>Bladder &amp; Bowel UK</span><span class="arrow">→</span></div><div class="cd">Specialist-nurse-authored guidance for adult &amp; paediatric continence care.</div><span class="badge">Free</span></a>
+    <p class="note">Couldn't find a live, currently-active mental health nursing guidance hub to include here — flagged rather than filled with a weak link. Let us know if you know of one.</p>
+  </section>
+
+  <section data-aud="carer">
+    <div class="eb">Your equivalent</div>
+    <h2>Care standards &amp; guidance</h2>
+    <p class="sub">NICE guidelines are written for registered clinicians — your reference points are different.</p>
+    <a class="card" href="resources.html"><div class="ct"><span>Trusted Resources</span><span class="arrow">→</span></div><div class="cd">The Care Certificate standards, CQC's fundamental standards, and where to find them.</div><span class="badge">Free</span></a>
+    <a class="card" href="https://www.bbuk.org.uk/professionals/" target="_blank" rel="noopener"><div class="ct"><span>Bladder &amp; Bowel UK</span><span class="arrow">→</span></div><div class="cd">Practical continence-care guidance, written for care staff too.</div><span class="badge">Free</span></a>
+  </section>
+
+  <div class="funnel">
+    <div class="fe">Building your evidence as you go?</div>
+    <h3>Log it in your Portfolio Builder</h3>
+    <p>CPD from any of the sources above counts toward your revalidation.</p>
+    <a href="revalidation.html">Open Revalidation Portfolio Builder →</a>
+  </div>
+
+  <footer>Prototype · The Clinical Hub · Clinical Currency<br>Every source individually verified live, July 2026.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#audTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+      });
+    });
+  });
+</script>
+</body>
+</html>
