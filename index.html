@@ -162,11 +162,8 @@
     <div class="eb">Join free</div>
     <h2>Keep your progress &amp; get reminders</h2>
     <p>Sign up free to save your work, unlock the smart features (reading your certificates, the reflection &amp; CV help), and get a nudge before your revalidation or training is due.</p>
-    <form id="signupForm" onsubmit="return joinFree(event)">
-      <input type="text" id="suName" placeholder="First name" autocomplete="given-name">
-      <input type="email" id="suEmail" placeholder="Your email" autocomplete="email" required>
-      <button type="submit">Join the Clinical Hub — free</button>
-    </form>
+    <!-- MailerLite embedded form → "Clinical Hub" group (double opt-in on) -->
+    <div class="ml-embedded" data-form="9IUjXW"></div>
     <p class="fine">Free forever. We'll only email you things that help you at work. Unsubscribe any time.</p>
   </div>
 
@@ -215,6 +212,11 @@
     document.getElementById('signupForm').innerHTML='<div style="color:#e9c48a;font-weight:600;padding:6px 0">✓ You\'re in — welcome to the Clinical Hub.</div>';
     return false;
   }
+  // MailerLite Universal — renders the embedded sign-up form above (account 2399418).
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account','2399418');
+
   // PWA — lets people "add to home screen" and use it offline (activates once deployed over https).
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
