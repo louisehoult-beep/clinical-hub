@@ -68,6 +68,20 @@
   .toast.show{opacity:1}
   footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186}
   .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase}
+
+  /* Desktop: widen the card and let it flow with the page instead of a phone-height scroll box. */
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 26px;}
+    .trust{padding-left:32px;padding-right:32px;}
+    section{padding:10px 30px 4px;}
+    .guard,.funnel{margin-left:30px;margin-right:30px;}
+    .result{padding-left:30px;padding-right:30px;}
+    textarea{min-height:120px;}
+    footer{padding:22px 30px 32px;}
+  }
 </style>
 </head>
 <body>

@@ -42,6 +42,20 @@
   footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
   .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
   .hidden{display:none;}
+
+  /* Desktop: widen the card, let it flow with the page, and lay resource cards out two-up. */
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .filters{padding-left:32px;padding-right:32px;}
+    .grp{padding:18px 32px 2px;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-content:start;}
+    .grp>.eb,.grp>h2,.grp>.gsub{grid-column:1/-1;}
+    a.card{margin-bottom:12px;}
+    .funnel{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
 </style>
 </head>
 <body>
