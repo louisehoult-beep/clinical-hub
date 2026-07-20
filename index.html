@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Clinical Hub — for UK care &amp; nursing</title>
+<meta name="description" content="Everything UK carers, care managers and nurses need to know, do and stay on top of — in one free place.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2B3440">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);}
+  .wrap{max-width:460px;margin:0 auto;background:var(--cream);min-height:100vh;box-shadow:0 0 40px rgba(30,27,24,.12);}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:26px 22px 22px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:300;text-transform:uppercase;letter-spacing:4px;font-size:34px;line-height:1.05;margin:6px 0 6px;}
+  header .tag{font-size:14px;color:#c4ccd4;line-height:1.5;max-width:340px;}
+  .free{display:inline-block;margin-top:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;}
+  .free b{color:#e9c48a;}
+
+  section{padding:18px 20px 2px;}
+  .eb{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:8px 0 3px;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;color:var(--ink);margin:2px 0 4px;}
+  .sub{font-size:13.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{background:#fff;border:1.5px solid var(--greige);border-radius:26px;padding:11px 15px;font-size:14.5px;font-weight:600;color:var(--body);cursor:pointer;transition:.15s;}
+  .chip:active{transform:scale(.97);}
+  .chip.on{background:var(--slate);border-color:var(--slate);color:#fff;}
+  .banner{margin-top:14px;background:#fff;border-left:4px solid var(--gold);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);display:none;}
+  .banner.show{display:block;}
+  .banner h3{margin:0 0 8px;font-size:13px;letter-spacing:.3px;color:var(--ox);font-weight:700;text-transform:uppercase;}
+  .banner a{display:block;color:var(--slate);font-weight:600;text-decoration:none;font-size:14.5px;padding:7px 0;border-bottom:1px solid var(--line);}
+  .banner a:last-child{border-bottom:0;}
+  .banner a .arw{color:var(--ox);float:right;}
+  .nation{display:flex;gap:6px;margin-top:12px;}
+  .nation button{flex:1;padding:9px 4px;border-radius:10px;border:1.5px solid var(--greige);background:#fff;font-size:12.5px;font-weight:600;color:var(--body);cursor:pointer;}
+  .nation button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+  .note{font-size:12px;color:#8a8f96;margin-top:8px;line-height:1.5;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;}
+  a.tile{display:flex;flex-direction:column;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 14px;box-shadow:var(--shadow);min-height:132px;transition:.15s;}
+  a.tile:active{transform:scale(.98);}
+  a.tile.slate{background:linear-gradient(160deg,var(--slate),#242c36);border-color:var(--slate);}
+  a.tile.ox{background:linear-gradient(160deg,var(--ox),#54212a);border-color:var(--ox);}
+  a.tile .ic{font-size:26px;line-height:1;margin-bottom:9px;}
+  a.tile .t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--ink);line-height:1.08;}
+  a.tile .d{font-size:12px;color:#8a8278;margin-top:5px;line-height:1.4;}
+  a.tile.slate .t,a.tile.ox .t{color:#fff;}
+  a.tile.slate .d,a.tile.ox .d{color:#cdd3da;}
+  a.tile.ox .d{color:#e6d7d9;}
+  a.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px;min-height:auto;}
+  a.tile.wide .ic{margin:0;}
+  .soon{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-top:auto;padding-top:8px;}
+
+  .info{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-top:6px;}
+  .info .row{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .info .row:last-child{border-bottom:0;}
+  .info .row b{color:var(--ink);}
+  .info .ic{flex:0 0 auto;font-size:17px;}
+
+  .signup{margin:16px 20px;background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;border-radius:18px;padding:22px 20px;}
+  .signup .eb{color:#e9c48a;}
+  .signup h2{color:#fff;}
+  .signup p{font-size:13.5px;color:#c4ccd4;line-height:1.55;margin:2px 0 14px;}
+  .signup form{display:flex;flex-direction:column;gap:9px;}
+  .signup input{border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;border-radius:11px;padding:13px 14px;font-size:15px;font-family:inherit;}
+  .signup input::placeholder{color:#9fa8b2;}
+  .signup button{background:var(--ox);color:#fff;border:0;border-radius:11px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .signup .fine{font-size:11px;color:#8b95a0;margin-top:10px;line-height:1.5;}
+
+  footer{padding:22px 20px 34px;text-align:center;color:#9a9186;font-size:12px;line-height:1.6;}
+  footer .fw{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);}
+  footer a{color:var(--ox);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">UK Care &amp; Nursing</div>
+    <h1>The Clinical Hub</h1>
+    <div class="tag">Everything you need to know, do &amp; stay on top of — in one place.</div>
+    <div class="free">✨ <b>Free to use</b> · built by a registered nurse</div>
+  </header>
+
+  <!-- ROLE -->
+  <section>
+    <div class="eb">Start here</div>
+    <h2>Tap what describes you</h2>
+    <p class="sub">We'll point you to what matters most for you.</p>
+    <div class="chips" id="roleChips">
+      <div class="chip" data-role="new">New to care</div>
+      <div class="chip" data-role="care">Care worker</div>
+      <div class="chip" data-role="senior">Senior carer</div>
+      <div class="chip" data-role="manager">Care manager</div>
+      <div class="chip" data-role="na">Nursing associate</div>
+      <div class="chip" data-role="nurse">Registered nurse</div>
+      <div class="chip" data-role="student">Student</div>
+    </div>
+    <div class="banner" id="roleBanner"><h3 id="bannerTitle"></h3><div id="bannerList"></div></div>
+    <div class="nation">
+      <button class="on" data-nation="eng">England</button>
+      <button data-nation="sco">Scotland</button>
+      <button data-nation="wal">Wales</button>
+      <button data-nation="ni">N. Ireland</button>
+    </div>
+    <p class="note" id="nationNote">England: there's no personal care-worker register — your accountability runs through your employer's CQC registration.</p>
+  </section>
+
+  <!-- TOOLS -->
+  <section>
+    <div class="eb">Your tools</div>
+    <h2>What do you need?</h2>
+    <div class="grid">
+      <a class="tile slate" href="revalidation.html">
+        <div class="ic">✅</div><div class="t">Revalidation Companion</div>
+        <div class="d">Build your whole NMC pack as you go</div>
+      </a>
+      <a class="tile ox" href="care-passport.html">
+        <div class="ic">🎖️</div><div class="t">Care Standard Passport</div>
+        <div class="d">Your proof of good practice, in your pocket</div>
+      </a>
+      <a class="tile" href="cv-tailor.html">
+        <div class="ic">📄</div><div class="t">CV Tailor</div>
+        <div class="d">Reshape your CV for the job you want</div>
+      </a>
+      <a class="tile" href="resources.html">
+        <div class="ic">📚</div><div class="t">Trusted Resources</div>
+        <div class="d">Official NMC &amp; RCN links, one place</div>
+      </a>
+      <a class="tile wide" href="#must-dos">
+        <div class="ic">🧭</div>
+        <div><div class="t">My registration &amp; must-dos</div><div class="d">Care Certificate, DBS, the bodies that affect you</div></div>
+      </a>
+      <a class="tile wide" href="#stayaware" onclick="return false;" style="opacity:.72">
+        <div class="ic">📰</div>
+        <div><div class="t">Stay aware</div><div class="d">Curated care &amp; nursing news</div></div>
+        <div class="soon" style="padding-top:0;margin-left:auto">Coming soon</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MUST-DOS INFO -->
+  <section id="must-dos">
+    <div class="eb">The essentials</div>
+    <h2>Registration &amp; must-dos</h2>
+    <p class="sub">The things that keep you working — verified against the official sources.</p>
+    <div class="info">
+      <div class="row"><span class="ic">🎓</span><div><b>Care Certificate</b> — now <b>16 standards</b> (learning disability &amp; autism added 2025). The CQC-expected baseline for everyone new to care.</div></div>
+      <div class="row"><span class="ic">🩺</span><div><b>NMC registration &amp; revalidation</b> — nurses revalidate every 3 years. The Revalidation Companion builds the whole pack for you.</div></div>
+      <div class="row"><span class="ic">🔒</span><div><b>DBS</b> — care roles need an Enhanced check with barred-list check. The £16/yr Update Service makes it portable.</div></div>
+      <div class="row"><span class="ic">🏛️</span><div><b>The bodies that affect you</b> — NMC, CQC, RCN, NICE, Skills for Care. Who they are &amp; why they matter is in Trusted Resources.</div></div>
+      <div class="row"><span class="ic">📍</span><div><b>Your nation matters</b> — Scotland, Wales &amp; NI require personal registration (SSSC / Social Care Wales / NISCC). England doesn't.</div></div>
+    </div>
+  </section>
+
+  <!-- SIGN UP -->
+  <div class="signup" id="signup">
+    <div class="eb">Join free</div>
+    <h2>Keep your progress &amp; get reminders</h2>
+    <p>Sign up free to save your work, unlock the smart features (reading your certificates, the reflection &amp; CV help), and get a nudge before your revalidation or training is due.</p>
+    <form id="signupForm" onsubmit="return joinFree(event)">
+      <input type="text" id="suName" placeholder="First name" autocomplete="given-name">
+      <input type="email" id="suEmail" placeholder="Your email" autocomplete="email" required>
+      <button type="submit">Join the Clinical Hub — free</button>
+    </form>
+    <p class="fine">Free forever. We'll only email you things that help you at work. Unsubscribe any time.</p>
+  </div>
+
+  <footer>
+    <div class="fw">The Clinical Hub</div>
+    <div style="margin-top:6px">A free resource for UK care &amp; nursing staff.<br>Brought to you by <a href="https://elevateandthrive.uk/" target="_blank" rel="noopener">Elevate &amp; Thrive</a>. Not affiliated with the NMC, CQC or RCN — always check the official sources.</div>
+  </footer>
+
+</div>
+
+<script>
+  var priorities={
+    new:[['Get your Care Certificate (16 standards)','#must-dos'],['Book your Enhanced DBS','#must-dos'],['See the carer→nurse ladder','resources.html'],['Start your Care Standard Passport','care-passport.html']],
+    care:[['Your Care Standard Passport','care-passport.html'],['Free CPD &amp; courses','resources.html'],['Tailor your CV for a new role','cv-tailor.html']],
+    senior:[['Route to nursing associate','resources.html'],['Your Care Standard Passport','care-passport.html'],['Tailor your CV','cv-tailor.html']],
+    manager:[['Trusted resources &amp; guidance','resources.html'],['CQC &amp; the bodies that affect you','resources.html'],['Registration &amp; must-dos','#must-dos']],
+    na:[['Your NMC Revalidation Companion','revalidation.html'],['Top-up to registered nurse','resources.html'],['Tailor your CV','cv-tailor.html']],
+    nurse:[['Your NMC Revalidation Companion','revalidation.html'],['Free CPD for your hours','resources.html'],['Tailor your CV for a new role','cv-tailor.html']],
+    student:[['Routes to NMC registration','resources.html'],['Student CV writing','cv-tailor.html'],['Getting job-ready','resources.html']]
+  };
+  var titles={new:'New to care — start here',care:'Care worker',senior:'Senior carer',manager:'Care manager',na:'Nursing associate',nurse:'Registered nurse',student:'Student'};
+  document.querySelectorAll('#roleChips .chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      document.querySelectorAll('#roleChips .chip').forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      var r=c.dataset.role;
+      document.getElementById('bannerTitle').textContent='For a '+titles[r].toLowerCase()+', start with:';
+      document.getElementById('bannerList').innerHTML=priorities[r].map(function(p){return '<a href="'+p[1]+'">'+p[0]+' <span class="arw">→</span></a>';}).join('');
+      document.getElementById('roleBanner').classList.add('show');
+    });
+  });
+  var notes={eng:"England: there's no personal care-worker register — your accountability runs through your employer's CQC registration.",sco:'Scotland: you must register with the SSSC — apply within 6 months of starting.',wal:'Wales: you must register with Social Care Wales — most care workers within 6 months of starting.',ni:'Northern Ireland: you must register with NISCC — compulsory for social care workers.'};
+  document.querySelectorAll('.nation button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.nation button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      document.getElementById('nationNote').textContent=notes[b.dataset.nation];
+    });
+  });
+  // Sign-up — Phase 1 stub. Wire to MailerLite embedded form on deploy.
+  function joinFree(e){
+    e.preventDefault();
+    var email=document.getElementById('suEmail').value.trim();
+    if(!email||email.indexOf('@')<0)return false;
+    try{localStorage.setItem('hubSigned','1');localStorage.setItem('hubEmail',email);}catch(x){}
+    document.getElementById('signupForm').innerHTML='<div style="color:#e9c48a;font-weight:600;padding:6px 0">✓ You\'re in — welcome to the Clinical Hub.</div>';
+    return false;
+  }
+  // PWA — lets people "add to home screen" and use it offline (activates once deployed over https).
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+</script>
+</body>
+</html>

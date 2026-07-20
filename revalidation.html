@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NMC Revalidation Companion — prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--slate2:#3B4654;--stone:#CBBFAE;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--card:#fff;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.10);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 18px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .cycle{display:flex;gap:10px;margin-top:14px;background:rgba(255,255,255,.07);border-radius:12px;padding:12px 14px;align-items:center;}
+  .cycle .big{font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff;line-height:1;}
+  .cycle .lab{font-size:11px;color:#cfc7ba;text-transform:uppercase;letter-spacing:1px;}
+  .cycle input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;padding:7px;font-size:13px;font-family:inherit;width:100%;}
+
+  /* overall progress */
+  .overall{padding:16px 20px 6px;}
+  .bar{height:12px;background:var(--greige);border-radius:20px;overflow:hidden;}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--slate),var(--ox));width:0;transition:width .5s;}
+  .overall .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+  .overall h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;margin:0;color:var(--ink);}
+  .overall .pct{font-weight:700;color:var(--ox);font-size:15px;}
+
+  section{padding:8px 16px 4px;}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:12px 16px 4px;}
+  .hero .h{grid-column:1/-1;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:6px;}
+  .act{background:linear-gradient(160deg,var(--slate),#242c36);color:#fff;border:0;border-radius:13px;padding:15px 13px;text-align:left;cursor:pointer;box-shadow:var(--shadow);transition:.15s;}
+  .act:active{transform:scale(.98)}
+  .act.alt{background:#fff;color:var(--body);border:1px solid var(--line);}
+  .act .ic{font-size:23px;}
+  .act .t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;line-height:1.1;margin-top:7px;}
+  .act .d{font-size:11.5px;opacity:.82;margin-top:3px;line-height:1.35;color:#d4dae1;}
+  .act.alt{color:var(--slate);}
+  .act.alt .t{color:var(--slate);}
+  .act.alt .d{color:#66707c;opacity:1;}
+  .ai{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 6px;border-radius:5px;margin-top:8px;text-transform:uppercase;}
+
+  .reqs{padding:6px 16px 2px;}
+  .reqs .h{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:12px 4px 8px;}
+  .req{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;}
+  .tick{width:30px;height:30px;border-radius:50%;flex:0 0 auto;border:2px solid var(--greige);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;cursor:pointer;}
+  .tick.done{background:var(--ok);border-color:var(--ok);}
+  .tick.part{border-color:var(--gold);color:var(--gold);font-size:11px;font-weight:700;}
+  .req .body{flex:1;}
+  .req .name{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .req .meta{font-size:12px;color:#8a8278;margin-top:2px;}
+  .req .prog{font-size:12px;color:var(--ox);font-weight:600;}
+  .mini{height:6px;background:var(--greige);border-radius:10px;overflow:hidden;margin-top:6px;}
+  .mini>i{display:block;height:100%;background:var(--slate);width:0;transition:width .4s;}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(30,27,24,.55);display:none;align-items:flex-end;justify-content:center;z-index:50;}
+  .overlay.show{display:flex;}
+  .sheet{background:var(--cream);width:100%;max-width:440px;border-radius:22px 22px 0 0;max-height:88vh;overflow-y:auto;padding:20px 20px 30px;animation:up .25s ease;}
+  @keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+  .sheet h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 4px;color:var(--ink);}
+  .sheet .lead{font-size:13px;color:#7a7368;margin:0 0 14px;line-height:1.5;}
+  label{display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin:12px 0 5px;}
+  input[type=text],input[type=email],input[type=number],input[type=date],textarea,select{width:100%;border:1.5px solid var(--greige);border-radius:10px;padding:11px 12px;font-size:15px;font-family:inherit;color:var(--body);background:#fff;}
+  textarea{min-height:74px;resize:vertical;line-height:1.5;}
+  .btn{width:100%;background:var(--ox);color:#fff;border:0;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;font-family:inherit;}
+  .btn.ghost{background:#fff;color:var(--body);border:1.5px solid var(--greige);}
+  .btn:active{transform:scale(.99)}
+  .simnote{background:#fff;border-left:3px solid var(--gold);border-radius:8px;padding:9px 11px;font-size:11.5px;color:#7a7368;margin:10px 0;line-height:1.45;font-style:italic;}
+  .extract{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 0;margin-top:8px;}
+  .extract .r{display:flex;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--line);font-size:13.5px;}
+  .extract .r:last-child{border-bottom:0;}
+  .extract .r b{color:var(--ink);}
+  .scan{text-align:center;padding:26px 0;}
+  .scan .dot{font-size:34px;animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+  .draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px;line-height:1.6;white-space:pre-wrap;color:#4a4238;margin-top:8px;}
+  .close{float:right;background:none;border:0;font-size:24px;color:#9a9186;cursor:pointer;line-height:1;}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:80;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3);}
+  .toast.show{opacity:1;}
+  .banner{background:var(--cool);border-left:4px solid var(--slate);border-radius:8px;padding:11px 13px;font-size:12px;color:#33404d;margin:2px 16px 10px;line-height:1.5;}
+  .banner b{color:var(--slate);}
+  .btn.dl{width:auto;display:block;width:100%;background:linear-gradient(160deg,var(--slate),#242c36);color:#fff;border:0;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;margin:6px 0 4px;font-family:inherit;}
+  .btn.dl:active{transform:scale(.99)}
+  .btn.submit{display:block;text-align:center;text-decoration:none;width:100%;background:var(--ox);color:#fff;border-radius:12px;padding:14px;font-size:15px;font-weight:700;margin:0 0 4px;font-family:inherit;}
+  .btn.submit:active{transform:scale(.99)}
+  .dlnote{font-size:11.5px;color:#8a8f96;line-height:1.5;margin:2px 2px 12px;}
+  .dlnote b{color:var(--slate);}
+  .evrow{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-bottom:8px;}
+  .evrow b{color:var(--ink);font-size:14px;}
+  .evmeta{font-size:11.5px;color:#8a8f96;margin-top:2px;}
+  .evtick{color:var(--ok);font-weight:700;font-size:16px;flex:0 0 auto;}
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · your data stays on this device · smart scan features coming soon</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Revalidation Companion</h1>
+    <div class="tag">Everything the NMC needs — built as you go.</div>
+    <div class="cycle">
+      <div style="flex:1">
+        <div class="lab">Revalidation due</div>
+        <input type="date" id="dueDate">
+      </div>
+      <div style="text-align:center">
+        <div class="big" id="daysLeft">—</div>
+        <div class="lab">days left</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Built around the NMC's <b>eight revalidation requirements</b> · verified July 2026</div>
+
+  <div class="overall">
+    <div class="row"><h2>Your pack</h2><span class="pct" id="overallPct">0% ready</span></div>
+    <div class="bar"><i id="overallBar"></i></div>
+  </div>
+
+  <div class="banner">Reflections stay in <b>your</b> words. This tool prompts and organises — it never writes your reflection for you. That's what keeps it honest for the NMC.</div>
+
+  <div class="hero">
+    <div class="h">Do the hard bits in seconds</div>
+    <button class="act" onclick="openCert()">
+      <div class="ic">📷</div><div class="t">Add CPD from a certificate</div>
+      <div class="d">Snap it — we read &amp; log the hours</div><span class="ai">AI</span>
+    </button>
+    <button class="act" onclick="openReflect()">
+      <div class="ic">✍️</div><div class="t">Reflection coach</div>
+      <div class="d">Answer 4 questions → NMC template</div><span class="ai">AI-guided</span>
+    </button>
+    <button class="act" onclick="openTimesheet()">
+      <div class="ic">🗓️</div><div class="t">Confirm hours from a timesheet</div>
+      <div class="d">Scan a timesheet, rota or payslip</div><span class="ai">AI</span>
+    </button>
+    <button class="act alt" onclick="openFeedback()">
+      <div class="ic">📨</div><div class="t">Request feedback</div>
+      <div class="d">Draft it — you send — it fills your pack</div>
+    </button>
+    <button class="act alt" onclick="openHours()">
+      <div class="ic">⏱️</div><div class="t">Log practice hours</div>
+      <div class="d">Add a period by hand</div>
+    </button>
+    <button class="act alt" onclick="openEvidence()">
+      <div class="ic">🗂️</div><div class="t">My evidence log</div>
+      <div class="d">Every document you've scanned</div>
+    </button>
+  </div>
+
+  <div class="reqs">
+    <div class="h">The 8 NMC requirements</div>
+    <div id="reqList"></div>
+    <button class="btn dl" onclick="downloadPack()">⬇  Download my pack — in the NMC's format</button>
+    <a class="btn submit" href="https://www.nmc.org.uk/registration/your-guide-to-mynmc/" target="_blank" rel="noopener">➜  Make your declaration on MyNMC</a>
+    <p class="dlnote">Your pack is laid out as the NMC's own six forms — keep it in your portfolio and show your <b>confirmer</b>. Revalidation itself is completed by making your <b>declaration online in MyNMC</b> (the NMC's portal, formerly "NMC Online"); the NMC doesn't accept an uploaded pack. The button above takes you straight there.</p>
+  </div>
+
+  <footer>Prototype · The Clinical Hub · NMC requirements verified 17/07/2026<br>Not affiliated with the NMC. Always check the live requirements at nmc.org.uk.</footer>
+
+</div></div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- state ----------
+var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
+  due:'', hours:0, cpd:0, cpdPart:0, feedback:0, reflections:0,
+  discussion:false, health:false, indemnity:false, confirmation:false,
+  cpdItems:[], reflItems:[], evidence:[], hoursItems:[], feedbackItems:[]
+};
+if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
+function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+
+// ---------- requirements model ----------
+function reqs(){return [
+  {k:'hours',name:'Practice hours',need:450,have:S.hours,unit:'hrs',done:S.hours>=450},
+  {k:'cpd',name:'CPD hours',need:35,have:S.cpd,unit:'hrs',done:S.cpd>=35,extra:S.cpdPart>=20?'✓ 20 participatory':S.cpdPart+' / 20 participatory'},
+  {k:'feedback',name:'Practice-related feedback',need:5,have:S.feedback,unit:'pieces',done:S.feedback>=5},
+  {k:'reflections',name:'Written reflective accounts',need:5,have:S.reflections,unit:'accounts',done:S.reflections>=5},
+  {k:'discussion',name:'Reflective discussion',toggle:'discussion',done:S.discussion},
+  {k:'health',name:'Health & character declaration',toggle:'health',done:S.health},
+  {k:'indemnity',name:'Professional indemnity arrangement',toggle:'indemnity',done:S.indemnity},
+  {k:'confirmation',name:'Confirmation',toggle:'confirmation',done:S.confirmation}
+];}
+
+function render(){
+  // days left
+  if(S.due){document.getElementById('dueDate').value=S.due;
+    var d=Math.ceil((new Date(S.due)-new Date('2026-07-17'))/864e5);
+    document.getElementById('daysLeft').textContent=isNaN(d)?'—':d;
+  }
+  var r=reqs(), done=r.filter(function(x){return x.done}).length;
+  var pct=Math.round(done/r.length*100);
+  document.getElementById('overallPct').textContent=pct+'% ready';
+  document.getElementById('overallBar').style.width=pct+'%';
+  var html='';
+  r.forEach(function(x){
+    var pr = x.need ? Math.min(100,Math.round(x.have/x.need*100)) : (x.done?100:0);
+    var tickCls = x.done?'tick done':'tick';
+    var tickTxt = x.done?'✓':'';
+    var right = x.need ? '<div class="prog">'+x.have+' / '+x.need+' '+x.unit+'</div>' : '';
+    var meta = x.extra ? '<div class="meta">'+x.extra+'</div>' : (x.toggle?'<div class="meta">Tap the circle when complete</div>':'');
+    var mini = x.need ? '<div class="mini"><i style="width:'+pr+'%"></i></div>' : '';
+    var onclick = x.toggle ? 'onclick="toggle(\''+x.toggle+'\')"' : '';
+    html+='<div class="req"><div class="'+tickCls+'" '+onclick+'>'+tickTxt+'</div>'+
+      '<div class="body"><div class="name">'+x.name+'</div>'+right+meta+mini+'</div></div>';
+  });
+  document.getElementById('reqList').innerHTML=html;
+}
+function toggle(k){S[k]=!S[k];save();}
+document.getElementById('dueDate').addEventListener('change',function(e){S.due=e.target.value;save();});
+
+// ---------- overlay helpers ----------
+function show(html){document.getElementById('sheet').innerHTML='<button class="close" onclick="hide()">×</button>'+html;document.getElementById('overlay').classList.add('show');}
+function hide(){document.getElementById('overlay').classList.remove('show');}
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target.id==='overlay')hide();});
+
+// ---------- FLOW 1: certificate → CPD ----------
+function openCert(){
+  show('<h3>Add CPD from a certificate</h3><p class="lead">Take a photo or upload the certificate. We read it for you.</p>'+
+    '<label>Certificate file</label><input type="file" id="certFile" accept="image/*,application/pdf">'+
+    '<div class="simnote">Prototype note: in the live tool, AI vision reads the file. Here we simulate a typical certificate so you can see the flow.</div>'+
+    '<button class="btn" onclick="scanCert()">Read this certificate</button>');
+}
+function scanCert(){
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">🔍</div><p class="lead" style="margin-top:12px">Reading the certificate…</p></div>';
+  setTimeout(function(){
+    show('<h3>Here\'s what we found</h3><p class="lead">Check it\'s right, then save to your pack.</p>'+
+      '<div class="extract">'+
+      '<div class="r"><span>Course</span><b>Wound Care & Tissue Viability Update</b></div>'+
+      '<div class="r"><span>Provider</span><b>RCNi Learning</b></div>'+
+      '<div class="r"><span>Date</span><b>14/05/2026</b></div>'+
+      '<div class="r"><span>Hours</span><b>4</b></div>'+
+      '<div class="r"><span>Type</span><b>Participatory</b></div>'+
+      '</div>'+
+      '<label>Adjust hours if needed</label><input type="number" id="cHours" value="4" min="0" step="0.5">'+
+      '<label style="display:flex;align-items:center;gap:8px;margin-top:14px"><input type="checkbox" id="cPart" checked style="width:auto"> Participatory learning (with others)</label>'+
+      '<button class="btn" onclick="saveCert()">Save to my CPD log</button>');
+  },1600);
+}
+function saveCert(){
+  var h=parseFloat(document.getElementById('cHours').value)||0;
+  var p=document.getElementById('cPart').checked;
+  S.cpd+=h; if(p)S.cpdPart+=h;
+  S.cpdItems.push({title:'Wound Care & Tissue Viability Update',hours:h,part:p});
+  S.evidence.push({type:'Certificate',title:'Wound Care & Tissue Viability Update',section:'CPD',date:'14/05/2026'});
+  hide();save();toast('Added '+h+'h CPD to your pack ✓');
+}
+
+// ---------- FLOW 2: reflection coach ----------
+function openReflect(){
+  show('<h3>Reflection coach</h3><p class="lead">Answer in your own words — even rough notes. We\'ll arrange them into the NMC reflective-account template. The words stay yours.</p>'+
+    '<label>1. What was the CPD, feedback or event you\'re reflecting on?</label><textarea id="q1" placeholder="e.g. the wound care study day"></textarea>'+
+    '<label>2. What did you learn from it?</label><textarea id="q2"></textarea>'+
+    '<label>3. How has it changed or improved your practice?</label><textarea id="q3"></textarea>'+
+    '<label>4. How does it relate to the Code (prioritise people, practise effectively, preserve safety, promote professionalism)?</label><textarea id="q4"></textarea>'+
+    '<button class="btn" onclick="buildReflection()">Build my reflective account</button>');
+}
+function buildReflection(){
+  var q1=val('q1'),q2=val('q2'),q3=val('q3'),q4=val('q4');
+  if(!q1&&!q2&&!q3&&!q4){toast('Add a few notes first');return;}
+  var draft='NMC Reflective Account\n\n'+
+    'What the CPD/experience was:\n'+(q1||'—')+'\n\n'+
+    'What I learned:\n'+(q2||'—')+'\n\n'+
+    'How I changed my practice:\n'+(q3||'—')+'\n\n'+
+    'How it relates to the Code:\n'+(q4||'—');
+  show('<h3>Your reflective account</h3><p class="lead">Built from your own answers, in the NMC template. Edit freely — then save.</p>'+
+    '<div class="simnote">In the live tool, AI tidies grammar and structure only. It won\'t add anything you didn\'t say — that\'s what keeps your revalidation honest.</div>'+
+    '<textarea id="draft" style="min-height:220px">'+draft+'</textarea>'+
+    '<button class="btn" onclick="saveReflection()">Save to my pack (account '+(S.reflections+1)+' of 5)</button>');
+}
+function saveReflection(){
+  S.reflections=Math.min(5,S.reflections+1);
+  S.reflItems.push(val('draft'));
+  hide();save();toast('Reflective account saved ✓');
+}
+
+// ---------- FLOW 3: feedback request ----------
+function openFeedback(){
+  show('<h3>Request feedback</h3><p class="lead">We draft it and make a private feedback link. <b>You</b> send it — we never send on your behalf. When they reply, it drops into your pack.</p>'+
+    '<label>Who are you asking?</label><input type="text" id="fName" placeholder="e.g. Sister Jane Okafor">'+
+    '<label>Their email</label><input type="email" id="fEmail" placeholder="name@nhs.net">'+
+    '<button class="btn" onclick="genFeedback()">Draft the request</button>');
+}
+function genFeedback(){
+  var n=val('fName')||'a colleague', e=val('fEmail');
+  var body='Hi '+n+',%0D%0A%0D%0AI\'m completing my NMC revalidation and would value a short piece of feedback on my practice. It can be a few lines about something I did well or could improve.%0D%0A%0D%0AYou can reply here, or use my private feedback form: [your Clinical Hub feedback link]%0D%0A%0D%0AThank you,%0D%0A';
+  var mailto='mailto:'+encodeURIComponent(e)+'?subject='+encodeURIComponent('Feedback for my NMC revalidation')+'&body='+body;
+  show('<h3>Ready to send</h3><p class="lead">Opens in your own email app so you stay in control. When '+n+' replies via the form, it auto-fills your feedback count.</p>'+
+    '<div class="draft">Subject: Feedback for my NMC revalidation\n\nHi '+n+',\n\nI\'m completing my NMC revalidation and would value a short piece of feedback on my practice — a few lines about something I did well or could improve.\n\nReply here, or use my private feedback form: [Clinical Hub link]\n\nThank you.</div>'+
+    '<a class="btn" style="display:block;text-align:center;text-decoration:none" href="'+mailto+'">Open in my email app</a>'+
+    '<button class="btn ghost" onclick="simFeedback()">Simulate a reply coming back</button>');
+}
+function simFeedback(){
+  S.feedback=Math.min(5,S.feedback+1);
+  S.feedbackItems.push({source:'Colleague',type:'Written, informal',note:'Positive feedback on how I supported a patient and family'});
+  hide();save();toast('Feedback received & logged ✓');
+}
+
+// ---- FLOW: timesheet / payslip → practice hours ----
+function openTimesheet(){
+  show('<h3>Confirm hours from a timesheet or payslip</h3><p class="lead">Photograph or upload a timesheet, rota or payslip. We read the dates, employer and hours — and keep it as your evidence.</p>'+
+    '<label>Timesheet / payslip file</label><input type="file" accept="image/*,application/pdf">'+
+    '<div class="simnote"><b>Confidentiality:</b> we only need dates, employer and hours — you can cover pay figures. Never upload anything showing patient information; the NMC does not allow it in your evidence.</div>'+
+    '<div class="simnote">Prototype note: the live tool uses AI vision to read the document. Here we simulate a typical payslip so you can see the flow.</div>'+
+    '<button class="btn" onclick="scanTimesheet()">Read this document</button>');
+}
+function scanTimesheet(){
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">🔍</div><p class="lead" style="margin-top:12px">Reading the document…</p></div>';
+  setTimeout(function(){
+    show('<h3>Here\'s what we found</h3><p class="lead">Check it, then confirm the hours to your pack.</p>'+
+      '<div class="extract">'+
+      '<div class="r"><span>Employer</span><b>Lincoln Community NHS Trust</b></div>'+
+      '<div class="r"><span>Period</span><b>01/05/2026 – 31/05/2026</b></div>'+
+      '<div class="r"><span>Setting</span><b>Community nursing</b></div>'+
+      '<div class="r"><span>Hours</span><b>150</b></div>'+
+      '</div>'+
+      '<label>Adjust hours if needed</label><input type="number" id="tHours" value="150" min="0">'+
+      '<button class="btn" onclick="saveTimesheet()">Confirm hours to my pack</button>');
+  },1600);
+}
+function saveTimesheet(){
+  var h=parseFloat(val('tHours'))||0; S.hours+=h;
+  S.hoursItems.push({hours:h,org:'Lincoln Community NHS Trust',setting:'Community nursing',dates:'01/05/2026 – 31/05/2026'});
+  S.evidence.push({type:'Timesheet / payslip',title:'Lincoln Community NHS Trust — May 2026',section:'Practice hours',date:'31/05/2026'});
+  hide();save();toast('Confirmed '+h+' practice hours ✓');
+}
+
+// ---- evidence log ----
+function openEvidence(){
+  var items=S.evidence.length? S.evidence.map(function(e){return '<div class="evrow"><div><b>'+e.title+'</b><div class="evmeta">'+e.type+' · supports '+e.section+' · '+e.date+'</div></div><span class="evtick">✓</span></div>';}).join('') : '<p class="lead">No evidence yet. Scan a certificate, timesheet or payslip and it appears here.</p>';
+  show('<h3>My evidence log</h3><p class="lead">Every document you\'ve scanned — kept safely and downloaded with your pack.</p>'+items+'<button class="btn ghost" style="margin-top:14px" onclick="hide()">Close</button>');
+}
+
+// ---- download pack in the NMC's format ----
+function downloadPack(){
+  var w=window.open('','_blank');
+  if(!w){toast('Allow pop-ups to open your pack');return;}
+  function e(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>');}
+  var hoursRows=S.hoursItems.length?S.hoursItems.map(function(x){return '<tr><td>'+e(x.dates||'—')+'</td><td>'+e(x.org||x.note||'—')+'</td><td>'+e(x.setting||'—')+'</td><td>'+x.hours+'</td></tr>';}).join(''):'<tr><td colspan="4" class="empty">No practice-hour entries yet</td></tr>';
+  var cpdRows=S.cpdItems.length?S.cpdItems.map(function(x){return '<tr><td>'+e(x.title)+'</td><td>'+x.hours+'</td><td>'+(x.part?'Yes':'No')+'</td></tr>';}).join(''):'<tr><td colspan="3" class="empty">No CPD entries yet</td></tr>';
+  var fbRows=S.feedbackItems.length?S.feedbackItems.map(function(x){return '<tr><td>'+e(x.source)+'</td><td>'+e(x.type)+'</td><td>'+e(x.note)+'</td></tr>';}).join(''):'<tr><td colspan="3" class="empty">No feedback entries yet</td></tr>';
+  var refl=S.reflItems.length?S.reflItems.map(function(t,i){return '<div class="racc"><div class="rn">Reflective account '+(i+1)+' of 5 &mdash; mandatory</div><div class="rt">'+e(t)+'</div></div>';}).join(''):'<p class="empty">No reflective accounts yet.</p>';
+  var evRows=S.evidence.length?S.evidence.map(function(x){return '<tr><td>'+e(x.title)+'</td><td>'+e(x.type)+'</td><td>'+e(x.section)+'</td><td>'+e(x.date)+'</td></tr>';}).join(''):'<tr><td colspan="4" class="empty">No evidence yet</td></tr>';
+  var partOk=S.cpdPart>=20;
+  var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>My NMC Revalidation Pack</title>'+
+    '<style>@page{size:A4;margin:16mm}body{font-family:Cambria,Georgia,serif;color:#222;font-size:11pt;line-height:1.5;margin:0}'+
+    'h1{font-size:22pt;color:#2B3440;margin:0 0 2px}h2{font-size:14pt;color:#6B2A34;border-bottom:2px solid #9A7A2E;padding-bottom:4px;margin:22px 0 8px}'+
+    '.k{font-size:9.5pt;letter-spacing:2px;text-transform:uppercase;color:#9A7A2E;font-weight:bold}'+
+    'table{width:100%;border-collapse:collapse;margin:4px 0 6px;font-size:10pt}th{background:#2B3440;color:#fff;text-align:left;padding:6px 8px}td{border:1px solid #DDE3E9;padding:6px 8px;vertical-align:top}.empty{color:#999;font-style:italic}'+
+    '.tot{font-weight:bold;color:#2B3440}.racc{border:1px solid #DDE3E9;border-radius:6px;padding:10px 12px;margin:8px 0}.rn{font-weight:bold;color:#6B2A34;margin-bottom:4px}.rt{white-space:normal}'+
+    '.note{background:#EDF0F4;border-left:4px solid #2B3440;padding:10px 12px;font-size:10pt;margin:10px 0}.conf{background:#F3E2E4;border-left:4px solid #6B2A34;padding:10px 12px;font-size:10pt;margin:10px 0}'+
+    '.pill{display:inline-block;font-size:9pt;padding:2px 8px;border-radius:10px;background:#EDF0F4;color:#2B3440;font-weight:bold}.print{margin:14px 0}button{background:#6B2A34;color:#fff;border:0;border-radius:8px;padding:11px 18px;font-size:12pt;cursor:pointer;font-family:sans-serif}'+
+    '@media print{.print{display:none}}</style></head><body>'+
+    '<div class="print"><button onclick="window.print()">Print / Save as PDF</button></div>'+
+    '<div class="k">Nursing &amp; Midwifery Council · Revalidation portfolio</div>'+
+    '<h1>My Revalidation Pack</h1>'+
+    '<p style="color:#555">Prepared with The Clinical Hub · in the NMC\'s recommended form structure. Not affiliated with the NMC.</p>'+
+    '<div class="note"><b>How to use this:</b> keep this pack in your portfolio and show it to your <b>confirmer</b>. Make your actual revalidation <b>declaration online through your NMC Online account</b> — the NMC does not accept an uploaded pack. Check the live requirements at nmc.org.uk/revalidation.</div>'+
+    '<div class="conf"><b>Confidentiality:</b> your evidence must not contain any information that could identify a patient or other person. Review every scanned document before you share this pack.</div>'+
+
+    '<h2>1 · Practice hours log <span class="pill">recommended</span></h2>'+
+    '<p class="tot">Total: '+S.hours+' / 450 hours'+(S.hours>=450?' &#10003;':'')+'</p>'+
+    '<table><tr><th>Dates of practice</th><th>Organisation</th><th>Scope / setting</th><th>Hours</th></tr>'+hoursRows+'</table>'+
+
+    '<h2>2 · CPD log <span class="pill">recommended</span></h2>'+
+    '<p class="tot">Total: '+S.cpd+' / 35 hours &nbsp;·&nbsp; Participatory: '+S.cpdPart+' / 20'+(partOk?' &#10003;':'')+'</p>'+
+    '<table><tr><th>CPD activity &amp; what you learned</th><th>Hours</th><th>Participatory</th></tr>'+cpdRows+'</table>'+
+
+    '<h2>3 · Practice-related feedback log <span class="pill">recommended</span></h2>'+
+    '<p class="tot">'+S.feedback+' / 5 pieces</p>'+
+    '<table><tr><th>Source</th><th>Type</th><th>Content &amp; how you used it</th></tr>'+fbRows+'</table>'+
+
+    '<h2>4 · Reflective accounts <span class="pill">mandatory</span></h2>'+
+    '<p class="tot">'+S.reflections+' / 5 accounts</p>'+refl+
+
+    '<h2>5 · Reflective discussion form <span class="pill">mandatory</span></h2>'+
+    '<table><tr><th>Registrant you discussed with</th><td>&nbsp;</td></tr><tr><th>Their NMC PIN</th><td>&nbsp;</td></tr><tr><th>Date of discussion</th><td>'+(S.discussion?'Completed':'&nbsp;')+'</td></tr><tr><th>Summary</th><td>&nbsp;</td></tr></table>'+
+
+    '<h2>6 · Confirmation form <span class="pill">mandatory</span></h2>'+
+    '<table><tr><th>Confirmer name &amp; role</th><td>&nbsp;</td></tr><tr><th>Confirmer NMC PIN / registration</th><td>&nbsp;</td></tr><tr><th>Date of confirmation</th><td>'+(S.confirmation?'Completed':'&nbsp;')+'</td></tr></table>'+
+
+    '<h2>Appendix · Evidence log</h2>'+
+    '<table><tr><th>Document</th><th>Type</th><th>Supports</th><th>Date</th></tr>'+evRows+'</table>'+
+    '<p style="color:#888;font-size:9pt;margin-top:16px">Generated by The Clinical Hub prototype. Health &amp; character declaration and professional indemnity are declared by you in NMC Online.</p>'+
+    '</body></html>';
+  w.document.write(html); w.document.close();
+}
+
+// ---------- practice hours ----------
+function openHours(){
+  show('<h3>Log practice hours</h3><p class="lead">Add a work period or placement. You need 450 across the 3 years.</p>'+
+    '<label>Hours to add</label><input type="number" id="hAdd" value="150" min="0">'+
+    '<label>Note (optional)</label><input type="text" id="hNote" placeholder="e.g. Jan–Mar, ward B5">'+
+    '<button class="btn" onclick="saveHours()">Add hours</button>');
+}
+function saveHours(){var h=parseFloat(val('hAdd'))||0;var n=val('hNote');S.hours+=h;S.hoursItems.push({hours:h,org:n||'Practice period',setting:'—',dates:'—'});hide();save();toast('Added '+h+' practice hours ✓');}
+
+function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+render();
+</script>
+</body>
+</html>

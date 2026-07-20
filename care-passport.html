@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Care Standard Passport — prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--stone:#CBBFAE;--greige:#D8D2C8;--line:#E4DED4;--ok:#3f6b3f;--okbg:#e5efe5;--shadow:0 2px 10px rgba(30,27,24,.08);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:var(--ox);color:#fff;padding:18px 20px 20px;}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:#f0d9a8;font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#e9d3d6;}
+  .idcard{display:flex;gap:12px;margin-top:14px;background:rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;align-items:center;}
+  .avatar{width:46px;height:46px;border-radius:50%;background:#f0d9a8;color:var(--ox);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;flex:0 0 auto;}
+  .idcard input{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:8px;padding:7px 9px;font-size:13.5px;font-family:inherit;width:100%;margin-bottom:5px;}
+  .idcard input::placeholder{color:#e9d3d6;}
+
+  .overall{padding:16px 20px 6px;}
+  .bar{height:12px;background:var(--greige);border-radius:20px;overflow:hidden;}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--ox));width:0;transition:width .5s;}
+  .overall .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+  .overall h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;margin:0;color:var(--ink);}
+  .overall .pct{font-weight:700;color:var(--ox);font-size:15px;}
+  .banner{background:#efe9dd;border-radius:10px;padding:10px 12px;font-size:12px;color:#7a5f1f;margin:2px 16px 8px;line-height:1.45;}
+
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:12px 16px 4px;}
+  .hero .h{grid-column:1/-1;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:6px;}
+  .act{background:var(--ox);color:#fff;border:0;border-radius:16px;padding:15px 13px;text-align:left;cursor:pointer;box-shadow:var(--shadow);transition:.15s;}
+  .act:active{transform:scale(.98)}
+  .act.alt{background:#fff;color:var(--body);border:1px solid var(--line);}
+  .act .ic{font-size:23px}
+  .act .t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;line-height:1.1;margin-top:7px}
+  .act .d{font-size:11.5px;opacity:.85;margin-top:3px;line-height:1.35}
+  .act.alt .d{color:#8a8278;opacity:1}
+  .ai{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 6px;border-radius:5px;margin-top:8px;text-transform:uppercase}
+
+  .reqs{padding:6px 16px 2px}
+  .reqs .h{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:12px 4px 8px}
+  .req{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+  .tick{width:30px;height:30px;border-radius:50%;flex:0 0 auto;border:2px solid var(--greige);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;cursor:pointer}
+  .tick.done{background:var(--ok);border-color:var(--ok)}
+  .req .body{flex:1}
+  .req .name{font-weight:600;font-size:14.5px;color:var(--ink)}
+  .req .meta{font-size:12px;color:#8a8278;margin-top:2px}
+  .req .prog{font-size:12px;color:var(--ox);font-weight:600}
+  .mini{height:6px;background:var(--greige);border-radius:10px;overflow:hidden;margin-top:6px}
+  .mini>i{display:block;height:100%;background:var(--gold);width:0;transition:width .4s}
+
+  .overlay{position:fixed;inset:0;background:rgba(30,27,24,.55);display:none;align-items:flex-end;justify-content:center;z-index:50}
+  .overlay.show{display:flex}
+  .sheet{background:var(--cream);width:100%;max-width:440px;border-radius:22px 22px 0 0;max-height:88vh;overflow-y:auto;padding:20px 20px 30px;animation:up .25s ease}
+  @keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+  .sheet h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 4px;color:var(--ink)}
+  .sheet .lead{font-size:13px;color:#7a7368;margin:0 0 14px;line-height:1.5}
+  label{display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin:12px 0 5px}
+  input[type=text],input[type=email],input[type=number],input[type=date],textarea,select{width:100%;border:1.5px solid var(--greige);border-radius:10px;padding:11px 12px;font-size:15px;font-family:inherit;color:var(--body);background:#fff}
+  textarea{min-height:74px;resize:vertical;line-height:1.5}
+  .btn{width:100%;background:var(--ox);color:#fff;border:0;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;font-family:inherit}
+  .btn.ghost{background:#fff;color:var(--body);border:1.5px solid var(--greige)}
+  .btn:active{transform:scale(.99)}
+  .simnote{background:#fff;border-left:3px solid var(--gold);border-radius:8px;padding:9px 11px;font-size:11.5px;color:#7a7368;margin:10px 0;line-height:1.45;font-style:italic}
+  .extract{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 0;margin-top:8px}
+  .extract .r{display:flex;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--line);font-size:13.5px}
+  .extract .r:last-child{border-bottom:0}
+  .extract .r b{color:var(--ink)}
+  .scan{text-align:center;padding:26px 0}
+  .scan .dot{font-size:34px;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+  .draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px;line-height:1.6;white-space:pre-wrap;color:#4a4238;margin-top:8px}
+  .close{float:right;background:none;border:0;font-size:24px;color:#9a9186;cursor:pointer;line-height:1}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:80;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  .toast.show{opacity:1}
+  .gate{background:#F3E2E4;border-radius:12px;padding:14px;margin-top:6px}
+  .gate b{color:var(--ox)}
+  .chk{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .chk button{background:#fff;border:1.5px solid var(--greige);border-radius:22px;padding:9px 13px;font-size:13px;font-weight:600;color:var(--body);cursor:pointer}
+  .chk button.on{background:var(--ok);border-color:var(--ok);color:#fff}
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · your data stays on this device · smart features coming soon</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub · Elevate Care</div>
+    <h1>The Care Standard Passport</h1>
+    <div class="tag">Your proof of good practice — in your pocket, wherever you work.</div>
+    <div class="idcard">
+      <div class="avatar" id="initial">?</div>
+      <div style="flex:1">
+        <input type="text" id="cName" placeholder="Your name">
+        <input type="text" id="cRole" placeholder="Your role · e.g. Senior Care Assistant">
+      </div>
+    </div>
+  </header>
+
+  <div class="overall">
+    <div class="row"><h2>My Care Standard</h2><span class="pct" id="overallPct">0% met</span></div>
+    <div class="bar"><i id="overallBar"></i></div>
+  </div>
+
+  <div class="banner">Not a legal requirement — a <b>voluntary standard of what good looks like</b>. Meeting it shows any employer you take your practice seriously. Reflections stay in your own words.</div>
+
+  <div class="hero">
+    <div class="h">Build your passport</div>
+    <button class="act" onclick="gateThen(openCert)">
+      <div class="ic">📷</div><div class="t">Add training from a certificate</div>
+      <div class="d">Snap it — we log it &amp; track the expiry</div><span class="ai">AI</span>
+    </button>
+    <button class="act" onclick="gateThen(openReflect)">
+      <div class="ic">✍️</div><div class="t">Reflection coach</div>
+      <div class="d">Turn a shift into a reflection</div><span class="ai">AI-guided</span>
+    </button>
+    <button class="act alt" onclick="openRec()">
+      <div class="ic">🌟</div><div class="t">Ask for a recommendation</div>
+      <div class="d">Manager, client or family — you send it</div>
+    </button>
+    <button class="act alt" onclick="openSkills()">
+      <div class="ic">✅</div><div class="t">Tick off my skills</div>
+      <div class="d">The competencies of good care</div>
+    </button>
+  </div>
+
+  <div class="reqs">
+    <div class="h">The Care Standard — 8 marks of good practice</div>
+    <div id="reqList"></div>
+    <button class="btn ghost" style="margin-bottom:10px" onclick="openProfile()">👤 View my shareable passport profile</button>
+  </div>
+
+  <footer>Prototype · The Care Standard Passport · Elevate Care<br>A voluntary standard. Based on the Care Certificate 16 standards + good-practice framework.</footer>
+
+</div></div>
+
+<div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+var S=JSON.parse(localStorage.getItem('carepassv1')||'null')||{
+  name:'',role:'',email:'',signed:false,
+  training:0, reflections:0, recs:0, skills:[],
+  careCert:false, mandatory:false, assessment:false, goals:false, profile:false,
+  trainingItems:[], reflItems:[]
+};
+var SKILLS=['Personal care & dignity','Safe moving & handling','Medication support','Safeguarding','Communication','Nutrition & hydration','Infection control','Dementia care','End-of-life care','LD & autism awareness'];
+function save(){localStorage.setItem('carepassv1',JSON.stringify(S));render();}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+
+function reqs(){return [
+  {name:'Care Certificate (16 standards)',toggle:'careCert',done:S.careCert,meta:'The induction baseline for good care'},
+  {name:'Mandatory training up to date',toggle:'mandatory',done:S.mandatory,meta:'Safeguarding, moving & handling, first aid…'},
+  {name:'Skills & competencies',need:SKILLS.length,have:S.skills.length,unit:'of '+SKILLS.length,done:S.skills.length>=8,meta:'Aim for at least 8'},
+  {name:'Training certificates on file',need:3,have:S.training,unit:'logged',done:S.training>=3},
+  {name:'Reflections',need:4,have:S.reflections,unit:'this year',done:S.reflections>=4},
+  {name:'Recommendations & feedback',need:3,have:S.recs,unit:'received',done:S.recs>=3},
+  {name:'Assessment / observation signed off',toggle:'assessment',done:S.assessment,meta:'A supervisor spot-check'},
+  {name:'My development goals set',toggle:'goals',done:S.goals,meta:'Where next — senior carer, nursing associate…'}
+];}
+
+function render(){
+  document.getElementById('cName').value=S.name; document.getElementById('cRole').value=S.role;
+  document.getElementById('initial').textContent=S.name?S.name.trim()[0].toUpperCase():'?';
+  var r=reqs(), done=r.filter(function(x){return x.done}).length, pct=Math.round(done/r.length*100);
+  document.getElementById('overallPct').textContent=pct+'% met';
+  document.getElementById('overallBar').style.width=pct+'%';
+  var html='';
+  r.forEach(function(x){
+    var pr=x.need?Math.min(100,Math.round(x.have/x.need*100)):(x.done?100:0);
+    var right=x.need?'<div class="prog">'+x.have+' '+x.unit+'</div>':'';
+    var meta=x.meta?'<div class="meta">'+x.meta+'</div>':'';
+    var mini=x.need?'<div class="mini"><i style="width:'+pr+'%"></i></div>':'';
+    var onclick=x.toggle?'onclick="toggle(\''+x.toggle+'\')"':'';
+    html+='<div class="req"><div class="'+(x.done?'tick done':'tick')+'" '+onclick+'>'+(x.done?'✓':'')+'</div>'+
+      '<div class="body"><div class="name">'+x.name+'</div>'+right+meta+mini+'</div></div>';
+  });
+  document.getElementById('reqList').innerHTML=html;
+}
+function toggle(k){S[k]=!S[k];save();}
+document.getElementById('cName').addEventListener('input',function(e){S.name=e.target.value;save();});
+document.getElementById('cRole').addEventListener('input',function(e){S.role=e.target.value;save();});
+
+function show(html){document.getElementById('sheet').innerHTML='<button class="close" onclick="hide()">×</button>'+html;document.getElementById('overlay').classList.add('show');}
+function hide(){document.getElementById('overlay').classList.remove('show');}
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target.id==='overlay')hide();});
+
+// ---- free sign-up gate on AI features ----
+var pending=null;
+function gateThen(fn){ if(S.signed){fn();return;} pending=fn;
+  show('<h3>Free sign-up</h3><p class="lead">The smart features (reading your certificates, the reflection coach) are free — just pop in your email so we can save your passport and send you reminders.</p>'+
+    '<div class="gate">✨ <b>Free forever.</b> This is how the Hub stays free — and how you get renewal reminders.</div>'+
+    '<label>Your email</label><input type="email" id="gEmail" placeholder="you@email.com">'+
+    '<button class="btn" onclick="doSign()">Unlock the smart features</button>');
+}
+function doSign(){var e=val('gEmail'); if(!e||e.indexOf("@")<0){toast('Pop in a valid email');return;} S.email=e;S.signed=true;save();hide();toast('Signed up — smart features unlocked ✓'); if(pending){var f=pending;pending=null;setTimeout(f,250);} }
+
+// ---- cert → training ----
+function openCert(){
+  show('<h3>Add training from a certificate</h3><p class="lead">Photograph or upload it — we read it and track when it needs renewing.</p>'+
+    '<label>Certificate file</label><input type="file" accept="image/*,application/pdf">'+
+    '<div class="simnote">Prototype note: the live tool uses AI vision to read the file. Here we simulate a typical certificate.</div>'+
+    '<button class="btn" onclick="scanCert()">Read this certificate</button>');
+}
+function scanCert(){
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">🔍</div><p class="lead" style="margin-top:12px">Reading the certificate…</p></div>';
+  setTimeout(function(){
+    show('<h3>Here\'s what we found</h3><p class="lead">Check it, then save to your passport.</p>'+
+      '<div class="extract">'+
+      '<div class="r"><span>Course</span><b>Moving & Handling of People</b></div>'+
+      '<div class="r"><span>Provider</span><b>Skills for Care endorsed</b></div>'+
+      '<div class="r"><span>Completed</span><b>02/06/2026</b></div>'+
+      '<div class="r"><span>Renew by</span><b>02/06/2027</b></div>'+
+      '</div>'+
+      '<div class="simnote">We\'ll remind you before it expires so you\'re never caught out on a CQC check.</div>'+
+      '<button class="btn" onclick="saveCert()">Save to my passport</button>');
+  },1600);
+}
+function saveCert(){S.training+=1;S.trainingItems.push('Moving & Handling of People');hide();save();toast('Training logged — renewal reminder set ✓');}
+
+// ---- reflection ----
+function openReflect(){
+  show('<h3>Reflection coach</h3><p class="lead">Think of a moment from a recent shift. Answer in your own words — we\'ll shape it into a proper reflection. The words stay yours.</p>'+
+    '<label>1. What happened?</label><textarea id="q1" placeholder="e.g. a resident was upset at mealtime"></textarea>'+
+    '<label>2. What did you do?</label><textarea id="q2"></textarea>'+
+    '<label>3. What did you learn or do well?</label><textarea id="q3"></textarea>'+
+    '<label>4. What would you do next time?</label><textarea id="q4"></textarea>'+
+    '<button class="btn" onclick="buildReflection()">Build my reflection</button>');
+}
+function buildReflection(){
+  var q1=val('q1'),q2=val('q2'),q3=val('q3'),q4=val('q4');
+  if(!q1&&!q2&&!q3&&!q4){toast('Add a few notes first');return;}
+  var d='My reflection\n\nWhat happened:\n'+(q1||'—')+'\n\nWhat I did:\n'+(q2||'—')+'\n\nWhat I learned / did well:\n'+(q3||'—')+'\n\nNext time:\n'+(q4||'—');
+  show('<h3>Your reflection</h3><p class="lead">Built from your own answers. Edit freely — then save to your passport.</p>'+
+    '<div class="simnote">AI tidies wording only — it never adds things you didn\'t say. This is genuinely your reflection.</div>'+
+    '<textarea id="draft" style="min-height:210px">'+d+'</textarea>'+
+    '<button class="btn" onclick="saveReflection()">Save reflection</button>');
+}
+function saveReflection(){S.reflections+=1;S.reflItems.push(val('draft'));hide();save();toast('Reflection saved to your passport ✓');}
+
+// ---- recommendation ----
+function openRec(){
+  show('<h3>Ask for a recommendation</h3><p class="lead">A few kind, honest words from a manager, client or family member. <b>You</b> send it — when they reply, it joins your passport.</p>'+
+    '<label>Who are you asking?</label><input type="text" id="rName" placeholder="e.g. my manager, Priya">'+
+    '<label>Their email</label><input type="email" id="rEmail" placeholder="name@email.com">'+
+    '<button class="btn" onclick="genRec()">Draft the request</button>');
+}
+function genRec(){
+  var n=val('rName')||'someone I work with', e=val('rEmail');
+  var body='Hi '+n+',%0D%0A%0D%0AI\'m building my Care Standard Passport — a record of my practice as a carer. Would you be willing to write a few honest lines about how I care for people? It really helps me show what I do well and where I\'m growing.%0D%0A%0D%0AYou can reply here or use my link: [Care Standard Passport link]%0D%0A%0D%0AThank you so much.';
+  var mailto='mailto:'+encodeURIComponent(e)+'?subject='+encodeURIComponent('A recommendation for my Care Standard Passport')+'&body='+body;
+  show('<h3>Ready to send</h3><p class="lead">Opens in your own email app. When '+n+' replies, it adds to your recommendations.</p>'+
+    '<div class="draft">Hi '+n+',\n\nI\'m building my Care Standard Passport — a record of my practice as a carer. Would you write a few honest lines about how I care for people?\n\nReply here or use my link: [Passport link]\n\nThank you so much.</div>'+
+    '<a class="btn" style="display:block;text-align:center;text-decoration:none" href="'+mailto+'">Open in my email app</a>'+
+    '<button class="btn ghost" onclick="simRec()">Simulate a reply coming back</button>');
+}
+function simRec(){S.recs+=1;hide();save();toast('Recommendation received & logged ✓');}
+
+// ---- skills ----
+function openSkills(){
+  var chips=SKILLS.map(function(s){return '<button class="'+(S.skills.indexOf(s)>=0?'on':'')+'" onclick="tickSkill(this,\''+s.replace(/'/g,"")+'\')">'+s+'</button>';}).join('');
+  show('<h3>The competencies of good care</h3><p class="lead">Tap each one you\'re confident and signed off in. Aim for at least 8.</p><div class="chk">'+chips+'</div>'+
+    '<button class="btn" onclick="hide()">Done</button>');
+}
+function tickSkill(el,s){var i=S.skills.indexOf(s); if(i>=0){S.skills.splice(i,1);el.classList.remove('on');}else{S.skills.push(s);el.classList.add('on');} localStorage.setItem('carepassv1',JSON.stringify(S)); document.getElementById('overallBar').style.width=Math.round(reqs().filter(function(x){return x.done}).length/8*100)+'%'; }
+
+// ---- profile ----
+function openProfile(){
+  var r=reqs(), done=r.filter(function(x){return x.done}).length, pct=Math.round(done/r.length*100);
+  show('<h3>'+(S.name||'Your name')+'</h3><p class="lead">'+(S.role||'Your role')+' · Care Standard '+pct+'% met</p>'+
+    '<div class="draft">🎓 Care Certificate: '+(S.careCert?'complete':'in progress')+
+    '\n📚 Training certificates on file: '+S.training+
+    '\n✅ Skills signed off: '+S.skills.length+' of '+SKILLS.length+
+    '\n✍️ Reflections written: '+S.reflections+
+    '\n🌟 Recommendations: '+S.recs+
+    '\n🎯 Development goals: '+(S.goals?'set':'not yet')+'</div>'+
+    '<p class="lead" style="margin-top:12px">This is the summary a carer can show a new employer — proof of good practice they carry with them.</p>'+
+    '<button class="btn ghost" onclick="hide()">Close</button>');
+}
+
+function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+render();
+</script>
+</body>
+</html>

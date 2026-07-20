@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV Tailor — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--slate2:#3B4654;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.10);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 18px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+
+  section{padding:14px 18px 2px;}
+  .step{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:6px 0 8px;}
+  label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin:12px 0 5px;}
+  textarea,input[type=text]{width:100%;border:1.5px solid var(--greige);border-radius:11px;padding:12px;font-size:15px;font-family:inherit;color:var(--body);background:#fff;}
+  textarea{min-height:96px;resize:vertical;line-height:1.5;}
+  .hint{font-size:11.5px;color:#8a8f96;margin-top:4px;}
+  .btn{width:100%;background:var(--ox);color:#fff;border:0;border-radius:12px;padding:15px;font-size:15.5px;font-weight:700;cursor:pointer;margin-top:16px;font-family:inherit;}
+  .btn.slate{background:linear-gradient(160deg,var(--slate),#242c36);}
+  .btn.ghost{background:#fff;color:var(--slate);border:1.5px solid var(--greige);}
+  .btn:active{transform:scale(.99)}
+  .guard{background:var(--cool);border-left:4px solid var(--slate);border-radius:8px;padding:11px 13px;font-size:12px;color:#33404d;margin:6px 18px 4px;line-height:1.5;}
+  .guard b{color:var(--slate);}
+
+  /* result */
+  .result{padding:6px 18px 4px;display:none;}
+  .result.show{display:block;}
+  .rcard{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden;}
+  .rcard .rh{background:var(--slate);color:#fff;padding:11px 15px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;letter-spacing:.4px;}
+  .rcard .rb{padding:14px 15px;font-size:14px;line-height:1.6;color:#4a4238;}
+  .summary{background:#fbfaf8;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;line-height:1.6;font-style:italic;color:#33404d;}
+  .tag2{display:inline-block;background:var(--okbg);color:var(--ok);font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:20px;margin:4px 5px 4px 0;}
+  .tag3{display:inline-block;background:#f3ece0;color:#8a6d1f;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:20px;margin:4px 5px 4px 0;}
+  .simnote{background:#fff;border-left:3px solid var(--gold);border-radius:8px;padding:9px 11px;font-size:11.5px;color:#7a7368;margin:6px 0;line-height:1.45;font-style:italic;}
+
+  /* funnel */
+  .funnel{margin:16px 18px 6px;background:linear-gradient(160deg,#6B2A34,#54212a);color:#fff;border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow);}
+  .funnel .fe{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
+  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:21px;margin:5px 0 6px;}
+  .funnel p{font-size:13px;color:#eadfe0;line-height:1.5;margin:0 0 12px;}
+  .funnel a{display:block;text-align:center;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:13px;border-radius:11px;font-size:14.5px;}
+
+  .gate{background:#F3E2E4;border-radius:12px;padding:14px;margin-top:6px}
+  .gate b{color:var(--ox)}
+  .overlay{position:fixed;inset:0;background:rgba(30,27,24,.55);display:none;align-items:flex-end;justify-content:center;z-index:50}
+  .overlay.show{display:flex}
+  .sheet{background:var(--cream);width:100%;max-width:440px;border-radius:22px 22px 0 0;max-height:88vh;overflow-y:auto;padding:20px 20px 30px;animation:up .25s ease}
+  @keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+  .sheet h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 4px;color:var(--ink)}
+  .sheet .lead{font-size:13px;color:#7a7368;margin:0 0 12px;line-height:1.5}
+  .close{float:right;background:none;border:0;font-size:24px;color:#9a9186;cursor:pointer;line-height:1}
+  .scan{text-align:center;padding:26px 0}
+  .scan .dot{font-size:34px;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:80;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  .toast.show{opacity:1}
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="mocklabel">Preview · your CV stays on this device · smart rewrite coming soon</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub · Careers</div>
+    <h1>CV Tailor</h1>
+    <div class="tag">Reshape your CV for the job you actually want — in your words, with your facts.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> <b>Never invents anything.</b> It re-emphasises the true experience you already have to match the role.</div>
+
+  <section>
+    <div class="step">Step 1 · Your details</div>
+    <label>Paste your current CV</label>
+    <textarea id="cv" placeholder="Paste your whole CV here — experience, skills, roles, dates…"></textarea>
+    <div class="hint">Everything stays true. We only change what we highlight, not the facts.</div>
+
+    <label>Job title you're applying for</label>
+    <input type="text" id="jobTitle" placeholder="e.g. Clinical Nurse Specialist · Tissue Viability">
+
+    <label>Paste the job description</label>
+    <textarea id="jd" placeholder="Paste the advert / person specification here…"></textarea>
+
+    <button class="btn slate" onclick="gateThen(tailor)">✨ Tailor my CV</button>
+  </section>
+
+  <div class="result" id="result"></div>
+
+  <div class="funnel">
+    <div class="fe">Going for the interview?</div>
+    <h3>Get expert interview coaching</h3>
+    <p>The CV gets you the interview — coaching gets you the offer. Lou's Clinical to Commercial programme prepares clinicians for the interviews that change their career.</p>
+    <a href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener" id="c2cLink">Explore interview prep → Clinical to Commercial</a>
+  </div>
+
+  <footer>Prototype · The Clinical Hub · Careers<br>Your CV never leaves your device in this prototype.</footer>
+
+</div></div>
+
+<div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+var signed = localStorage.getItem('hubSigned')==='1';
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+function val(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+function show(h){document.getElementById('sheet').innerHTML='<button class="close" onclick="hide()">×</button>'+h;document.getElementById('overlay').classList.add('show');}
+function hide(){document.getElementById('overlay').classList.remove('show');}
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target.id==='overlay')hide();});
+
+// free sign-up gate
+var pending=null;
+function gateThen(fn){ if(signed){fn();return;} pending=fn;
+  show('<h3>Free sign-up</h3><p class="lead">The AI tailoring is free — just pop in your email so we can save your work and keep the Hub free.</p>'+
+    '<div class="gate">✨ <b>Free forever.</b></div>'+
+    '<label>Your email</label><input type="text" id="gEmail" placeholder="you@email.com" style="width:100%;border:1.5px solid #DCE1E7;border-radius:10px;padding:11px;font-size:15px">'+
+    '<button class="btn" onclick="doSign()">Unlock the AI tailoring</button>');
+}
+function doSign(){var e=val('gEmail'); if(!e||e.indexOf("@")<0){toast('Pop in a valid email');return;} signed=true;localStorage.setItem('hubSigned','1');hide();toast('Signed up ✓'); if(pending){var f=pending;pending=null;setTimeout(f,250);} }
+
+// ---- keyword engine (honest demo of what the AI does) ----
+var STOP='a an the and or of to in for with on at by from as is are be your you we our this that will they their who has have skills skill role job description working work able ability strong good excellent experience experienced knowledge understanding within across including etc must should would candidate applicant apply application team member post position duties responsibilities essential desirable'.split(' ');
+var CARE_SKILLS=['safeguarding','medication','dementia','palliative','end-of-life','tissue','viability','wound','communication','dignity','person-centred','assessment','care planning','mentoring','leadership','audit','infection','moving','handling','nutrition','mental health','learning disability','autism','revalidation','cannulation','venepuncture','triage','compassion','stakeholder','commercial','training','education','clinical','nmc','cqc'];
+function words(t){return t.toLowerCase().replace(/[^a-z0-9\- ]/g,' ').split(/\s+/).filter(function(w){return w.length>2 && STOP.indexOf(w)<0;});}
+function tailor(){
+  var cv=val('cv'), jt=val('jobTitle'), jd=val('jd');
+  if(cv.length<40 || jd.length<40){toast('Add your CV and the job description first');return;}
+  document.getElementById('sheet') && hide();
+  // "reading" animation in the result area
+  var R=document.getElementById('result'); R.classList.add('show');
+  R.innerHTML='<div class="scan"><div class="dot">🧠</div><p class="hint" style="text-align:center;margin-top:10px">Matching your experience to the role…</p></div>';
+  setTimeout(function(){buildResult(cv,jt,jd);},1500);
+}
+function buildResult(cv,jt,jd){
+  var cvW=words(cv), jdW=words(jd);
+  var cvSet={}; cvW.forEach(function(w){cvSet[w]=1;});
+  // salient JD terms: prioritise care skills, then frequent JD words
+  var freq={}; jdW.forEach(function(w){freq[w]=(freq[w]||0)+1;});
+  var jdTerms=Object.keys(freq).sort(function(a,b){return (isSkill(b)-isSkill(a))||(freq[b]-freq[a]);});
+  var matched=[], gaps=[];
+  jdTerms.forEach(function(w){
+    if(matched.length<8 && cvSet[w] && (isSkill(w)||freq[w]>=1) && matched.indexOf(w)<0) matched.push(w);
+    else if(gaps.length<6 && !cvSet[w] && isSkill(w) && gaps.indexOf(w)<0) gaps.push(w);
+  });
+  if(matched.length===0){cvW.slice(0,5).forEach(function(w){if(isSkill(w))matched.push(w);});}
+  var role=jt||'this role';
+  var summary=cap(role)+'-ready registered professional with proven strengths in '+
+    (matched.slice(0,4).map(cap).join(', ')||'clinical care')+'. '+
+    'Track record aligned to the requirements of '+role+', bringing '+(matched.length?matched.length:'relevant')+' directly-relevant capabilities from current practice.';
+  var html='<div class="rcard"><div class="rh">Your tailored professional summary</div><div class="rb">'+
+    '<div class="summary">'+esc(summary)+'</div>'+
+    '<div class="simnote">Prototype: built by keyword-matching. The live AI rewrites your full CV — bullet by bullet — reordering and rewording your real experience to foreground what this employer asked for. It never adds anything you didn\'t write.</div>'+
+    '</div></div>';
+  html+='<div class="rcard"><div class="rh">Your strengths that match this role</div><div class="rb">'+
+    (matched.length?matched.map(function(w){return '<span class="tag2">✓ '+esc(cap(w))+'</span>';}).join(''):'<i>Add more detail to your CV to surface matches.</i>')+
+    '<p class="hint" style="margin-top:8px">Move these to the top of your CV and echo the exact wording from the advert.</p></div></div>';
+  if(gaps.length){
+    html+='<div class="rcard"><div class="rh">Asked for in the advert — add if it\'s true for you</div><div class="rb">'+
+      gaps.map(function(w){return '<span class="tag3">+ '+esc(cap(w))+'</span>';}).join('')+
+      '<p class="hint" style="margin-top:8px">Only include these if you genuinely have them. Never claim a skill you don\'t hold — that\'s the line that keeps you safe and honest.</p></div></div>';
+  }
+  html+='<button class="btn ghost" onclick="copyOut()">Copy my tailored summary</button>';
+  document.getElementById('result').innerHTML=html;
+  window._out=summary;
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function isSkill(w){for(var i=0;i<CARE_SKILLS.length;i++){if(CARE_SKILLS[i].indexOf(w)>=0||w.indexOf(CARE_SKILLS[i])>=0)return 1;}return 0;}
+function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function copyOut(){try{navigator.clipboard.writeText(window._out||'');toast('Copied ✓');}catch(e){toast('Select & copy the summary above');}}
+</script>
+</body>
+</html>
