@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<style id="hubGatePreHide">body{visibility:hidden !important}</style>
+<script>setTimeout(function(){var s=document.getElementById('hubGatePreHide');if(s)s.remove();},8000);</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Clinical Hub — for UK care &amp; nursing</title>
@@ -275,5 +278,8 @@
   // PWA — lets people "add to home screen" and use it offline (activates once deployed over https).
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="hub-cloud.js"></script>
+<script src="hub-gate.js"></script>
 </body>
 </html>
