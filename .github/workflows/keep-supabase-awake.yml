@@ -1,0 +1,41 @@
+name: Keep Supabase awake
+
+# The Clinical Hub runs on a free-tier Supabase project, which Supabase pauses after
+# roughly 7 days without database activity. A paused project stops new sign-ups and
+# sign-ins from working. This job makes two small requests twice a week so that
+# doesn't happen.
+#
+# The key below is the PUBLISHABLE key. It is already public: it ships inside
+# hub-cloud.js on the live site. Row Level Security is what protects the data,
+# not secrecy of this key. Do not put the service_role key here.
+
+on:
+  schedule:
+    - cron: '17 6 * * 1,4'    # Mondays and Thursdays, 06:17 UTC
+  workflow_dispatch: {}        # also runnable by hand from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping the Supabase project
+        env:
+          SUPA_URL: https://muxclovtzpgtjvjyahac.supabase.co
+          SUPA_KEY: sb_publishable_gxCQKDwQxZRCZxkfclN1_Q_yOMxqBnA
+        run: |
+          set -uo pipefail
+          fail=0
+          for path in /auth/v1/health /rest/v1/; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
+                     -H "apikey: ${SUPA_KEY}" "${SUPA_URL}${path}" || echo 000)
+            echo "${path} -> HTTP ${code}"
+            case "${code}" in
+              2*|3*|4*) ;;   # any real HTTP response means the project answered
+              *) fail=1 ;;   # 000 means it never resolved, i.e. paused or gone
+            esac
+          done
+          if [ "${fail}" -ne 0 ]; then
+            echo "::error::Supabase did not respond. The project is probably paused - restore it at https://supabase.com/dashboard/project/muxclovtzpgtjvjyahac"
+            exit 1
+          fi
+          echo "Supabase is awake."
