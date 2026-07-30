@@ -1,0 +1,48 @@
+name: Refresh Stay Current
+
+# Rebuilds the Stay Current list each week from the official NMC, RCN and CQC news
+# pages, then commits the result. None of the three publish an RSS feed, so this
+# reads their listing pages. If a source stops parsing, the page keeps its previous
+# entries and this run goes red so the parser can be fixed.
+
+on:
+  schedule:
+    - cron: '35 6 * * 1'     # Mondays, 06:35 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Rebuild the list
+        id: rebuild
+        continue-on-error: true
+        run: python tools/refresh_stay_current.py
+
+      - name: Commit if anything changed
+        run: |
+          set -e
+          if [ -z "$(git status --porcelain stay-current.html stay-current-data.json)" ]; then
+            echo "No change this week."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stay-current.html stay-current-data.json
+          git commit -m "Stay Current: weekly refresh from NMC, RCN and CQC"
+          git push
+
+      - name: Surface parser failures
+        if: steps.rebuild.outcome == 'failure'
+        run: |
+          echo "One or more sources did not parse. The page kept its previous entries."
+          exit 1

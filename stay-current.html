@@ -6,6 +6,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="stay-current-refreshed" content="">
 <title>Stay Current — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -66,7 +67,7 @@
 </style>
 </head>
 <body>
-<div class="mocklabel">Hand-verified today · automated refresh is the planned next build</div>
+<div class="mocklabel">Refreshed automatically every Monday from the official news pages</div>
 <div class="phone"><div class="scroll">
 
   <header>
@@ -75,16 +76,18 @@
     <div class="tag">What's changed this week for carers and nurses — straight from NMC, RCN and CQC.</div>
   </header>
 
-  <div class="trust"><span class="shield">✓</span> Sourced from <b>NMC, RCN &amp; CQC</b> official news · checked 20/07/2026</div>
+  <div class="trust"><span class="shield">✓</span> Straight from the official <b>NMC, RCN &amp; CQC</b> news pages · last refreshed <span id="refreshedOn">—</span></div>
 
-  <div class="tabs" id="audTabs">
-    <button class="on" data-aud="all">Everyone</button>
-    <button data-aud="carer">Carers</button>
-    <button data-aud="nurse">Nurses</button>
+  <div class="tabs" id="srcTabs">
+    <button class="on" data-src="all">All</button>
+    <button data-src="nmc">NMC</button>
+    <button data-src="rcn">RCN</button>
+    <button data-src="cqc">CQC</button>
   </div>
 
   <section>
     <div class="eb">This week</div>
+    <!-- AUTO:ITEMS:START -->
 
     <a class="item" data-aud="nurse" href="https://www.nmc.org.uk/news/news-and-updates/last-week-for-people-to-have-their-say-in-landmark-nursing-and-midwifery-practice-learning-consultation/" target="_blank" rel="noopener">
       <div class="row1"><span class="date">20 Jul</span><span class="src nmc">NMC</span></div>
@@ -127,26 +130,31 @@
       <h3>Emily Miles appointed CQC Chief Executive <span class="arrow">→</span></h3>
       <div class="why">A new leader at the top of the regulator that inspects care providers across England.</div>
     </a>
-
+    <!-- AUTO:ITEMS:END -->
   </section>
 
-  <div class="note"><b>How this works:</b> hand-checked against the official NMC, RCN and CQC news pages. An automated weekly refresh is the planned next build — for now, this is a manually verified snapshot, not a live feed. Always click through to the source for the full story.</div>
+  <div class="note"><b>How this works:</b> hand-checked against the official NMC, RCN and CQC news pages. This list is rebuilt automatically each week from the official news pages, so it is headlines and links rather than commentary. </div>
 
-  <footer>Prototype · The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN or CQC. Checked 20/07/2026 — always verify anything time-critical on the source site.</footer>
+  <footer>Prototype · The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN or CQC. Always verify anything time-critical on the source site.</footer>
 
 </div></div>
 
 <script>
-  document.querySelectorAll('#audTabs button').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
-      b.classList.add('on');
-      var f=b.dataset.aud;
-      document.querySelectorAll('a.item[data-aud]').forEach(function(it){
-        var aud=it.dataset.aud;
-        it.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
-      });
+  document.querySelectorAll('#srcTabs button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('#srcTabs button').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    var f=b.dataset.src;
+    document.querySelectorAll('a.item[data-src]').forEach(function(it){
+      it.classList.toggle('hidden', !(f==='all' || it.dataset.src===f));
     });
+  });
+});
+(function(){
+  var el=document.getElementById('refreshedOn');
+  var m=document.querySelector('meta[name="stay-current-refreshed"]');
+  if(el&&m&&m.content) el.textContent=m.content;
+})();
   });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
