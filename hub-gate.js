@@ -8,6 +8,7 @@
   'use strict';
 
   var PENDING_KEY = 'hubGatePendingProfile';
+  var SUPABASE_URL = 'https://muxclovtzpgtjvjyahac.supabase.co';
 
   var ROLES = ['Nurse', 'Midwife', 'Radiographer', 'Doctor', 'Carer', 'Care Manager', 'Nursing Associate', 'Allied Health Professional', 'Student', 'Other'];
   var REG_BODIES = ['NMC', 'GMC', 'HCPC', 'None / not applicable'];
@@ -171,17 +172,42 @@
     });
   }
 
+  /* Fail open. If the backend is unreachable — project paused, outage, blocked network —
+     we let people in rather than locking the whole Hub. The gate is a soft one anyway
+     (the content is in the page source), so a closed door costs far more than an open one. */
+  function withTimeout(promise, ms) {
+    return Promise.race([
+      promise,
+      new Promise(function (_, reject) { setTimeout(function () { reject(new Error('hub-gate: backend timeout')); }, ms); })
+    ]);
+  }
+
+  async function backendReachable() {
+    try {
+      await withTimeout(fetch(SUPABASE_URL + '/auth/v1/health', { mode: 'no-cors', cache: 'no-store' }), 6000);
+      return true;
+    } catch (e) { return false; }
+  }
+
   async function start() {
     injectStyle();
 
-    if (!window.Hub) { console.error('hub-gate.js: hub-cloud.js not loaded — cannot gate this page.'); reveal(); return; }
+    if (!window.Hub) { console.error('hub-gate.js: hub-cloud.js not loaded — opening ungated.'); reveal(); return; }
+
+    if (!(await backendReachable())) {
+      console.warn('hub-gate.js: backend unreachable — opening ungated so the Hub stays usable.');
+      reveal();
+      return;
+    }
 
     var user;
-    try { user = await window.Hub.init(); } catch (e) { console.error(e); }
+    try { user = await withTimeout(window.Hub.init(), 10000); }
+    catch (e) { console.warn('hub-gate.js: sign-in check failed — opening ungated.', e); reveal(); return; }
 
     if (user) {
       var profile = null;
-      try { profile = await window.Hub.load('profile'); } catch (e) {}
+      try { profile = await withTimeout(window.Hub.load('profile'), 10000); }
+      catch (e) { console.warn('hub-gate.js: profile load failed — opening ungated.', e); reveal(); return; }
 
       if (profile && profile.role) { reveal(); return; }
 
