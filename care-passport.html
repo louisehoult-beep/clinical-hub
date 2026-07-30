@@ -101,7 +101,7 @@
 </style>
 </head>
 <body>
-<div class="mocklabel">Preview · your data stays on this device · smart features coming soon</div>
+<div class="mocklabel">Your passport and certificates save to your account · automatic certificate reading coming soon</div>
 <div class="phone"><div class="scroll">
 
   <header>
@@ -215,28 +215,54 @@ function gateThen(fn){ if(S.signed){fn();return;} pending=fn;
 }
 function doSign(){var e=val('gEmail'); if(!e||e.indexOf("@")<0){toast('Pop in a valid email');return;} S.email=e;S.signed=true;save();hide();toast('Signed up — smart features unlocked ✓'); if(pending){var f=pending;pending=null;setTimeout(f,250);} }
 
-// ---- cert → training ----
+// ---- cert -> training ----
+function cpEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function ukDate(iso){ if(!iso) return ''; var p=String(iso).split('-'); return p.length===3 ? p[2]+'/'+p[1]+'/'+p[0] : String(iso); }
+
 function openCert(){
-  show('<h3>Add training from a certificate</h3><p class="lead">Photograph or upload it — we read it and track when it needs renewing.</p>'+
-    '<label>Certificate file</label><input type="file" accept="image/*,application/pdf">'+
-    '<div class="simnote">Prototype note: the live tool uses AI vision to read the file. Here we simulate a typical certificate.</div>'+
-    '<button class="btn" onclick="scanCert()">Read this certificate</button>');
+  show('<h3>Add training from a certificate</h3><p class="lead">Upload your certificate and we\'ll keep it safely against your account. Add the details and we\'ll track when it needs renewing.</p>'+
+    '<label>Certificate file</label><input type="file" id="certFile" accept="image/*,application/pdf">'+
+    '<div class="simnote">Reading the details off the certificate for you is a smart feature we\'re still building. For now please type them in. The file itself is stored properly.</div>'+
+    '<label>Course or training</label><input id="cTitle" placeholder="e.g. Moving &amp; Handling of People">'+
+    '<label>Provider</label><input id="cProvider" placeholder="e.g. Skills for Care endorsed">'+
+    '<label>Date completed</label><input type="date" id="cDate">'+
+    '<label>Renew by (leave blank if it doesn\'t expire)</label><input type="date" id="cRenew">'+
+    '<button class="btn" onclick="saveCert()">Save to my passport</button>');
 }
-function scanCert(){
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">🔍</div><p class="lead" style="margin-top:12px">Reading the certificate…</p></div>';
-  setTimeout(function(){
-    show('<h3>Here\'s what we found</h3><p class="lead">Check it, then save to your passport.</p>'+
-      '<div class="extract">'+
-      '<div class="r"><span>Course</span><b>Moving & Handling of People</b></div>'+
-      '<div class="r"><span>Provider</span><b>Skills for Care endorsed</b></div>'+
-      '<div class="r"><span>Completed</span><b>02/06/2026</b></div>'+
-      '<div class="r"><span>Renew by</span><b>02/06/2027</b></div>'+
-      '</div>'+
-      '<div class="simnote">We\'ll remind you before it expires so you\'re never caught out on a CQC check.</div>'+
-      '<button class="btn" onclick="saveCert()">Save to my passport</button>');
-  },1600);
+
+function saveCert(){
+  var title=val('cTitle'), provider=val('cProvider'), iso=val('cDate'), renew=val('cRenew');
+  if(!title){ toast('Give the training a name first'); return; }
+
+  var label=title+(provider?' — '+provider:'');
+  var input=document.getElementById('certFile');
+  var file=input && input.files && input.files[0];
+
+  function record(){
+    S.training+=1;
+    S.trainingItems.push(label+(renew?' (renew by '+ukDate(renew)+')':''));
+    save();
+  }
+
+  if(!file){ record(); hide(); toast('Training logged ✓'); return; }
+
+  if(!window.Hub || !Hub.signedIn()){
+    record(); hide();
+    toast('Training logged — sign in to store the certificate too');
+    return;
+  }
+
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your certificate…</p></div>';
+  Hub.uploadEvidence(file,{title:label,doc_type:'Certificate',section:'Training',doc_date:iso||new Date().toISOString().slice(0,10)})
+    .then(function(){ record(); hide(); toast('Certificate saved and training logged ✓'); })
+    .catch(function(err){
+      record();
+      show('<h3>Couldn\'t save that file</h3>'+
+        '<p class="lead">'+cpEsc(err.message||'Something went wrong uploading it.')+'</p>'+
+        '<p class="lead">The training has still been logged to your passport.</p>'+
+        '<button class="btn ghost" onclick="hide()">Close</button>');
+    });
 }
-function saveCert(){S.training+=1;S.trainingItems.push('Moving & Handling of People');hide();save();toast('Training logged — renewal reminder set ✓');}
 
 // ---- reflection ----
 function openReflect(){

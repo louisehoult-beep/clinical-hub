@@ -126,7 +126,7 @@
 </style>
 </head>
 <body>
-<div class="mocklabel">Preview · your pack syncs to your account · smart scan features coming soon</div>
+<div class="mocklabel">Your pack and certificates save to your account · automatic certificate reading coming soon</div>
 <div class="phone"><div class="scroll">
 
   <header>
@@ -290,36 +290,61 @@ function show(html){document.getElementById('sheet').innerHTML='<button class="c
 function hide(){document.getElementById('overlay').classList.remove('show');}
 document.getElementById('overlay').addEventListener('click',function(e){if(e.target.id==='overlay')hide();});
 
-// ---------- FLOW 1: certificate → CPD ----------
+// ---------- FLOW 1: certificate -> CPD ----------
+// The chosen file is genuinely uploaded to the member's private evidence store in
+// Supabase. Reading the details off it is a separate (unbuilt) feature, so the member
+// types them in rather than us showing invented data.
+function ukDate(iso){ if(!iso) return ''; var p=String(iso).split('-'); return p.length===3 ? p[2]+'/'+p[1]+'/'+p[0] : String(iso); }
+
 function openCert(){
-  show('<h3>Add CPD from a certificate</h3><p class="lead">Take a photo or upload the certificate. We read it for you.</p>'+
+  show('<h3>Add CPD from a certificate</h3><p class="lead">Upload your certificate and we\'ll keep it safely against your account as evidence. Add the details below and the hours go straight into your pack.</p>'+
     '<label>Certificate file</label><input type="file" id="certFile" accept="image/*,application/pdf">'+
-    '<div class="simnote">Prototype note: in the live tool, AI vision reads the file. Here we simulate a typical certificate so you can see the flow.</div>'+
-    '<button class="btn" onclick="scanCert()">Read this certificate</button>');
+    '<div class="simnote">Reading the details off the certificate for you is a smart feature we\'re still building. For now please type them in. The file itself is stored properly.</div>'+
+    '<label>Course or activity</label><input id="cTitle" placeholder="e.g. Wound Care &amp; Tissue Viability Update">'+
+    '<label>Provider</label><input id="cProvider" placeholder="e.g. RCNi Learning">'+
+    '<label>Date completed</label><input type="date" id="cDate">'+
+    '<label>CPD hours</label><input type="number" id="cHours" min="0" step="0.5" placeholder="e.g. 4">'+
+    '<label style="display:flex;align-items:center;gap:8px;margin-top:14px"><input type="checkbox" id="cPart" checked style="width:auto"> Participatory learning (with others)</label>'+
+    '<button class="btn" onclick="saveCert()">Save to my CPD log</button>');
 }
-function scanCert(){
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">🔍</div><p class="lead" style="margin-top:12px">Reading the certificate…</p></div>';
-  setTimeout(function(){
-    show('<h3>Here\'s what we found</h3><p class="lead">Check it\'s right, then save to your pack.</p>'+
-      '<div class="extract">'+
-      '<div class="r"><span>Course</span><b>Wound Care & Tissue Viability Update</b></div>'+
-      '<div class="r"><span>Provider</span><b>RCNi Learning</b></div>'+
-      '<div class="r"><span>Date</span><b>14/05/2026</b></div>'+
-      '<div class="r"><span>Hours</span><b>4</b></div>'+
-      '<div class="r"><span>Type</span><b>Participatory</b></div>'+
-      '</div>'+
-      '<label>Adjust hours if needed</label><input type="number" id="cHours" value="4" min="0" step="0.5">'+
-      '<label style="display:flex;align-items:center;gap:8px;margin-top:14px"><input type="checkbox" id="cPart" checked style="width:auto"> Participatory learning (with others)</label>'+
-      '<button class="btn" onclick="saveCert()">Save to my CPD log</button>');
-  },1600);
-}
+
 function saveCert(){
-  var h=parseFloat(document.getElementById('cHours').value)||0;
-  var p=document.getElementById('cPart').checked;
-  S.cpd+=h; if(p)S.cpdPart+=h;
-  S.cpdItems.push({title:'Wound Care & Tissue Viability Update',hours:h,part:p});
-  S.evidence.push({type:'Certificate',title:'Wound Care & Tissue Viability Update',section:'CPD',date:'14/05/2026'});
-  hide();save();toast('Added '+h+'h CPD to your pack ✓');
+  var title=val('cTitle'), provider=val('cProvider'), iso=val('cDate');
+  var h=parseFloat(val('cHours'))||0;
+  var partEl=document.getElementById('cPart');
+  var p=partEl?partEl.checked:false;
+  if(!title){ toast('Give the course a name first'); return; }
+  if(h<=0){ toast('Add the number of CPD hours'); return; }
+
+  var label=title+(provider?' — '+provider:'');
+  var input=document.getElementById('certFile');
+  var file=input && input.files && input.files[0];
+
+  function record(stored){
+    S.cpd+=h; if(p)S.cpdPart+=h;
+    S.cpdItems.push({title:label,hours:h,part:p});
+    S.evidence.push({type:'Certificate',title:label,section:'CPD',date:ukDate(iso),stored:!!stored});
+    save();
+  }
+
+  if(!file){ record(false); hide(); toast('Added '+h+'h CPD to your pack ✓'); return; }
+
+  if(!window.Hub || !Hub.signedIn()){
+    record(false); hide();
+    toast('Added '+h+'h CPD — sign in to store the file too');
+    return;
+  }
+
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your certificate…</p></div>';
+  Hub.uploadEvidence(file,{title:label,doc_type:'Certificate',section:'CPD',doc_date:iso||new Date().toISOString().slice(0,10)})
+    .then(function(){ record(true); hide(); toast('Certificate saved and '+h+'h CPD added ✓'); })
+    .catch(function(err){
+      record(false);
+      show('<h3>Couldn\'t save that file</h3>'+
+        '<p class="lead">'+esc(err.message||'Something went wrong uploading it.')+'</p>'+
+        '<p class="lead">Your '+h+' CPD hours have still been added to your pack. It\'s only the file that didn\'t save.</p>'+
+        '<button class="btn ghost" onclick="hide()">Close</button>');
+    });
 }
 
 // ---------- FLOW 2: reflection coach ----------
@@ -372,33 +397,54 @@ function simFeedback(){
   hide();save();toast('Feedback received & logged ✓');
 }
 
-// ---- FLOW: timesheet / payslip → practice hours ----
+// ---- FLOW: timesheet / payslip -> practice hours ----
 function openTimesheet(){
-  show('<h3>Confirm hours from a timesheet or payslip</h3><p class="lead">Photograph or upload a timesheet, rota or payslip. We read the dates, employer and hours — and keep it as your evidence.</p>'+
-    '<label>Timesheet / payslip file</label><input type="file" accept="image/*,application/pdf">'+
+  show('<h3>Confirm hours from a timesheet or payslip</h3><p class="lead">Upload a timesheet, rota or payslip and we\'ll keep it as your evidence. Add the details below and the hours go into your pack.</p>'+
+    '<label>Timesheet / payslip file</label><input type="file" id="tsFile" accept="image/*,application/pdf">'+
     '<div class="simnote"><b>Confidentiality:</b> we only need dates, employer and hours — you can cover pay figures. Never upload anything showing patient information; the NMC does not allow it in your evidence.</div>'+
-    '<div class="simnote">Prototype note: the live tool uses AI vision to read the document. Here we simulate a typical payslip so you can see the flow.</div>'+
-    '<button class="btn" onclick="scanTimesheet()">Read this document</button>');
+    '<div class="simnote">Reading the document for you is a smart feature we\'re still building, so please type the details in for now.</div>'+
+    '<label>Employer</label><input id="tOrg" placeholder="e.g. Lincoln Community NHS Trust">'+
+    '<label>Setting / scope of practice</label><input id="tSetting" placeholder="e.g. Community nursing">'+
+    '<label>Period covered</label><input id="tDates" placeholder="e.g. 01/05/2026 – 31/05/2026">'+
+    '<label>Practice hours</label><input type="number" id="tHours" min="0" step="0.5" placeholder="e.g. 150">'+
+    '<button class="btn" onclick="saveTimesheet()">Confirm hours to my pack</button>');
 }
-function scanTimesheet(){
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">🔍</div><p class="lead" style="margin-top:12px">Reading the document…</p></div>';
-  setTimeout(function(){
-    show('<h3>Here\'s what we found</h3><p class="lead">Check it, then confirm the hours to your pack.</p>'+
-      '<div class="extract">'+
-      '<div class="r"><span>Employer</span><b>Lincoln Community NHS Trust</b></div>'+
-      '<div class="r"><span>Period</span><b>01/05/2026 – 31/05/2026</b></div>'+
-      '<div class="r"><span>Setting</span><b>Community nursing</b></div>'+
-      '<div class="r"><span>Hours</span><b>150</b></div>'+
-      '</div>'+
-      '<label>Adjust hours if needed</label><input type="number" id="tHours" value="150" min="0">'+
-      '<button class="btn" onclick="saveTimesheet()">Confirm hours to my pack</button>');
-  },1600);
-}
+
 function saveTimesheet(){
-  var h=parseFloat(val('tHours'))||0; S.hours+=h;
-  S.hoursItems.push({hours:h,org:'Lincoln Community NHS Trust',setting:'Community nursing',dates:'01/05/2026 – 31/05/2026'});
-  S.evidence.push({type:'Timesheet / payslip',title:'Lincoln Community NHS Trust — May 2026',section:'Practice hours',date:'31/05/2026'});
-  hide();save();toast('Confirmed '+h+' practice hours ✓');
+  var org=val('tOrg'), setting=val('tSetting'), dates=val('tDates');
+  var h=parseFloat(val('tHours'))||0;
+  if(!org){ toast('Add the employer first'); return; }
+  if(h<=0){ toast('Add the number of practice hours'); return; }
+
+  var label=org+(dates?' — '+dates:'');
+  var input=document.getElementById('tsFile');
+  var file=input && input.files && input.files[0];
+
+  function record(){
+    S.hours+=h;
+    S.hoursItems.push({hours:h,org:org,setting:setting,dates:dates});
+    S.evidence.push({type:'Timesheet / payslip',title:label,section:'Practice hours',date:dates});
+    save();
+  }
+
+  if(!file){ record(); hide(); toast('Confirmed '+h+' practice hours ✓'); return; }
+
+  if(!window.Hub || !Hub.signedIn()){
+    record(); hide();
+    toast('Confirmed '+h+' hours — sign in to store the file too');
+    return;
+  }
+
+  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your document…</p></div>';
+  Hub.uploadEvidence(file,{title:label,doc_type:'Timesheet / payslip',section:'Practice hours',doc_date:new Date().toISOString().slice(0,10)})
+    .then(function(){ record(); hide(); toast('Document saved and '+h+' hours confirmed ✓'); })
+    .catch(function(err){
+      record();
+      show('<h3>Couldn\'t save that file</h3>'+
+        '<p class="lead">'+esc(err.message||'Something went wrong uploading it.')+'</p>'+
+        '<p class="lead">Your '+h+' practice hours have still been added. It\'s only the file that didn\'t save.</p>'+
+        '<button class="btn ghost" onclick="hide()">Close</button>');
+    });
 }
 
 // ---- evidence log ----
