@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<style id="hubGatePreHide">body{visibility:hidden !important}</style>
+<script>setTimeout(function(){var s=document.getElementById('hubGatePreHide');if(s)s.remove();},8000);</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond the Bedside — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
+  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
+  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
+  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
+  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
+  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
+  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
+  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
+  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
+  .trust b{color:var(--slate);font-weight:700;}
+  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
+  .tabs{display:flex;gap:6px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);overflow-x:auto;}
+  .tabs button{flex:0 0 auto;padding:9px 13px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:12.5px;font-weight:600;color:var(--body);cursor:pointer;white-space:nowrap;}
+  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
+
+  section{padding:16px 20px 4px;}
+  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
+  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
+
+  .role{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:9px;box-shadow:var(--shadow);}
+  .role .rt{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .role .rd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+
+  .note{background:var(--cool);border-left:4px solid var(--slate);border-radius:8px;padding:11px 13px;font-size:12px;color:#33404d;margin:6px 20px 12px;line-height:1.5;}
+  .note b{color:var(--slate);}
+  .note a{color:var(--ox);font-weight:600;}
+
+  .guide{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;border-radius:14px;padding:18px 18px 20px;margin:4px 20px 16px;}
+  .guide .ge{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .guide h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;margin:5px 0 7px;color:#fff;}
+  .guide p{font-size:12.5px;color:#b3bdc9;line-height:1.55;margin:0 0 12px;}
+  .guide a.btn{display:inline-block;background:var(--gold);color:#1E1B18;font-weight:700;font-size:12.5px;text-decoration:none;padding:9px 16px;border-radius:20px;}
+
+  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);}
+  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;gap:8px;}
+  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
+  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
+
+  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
+  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
+  .hidden{display:none;}
+
+  @media(min-width:860px){
+    .mocklabel{max-width:900px;}
+    .phone{max-width:900px;border-radius:22px;}
+    .scroll{height:auto;max-height:none;overflow-y:visible;}
+    header{padding:26px 34px 24px;}
+    .tabs{padding-left:32px;padding-right:32px;}
+    section{padding:18px 32px 4px;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
+    section .eb,section h2,section .sub{grid-column:1/-1;}
+    .note,.guide{margin-left:32px;margin-right:32px;}
+    footer{padding:22px 32px 32px;}
+  }
+</style>
+</head>
+<body>
+<div class="mocklabel">From Lou's own careers guide · 26 routes out of the ward</div>
+<div class="phone"><div class="scroll">
+
+  <header>
+    <div class="eyebrow">The Clinical Hub</div>
+    <h1>Beyond the Bedside</h1>
+    <div class="tag">Your registration opens more doors than anyone tells you about. Here is where they go.</div>
+  </header>
+
+  <div class="trust"><span class="shield">✓</span> Drawn from <b>Beyond the Bedside</b>, Lou's own encyclopedia of nursing careers, written by a registered nurse who made this move herself</div>
+
+  <div class="tabs" id="routeTabs">
+    <button class="on" data-route="all">All routes</button>
+    <button data-route="clinical">Stay clinical</button>
+    <button data-route="ward">Leave the ward</button>
+    <button data-route="nhs">Leave the NHS</button>
+    <button data-route="afield">Further afield</button>
+  </div>
+
+  <section data-route="clinical">
+    <div class="eb">Stay clinical, go deeper</div>
+    <h2>Advanced practice</h2>
+    <p class="sub">More autonomy, more responsibility, still with patients in front of you.</p>
+    <div class="role"><div class="rt">Nurse Practitioner</div><div class="rd">Assess, diagnose and manage your own caseload, often in GP surgeries or urgent care.</div></div>
+    <div class="role"><div class="rt">Clinical Nurse Specialist</div><div class="rd">Deep expertise in one area, such as cardiology, oncology or diabetes, split across care, teaching and research.</div></div>
+    <div class="role"><div class="rt">Nurse Prescriber</div><div class="rd">The V300 route. Prescribe within your competence rather than waiting for someone else to sign.</div></div>
+    <div class="role"><div class="rt">Nurse Anaesthetist</div><div class="rd">Advanced peri-operative practice alongside the anaesthetic team.</div></div>
+  </section>
+
+  <section data-route="clinical">
+    <div class="eb">Stay clinical, change the setting</div>
+    <h2>Hospital-adjacent and specialist</h2>
+    <p class="sub">Still hands-on, but off the ward rota and built around a procedure or a skill.</p>
+    <div class="role"><div class="rt">Operating theatre specialist</div><div class="rd">Scrub, circulating and surgical first assistant roles.</div></div>
+    <div class="role"><div class="rt">Recovery and anaesthetic nurse</div><div class="rd">Peri-operative care either side of theatre.</div></div>
+    <div class="role"><div class="rt">Vascular access specialist</div><div class="rd">A whole specialty in its own right, and one of the clearest bridges into the device industry.</div></div>
+    <div class="role"><div class="rt">Procedural specialist</div><div class="rd">Endoscopy, cath lab and interventional units.</div></div>
+  </section>
+
+  <section data-route="ward">
+    <div class="eb">Off the floor, still NHS</div>
+    <h2>Teaching the next lot</h2>
+    <p class="sub">If the bit you like best is explaining it to someone else, this is the route.</p>
+    <div class="role"><div class="rt">Hospital-based nurse educator</div><div class="rd">Practice development and in-house training inside a trust.</div></div>
+    <div class="role"><div class="rt">University lecturer in nursing</div><div class="rd">Teaching, curriculum and research supervision. Usually wants a Master's and often a doctorate later.</div></div>
+    <div class="role"><div class="rt">Skills lab instructor</div><div class="rd">Simulation teaching, where students practise before they reach real patients.</div></div>
+  </section>
+
+  <section data-route="ward">
+    <div class="eb">Off the floor, still NHS</div>
+    <h2>Community and public health</h2>
+    <p class="sub">Same registration, different front door, and usually your own diary.</p>
+    <div class="role"><div class="rt">District nurse</div><div class="rd">Complex care in people's homes, with real autonomy over your caseload.</div></div>
+    <div class="role"><div class="rt">Health visitor</div><div class="rd">Specialist community public health nursing, focused on families and early years.</div></div>
+    <div class="role"><div class="rt">Prison and secure settings nurse</div><div class="rd">Complex presentations, high independence, a very different environment.</div></div>
+  </section>
+
+  <section data-route="nhs">
+    <div class="eb">The one most nurses never hear about</div>
+    <h2>Industry: devices and pharma</h2>
+    <p class="sub">Your clinical experience is the qualification here. These roles want someone who has actually used the product on a real patient.</p>
+    <div class="role"><div class="rt">Clinical Nurse Advisor</div><div class="rd">Product education, training and clinical evaluations for a device or pharma company. It sits alongside sales rather than being sales.</div></div>
+    <div class="role"><div class="rt">Product or clinical specialist</div><div class="rd">Demonstrate equipment and train the clinicians who use it.</div></div>
+    <div class="role"><div class="rt">Medical Science Liaison</div><div class="rd">The scientific bridge between a company and senior clinicians.</div></div>
+    <div class="role"><div class="rt">Pharmacovigilance nurse</div><div class="rd">Monitoring and assessing adverse drug reactions.</div></div>
+  </section>
+
+  <section data-route="nhs">
+    <div class="eb">Leave the NHS</div>
+    <h2>Research, policy and writing</h2>
+    <p class="sub">Roles where the clinical knowledge matters but the patient contact does not.</p>
+    <div class="role"><div class="rt">Clinical research nurse</div><div class="rd">Running trials, in the NHS or for a contract research organisation. GCP certification is the usual first step.</div></div>
+    <div class="role"><div class="rt">Medical writer or communications</div><div class="rd">Turning clinical evidence into something a reader can actually use.</div></div>
+    <div class="role"><div class="rt">Policy and public health adviser</div><div class="rd">Shaping the guidance rather than following it.</div></div>
+    <div class="role"><div class="rt">Nurse entrepreneur</div><div class="rd">Clinics, training, consultancy and products. A lot of nurses think about it; far fewer actually start.</div></div>
+  </section>
+
+  <section data-route="afield">
+    <div class="eb">Further afield</div>
+    <h2>International and humanitarian</h2>
+    <p class="sub">Same registration, considerably different postcode.</p>
+    <div class="role"><div class="rt">Cruise ship nurse</div><div class="rd">Sole-practitioner medicine at sea. Usually wants solid A&amp;E or critical care behind you.</div></div>
+    <div class="role"><div class="rt">Remote site nurse</div><div class="rd">Offshore, energy and construction sites, with extra offshore medic tickets required.</div></div>
+    <div class="role"><div class="rt">Military nursing</div><div class="rd">Defence nursing across all three services.</div></div>
+    <div class="role"><div class="rt">Humanitarian and aid nursing</div><div class="rd">Field roles with international NGOs.</div></div>
+  </section>
+
+  <div class="guide">
+    <div class="ge">The full guide</div>
+    <h3>This page is the map. The guide is the detail.</h3>
+    <p>Every route above has a full profile in <i>Beyond the Bedside</i>: what the day actually looks like, what qualifications you need, how to get the experience while you are still on the ward, and where the jobs are advertised. It comes with the Clinical Interview Playbook.</p>
+    <a class="btn" href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener">See what's in the Playbook →</a>
+  </div>
+
+  <div class="note"><b>Thinking about the industry route in particular?</b> That is the move Lou made herself, from registered nurse to Head of Training and Development in medical devices. The <a href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener">Medical Sales Accelerator</a> is built specifically for clinicians making it.</div>
+
+  <div class="note"><b>Pay:</b> deliberately not listed here, because NHS bands change every April and a figure on a page like this goes stale quietly. The current Agenda for Change bands are kept up to date on <a href="careers.html">Careers &amp; Pay</a>.</div>
+
+  <section data-route="all">
+    <div class="eb">Next step</div>
+    <h2>While you are here</h2>
+    <a class="card" href="clinical-roles.html"><div class="ct"><span>Live Clinical Roles</span><span class="arrow">→</span></div><div class="cd">Nursing and care vacancies open right now, straight from NHS Jobs.</div></a>
+    <a class="card" href="cv-tailor.html"><div class="ct"><span>CV Tailor</span><span class="arrow">→</span></div><div class="cd">Reshape your CV for the job you want, without changing the facts.</div></a>
+    <a class="card" href="whats-next.html"><div class="ct"><span>What's Next</span><span class="arrow">→</span></div><div class="cd">The routes mapped out from wherever you are standing now.</div></a>
+  </section>
+
+  <footer>The Clinical Hub · Beyond the Bedside<br>Role summaries drawn from Lou's careers guide of the same name. Entry requirements change, so always check the current standard with the NMC or the employer.</footer>
+
+</div></div>
+
+<script>
+  document.querySelectorAll('#routeTabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#routeTabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.route;
+      document.querySelectorAll('section[data-route]').forEach(function(s){
+        var r=s.dataset.route;
+        s.classList.toggle('hidden', !(f==='all' || r==='all' || r===f));
+      });
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="hub-cloud.js"></script>
+<script src="hub-gate.js"></script>
+</body>
+</html>
