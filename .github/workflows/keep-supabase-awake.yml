@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Ping the Supabase project
         env:
-          SUPA_URL: https://muxclovtzpgtjvjyahac.supabase.co
-          SUPA_KEY: sb_publishable_gxCQKDwQxZRCZxkfclN1_Q_yOMxqBnA
+          SUPA_URL: https://vbthumugbzyqndirmyns.supabase.co
+          SUPA_KEY: sb_publishable_U-4Fni78kJOu7fd_HhT_Kg_6Icm4LRk
         run: |
           set -uo pipefail
           fail=0
@@ -35,7 +35,7 @@ jobs:
             esac
           done
           if [ "${fail}" -ne 0 ]; then
-            echo "::error::Supabase did not respond. The project is probably paused - restore it at https://supabase.com/dashboard/project/muxclovtzpgtjvjyahac"
+            echo "::error::Supabase did not respond. The project is probably paused - restore it at https://supabase.com/dashboard/project/vbthumugbzyqndirmyns"
             exit 1
           fi
           echo "Supabase is awake."

@@ -13,8 +13,8 @@
 (function (global) {
   'use strict';
 
-  var SUPABASE_URL = 'https://muxclovtzpgtjvjyahac.supabase.co';
-  var SUPABASE_KEY = 'sb_publishable_gxCQKDwQxZRCZxkfclN1_Q_yOMxqBnA';
+  var SUPABASE_URL = 'https://vbthumugbzyqndirmyns.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_U-4Fni78kJOu7fd_HhT_Kg_6Icm4LRk';
   var BUCKET = 'evidence';
 
   var sb = null;

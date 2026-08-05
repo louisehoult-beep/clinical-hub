@@ -8,7 +8,7 @@
   'use strict';
 
   var PENDING_KEY = 'hubGatePendingProfile';
-  var SUPABASE_URL = 'https://muxclovtzpgtjvjyahac.supabase.co';
+  var SUPABASE_URL = 'https://vbthumugbzyqndirmyns.supabase.co';
 
   var ROLES = ['Nurse', 'Midwife', 'Radiographer', 'Doctor', 'Carer', 'Care Manager', 'Nursing Associate', 'Allied Health Professional', 'Student', 'Other'];
   var REG_BODIES = ['NMC', 'GMC', 'HCPC', 'None / not applicable'];
