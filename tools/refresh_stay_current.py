@@ -5,6 +5,13 @@ None of the NMC, RCN or CQC publish an RSS feed, so this reads their news listin
 pages and pulls out the item links. It deliberately keys off URL shape and anchor
 text rather than CSS classes, because those change far more often.
 
+RCNi is the fourth source and works differently: rcni.com sits behind Akamai and
+403s every non-browser client, so it cannot be scraped from here or from a GitHub
+runner. Its items are read out of the RCNi weekly briefing in Lou's Outlook by
+tools/rcni_from_outlook.py and merged in from rcni-inbox.json. That means the
+three official sources refresh laptop-independently on the Action, and RCNi
+refreshes when the weekly Cowork task runs.
+
 Safety rule: if a source yields nothing, the previous items for that source are kept
 and the run exits non-zero. A red run is a signal to fix the parser; it must never
 leave Lou with a blank or half-empty page.
@@ -16,6 +23,7 @@ from urllib.request import Request, urlopen
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE = os.path.join(HERE, 'stay-current.html')
 DATA = os.path.join(HERE, 'stay-current-data.json')
+RCNI = os.path.join(HERE, 'rcni-inbox.json')
 PER_SOURCE = 5
 UA = 'Mozilla/5.0 (compatible; ClinicalHubBot/1.0; +https://clinicalhub.elevateandthrive.uk)'
 
@@ -124,6 +132,19 @@ def render(items):
     return ''.join(rows)
 
 
+def load_rcni():
+    """RCNi items staged from Outlook. Absent is normal on an Action run — the
+    Action has no mailbox — so it is not treated as a failure here; the previous
+    RCNi items are carried instead."""
+    if not os.path.exists(RCNI):
+        return []
+    try:
+        return json.load(open(RCNI, encoding='utf-8')).get('items', [])
+    except Exception as e:
+        print('  RCNi: rcni-inbox.json unreadable (%s)' % e)
+        return []
+
+
 def main():
     previous = {}
     if os.path.exists(DATA):
@@ -134,6 +155,18 @@ def main():
     prev_items = previous.get('items', [])
 
     collected, failed = [], []
+
+    rcni = load_rcni()
+    if rcni:
+        used = rcni[:PER_SOURCE]
+        print('  RCNi: %d item(s) staged from the Outlook briefing, using %d'
+              % (len(rcni), len(used)))
+        collected += used
+    else:
+        kept = [i for i in prev_items if i.get('src') == 'rcni']
+        print('  RCNi: nothing staged, keeping %d previous item(s)' % len(kept))
+        collected += kept
+
     for s in SOURCES:
         try:
             got = scrape(s)

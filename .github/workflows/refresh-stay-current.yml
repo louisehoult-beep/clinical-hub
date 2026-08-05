@@ -1,9 +1,21 @@
-name: Refresh Stay Current
+name: Weekly refresh
 
-# Rebuilds the Stay Current list each week from the official NMC, RCN and CQC news
-# pages, then commits the result. None of the three publish an RSS feed, so this
-# reads their listing pages. If a source stops parsing, the page keeps its previous
-# entries and this run goes red so the parser can be fixed.
+# Rebuilds two pages each Monday:
+#   Stay Current        — NMC, RCN and CQC news (none of the three publish RSS,
+#                         so this reads their listing pages)
+#   Live Clinical Roles — nursing and care vacancies from the HealthJobsUK feed
+#
+# What this job deliberately does NOT do:
+#   * RCNi. rcni.com is behind Akamai and 403s every non-browser client, so it
+#     cannot be read from a runner. Its items come from the RCNi briefing in
+#     Lou's Outlook via the clinical-hub-weekly Cowork task, which writes
+#     rcni-inbox.json. This job merges whatever is already in the repo and never
+#     wipes it.
+#   * LinkedIn. Scraping it breaches their terms and returns HTTP 999 from a
+#     datacentre IP regardless. See clinical-hub-weekly/SKILL.md.
+#
+# If a source stops parsing, the page keeps its previous entries and this run
+# goes red so the parser can be fixed. A red run never leaves a blank page.
 
 on:
   schedule:
@@ -23,26 +35,34 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Rebuild the list
-        id: rebuild
+      - name: Rebuild Stay Current
+        id: news
         continue-on-error: true
         run: python tools/refresh_stay_current.py
+
+      - name: Rebuild Live Clinical Roles
+        id: roles
+        continue-on-error: true
+        run: python tools/refresh_clinical_roles.py
 
       - name: Commit if anything changed
         run: |
           set -e
-          if [ -z "$(git status --porcelain stay-current.html stay-current-data.json)" ]; then
+          CHANGED=$(git status --porcelain stay-current.html stay-current-data.json \
+                                           clinical-roles.html clinical-roles-data.json)
+          if [ -z "$CHANGED" ]; then
             echo "No change this week."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add stay-current.html stay-current-data.json
-          git commit -m "Stay Current: weekly refresh from NMC, RCN and CQC"
+          git add stay-current.html stay-current-data.json \
+                  clinical-roles.html clinical-roles-data.json
+          git commit -m "Weekly refresh: Stay Current and Live Clinical Roles"
           git push
 
       - name: Surface parser failures
-        if: steps.rebuild.outcome == 'failure'
+        if: steps.news.outcome == 'failure' || steps.roles.outcome == 'failure'
         run: |
-          echo "One or more sources did not parse. The page kept its previous entries."
+          echo "One or more sources did not parse. The affected page kept its previous entries."
           exit 1

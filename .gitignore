@@ -1,1 +1,7 @@
 _to_delete/
+
+# Raw email bodies staged from Lou's Outlook by the clinical-hub-weekly task.
+# Never commit this: it is her private mail, and every link inside it is an
+# Adestra redirect keyed to her own subscriber record. Only the resolved,
+# de-tracked output (rcni-inbox.json) belongs in the repo.
+_inbox-staging.json
