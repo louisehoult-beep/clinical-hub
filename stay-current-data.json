@@ -1,6 +1,14 @@
 {
-  "refreshed": "2026-08-05",
+  "refreshed": "2026-08-10",
   "items": [
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-calls-for-end-to-grotesque-exploitation-of-migrant-nursing-staff-070826",
+      "title": "RCN calls for end to ‘grotesque’ exploitation of migrant nursing staff",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-08-07",
+      "date": "07 Aug"
+    },
     {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-nursing-staff-face-uncertainty-as-updated-ehrc-code-comes-into-force-050826",
       "title": "Nursing staff face uncertainty as updated EHRC code comes into force",
@@ -136,14 +144,6 @@
       "label": "CQC",
       "iso": "2026-07-22",
       "date": "22 Jul"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-tells-new-health-secretary-nursing-pay-reform-cant-wait-210726",
-      "title": "RCN tells new health secretary: nursing pay reform can't wait",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-07-21",
-      "date": "21 Jul"
     }
   ]
 }
