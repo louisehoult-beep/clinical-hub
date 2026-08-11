@@ -1,6 +1,30 @@
 {
-  "refreshed": "2026-08-10",
+  "refreshed": "2026-08-11",
   "items": [
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/patient-suicide-not-my-job-attitude-risks-lives-warns-coroner-223666",
+      "title": "Patient suicide: ‘not my job’ attitude risks lives, warns coroner",
+      "iso": "2026-08-10",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "10 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/fake-nurse-titles-time-for-urgent-action-not-consultation-223626",
+      "title": "Fake nurse titles: ‘time for urgent action, not consultation’",
+      "iso": "2026-08-10",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "10 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/one-third-on-nmc-register-now-ethnic-minority-groups-223586",
+      "title": "One third on NMC register now from ethnic minority groups",
+      "iso": "2026-08-10",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "10 Aug"
+    },
     {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-calls-for-end-to-grotesque-exploitation-of-migrant-nursing-staff-070826",
       "title": "RCN calls for end to ‘grotesque’ exploitation of migrant nursing staff",
@@ -16,14 +40,6 @@
       "label": "RCN",
       "iso": "2026-08-05",
       "date": "05 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/suspended-nurse-demands-mps-hold-nmc-to-account-223596",
-      "title": "Suspended nurse gets MPs’ backing for inquiry to hold NMC to account",
-      "iso": "2026-08-03",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "03 Aug"
     },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-struck-for-mislabelling-and-reselling-iv-product-223576",
@@ -120,22 +136,6 @@
       "label": "RCN",
       "iso": "2026-07-28",
       "date": "28 Jul"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/if-i-lose-my-pin-i-lose-my-home-nurse-speaks-out-over-nmc-blunder-223441",
-      "title": "‘If I lose my PIN, I lose my home’: nurse speaks out over NMC blunder",
-      "iso": "2026-07-27",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "27 Jul"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nmc-pin-lapse-left-ward-without-nurse-cover-all-night-223516",
-      "title": "NMC registration lapse left ward without nurse cover all night",
-      "iso": "2026-07-27",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "27 Jul"
     },
     {
       "url": "https://www.cqc.org.uk/news/emily-miles-appointed-chief-executive-care-quality-commission",

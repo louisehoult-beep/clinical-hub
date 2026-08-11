@@ -1,13 +1,29 @@
 {
-  "written": "2026-08-05",
+  "written": "2026-08-11",
   "items": [
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/suspended-nurse-demands-mps-hold-nmc-to-account-223596",
-      "title": "Suspended nurse gets MPs’ backing for inquiry to hold NMC to account",
-      "iso": "2026-08-03",
+      "url": "https://rcni.com/nursing-standard/newsroom/news/patient-suicide-not-my-job-attitude-risks-lives-warns-coroner-223666",
+      "title": "Patient suicide: ‘not my job’ attitude risks lives, warns coroner",
+      "iso": "2026-08-10",
       "src": "rcni",
       "label": "RCNi",
-      "date": "03 Aug"
+      "date": "10 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/fake-nurse-titles-time-for-urgent-action-not-consultation-223626",
+      "title": "Fake nurse titles: ‘time for urgent action, not consultation’",
+      "iso": "2026-08-10",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "10 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/one-third-on-nmc-register-now-ethnic-minority-groups-223586",
+      "title": "One third on NMC register now from ethnic minority groups",
+      "iso": "2026-08-10",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "10 Aug"
     },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-struck-for-mislabelling-and-reselling-iv-product-223576",
@@ -26,28 +42,12 @@
       "date": "03 Aug"
     },
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/if-i-lose-my-pin-i-lose-my-home-nurse-speaks-out-over-nmc-blunder-223441",
-      "title": "‘If I lose my PIN, I lose my home’: nurse speaks out over NMC blunder",
-      "iso": "2026-07-27",
+      "url": "https://rcni.com/nursing-standard/newsroom/news/she-would-100-still-be-here-nurse-sisters-anger-ppe-failures-223481",
+      "title": "Sister of nurse who died wants those in charge in to admit wrongdoing",
+      "iso": "2026-08-03",
       "src": "rcni",
       "label": "RCNi",
-      "date": "27 Jul"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nmc-pin-lapse-left-ward-without-nurse-cover-all-night-223516",
-      "title": "NMC registration lapse left ward without nurse cover all night",
-      "iso": "2026-07-27",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "27 Jul"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/who-new-health-secretary-yvette-cooper-and-will-she-take-on-nursing-pay-223496",
-      "title": "Who is new health and social care secretary Yvette Cooper?",
-      "iso": "2026-07-27",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "27 Jul"
+      "date": "03 Aug"
     }
   ]
 }
