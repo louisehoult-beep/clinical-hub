@@ -94,7 +94,7 @@
   <header>
     <div class="eyebrow">The Clinical Hub · Careers</div>
     <h1>CV Tailor</h1>
-    <div class="tag">Reshape your CV for the job you actually want — in your words, with your facts.</div>
+    <div class="tag">Reshape your CV for the job you actually want, and check it reads as a professional UK CV — in your words, with your facts.</div>
   </header>
 
   <div class="trust"><span class="shield">✓</span> <b>Never invents anything.</b> It re-emphasises the true experience you already have to match the role.</div>
@@ -189,10 +189,61 @@ function buildResult(cv,jt,jd){
       gaps.map(function(w){return '<span class="tag3">+ '+esc(cap(w))+'</span>';}).join('')+
       '<p class="hint" style="margin-top:8px">Only include these if you genuinely have them. Never claim a skill you don\'t hold — that\'s the line that keeps you safe and honest.</p></div></div>';
   }
+  var fc=formatChecks(cv);
+  var passCount=fc.filter(function(c){return c.ok;}).length;
+  html+='<div class="rcard"><div class="rh">Formatting &amp; professional polish ('+passCount+'/'+fc.length+')</div><div class="rb">'+
+    fc.map(function(c){return '<div style="display:flex;gap:9px;padding:7px 0;border-bottom:1px solid var(--line);">'+
+      '<span style="flex:0 0 auto;color:'+(c.ok?'var(--ok)':'#a35d1f')+';font-weight:700;">'+(c.ok?'✓':'!')+'</span>'+
+      '<div><div style="font-weight:600;font-size:13px;color:var(--ink);">'+esc(c.label)+'</div>'+
+      '<div style="font-size:12px;color:#6b6459;margin-top:2px;line-height:1.45;">'+esc(c.detail)+'</div></div></div>';}).join('')+
+    '<p class="hint" style="margin-top:8px">UK CV conventions checked against your text, not your layout, always eyeball the finished document for consistent fonts, spacing and no photo before you send it.</p>'+
+    '</div></div>';
   html+='<button class="btn ghost" onclick="copyOut()">Copy my tailored summary</button>';
   document.getElementById('result').innerHTML=html;
   window._out=summary;
   document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+// ---- formatting & professional-polish checks (UK CV conventions) ----
+function formatChecks(cv){
+  var lower=cv.toLowerCase();
+  var wc=cv.trim().split(/\s+/).filter(Boolean).length;
+  var checks=[];
+  function add(ok,label,detail){checks.push({ok:ok,label:label,detail:detail});}
+
+  add(!/\b(date of birth|d\.?o\.?b\.?|born on)\b/.test(lower),
+    'No date of birth', 'UK CVs never include age or date of birth. Remove it if present, it isn\'t relevant and can invite bias.');
+
+  add(!/\b(marital status|married|single|divorced)\b.{0,15}\b(status)?\b/.test(lower) || !/marital/.test(lower),
+    'No marital status', 'Leave out marital status, children or dependants. Not expected on a UK CV.');
+
+  add(!/\bnationality\b/.test(lower),
+    'No nationality field', 'Only mention right-to-work if a job asks for it directly, not as a standalone CV line.');
+
+  add(!/\breferences available (up on|on) request\b/.test(lower),
+    'No "references available on request"', 'This line is assumed and wastes a line. Cut it, or name referees only if the advert asks for them.');
+
+  add(wc>=280 && wc<=950,
+    'Sensible length (roughly 1-2 pages)',
+    wc<280 ? ('Currently about '+wc+' words, that reads thin. Add more detail to recent, relevant roles.')
+            : (wc>950 ? ('Currently about '+wc+' words, that\'s likely running past two pages. Tighten older or less relevant roles.')
+                       : ('About '+wc+' words, a good UK CV length.')));
+
+  var iCount=(cv.match(/\bI\b/g)||[]).length;
+  add(iCount<=6,
+    'Achievement-led, not "I" led',
+    iCount<=6 ? 'Good, the CV reads as achievement bullets rather than a first-person narrative.'
+              : ('Found "I" '+iCount+' times. UK CVs drop the pronoun: "Managed a 30-bed ward" reads stronger than "I managed a 30-bed ward".'));
+
+  add(/\b(19|20)\d{2}\b/.test(cv),
+    'Dates present on roles',
+    /\b(19|20)\d{2}\b/.test(cv) ? 'Dates found, just check the most recent role is listed first (reverse-chronological).'
+                                  : 'No years found. Every role needs a start and end date (or "present"), most recent first.');
+
+  add(/@[a-z0-9.\-]+\.[a-z]{2,}/i.test(cv) && /\b0\d{9,10}\b|\+44/.test(cv.replace(/[^0-9+]/g,' ')),
+    'Contact details findable',
+    'Email and a UK phone number should sit clearly at the top, no need for a full postal address any more.');
+
+  return checks;
 }
 function isSkill(w){for(var i=0;i<CARE_SKILLS.length;i++){if(CARE_SKILLS[i].indexOf(w)>=0||w.indexOf(CARE_SKILLS[i])>=0)return 1;}return 0;}
 function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
