@@ -1,6 +1,14 @@
 {
-  "refreshed": "2026-08-11",
+  "refreshed": "2026-08-17",
   "items": [
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-heatwave-nursing-staff-working-in-impossible-and-inhumane-conditions-130826",
+      "title": "UK heatwave: nursing staff working in 'impossible and inhumane' conditions",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-08-13",
+      "date": "13 Aug"
+    },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/patient-suicide-not-my-job-attitude-risks-lives-warns-coroner-223666",
       "title": "Patient suicide: ‘not my job’ attitude risks lives, warns coroner",
@@ -128,14 +136,6 @@
       "label": "RCN",
       "iso": "2026-07-29",
       "date": "29 Jul"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-new-chair-and-vice-chair-of-rcn-congress-announced-280726",
-      "title": "New Chair and Vice Chair of RCN Congress announced",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-07-28",
-      "date": "28 Jul"
     },
     {
       "url": "https://www.cqc.org.uk/news/emily-miles-appointed-chief-executive-care-quality-commission",
