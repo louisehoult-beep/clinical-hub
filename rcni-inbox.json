@@ -1,6 +1,30 @@
 {
-  "written": "2026-08-17",
+  "written": "2026-08-24",
   "items": [
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/band-5-role-reviews-most-of-trusts-nurses-will-not-be-upbanded-predicts-hr-boss-223841",
+      "title": "Band 5 role reviews: most of trust's nurses will not be upbanded, predicts HR boss",
+      "iso": "2026-08-24",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "24 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/30-senior-nurses-to-take-industrial-action-after-year-long-dispute-223836",
+      "title": "30 senior nurses to take industrial action after year-long dispute",
+      "iso": "2026-08-24",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "24 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/ftp-cases-record-high-nmcs-long-delays-affecting-well-being-223816",
+      "title": "FtP cases at record high: NMC's long delays 'affecting well-being'",
+      "iso": "2026-08-24",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "24 Aug"
+    },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766",
       "title": "Nurses face extra 12.5-hour shift to make-up for unpaid breaks",
@@ -24,30 +48,6 @@
       "src": "rcni",
       "label": "RCNi",
       "date": "17 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/hundreds-of-nurses-and-critical-care-staff-win-overtime-pay-dispute-223636",
-      "title": "Hundreds of nurses and critical care staff win overtime pay dispute",
-      "iso": "2026-08-10",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "10 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/patient-suicide-not-my-job-attitude-risks-lives-warns-coroner-223666",
-      "title": "Patient suicide: 'not my job' attitude risks lives, warns coroner",
-      "iso": "2026-08-10",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "10 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/fake-nurse-titles-time-for-urgent-action-not-consultation-223626",
-      "title": "Fake nurse titles: 'time for urgent action, not consultation'",
-      "iso": "2026-08-10",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "10 Aug"
     }
   ]
 }
