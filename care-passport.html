@@ -70,9 +70,6 @@
   .extract .r{display:flex;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--line);font-size:13.5px}
   .extract .r:last-child{border-bottom:0}
   .extract .r b{color:var(--ink)}
-  .scan{text-align:center;padding:26px 0}
-  .scan .dot{font-size:34px;animation:pulse 1s infinite}
-  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
   .draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px;line-height:1.6;white-space:pre-wrap;color:#4a4238;margin-top:8px}
   .close{float:right;background:none;border:0;font-size:24px;color:#9a9186;cursor:pointer;line-height:1}
   .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:80;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}
@@ -99,7 +96,7 @@
 <link rel="stylesheet" href="hub-shell.css">
 </head>
 <body>
-<div class="mocklabel">Your passport and certificates save to your account · automatic certificate reading coming soon</div>
+<div class="mocklabel">Your passport stays on this device · download it any time</div>
 <div class="phone"><div class="scroll">
 
   <header>
@@ -124,9 +121,9 @@
 
   <div class="hero">
     <div class="h">Build your passport</div>
-    <button class="act" onclick="gateThen(openCert)">
+    <button class="act" onclick="openCert()">
       <div class="ic">📷</div><div class="t">Add training from a certificate</div>
-      <div class="d">Snap it — we log it &amp; track the expiry</div><span class="ai">AI</span>
+      <div class="d">Log it and track the expiry</div>
     </button>
     <button class="act" onclick="gateThen(openReflect)">
       <div class="ic">✍️</div><div class="t">Reflection coach</div>
@@ -206,7 +203,7 @@ document.getElementById('overlay').addEventListener('click',function(e){if(e.tar
 // ---- free sign-up gate on AI features ----
 var pending=null;
 function gateThen(fn){ if(S.signed){fn();return;} pending=fn;
-  show('<h3>Free sign-up</h3><p class="lead">The smart features (reading your certificates, the reflection coach) are free — just pop in your email so we can save your passport and send you reminders.</p>'+
+  show('<h3>Free sign-up</h3><p class="lead">The reflection coach is free — just pop in your email and we will send you renewal reminders.</p>'+
     '<div class="gate">✨ <b>Free forever.</b> This is how the Hub stays free — and how you get renewal reminders.</div>'+
     '<label>Your email</label><input type="email" id="gEmail" placeholder="you@email.com">'+
     '<button class="btn" onclick="doSign()">Unlock the smart features</button>');
@@ -214,52 +211,25 @@ function gateThen(fn){ if(S.signed){fn();return;} pending=fn;
 function doSign(){var e=val('gEmail'); if(!e||e.indexOf("@")<0){toast('Pop in a valid email');return;} S.email=e;S.signed=true;save();hide();toast('Signed up — smart features unlocked ✓'); if(pending){var f=pending;pending=null;setTimeout(f,250);} }
 
 // ---- cert -> training ----
-function cpEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function ukDate(iso){ if(!iso) return ''; var p=String(iso).split('-'); return p.length===3 ? p[2]+'/'+p[1]+'/'+p[0] : String(iso); }
 
 function openCert(){
-  show('<h3>Add training from a certificate</h3><p class="lead">Upload your certificate and we\'ll keep it safely against your account. Add the details and we\'ll track when it needs renewing.</p>'+
-    '<label>Certificate file</label><input type="file" id="certFile" accept="image/*,application/pdf">'+
-    '<div class="simnote">Reading the details off the certificate for you is a smart feature we\'re still building. For now please type them in. The file itself is stored properly.</div>'+
+  show('<h3>Add training from a certificate</h3><p class="lead">Type in the details from your certificate and we will track when it needs renewing. Keep the certificate itself with your own records.</p>'+
     '<label>Course or training</label><input id="cTitle" placeholder="e.g. Moving &amp; Handling of People">'+
     '<label>Provider</label><input id="cProvider" placeholder="e.g. Skills for Care endorsed">'+
-    '<label>Date completed</label><input type="date" id="cDate">'+
-    '<label>Renew by (leave blank if it doesn\'t expire)</label><input type="date" id="cRenew">'+
+    '<label>Renew by (leave blank if it does not expire)</label><input type="date" id="cRenew">'+
     '<button class="btn" onclick="saveCert()">Save to my passport</button>');
 }
 
 function saveCert(){
-  var title=val('cTitle'), provider=val('cProvider'), iso=val('cDate'), renew=val('cRenew');
+  var title=val('cTitle'), provider=val('cProvider'), renew=val('cRenew');
   if(!title){ toast('Give the training a name first'); return; }
 
   var label=title+(provider?' — '+provider:'');
-  var input=document.getElementById('certFile');
-  var file=input && input.files && input.files[0];
-
-  function record(){
-    S.training+=1;
-    S.trainingItems.push(label+(renew?' (renew by '+ukDate(renew)+')':''));
-    save();
-  }
-
-  if(!file){ record(); hide(); toast('Training logged ✓'); return; }
-
-  if(!window.Hub || !Hub.signedIn()){
-    record(); hide();
-    toast('Training logged — sign in to store the certificate too');
-    return;
-  }
-
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your certificate…</p></div>';
-  Hub.uploadEvidence(file,{title:label,doc_type:'Certificate',section:'Training',doc_date:iso||new Date().toISOString().slice(0,10)})
-    .then(function(){ record(); hide(); toast('Certificate saved and training logged ✓'); })
-    .catch(function(err){
-      record();
-      show('<h3>Couldn\'t save that file</h3>'+
-        '<p class="lead">'+cpEsc(err.message||'Something went wrong uploading it.')+'</p>'+
-        '<p class="lead">The training has still been logged to your passport.</p>'+
-        '<button class="btn ghost" onclick="hide()">Close</button>');
-    });
+  S.training+=1;
+  S.trainingItems.push(label+(renew?' (renew by '+ukDate(renew)+')':''));
+  save();
+  hide(); toast('Training logged ✓');
 }
 
 // ---- reflection ----
@@ -325,8 +295,6 @@ function openProfile(){
 function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
 render();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="hub-cloud.js"></script>
 <script src="analytics.js"></script>
 <script src="hub-nav.js"></script>
 </body>

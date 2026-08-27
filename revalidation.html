@@ -20,15 +20,10 @@
   .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
   .trust b{color:var(--slate);font-weight:700;}
   .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
-  .acct{background:var(--cool);border-bottom:1px solid var(--line);padding:13px 20px;}
-  .acctlead{font-size:13px;color:#33404d;line-height:1.45;}
-  .acctlead b{color:var(--slate);}
   .acctrow{display:flex;gap:8px;margin-top:9px;}
   .acctrow input{flex:1;min-width:0;border:1.5px solid var(--greige);border-radius:9px;padding:10px 11px;font-size:15px;font-family:inherit;background:#fff;color:var(--body);}
   .acctrow button{flex:0 0 auto;background:var(--slate);color:#fff;border:0;border-radius:9px;padding:10px 14px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;}
   .acctrow button.ghost{background:#fff;color:var(--slate);border:1.5px solid var(--greige);}
-  .acctnote{font-size:11.5px;color:#77818c;margin-top:7px;line-height:1.45;}
-  .acctnote a{color:var(--ox);}
   .cycle{display:flex;gap:10px;margin-top:14px;background:rgba(255,255,255,.07);border-radius:12px;padding:12px 14px;align-items:center;}
   .cycle .big{font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff;line-height:1;}
   .cycle .lab{font-size:11px;color:#cfc7ba;text-transform:uppercase;letter-spacing:1px;}
@@ -88,9 +83,6 @@
   .extract .r{display:flex;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--line);font-size:13.5px;}
   .extract .r:last-child{border-bottom:0;}
   .extract .r b{color:var(--ink);}
-  .scan{text-align:center;padding:26px 0;}
-  .scan .dot{font-size:34px;animation:pulse 1s infinite;}
-  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
   .draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px;line-height:1.6;white-space:pre-wrap;color:#4a4238;margin-top:8px;}
   .close{float:right;background:none;border:0;font-size:24px;color:#9a9186;cursor:pointer;line-height:1;}
   .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:80;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3);}
@@ -116,7 +108,7 @@
     .phone{max-width:900px;border-radius:22px;}
     .scroll{height:auto;max-height:none;overflow-y:visible;}
     header{padding:26px 34px 26px;}
-    .trust,.acct,.overall,.reqs,.hero{padding-left:32px;padding-right:32px;}
+    .trust,.overall,.reqs,.hero{padding-left:32px;padding-right:32px;}
     .hero{grid-template-columns:repeat(3,1fr);gap:14px;}
     footer{padding:22px 30px 32px;}
   }
@@ -124,7 +116,7 @@
 <link rel="stylesheet" href="hub-shell.css">
 </head>
 <body>
-<div class="mocklabel">Your pack and certificates save to your account · automatic certificate reading coming soon</div>
+<div class="mocklabel">Your pack stays on this device · download it any time</div>
 <div class="phone"><div class="scroll">
 
   <header>
@@ -146,25 +138,6 @@
 
   <div class="trust"><span class="shield">✓</span> Built around the NMC's <b>eight revalidation requirements</b> · verified July 2026</div>
 
-  <div class="acct">
-    <div id="acctOut">
-      <div class="acctlead">☁️ <b>Sign in to keep your pack safe</b> — saved securely, and there on every device.</div>
-      <div class="acctrow">
-        <input type="email" id="acctEmail" placeholder="your@email.com" autocomplete="email">
-        <button onclick="hubSignIn()">Email me a link</button>
-      </div>
-      <div class="acctnote">No password to remember — we email you a link that signs you straight in.</div>
-    </div>
-    <div id="acctIn" style="display:none">
-      <div class="acctlead">☁️ <b>Saved to your account</b> — <span id="acctWho"></span></div>
-      <div class="acctrow">
-        <button class="ghost" onclick="hubExport()">Download all my data</button>
-        <button class="ghost" onclick="hubSignOut()">Sign out</button>
-      </div>
-      <div class="acctnote"><a href="#" onclick="hubDelete();return false;">Delete my account and everything in it</a></div>
-    </div>
-  </div>
-
   <div class="overall">
     <div class="row"><h2>Your pack</h2><span class="pct" id="overallPct">0% ready</span></div>
     <div class="bar"><i id="overallBar"></i></div>
@@ -176,12 +149,12 @@
     <div class="h">Already got a portfolio started?</div>
     <button class="act alt" style="grid-column:1/-1" onclick="openImport()">
       <div class="ic">📥</div><div class="t">Import my existing portfolio</div>
-      <div class="d">From RCNi or anywhere else — save it here and see what's still outstanding</div>
+      <div class="d">From RCNi or anywhere else — copy your totals in and see what's still outstanding</div>
     </button>
     <div class="h">Do the hard bits in seconds</div>
     <button class="act" onclick="openCert()">
       <div class="ic">📷</div><div class="t">Add CPD from a certificate</div>
-      <div class="d">Snap it — we read &amp; log the hours</div><span class="ai">AI</span>
+      <div class="d">Log the hours against your pack</div>
     </button>
     <button class="act" onclick="openReflect()">
       <div class="ic">✍️</div><div class="t">Reflection coach</div>
@@ -189,7 +162,7 @@
     </button>
     <button class="act" onclick="openTimesheet()">
       <div class="ic">🗓️</div><div class="t">Confirm hours from a timesheet</div>
-      <div class="d">Scan a timesheet, rota or payslip</div><span class="ai">AI</span>
+      <div class="d">From a timesheet, rota or payslip</div>
     </button>
     <button class="act alt" onclick="openFeedback()">
       <div class="ic">📨</div><div class="t">Request feedback</div>
@@ -201,7 +174,7 @@
     </button>
     <button class="act alt" onclick="openEvidence()">
       <div class="ic">🗂️</div><div class="t">My evidence log</div>
-      <div class="d">Every document you've scanned</div>
+      <div class="d">Everything you've logged</div>
     </button>
   </div>
 
@@ -221,8 +194,6 @@
 <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="hub-cloud.js"></script>
 <script>
 // ---------- state ----------
 var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
@@ -231,17 +202,8 @@ var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
   cpdItems:[], reflItems:[], evidence:[], hoursItems:[], feedbackItems:[]
 };
 if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
-function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();cloudPush();}
+function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();}
 
-// Push to the cloud too, but not on every keystroke.
-var _pushTimer=null;
-function cloudPush(){
-  if(!window.Hub || !Hub.signedIn()) return;
-  clearTimeout(_pushTimer);
-  _pushTimer=setTimeout(function(){
-    Hub.save('revalidation', S).catch(function(e){ toast('Could not save to your account'); });
-  }, 900);
-}
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
 
 // ---------- requirements model ----------
@@ -289,15 +251,10 @@ function hide(){document.getElementById('overlay').classList.remove('show');}
 document.getElementById('overlay').addEventListener('click',function(e){if(e.target.id==='overlay')hide();});
 
 // ---------- FLOW 1: certificate -> CPD ----------
-// The chosen file is genuinely uploaded to the member's private evidence store in
-// Supabase. Reading the details off it is a separate (unbuilt) feature, so the member
-// types them in rather than us showing invented data.
 function ukDate(iso){ if(!iso) return ''; var p=String(iso).split('-'); return p.length===3 ? p[2]+'/'+p[1]+'/'+p[0] : String(iso); }
 
 function openCert(){
-  show('<h3>Add CPD from a certificate</h3><p class="lead">Upload your certificate and we\'ll keep it safely against your account as evidence. Add the details below and the hours go straight into your pack.</p>'+
-    '<label>Certificate file</label><input type="file" id="certFile" accept="image/*,application/pdf">'+
-    '<div class="simnote">Reading the details off the certificate for you is a smart feature we\'re still building. For now please type them in. The file itself is stored properly.</div>'+
+  show('<h3>Add CPD from a certificate</h3><p class="lead">Type in the details from your certificate and the hours go straight into your pack. Keep the certificate itself with your own records.</p>'+
     '<label>Course or activity</label><input id="cTitle" placeholder="e.g. Wound Care &amp; Tissue Viability Update">'+
     '<label>Provider</label><input id="cProvider" placeholder="e.g. RCNi Learning">'+
     '<label>Date completed</label><input type="date" id="cDate">'+
@@ -315,34 +272,11 @@ function saveCert(){
   if(h<=0){ toast('Add the number of CPD hours'); return; }
 
   var label=title+(provider?' — '+provider:'');
-  var input=document.getElementById('certFile');
-  var file=input && input.files && input.files[0];
-
-  function record(stored){
-    S.cpd+=h; if(p)S.cpdPart+=h;
-    S.cpdItems.push({title:label,hours:h,part:p});
-    S.evidence.push({type:'Certificate',title:label,section:'CPD',date:ukDate(iso),stored:!!stored});
-    save();
-  }
-
-  if(!file){ record(false); hide(); toast('Added '+h+'h CPD to your pack ✓'); return; }
-
-  if(!window.Hub || !Hub.signedIn()){
-    record(false); hide();
-    toast('Added '+h+'h CPD — sign in to store the file too');
-    return;
-  }
-
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your certificate…</p></div>';
-  Hub.uploadEvidence(file,{title:label,doc_type:'Certificate',section:'CPD',doc_date:iso||new Date().toISOString().slice(0,10)})
-    .then(function(){ record(true); hide(); toast('Certificate saved and '+h+'h CPD added ✓'); })
-    .catch(function(err){
-      record(false);
-      show('<h3>Couldn\'t save that file</h3>'+
-        '<p class="lead">'+esc(err.message||'Something went wrong uploading it.')+'</p>'+
-        '<p class="lead">Your '+h+' CPD hours have still been added to your pack. It\'s only the file that didn\'t save.</p>'+
-        '<button class="btn ghost" onclick="hide()">Close</button>');
-    });
+  S.cpd+=h; if(p)S.cpdPart+=h;
+  S.cpdItems.push({title:label,hours:h,part:p});
+  S.evidence.push({type:'Certificate',title:label,section:'CPD',date:ukDate(iso)});
+  save();
+  hide(); toast('Added '+h+'h CPD to your pack ✓');
 }
 
 // ---------- FLOW 2: reflection coach ----------
@@ -397,10 +331,8 @@ function simFeedback(){
 
 // ---- FLOW: timesheet / payslip -> practice hours ----
 function openTimesheet(){
-  show('<h3>Confirm hours from a timesheet or payslip</h3><p class="lead">Upload a timesheet, rota or payslip and we\'ll keep it as your evidence. Add the details below and the hours go into your pack.</p>'+
-    '<label>Timesheet / payslip file</label><input type="file" id="tsFile" accept="image/*,application/pdf">'+
-    '<div class="simnote"><b>Confidentiality:</b> we only need dates, employer and hours — you can cover pay figures. Never upload anything showing patient information; the NMC does not allow it in your evidence.</div>'+
-    '<div class="simnote">Reading the document for you is a smart feature we\'re still building, so please type the details in for now.</div>'+
+  show('<h3>Confirm hours from a timesheet or payslip</h3><p class="lead">Type the details off your timesheet, rota or payslip and the hours go into your pack.</p>'+
+    '<div class="simnote"><b>Confidentiality:</b> we only need dates, employer and hours. Never record anything showing patient information; the NMC does not allow it in your evidence.</div>'+
     '<label>Employer</label><input id="tOrg" placeholder="e.g. Lincoln Community NHS Trust">'+
     '<label>Setting / scope of practice</label><input id="tSetting" placeholder="e.g. Community nursing">'+
     '<label>Period covered</label><input id="tDates" placeholder="e.g. 01/05/2026 – 31/05/2026">'+
@@ -415,70 +347,25 @@ function saveTimesheet(){
   if(h<=0){ toast('Add the number of practice hours'); return; }
 
   var label=org+(dates?' — '+dates:'');
-  var input=document.getElementById('tsFile');
-  var file=input && input.files && input.files[0];
-
-  function record(){
-    S.hours+=h;
-    S.hoursItems.push({hours:h,org:org,setting:setting,dates:dates});
-    S.evidence.push({type:'Timesheet / payslip',title:label,section:'Practice hours',date:dates});
-    save();
-  }
-
-  if(!file){ record(); hide(); toast('Confirmed '+h+' practice hours ✓'); return; }
-
-  if(!window.Hub || !Hub.signedIn()){
-    record(); hide();
-    toast('Confirmed '+h+' hours — sign in to store the file too');
-    return;
-  }
-
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your document…</p></div>';
-  Hub.uploadEvidence(file,{title:label,doc_type:'Timesheet / payslip',section:'Practice hours',doc_date:new Date().toISOString().slice(0,10)})
-    .then(function(){ record(); hide(); toast('Document saved and '+h+' hours confirmed ✓'); })
-    .catch(function(err){
-      record();
-      show('<h3>Couldn\'t save that file</h3>'+
-        '<p class="lead">'+esc(err.message||'Something went wrong uploading it.')+'</p>'+
-        '<p class="lead">Your '+h+' practice hours have still been added. It\'s only the file that didn\'t save.</p>'+
-        '<button class="btn ghost" onclick="hide()">Close</button>');
-    });
+  S.hours+=h;
+  S.hoursItems.push({hours:h,org:org,setting:setting,dates:dates});
+  S.evidence.push({type:'Timesheet / payslip',title:label,section:'Practice hours',date:dates});
+  save();
+  hide(); toast('Confirmed '+h+' practice hours ✓');
 }
 
 // ---- evidence log ----
 function openEvidence(){
-  var items=S.evidence.length? S.evidence.map(function(e){return '<div class="evrow"><div><b>'+e.title+'</b><div class="evmeta">'+e.type+' · supports '+e.section+' · '+e.date+'</div></div><span class="evtick">✓</span></div>';}).join('') : '<p class="lead">No evidence yet. Scan a certificate, timesheet or payslip and it appears here.</p>';
-  show('<h3>My evidence log</h3><p class="lead">Every document you\'ve scanned — kept safely and downloaded with your pack.</p>'+items+'<button class="btn ghost" style="margin-top:14px" onclick="hide()">Close</button>');
+  var items=S.evidence.length? S.evidence.map(function(e){return '<div class="evrow"><div><b>'+e.title+'</b><div class="evmeta">'+e.type+' · supports '+e.section+' · '+e.date+'</div></div><span class="evtick">✓</span></div>';}).join('') : '<p class="lead">No evidence yet. Log a certificate, timesheet or payslip and it appears here.</p>';
+  show('<h3>My evidence log</h3><p class="lead">Every document you have logged, listed in the pack you download. Keep the files themselves with your own records.</p>'+items+'<button class="btn ghost" style="margin-top:14px" onclick="hide()">Close</button>');
 }
 
-// ---- import an existing portfolio (RCNi or anywhere else) ----
 function openImport(){
-  if(!window.Hub || !Hub.signedIn()){
-    show('<h3>Sign in first</h3><p class="lead">Importing saves your file to your own account, so we need you signed in first. Scroll up and pop in your email — it only takes a second.</p><button class="btn ghost" onclick="hide()">OK</button>');
-    return;
-  }
-  show('<h3>Import my existing portfolio</h3><p class="lead">Already keeping a portfolio on RCNi or somewhere else? Upload what you\'ve downloaded from it and we\'ll save it safely to your account here too.</p>'+
-    '<label>Your portfolio file</label><input type="file" id="importFile" accept=".pdf,.doc,.docx,.csv,.xlsx,.zip,image/*">'+
-    '<div class="simnote">We can\'t yet read the numbers out of the file automatically — that\'s a smart feature we\'re still building. For now, upload it to keep it safe, then tell us your totals on the next screen and we\'ll update your tracker straight away.</div>'+
-    '<button class="btn" onclick="doImportUpload()">Save this file &amp; continue</button>');
-}
-function doImportUpload(){
-  var input=document.getElementById('importFile');
-  var file=input && input.files && input.files[0];
-  if(!file){ toast('Choose a file first'); return; }
-  document.getElementById('sheet').innerHTML='<div class="scan"><div class="dot">☁️</div><p class="lead" style="margin-top:12px">Saving your file to your account…</p></div>';
-  Hub.uploadEvidence(file, {title:file.name, doc_type:'Portfolio import', section:'Multiple', doc_date: new Date().toISOString().slice(0,10)})
-    .then(function(row){
-      S.evidence.push({type:'Portfolio import',title:file.name,section:'Multiple (imported)',date:row.doc_date || ''});
-      save();
-      showImportTotals();
-    })
-    .catch(function(err){
-      show('<h3>Couldn\'t save that file</h3><p class="lead">'+esc(err.message||'Something went wrong — please try again.')+'</p><button class="btn ghost" onclick="hide()">Close</button>');
-    });
+  show('<h3>Import my existing portfolio</h3><p class="lead">Already keeping a portfolio on RCNi or somewhere else? Open what you have downloaded from it, copy your totals across, and we will show you what is still outstanding.</p>'+
+    '<button class="btn" onclick="showImportTotals()">Enter my totals</button>');
 }
 function showImportTotals(){
-  show('<h3>Saved ✓ — now tell us your totals</h3><p class="lead">Open your downloaded file and copy the totals across. These <b>add to</b> anything you\'ve already logged here — we won\'t double up if you leave something blank.</p>'+
+  show('<h3>Tell us your totals</h3><p class="lead">Open your downloaded file and copy the totals across. These <b>add to</b> anything you\'ve already logged here — we won\'t double up if you leave something blank.</p>'+
     '<label>Practice hours</label><input type="number" id="impHours" value="0" min="0">'+
     '<label>CPD hours (of which participatory)</label><div class="acctrow"><input type="number" id="impCpd" value="0" min="0" placeholder="Total CPD"><input type="number" id="impCpdPart" value="0" min="0" placeholder="Participatory"></div>'+
     '<label>Pieces of practice-related feedback</label><input type="number" id="impFeedback" value="0" min="0">'+
@@ -519,7 +406,7 @@ function downloadPack(){
     '<h1>My Revalidation Pack</h1>'+
     '<p style="color:#555">Prepared with The Clinical Hub · in the NMC\'s recommended form structure. Not affiliated with the NMC.</p>'+
     '<div class="note"><b>How to use this:</b> keep this pack in your portfolio and show it to your <b>confirmer</b>. Make your actual revalidation <b>declaration online through your NMC Online account</b> — the NMC does not accept an uploaded pack. Check the live requirements at nmc.org.uk/revalidation.</div>'+
-    '<div class="conf"><b>Confidentiality:</b> your evidence must not contain any information that could identify a patient or other person. Review every scanned document before you share this pack.</div>'+
+    '<div class="conf"><b>Confidentiality:</b> your evidence must not contain any information that could identify a patient or other person. Review every document before you share this pack.</div>'+
 
     '<h2>1 · Practice hours log <span class="pill">recommended</span></h2>'+
     '<p class="tot">Total: '+S.hours+' / 450 hours'+(S.hours>=450?' &#10003;':'')+'</p>'+
@@ -545,9 +432,8 @@ function downloadPack(){
     '<h2>Appendix · Evidence log</h2>'+
     '<table><tr><th>Document</th><th>Type</th><th>Supports</th><th>Date</th></tr>'+evRows+'</table>'+
     '<p style="color:#888;font-size:9pt;margin-top:16px">Generated by The Clinical Hub prototype. Health &amp; character declaration and professional indemnity are declared by you in NMC Online.</p>'+
-    '<script src="analytics.js"></script>
-<script src="hub-nav.js"></script>
-</body></html>';
+    '<script src="analytics.js"><\/script>'+
+    '<script src="hub-nav.js"><\/script><\/body><\/html>';
   w.document.write(html); w.document.close();
 }
 
@@ -563,61 +449,6 @@ function saveHours(){var h=parseFloat(val('hAdd'))||0;var n=val('hNote');S.hours
 function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
 render();
 
-// ---------- account (magic link, no password) ----------
-function hubSignIn(){
-  var e=val('acctEmail');
-  if(!e || e.indexOf('@')<0){ toast('Pop in a valid email'); return; }
-  toast('Sending your link…');
-  Hub.sendLink(e).then(function(){
-    show('<h3>Check your email</h3><p class="lead">We\'ve sent a link to <b>'+esc(e)+'</b>. Tap it and you\'ll be signed straight in — no password needed.</p>'+
-         '<div class="simnote">If it doesn\'t arrive within a minute or two, check your junk folder. Work inboxes (including NHS ones) sometimes hold these back.</div>'+
-         '<button class="btn ghost" onclick="hide()">Close</button>');
-  }).catch(function(err){
-    show('<h3>Couldn\'t send the link</h3><p class="lead">'+esc(err.message||'Something went wrong.')+'</p><button class="btn ghost" onclick="hide()">Close</button>');
-  });
-}
-function hubSignOut(){ Hub.signOut().then(function(){ toast('Signed out'); }); }
-function hubExport(){
-  Hub.downloadAllMyData().then(function(){ toast('Downloaded everything we hold ✓'); })
-    .catch(function(e){ toast('Could not download right now'); });
-}
-function hubDelete(){
-  show('<h3>Delete your account?</h3><p class="lead">This permanently removes your pack, your reflections and every file you\'ve uploaded. <b>It cannot be undone.</b></p>'+
-       '<div class="simnote">If you just want a copy first, close this and choose “Download all my data”.</div>'+
-       '<button class="btn" onclick="hubDeleteConfirm()">Yes, delete everything</button>'+
-       '<button class="btn ghost" onclick="hide()">Cancel</button>');
-}
-function hubDeleteConfirm(){
-  Hub.deleteMyAccount().then(function(){
-    try{ localStorage.removeItem('revalv1'); }catch(x){}
-    hide(); toast('Your account and data have been deleted');
-    setTimeout(function(){ location.reload(); }, 1200);
-  }).catch(function(e){ toast('Could not delete — please try again'); });
-}
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
-
-// Start the cloud layer; pull the saved pack down if they're signed in.
-if(window.Hub){
-  Hub.init().then(function(){
-    Hub.onChange(function(u){
-      document.getElementById('acctOut').style.display = u ? 'none' : '';
-      document.getElementById('acctIn').style.display  = u ? '' : 'none';
-      if(u) document.getElementById('acctWho').textContent = u.email;
-    });
-    if(Hub.signedIn()){
-      Hub.load('revalidation').then(function(cloud){
-        if(cloud && Object.keys(cloud).length){
-          S = cloud;
-          if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
-          localStorage.setItem('revalv1', JSON.stringify(S));
-          render();
-        } else {
-          Hub.save('revalidation', S);   // first sign-in: keep what's already on the device
-        }
-      });
-    }
-  }).catch(function(){ /* offline or blocked — the tool still works on-device */ });
-}
 </script>
 </body>
 </html>
