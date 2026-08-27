@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<style id="hubGatePreHide">body{visibility:hidden !important}</style>
-<script>setTimeout(function(){var s=document.getElementById('hubGatePreHide');if(s)s.remove();},8000);</script>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Clinical Hub — for UK care &amp; nursing</title>
@@ -133,14 +130,6 @@
     <div class="eb">Your tools</div>
     <h2>What do you need?</h2>
     <div class="grid">
-      <a class="tile slate" href="revalidation.html">
-        <div class="ic">✅</div><div class="t">Revalidation Portfolio Builder</div>
-        <div class="d">Build your whole NMC pack as you go</div>
-      </a>
-      <a class="tile ox" href="care-passport.html">
-        <div class="ic">🎖️</div><div class="t">Care Standard Portfolio Builder</div>
-        <div class="d">Your proof of good practice, in your pocket</div>
-      </a>
       <a class="tile" href="cv-tailor.html">
         <div class="ic">📄</div><div class="t">CV Tailor</div>
         <div class="d">Reshape your CV for the job you want</div>
@@ -246,12 +235,12 @@
 
 <script>
   var priorities={
-    new:[['Get your Care Certificate (16 standards)','#must-dos'],['Book your Enhanced DBS','#must-dos'],['See the carer→nurse ladder','careers.html'],['Start your Care Standard Portfolio','care-passport.html']],
-    care:[['Your Care Standard Portfolio','care-passport.html'],['Free courses to build your skills','courses.html'],['See what\'s possible next','whats-next.html']],
-    senior:[['Route to nursing associate','careers.html'],['Your Care Standard Portfolio','care-passport.html'],['See what\'s possible next','whats-next.html']],
+    new:[['Get your Care Certificate (16 standards)','#must-dos'],['Book your Enhanced DBS','#must-dos'],['See the carer→nurse ladder','careers.html'],['Free courses to build your skills','courses.html']],
+    care:[['Free courses to build your skills','courses.html'],['See what\'s possible next','whats-next.html']],
+    senior:[['Route to nursing associate','careers.html'],['Trusted resources & guidance','resources.html'],['See what\'s possible next','whats-next.html']],
     manager:[['Trusted resources &amp; guidance','resources.html'],['Registered manager webinars','webinars.html'],['Enter an award for your team','career-wins.html']],
-    na:[['Your Revalidation Portfolio Builder','revalidation.html'],['Top-up to registered nurse','careers.html'],['See what\'s possible next','whats-next.html']],
-    nurse:[['Your Revalidation Portfolio Builder','revalidation.html'],['Free CPD for your hours','courses.html'],['See what\'s possible next','whats-next.html']],
+    na:[['What\'s changed this week','stay-current.html'],['Top-up to registered nurse','careers.html'],['See what\'s possible next','whats-next.html']],
+    nurse:[['What\'s changed this week','stay-current.html'],['Free CPD for your hours','courses.html'],['See what\'s possible next','whats-next.html']],
     student:[['Routes to NMC registration','resources.html'],['Student CV writing','cv-tailor.html'],['Free courses to get ahead','courses.html']]
   };
   var titles={new:'New to care — start here',care:'Care worker',senior:'Senior carer',manager:'Care manager',na:'Nursing associate',nurse:'Registered nurse',student:'Student'};
@@ -290,8 +279,5 @@
   // PWA — lets people "add to home screen" and use it offline (activates once deployed over https).
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="hub-cloud.js"></script>
-<script src="hub-gate.js"></script>
 </body>
 </html>
