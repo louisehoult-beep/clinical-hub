@@ -87,7 +87,7 @@
         '<a class="brand" href="index.html">The Clinical Hub</a>' +
         '<ul>' + links + '</ul>' +
         '<span class="spacer"></span>' +
-        '<a class="navcta" href="index.html#join">Join free</a>' +
+        '<a class="navcta" href="index.html#join">Newsletter</a>' +
       '</div>';
     document.body.insertBefore(bar, document.body.firstChild);
   }
