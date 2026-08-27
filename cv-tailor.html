@@ -247,5 +247,6 @@ function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function copyOut(){try{navigator.clipboard.writeText(window._out||'');toast('Copied ✓');}catch(e){toast('Select & copy the summary above');}}
 </script>
+<script src="analytics.js"></script>
 </body>
 </html>
