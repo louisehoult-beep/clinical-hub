@@ -83,6 +83,7 @@
     footer{padding:22px 30px 32px;}
   }
 </style>
+<link rel="stylesheet" href="hub-shell.css">
 </head>
 <body>
 <div class="mocklabel">Preview · your CV stays on this device · smart rewrite coming soon</div>
@@ -248,5 +249,6 @@ function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replac
 function copyOut(){try{navigator.clipboard.writeText(window._out||'');toast('Copied ✓');}catch(e){toast('Select & copy the summary above');}}
 </script>
 <script src="analytics.js"></script>
+<script src="hub-nav.js"></script>
 </body>
 </html>

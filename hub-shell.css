@@ -1,0 +1,339 @@
+/* The Clinical Hub — shared shell and design system.
+   Rebuilt 27/08/2026: navy and gold, full-bleed shell, contained content.
+
+   Palette is the Elevate & Thrive core (navy #0B1C33 + the gold range) with
+   oxblood and blush as third and fourth accents, per the 26/08/2026 palette
+   pass. The pass is a PATTERN, not just hex values: oxblood and blush appear
+   as full-bleed anchor bands spaced down a long page, and gold/oxblood
+   alternate on repeating cards (odd gold, even oxblood).
+
+   Loaded on every page. Page-specific CSS still lives in each page's own
+   <style> block; the compatibility rules at the bottom neutralise the old
+   460px phone-column wrapper wherever it is still declared. */
+
+/* ---------- tokens ---------- */
+:root{
+  --navy:#0B1C33; --navy-deep:#14304F; --navy-slate:#1B3A5F; --navy-mid:#132B4A;
+  --ink-mid:#26364B;
+  --gold:#A8842C; --gold-antique:#C49B5C; --gold-light:#E0BE8E;
+  --gold-warm:#D4AF7A; --gold-bronze:#B8935A; --gold-muted:#8A7A52;
+  --gold-sheen:linear-gradient(115deg,#8C6A1C 0%,#C9A227 45%,#8C6A1C 100%);
+  --ox:#6B2A34; --ox-deep:#54212a;
+  --blush:#C9A9A6; --blush-fill:#F3E4E1; --blush-border:#e3c3bd; --blush-text:#7A4A44;
+  --paper:#F8F8F6; --ivory:#F5F1E8; --white:#fff;
+  --bone:#E7E2D6; --sand:#E4DCCB;
+  --warm-white:#EDE7DC; --ice:#DBE3EE; --steel:#9FB0C5; --pale-steel:#AEB7C4;
+  --shadow:0 1px 3px rgba(11,28,51,.08),0 8px 24px rgba(11,28,51,.06);
+  --shadow-lift:0 4px 10px rgba(11,28,51,.10),0 16px 40px rgba(11,28,51,.10);
+  --container:1280px;
+  --pad:48px;
+  --radius:14px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Raleway',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+html{-webkit-text-size-adjust:100%;}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink-mid);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- the shell: full bleed, contained content ---------- */
+.ch-band{width:100%;}
+.ch-in{max-width:var(--container);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+/* Prose stays narrower than the shell so long text is still readable. */
+.ch-prose{max-width:1080px;}
+
+/* ---------- top nav ---------- */
+.ch-nav{
+  position:sticky;top:0;z-index:900;
+  background:var(--navy);
+  border-bottom:2px solid var(--gold-antique);
+}
+.ch-nav .ch-in{display:flex;align-items:center;gap:26px;min-height:62px;flex-wrap:wrap;}
+.ch-nav .brand{
+  font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--gold-light);text-decoration:none;white-space:nowrap;
+}
+.ch-nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+.ch-nav a.link{
+  display:block;color:var(--ice);text-decoration:none;font-size:14px;font-weight:600;
+  padding:8px 13px;border-radius:8px;letter-spacing:.2px;white-space:nowrap;
+}
+.ch-nav a.link:hover{background:rgba(255,255,255,.07);color:var(--gold-light);}
+.ch-nav a.link[aria-current="page"]{background:var(--navy-slate);color:var(--gold-light);}
+.ch-nav .spacer{flex:1;}
+.ch-nav a.navcta{
+  background:var(--gold-sheen);color:var(--navy);font-weight:700;font-size:13.5px;
+  padding:9px 16px;border-radius:9px;text-decoration:none;white-space:nowrap;
+}
+
+/* ---------- masthead ---------- */
+.ch-masthead{
+  background:linear-gradient(135deg,#0B1C33 0%,#132B4A 55%,#1B3A5F 100%);
+  color:var(--warm-white);
+  border-bottom:4px solid var(--gold-antique);
+}
+.ch-masthead .ch-in{padding-top:52px;padding-bottom:46px;}
+.ch-eyebrow{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold-light);font-weight:700;margin:0 0 12px;
+}
+.ch-masthead h1{
+  font-family:var(--serif);font-weight:300;text-transform:uppercase;letter-spacing:5px;
+  font-size:clamp(32px,5vw,54px);line-height:1.04;margin:0 0 14px;color:var(--white);
+}
+.ch-masthead .tag{font-size:17px;line-height:1.55;color:var(--ice);max-width:680px;margin:0;}
+.ch-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.ch-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(224,190,142,.3);
+  color:var(--warm-white);font-size:12.5px;font-weight:600;
+  padding:7px 14px;border-radius:20px;
+}
+.ch-badge b{color:var(--gold-light);}
+.ch-badge svg{width:15px;height:15px;stroke:var(--gold-light);}
+
+/* ---------- sections ---------- */
+.ch-section{padding:52px 0;}
+.ch-section.tight{padding:36px 0;}
+.ch-kicker{
+  font-size:11px;letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin:0 0 6px;
+}
+.ch-section h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.2vw,36px);
+  color:var(--navy);margin:0 0 8px;line-height:1.15;
+}
+.ch-section .lede{font-size:16px;color:#5c6675;margin:0 0 26px;max-width:640px;line-height:1.6;}
+
+/* ---------- tiles ---------- */
+.ch-grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr);}
+.ch-grid.three{grid-template-columns:repeat(3,1fr);}
+.ch-grid.two{grid-template-columns:repeat(2,1fr);}
+
+a.ch-tile{
+  display:flex;flex-direction:column;gap:9px;
+  background:var(--white);border:1px solid var(--bone);
+  border-left:4px solid var(--gold-antique);
+  border-radius:var(--radius);padding:22px 20px;
+  text-decoration:none;box-shadow:var(--shadow);
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+  min-height:150px;
+}
+/* Gold and oxblood alternate on repeating cards — the palette-pass rotation. */
+.ch-grid a.ch-tile:nth-child(even){border-left-color:var(--ox);}
+a.ch-tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+a.ch-tile .ic{width:26px;height:26px;stroke:var(--gold);stroke-width:1.6;fill:none;}
+.ch-grid a.ch-tile:nth-child(even) .ic{stroke:var(--ox);}
+a.ch-tile .t{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--navy);line-height:1.15;}
+a.ch-tile .d{font-size:13.5px;color:#66707d;line-height:1.5;}
+a.ch-tile .flag{
+  font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--gold);margin-top:4px;
+}
+
+/* Dark tiles, for the one or two that should lead. */
+a.ch-tile.dark{
+  background:linear-gradient(150deg,var(--navy) 0%,var(--navy-mid) 100%);
+  border-color:var(--navy);border-left-color:var(--gold-antique);
+}
+a.ch-tile.dark .t{color:var(--white);}
+a.ch-tile.dark .d{color:var(--steel);}
+a.ch-tile.dark .ic{stroke:var(--gold-light);}
+
+/* ---------- anchor bands ---------- */
+.ch-band.ox{background:linear-gradient(150deg,var(--ox) 0%,var(--ox-deep) 100%);color:#fff;}
+.ch-band.ox h2{color:#fff;}
+.ch-band.ox .ch-kicker{color:var(--blush);}
+.ch-band.ox .lede{color:#f0dedd;}
+.ch-band.ox a.ch-tile{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);
+  border-left-color:var(--blush);
+}
+.ch-band.ox .ch-grid a.ch-tile:nth-child(even){border-left-color:var(--gold-light);}
+.ch-band.ox a.ch-tile .t{color:#fff;}
+.ch-band.ox a.ch-tile .d{color:#e6d7d9;}
+.ch-band.ox a.ch-tile .ic{stroke:var(--blush);}
+.ch-band.ox .ch-grid a.ch-tile:nth-child(even) .ic{stroke:var(--gold-light);}
+
+.ch-band.blush{background:var(--blush-fill);border-top:1px solid var(--blush-border);border-bottom:1px solid var(--blush-border);}
+.ch-band.blush h2{color:#5c2028;}
+.ch-band.blush .ch-kicker{color:var(--ox);}
+.ch-band.blush .lede{color:var(--blush-text);}
+
+.ch-band.navy{background:var(--navy);color:var(--warm-white);}
+.ch-band.navy h2{color:#fff;}
+.ch-band.navy .ch-kicker{color:var(--gold-light);}
+.ch-band.navy .lede{color:var(--ice);}
+
+/* ---------- chips and nation picker ---------- */
+.ch-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.ch-chip{
+  background:var(--white);border:1.5px solid var(--sand);border-radius:24px;
+  padding:11px 18px;font-size:14.5px;font-weight:600;color:var(--ink-mid);
+  cursor:pointer;font-family:inherit;transition:.15s;
+}
+.ch-chip:hover{border-color:var(--gold-antique);}
+.ch-chip.on{background:var(--navy);border-color:var(--navy);color:var(--gold-light);}
+.ch-nations{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.ch-nations button{
+  flex:1 1 130px;padding:10px 8px;border-radius:10px;border:1.5px solid var(--sand);
+  background:var(--white);font-size:13.5px;font-weight:600;color:var(--ink-mid);
+  cursor:pointer;font-family:inherit;
+}
+.ch-nations button.on{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);}
+.ch-note{font-size:13.5px;color:#6b7480;margin-top:14px;line-height:1.55;max-width:720px;}
+
+.ch-banner{
+  margin-top:20px;background:var(--white);border:1px solid var(--bone);
+  border-left:4px solid var(--gold-antique);border-radius:var(--radius);
+  padding:18px 22px;box-shadow:var(--shadow);display:none;max-width:720px;
+}
+.ch-banner.show{display:block;}
+.ch-banner h3{
+  margin:0 0 10px;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--ox);font-weight:700;font-family:var(--sans);
+}
+.ch-banner a{
+  display:flex;justify-content:space-between;gap:12px;
+  color:var(--navy-deep);font-weight:600;text-decoration:none;font-size:15px;
+  padding:10px 0;border-bottom:1px solid var(--bone);
+}
+.ch-banner a:last-child{border-bottom:0;}
+.ch-banner a:hover{color:var(--ox);}
+.ch-banner a span:last-child{color:var(--gold);}
+
+/* ---------- info rows ---------- */
+.ch-rows{background:var(--white);border:1px solid var(--bone);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+.ch-rows .row{display:flex;gap:16px;padding:16px 22px;border-bottom:1px solid var(--bone);font-size:15px;line-height:1.6;}
+.ch-rows .row:last-child{border-bottom:0;}
+.ch-rows .row:nth-child(even){background:var(--ivory);}
+.ch-rows .row b{color:var(--navy);}
+.ch-rows .row svg{width:22px;height:22px;flex:0 0 auto;stroke:var(--gold);stroke-width:1.6;fill:none;margin-top:2px;}
+.ch-rows .row:nth-child(even) svg{stroke:var(--ox);}
+
+/* ---------- sign-up ---------- */
+.ch-signup .ch-in{padding-top:46px;padding-bottom:46px;}
+.ch-signup .cols{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:start;}
+.ch-signup p{color:var(--ice);font-size:15.5px;line-height:1.6;}
+.ch-signup .fine{font-size:12px;color:var(--steel);margin-top:14px;}
+
+/* ---------- buttons ---------- */
+.ch-btn{
+  display:inline-block;background:var(--gold-sheen);color:var(--navy);
+  font-weight:700;font-size:15px;text-decoration:none;padding:13px 24px;
+  border-radius:10px;border:0;cursor:pointer;font-family:inherit;
+}
+.ch-btn.ghost{background:transparent;color:var(--ice);border:1.5px solid rgba(219,227,238,.35);}
+
+/* ---------- footer ---------- */
+.ch-footer{background:var(--navy);color:var(--steel);font-size:13.5px;line-height:1.7;}
+.ch-footer .ch-in{padding-top:40px;padding-bottom:44px;}
+.ch-footer .fw{font-family:var(--serif);font-size:20px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);}
+.ch-footer a{color:var(--gold-light);}
+.ch-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;}
+.ch-footer h4{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--warm-white);margin:0 0 10px;font-family:var(--sans);}
+.ch-footer ul{list-style:none;margin:0;padding:0;}
+.ch-footer li{margin:5px 0;}
+.ch-footer li a{text-decoration:none;color:var(--ice);}
+.ch-footer li a:hover{color:var(--gold-light);}
+.ch-footer .legal{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;color:var(--pale-steel);}
+
+/* ---------- responsive ---------- */
+@media(max-width:1080px){
+  :root{--pad:32px;}
+  .ch-grid{grid-template-columns:repeat(2,1fr);}
+  .ch-grid.three{grid-template-columns:repeat(2,1fr);}
+  .ch-signup .cols{grid-template-columns:1fr;gap:28px;}
+  .ch-footer .cols{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:680px){
+  :root{--pad:20px;}
+  body{font-size:15.5px;}
+  .ch-grid,.ch-grid.three,.ch-grid.two{grid-template-columns:1fr;}
+  .ch-section{padding:36px 0;}
+  .ch-masthead .ch-in{padding-top:34px;padding-bottom:32px;}
+  .ch-nav .ch-in{min-height:0;padding-top:10px;padding-bottom:10px;gap:10px;}
+  .ch-nav .spacer{display:none;}
+  .ch-nav ul{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+  .ch-footer .cols{grid-template-columns:1fr;}
+  a.ch-tile{min-height:0;}
+}
+
+/* ---------- compatibility with the pages not yet rebuilt ----------
+   Those pages wrap everything in .phone — a 440px mock phone frame that widens
+   to 900px on desktop, complete with rounded corners and a drop shadow, so the
+   page literally rendered as a handset floating on a beige ground. This widens
+   it to the real container and drops the frame, so every page is full width
+   today rather than waiting for each one to be rebuilt individually.
+
+   This file is linked AFTER each page's inline <style>, so plain rules win on
+   source order; only the token block below needs !important. Delete a rule
+   from here once no page depends on it. */
+body .phone{
+  max-width:var(--container);
+  margin:0 auto;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+}
+body .mocklabel{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:10px var(--pad) 0;
+  text-align:left;
+  color:var(--gold);
+  font-weight:700;
+}
+/* The inner blocks kept phone-sized padding; give them the container gutter. */
+body .phone header,
+body .phone footer,
+body .phone .tabs,
+body .phone > section,
+body .phone > .scroll > section{
+  padding-left:var(--pad);
+  padding-right:var(--pad);
+}
+body .phone > section,
+body .phone > .scroll > section{padding-top:28px;padding-bottom:8px;}
+body .scroll{height:auto;max-height:none;overflow-y:visible;}
+
+/* ---------- legacy repaint ----------
+   The pages not yet rebuilt declare their own token block in an inline <style>
+   that loads AFTER this file, so ordering alone cannot win. Redeclaring the
+   legacy names with !important repaints every one of them to navy and gold in
+   a single place, rather than editing seventeen inline stylesheets.
+
+   Old values, for the record: --slate #2B3440, --gold #9A7A2E, --cream #F7F5F2,
+   --ink #1E1B18, --body #3D362E. Delete a name from here once no page declares
+   it any more. */
+:root{
+  --slate:#0B1C33 !important;   /* was #2B3440 — dark surfaces, headers, dark tiles */
+  --gold:#A8842C !important;    /* was #9A7A2E — eyebrows and rules on light */
+  --ox:#6B2A34 !important;      /* unchanged; now a sanctioned third accent */
+  --cream:#F8F8F6 !important;   /* was #F7F5F2 — panel/parchment fill */
+  --ink:#0B1C33 !important;     /* was #1E1B18 — headings */
+  --body:#26364B !important;    /* was #3D362E — body copy */
+  --greige:#E4DCCB !important;
+  --line:#E7E2D6 !important;
+  --cool:#EDF0F4 !important;
+}
+/* Old page bodies paint a beige ground behind the narrow column. */
+body{background:var(--paper) !important;}
+/* Old page mastheads used the slate gradient; take them to the navy one. */
+body .phone header{
+  background:linear-gradient(135deg,#0B1C33 0%,#132B4A 55%,#1B3A5F 100%) !important;
+  border-bottom:4px solid var(--gold-antique) !important;
+}
