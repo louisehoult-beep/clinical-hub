@@ -37,7 +37,24 @@ SOURCES = [
     {'key': 'cqc', 'label': 'CQC',
      'listing': 'https://www.cqc.org.uk/news',
      'item': re.compile(r'^https://www\.cqc\.org\.uk/news/(?:releases/)?[a-z0-9][a-z0-9\-]{15,}$')},
+    {'key': 'nice', 'label': 'NICE',
+     'listing': 'https://www.nice.org.uk/news/articles',
+     'item': re.compile(r'^https://www\.nice\.org\.uk/news/articles/[a-z0-9][a-z0-9\-]{15,}$')},
+    {'key': 'nhsemp', 'label': 'NHS Employers',
+     'listing': 'https://www.nhsemployers.org/news',
+     'item': re.compile(r'^https://www\.nhsemployers\.org/articles/[a-z0-9][a-z0-9\-]{15,}$')},
 ]
+
+# GOV.UK Search API sources — structured JSON, no HTML parsing needed. Added 28/08/2026
+# as part of the source registry expansion (sources-registry.json). Each entry filters
+# gov.uk's own search index to one organisation's news-and-communications output.
+GOVUK_API_SOURCES = [
+    {'key': 'ukhsa', 'label': 'UKHSA', 'org': 'uk-health-security-agency'},
+    {'key': 'dhsc', 'label': 'DHSC', 'org': 'department-of-health-and-social-care'},
+]
+GOVUK_API = ('https://www.gov.uk/api/search.json?filter_organisations={org}'
+             '&filter_content_purpose_supergroup=news_and_communications'
+             '&order=-public_timestamp&count={n}')
 
 MONTHS = {m.lower(): i for i, m in enumerate(
     ['January','February','March','April','May','June','July','August','September','October','November','December'], 1)}
@@ -132,6 +149,27 @@ def render(items):
     return ''.join(rows)
 
 
+def scrape_govuk_api(source):
+    url = GOVUK_API.format(org=source['org'], n=PER_SOURCE)
+    raw = fetch(url)
+    data = json.loads(raw)
+    out = []
+    for r in data.get('results', []):
+        link = r.get('link', '')
+        if not link.startswith('/'):
+            continue
+        ts = (r.get('public_timestamp') or '')[:10]
+        try:
+            dt = datetime.date.fromisoformat(ts) if ts else None
+        except ValueError:
+            dt = None
+        out.append({'url': 'https://www.gov.uk' + link, 'title': r.get('title', '').strip(),
+                    'src': source['key'], 'label': source['label'],
+                    'iso': dt.isoformat() if dt else None,
+                    'date': dt.strftime('%d %b') if dt else ''})
+    return out[:PER_SOURCE]
+
+
 def load_rcni():
     """RCNi items staged from Outlook. Absent is normal on an Action run — the
     Action has no mailbox — so it is not treated as a failure here; the previous
@@ -170,6 +208,21 @@ def main():
     for s in SOURCES:
         try:
             got = scrape(s)
+        except Exception as e:
+            print('  %s: FETCH FAILED (%s)' % (s['label'], e))
+            got = []
+        if got:
+            print('  %s: %d items' % (s['label'], len(got)))
+            collected += got
+        else:
+            kept = [i for i in prev_items if i.get('src') == s['key']]
+            print('  %s: nothing parsed, keeping %d previous item(s)' % (s['label'], len(kept)))
+            failed.append(s['label'])
+            collected += kept
+
+    for s in GOVUK_API_SOURCES:
+        try:
+            got = scrape_govuk_api(s)
         except Exception as e:
             print('  %s: FETCH FAILED (%s)' % (s['label'], e))
             got = []

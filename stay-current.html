@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="stay-current-refreshed" content="24/08/2026">
+<meta name="stay-current-refreshed" content="28/08/2026">
 <title>Stay Current — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -37,6 +37,10 @@
   .src.rcn{background:#eaf1fb;color:#0c3a78;}
   .src.cqc{background:var(--okbg);color:var(--ok);}
   .src.rcni{background:#f6ecd8;color:#8a6414;}
+  .src.nice{background:#eee5f4;color:#5c2d7a;}
+  .src.nhsemp{background:#e2f0ec;color:#1f6b52;}
+  .src.ukhsa{background:#fdeada;color:#a15a10;}
+  .src.dhsc{background:#f3e3e6;color:#8a2c3a;}
   .item h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;color:var(--ink);margin:0 0 5px;line-height:1.25;}
   .item .why{font-size:12.5px;color:#6b7078;line-height:1.5;}
   .item .why b{color:var(--slate);}
@@ -72,22 +76,66 @@
   <header>
     <div class="eyebrow">The Clinical Hub</div>
     <h1>Stay Current</h1>
-    <div class="tag">What's changed this week for carers and nurses — from the NMC, RCN, CQC and RCNi.</div>
+    <div class="tag">What's changed this week for carers and nurses — from the NMC, RCN, CQC, NICE, NHS Employers, UKHSA, DHSC and RCNi.</div>
   </header>
 
-  <div class="trust"><span class="shield">✓</span> Straight from the official <b>NMC, RCN &amp; CQC</b> news pages, plus nursing journalism from <b>RCNi</b> · last refreshed <span id="refreshedOn">—</span></div>
+  <div class="trust"><span class="shield">✓</span> Straight from the official <b>NMC, RCN, CQC, NICE, NHS Employers, UKHSA &amp; DHSC</b> news pages, plus nursing journalism from <b>RCNi</b> · last refreshed <span id="refreshedOn">—</span></div>
 
-  <div class="tabs" id="srcTabs">
+  <div class="tabs" id="srcTabs" style="flex-wrap:wrap;">
     <button class="on" data-src="all">All</button>
     <button data-src="nmc">NMC</button>
     <button data-src="rcn">RCN</button>
     <button data-src="cqc">CQC</button>
+    <button data-src="nice">NICE</button>
+    <button data-src="nhsemp">NHS Employers</button>
+    <button data-src="ukhsa">UKHSA</button>
+    <button data-src="dhsc">DHSC</button>
     <button data-src="rcni">RCNi</button>
   </div>
 
   <section>
     <div class="eb">This week</div>
     <!-- AUTO:ITEMS:START -->
+    <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">27 Aug</span><span class="src nmc">NMC</span></div>
+      <h3>NMC tech upgrades to enable more timely Fitness to Practise hearings <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/nmc-safeguarding-team-supports-more-than-700-peoples-wellbeing/" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">27 Aug</span><span class="src nmc">NMC</span></div>
+      <h3>NMC safeguarding team supports more than 700 people’s wellbeing <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="rcn" href="https://www.rcn.org.uk/news-and-events/news/uk-nursing-students-face-unemployment-despite-nhs-vacancies-270826" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">27 Aug</span><span class="src rcn">RCN</span></div>
+      <h3>Nursing students face unemployment despite NHS vacancies <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="cqc" href="https://www.cqc.org.uk/news/new-guidance-providers-health-care-and-treatment-events" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">27 Aug</span><span class="src cqc">CQC</span></div>
+      <h3>New guidance for providers of health care and treatment at events <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ukhsa" href="https://www.gov.uk/government/news/parents-urged-to-vaccinate-children-at-the-right-time-to-protect-them" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">27 Aug</span><span class="src ukhsa">UKHSA</span></div>
+      <h3>Parents urged to vaccinate children at the right time to protect them <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ukhsa" href="https://www.gov.uk/government/news/salmonella-outbreak-update" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">27 Aug</span><span class="src ukhsa">UKHSA</span></div>
+      <h3>Salmonella outbreak update <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ukhsa" href="https://www.gov.uk/government/news/giardia-cases-in-england-reach-highest-level-since-2016" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">26 Aug</span><span class="src ukhsa">UKHSA</span></div>
+      <h3>Giardia cases in England reach highest level since 2016 <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-walter-burog-reflects-on-unity-in-diversity/" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">25 Aug</span><span class="src nmc">NMC</span></div>
+      <h3>South Asian Heritage Month: Walter Burog reflects on Unity in Diversity <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="rcni" href="https://rcni.com/nursing-standard/newsroom/news/band-5-role-reviews-most-of-trusts-nurses-will-not-be-upbanded-predicts-hr-boss-223841" target="_blank" rel="noopener">
       <div class="row1"><span class="date">24 Aug</span><span class="src rcni">RCNi</span></div>
       <h3>Band 5 role reviews: most of trust's nurses will not be upbanded, predicts HR boss <span class="arrow">&rarr;</span></h3>
@@ -103,6 +151,16 @@
       <h3>FtP cases at record high: NMC's long delays 'affecting well-being' <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="nice" href="https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">20 Aug</span><span class="src nice">NICE</span></div>
+      <h3>Weekly insulin jab could cut injections from 365 a year to just 52 <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="nice" href="https://www.nice.org.uk/news/articles/hundreds-of-people-are-set-to-benefit-from-new-treatment-option-for-newly-diagnosed-mantle-cell-lymphoma-and-chronic-lymphocytic-leukaemia" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">20 Aug</span><span class="src nice">NICE</span></div>
+      <h3>Hundreds to benefit from new treatment option for mantle cell lymphoma and chronic lymphocytic leukaemia <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="rcni" href="https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766" target="_blank" rel="noopener">
       <div class="row1"><span class="date">17 Aug</span><span class="src rcni">RCNi</span></div>
       <h3>Nurses face extra 12.5-hour shift to make-up for unpaid breaks <span class="arrow">&rarr;</span></h3>
@@ -113,9 +171,19 @@
       <h3>Nursing graduate jobs: lack of evidence 'guarantee' scheme worked <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="ukhsa" href="https://www.gov.uk/government/news/ukhsa-updates-heat-health-alerts-across-england" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">14 Aug</span><span class="src ukhsa">UKHSA</span></div>
+      <h3>UKHSA updates heat health alerts across England <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="rcn" href="https://www.rcn.org.uk/news-and-events/news/uk-heatwave-nursing-staff-working-in-impossible-and-inhumane-conditions-130826" target="_blank" rel="noopener">
       <div class="row1"><span class="date">13 Aug</span><span class="src rcn">RCN</span></div>
       <h3>UK heatwave: nursing staff working in 'impossible and inhumane' conditions <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ukhsa" href="https://www.gov.uk/government/news/newborn-icu-admissions-drop-50-in-first-full-year-of-rsv-maternal-vaccine-programme" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">12 Aug</span><span class="src ukhsa">UKHSA</span></div>
+      <h3>Newborn ICU admissions drop 50% in first full year of RSV maternal vaccine programme <span class="arrow">&rarr;</span></h3>
     </a>
 
     <a class="item" data-src="rcn" href="https://www.rcn.org.uk/news-and-events/news/uk-rcn-calls-for-end-to-grotesque-exploitation-of-migrant-nursing-staff-070826" target="_blank" rel="noopener">
@@ -123,14 +191,29 @@
       <h3>RCN calls for end to ‘grotesque’ exploitation of migrant nursing staff <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="nice" href="https://www.nice.org.uk/news/articles/thousands-of-patients-to-benefit-from-new-daily-pill-for-serious-heart-condition" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">06 Aug</span><span class="src nice">NICE</span></div>
+      <h3>Thousands of patients to benefit from new daily pill for serious heart condition <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="rcn" href="https://www.rcn.org.uk/news-and-events/news/uk-nursing-staff-face-uncertainty-as-updated-ehrc-code-comes-into-force-050826" target="_blank" rel="noopener">
       <div class="row1"><span class="date">05 Aug</span><span class="src rcn">RCN</span></div>
       <h3>Nursing staff face uncertainty as updated EHRC code comes into force <span class="arrow">&rarr;</span></h3>
     </a>
 
-    <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-walter-burog-reflects-on-unity-in-diversity/" target="_blank" rel="noopener">
-      <div class="row1"><span class="date">31 Jul</span><span class="src nmc">NMC</span></div>
-      <h3>South Asian Heritage Month: Walter Burog reflects on Unity in Diversity <span class="arrow">&rarr;</span></h3>
+    <a class="item" data-src="dhsc" href="https://www.gov.uk/government/news/major-expansion-of-community-mental-health-support-across-england" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">05 Aug</span><span class="src dhsc">DHSC</span></div>
+      <h3>Major expansion of community mental health support across England <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="dhsc" href="https://www.gov.uk/government/news/patients-with-motor-neurone-disease-set-for-fast-tracked-care" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">05 Aug</span><span class="src dhsc">DHSC</span></div>
+      <h3>Patients with motor neurone disease set for fast-tracked care <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="dhsc" href="https://www.gov.uk/government/publications/keep-britain-working-review-update-june-2026" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">04 Aug</span><span class="src dhsc">DHSC</span></div>
+      <h3>Keep Britain Working review update: June 2026 <span class="arrow">&rarr;</span></h3>
     </a>
 
     <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-shaida-ghazala-akhtar-shares-her-nursing-journey/" target="_blank" rel="noopener">
@@ -138,14 +221,14 @@
       <h3>South Asian Heritage Month: Shaida Ghazala Akhtar shares her nursing journey <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="dhsc" href="https://www.gov.uk/government/news/government-takes-action-to-crack-down-on-rogue-funeral-operators" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">31 Jul</span><span class="src dhsc">DHSC</span></div>
+      <h3>Government takes action to crack down on rogue funeral operators <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/nmc-welcomes-call-for-evidence-to-support-protection-of-nurse-title/" target="_blank" rel="noopener">
       <div class="row1"><span class="date">30 Jul</span><span class="src nmc">NMC</span></div>
       <h3>NMC welcomes call for evidence to support protection of 'nurse' title <span class="arrow">&rarr;</span></h3>
-    </a>
-
-    <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/over-a-third-of-the-nursing-and-midwifery-workforce-is-black-asian-and-ethnic-minority-for-the-first-time/" target="_blank" rel="noopener">
-      <div class="row1"><span class="date">30 Jul</span><span class="src nmc">NMC</span></div>
-      <h3>Over a third of the nursing and midwifery workforce is Black, Asian and ethnic minority for the first time <span class="arrow">&rarr;</span></h3>
     </a>
 
     <a class="item" data-src="rcn" href="https://www.rcn.org.uk/news-and-events/news/uk-campaign-to-protect-the-title-nurse-moves-closer-to-becoming-law-300726" target="_blank" rel="noopener">
@@ -163,26 +246,41 @@
       <h3>How CQC regulates during local government reorganisation <span class="arrow">&rarr;</span></h3>
     </a>
 
-    <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/nmc-response-to-rupert-lowe-mp/" target="_blank" rel="noopener">
-      <div class="row1"><span class="date">29 Jul</span><span class="src nmc">NMC</span></div>
-      <h3>NMC response to Rupert Lowe MP <span class="arrow">&rarr;</span></h3>
+    <a class="item" data-src="nice" href="https://www.nice.org.uk/news/articles/lung-preservation-machine-could-help-rescue-four-in-five-donated-lungs-currently-unused-recommended" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">30 Jul</span><span class="src nice">NICE</span></div>
+      <h3>New lung preservation machine could make hundreds of unused donor lungs available for transplant <span class="arrow">&rarr;</span></h3>
     </a>
 
-    <a class="item" data-src="rcn" href="https://www.rcn.org.uk/news-and-events/news/uk-put-nurse-led-care-at-heart-of-new-national-care-service-says-rcn-290726" target="_blank" rel="noopener">
-      <div class="row1"><span class="date">29 Jul</span><span class="src rcn">RCN</span></div>
-      <h3>Put nurse-led care at heart of new national care service, says RCN <span class="arrow">&rarr;</span></h3>
+    <a class="item" data-src="dhsc" href="https://www.gov.uk/government/news/nhs-and-industry-join-forces-on-next-generation-of-hospitals" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">30 Jul</span><span class="src dhsc">DHSC</span></div>
+      <h3>NHS and industry join forces on next generation of hospitals <span class="arrow">&rarr;</span></h3>
     </a>
 
-    <a class="item" data-src="cqc" href="https://www.cqc.org.uk/news/emily-miles-appointed-chief-executive-care-quality-commission" target="_blank" rel="noopener">
-      <div class="row1"><span class="date">22 Jul</span><span class="src cqc">CQC</span></div>
-      <h3>Emily Miles appointed Chief Executive of the Care Quality Commission <span class="arrow">&rarr;</span></h3>
+    <a class="item" data-src="nice" href="https://www.nice.org.uk/news/articles/thousands-eligible-for-new-chronic-heart-failure-treatment-following-nice-recommendation" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">28 Jul</span><span class="src nice">NICE</span></div>
+      <h3>Thousands eligible for new chronic heart failure treatment following NICE recommendation <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="nhsemp" href="https://www.nhsemployers.org/articles/lets-think-about-flex" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src nhsemp">NHS Employers</span></div>
+      <h3>Blog Let’s think about flex Enabling managerial mindsets towards decent, agile approaches to flexible work arrangements. 3 July 2026 <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="nhsemp" href="https://www.nhsemployers.org/articles/ockenden-report-nottingham-maternity-services-next-steps-chief-people-officers" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src nhsemp">NHS Employers</span></div>
+      <h3>Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety. 26 June 2026 <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="nhsemp" href="https://www.nhsemployers.org/articles/understanding-and-supporting-military-children" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src nhsemp">NHS Employers</span></div>
+      <h3>Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees 26 June 2026 <span class="arrow">&rarr;</span></h3>
     </a>
     <!-- AUTO:ITEMS:END -->
   </section>
 
-  <div class="note"><b>How this works:</b> rebuilt automatically each week — headlines and links straight from the source, not commentary. The <b>NMC</b>, <b>RCN</b> and <b>CQC</b> items come from those bodies' own news pages. <b>RCNi</b> items are nursing journalism from <i>Nursing Standard</i>, so they report on the regulator rather than speaking for it. Every link goes to the publisher's own page.</div>
+  <div class="note"><b>How this works:</b> rebuilt automatically each week — headlines and links straight from the source, not commentary. <b>NMC</b>, <b>RCN</b>, <b>CQC</b>, <b>NICE</b> and <b>NHS Employers</b> items come from those bodies' own news pages; <b>UKHSA</b> and <b>DHSC</b> items come from GOV.UK's own search index. <b>RCNi</b> items are nursing journalism from <i>Nursing Standard</i>, so they report on the sector rather than speaking for a regulator. Every link goes to the publisher's own page.</div>
 
-  <footer>The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN, CQC or RCNi. Always verify anything time-critical on the source site.</footer>
+  <footer>The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN, CQC, NICE, NHS Employers, UKHSA, DHSC or RCNi. Always verify anything time-critical on the source site.</footer>
 
 </div></div>
 

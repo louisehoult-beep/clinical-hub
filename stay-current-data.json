@@ -1,6 +1,70 @@
 {
-  "refreshed": "2026-08-24",
+  "refreshed": "2026-08-28",
   "items": [
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/",
+      "title": "NMC tech upgrades to enable more timely Fitness to Practise hearings",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-08-27",
+      "date": "27 Aug"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-safeguarding-team-supports-more-than-700-peoples-wellbeing/",
+      "title": "NMC safeguarding team supports more than 700 people’s wellbeing",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-08-27",
+      "date": "27 Aug"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-nursing-students-face-unemployment-despite-nhs-vacancies-270826",
+      "title": "Nursing students face unemployment despite NHS vacancies",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-08-27",
+      "date": "27 Aug"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/new-guidance-providers-health-care-and-treatment-events",
+      "title": "New guidance for providers of health care and treatment at events",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-08-27",
+      "date": "27 Aug"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/parents-urged-to-vaccinate-children-at-the-right-time-to-protect-them",
+      "title": "Parents urged to vaccinate children at the right time to protect them",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-08-27",
+      "date": "27 Aug"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/salmonella-outbreak-update",
+      "title": "Salmonella outbreak update",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-08-27",
+      "date": "27 Aug"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/giardia-cases-in-england-reach-highest-level-since-2016",
+      "title": "Giardia cases in England reach highest level since 2016",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-08-26",
+      "date": "26 Aug"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-walter-burog-reflects-on-unity-in-diversity/",
+      "title": "South Asian Heritage Month: Walter Burog reflects on Unity in Diversity",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-08-25",
+      "date": "25 Aug"
+    },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/band-5-role-reviews-most-of-trusts-nurses-will-not-be-upbanded-predicts-hr-boss-223841",
       "title": "Band 5 role reviews: most of trust's nurses will not be upbanded, predicts HR boss",
@@ -26,6 +90,22 @@
       "date": "24 Aug"
     },
     {
+      "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
+      "title": "Weekly insulin jab could cut injections from 365 a year to just 52",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-08-20",
+      "date": "20 Aug"
+    },
+    {
+      "url": "https://www.nice.org.uk/news/articles/hundreds-of-people-are-set-to-benefit-from-new-treatment-option-for-newly-diagnosed-mantle-cell-lymphoma-and-chronic-lymphocytic-leukaemia",
+      "title": "Hundreds to benefit from new treatment option for mantle cell lymphoma and chronic lymphocytic leukaemia",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-08-20",
+      "date": "20 Aug"
+    },
+    {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766",
       "title": "Nurses face extra 12.5-hour shift to make-up for unpaid breaks",
       "iso": "2026-08-17",
@@ -42,12 +122,28 @@
       "date": "17 Aug"
     },
     {
+      "url": "https://www.gov.uk/government/news/ukhsa-updates-heat-health-alerts-across-england",
+      "title": "UKHSA updates heat health alerts across England",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-08-14",
+      "date": "14 Aug"
+    },
+    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-heatwave-nursing-staff-working-in-impossible-and-inhumane-conditions-130826",
       "title": "UK heatwave: nursing staff working in 'impossible and inhumane' conditions",
       "src": "rcn",
       "label": "RCN",
       "iso": "2026-08-13",
       "date": "13 Aug"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/newborn-icu-admissions-drop-50-in-first-full-year-of-rsv-maternal-vaccine-programme",
+      "title": "Newborn ICU admissions drop 50% in first full year of RSV maternal vaccine programme",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-08-12",
+      "date": "12 Aug"
     },
     {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-calls-for-end-to-grotesque-exploitation-of-migrant-nursing-staff-070826",
@@ -58,6 +154,14 @@
       "date": "07 Aug"
     },
     {
+      "url": "https://www.nice.org.uk/news/articles/thousands-of-patients-to-benefit-from-new-daily-pill-for-serious-heart-condition",
+      "title": "Thousands of patients to benefit from new daily pill for serious heart condition",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-08-06",
+      "date": "06 Aug"
+    },
+    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-nursing-staff-face-uncertainty-as-updated-ehrc-code-comes-into-force-050826",
       "title": "Nursing staff face uncertainty as updated EHRC code comes into force",
       "src": "rcn",
@@ -66,12 +170,28 @@
       "date": "05 Aug"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-walter-burog-reflects-on-unity-in-diversity/",
-      "title": "South Asian Heritage Month: Walter Burog reflects on Unity in Diversity",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-07-31",
-      "date": "31 Jul"
+      "url": "https://www.gov.uk/government/news/major-expansion-of-community-mental-health-support-across-england",
+      "title": "Major expansion of community mental health support across England",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-08-05",
+      "date": "05 Aug"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/patients-with-motor-neurone-disease-set-for-fast-tracked-care",
+      "title": "Patients with motor neurone disease set for fast-tracked care",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-08-05",
+      "date": "05 Aug"
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/keep-britain-working-review-update-june-2026",
+      "title": "Keep Britain Working review update: June 2026",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-08-04",
+      "date": "04 Aug"
     },
     {
       "url": "https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-shaida-ghazala-akhtar-shares-her-nursing-journey/",
@@ -82,16 +202,16 @@
       "date": "31 Jul"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-welcomes-call-for-evidence-to-support-protection-of-nurse-title/",
-      "title": "NMC welcomes call for evidence to support protection of 'nurse' title",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
+      "url": "https://www.gov.uk/government/news/government-takes-action-to-crack-down-on-rogue-funeral-operators",
+      "title": "Government takes action to crack down on rogue funeral operators",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-07-31",
+      "date": "31 Jul"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/over-a-third-of-the-nursing-and-midwifery-workforce-is-black-asian-and-ethnic-minority-for-the-first-time/",
-      "title": "Over a third of the nursing and midwifery workforce is Black, Asian and ethnic minority for the first time",
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-welcomes-call-for-evidence-to-support-protection-of-nurse-title/",
+      "title": "NMC welcomes call for evidence to support protection of 'nurse' title",
       "src": "nmc",
       "label": "NMC",
       "iso": "2026-07-30",
@@ -122,28 +242,52 @@
       "date": "30 Jul"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-response-to-rupert-lowe-mp/",
-      "title": "NMC response to Rupert Lowe MP",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-07-29",
-      "date": "29 Jul"
+      "url": "https://www.nice.org.uk/news/articles/lung-preservation-machine-could-help-rescue-four-in-five-donated-lungs-currently-unused-recommended",
+      "title": "New lung preservation machine could make hundreds of unused donor lungs available for transplant",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-07-30",
+      "date": "30 Jul"
     },
     {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-put-nurse-led-care-at-heart-of-new-national-care-service-says-rcn-290726",
-      "title": "Put nurse-led care at heart of new national care service, says RCN",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-07-29",
-      "date": "29 Jul"
+      "url": "https://www.gov.uk/government/news/nhs-and-industry-join-forces-on-next-generation-of-hospitals",
+      "title": "NHS and industry join forces on next generation of hospitals",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-07-30",
+      "date": "30 Jul"
     },
     {
-      "url": "https://www.cqc.org.uk/news/emily-miles-appointed-chief-executive-care-quality-commission",
-      "title": "Emily Miles appointed Chief Executive of the Care Quality Commission",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-07-22",
-      "date": "22 Jul"
+      "url": "https://www.nice.org.uk/news/articles/thousands-eligible-for-new-chronic-heart-failure-treatment-following-nice-recommendation",
+      "title": "Thousands eligible for new chronic heart failure treatment following NICE recommendation",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-07-28",
+      "date": "28 Jul"
+    },
+    {
+      "url": "https://www.nhsemployers.org/articles/lets-think-about-flex",
+      "title": "Blog Let’s think about flex Enabling managerial mindsets towards decent, agile approaches to flexible work arrangements. 3 July 2026",
+      "src": "nhsemp",
+      "label": "NHS Employers",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.nhsemployers.org/articles/ockenden-report-nottingham-maternity-services-next-steps-chief-people-officers",
+      "title": "Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety. 26 June 2026",
+      "src": "nhsemp",
+      "label": "NHS Employers",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.nhsemployers.org/articles/understanding-and-supporting-military-children",
+      "title": "Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees 26 June 2026",
+      "src": "nhsemp",
+      "label": "NHS Employers",
+      "iso": null,
+      "date": ""
     }
   ]
 }
