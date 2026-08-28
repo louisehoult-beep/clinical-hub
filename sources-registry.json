@@ -5,7 +5,7 @@
     {
       "id": "nmc-regulation", "label": "NMC & Regulation",
       "sources": [
-        {"id": "nmc-news", "name": "NMC news and updates", "kind": "listing", "cadence": "daily", "url": "https://www.nmc.org.uk/news/news-and-updates/", "status": "live"},
+        {"id": "nmc-news", "name": "NMC news and updates", "kind": "listing", "cadence": "daily", "url": "https://www.nmc.org.uk/news/news-and-updates/", "status": "live", "scraperKey": "nmc"},
         {"id": "nmc-reg-data", "name": "NMC registration data reports", "kind": "periodic", "cadence": "twice yearly + mid-year", "url": "https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/", "status": "registered"},
         {"id": "nmc-ftp", "name": "NMC fitness to practise reports", "kind": "periodic", "cadence": "monthly", "url": "https://www.nmc.org.uk/about-us/our-committees/fitness-to-practise-committee/", "status": "registered"},
         {"id": "nmc-associate", "name": "Nursing associate register updates", "kind": "periodic", "cadence": "monthly", "url": "https://www.nmc.org.uk/nursing-associates/", "status": "registered"}
@@ -14,7 +14,7 @@
     {
       "id": "cqc-inspection", "label": "CQC & Inspection",
       "sources": [
-        {"id": "cqc-news", "name": "CQC news and releases", "kind": "listing", "cadence": "daily", "url": "https://www.cqc.org.uk/news", "status": "live"},
+        {"id": "cqc-news", "name": "CQC news and releases", "kind": "listing", "cadence": "daily", "url": "https://www.cqc.org.uk/news", "status": "live", "scraperKey": "cqc"},
         {"id": "cqc-soc", "name": "CQC State of Care", "kind": "periodic", "cadence": "annual", "url": "https://www.cqc.org.uk/publications/major-report/state-care", "status": "registered"},
         {"id": "ci-scotland", "name": "Care Inspectorate (Scotland)", "kind": "periodic", "cadence": "weekly", "url": "https://www.careinspectorate.com/index.php/news", "status": "registered"},
         {"id": "ciw-wales", "name": "Care Inspectorate Wales (CIW)", "kind": "periodic", "cadence": "weekly", "url": "https://www.careinspectorate.wales/news", "status": "registered"},
@@ -26,16 +26,17 @@
       "sources": [
         {"id": "afc-payscales", "name": "NHS Employers Agenda for Change pay scales", "kind": "periodic", "cadence": "on change", "url": "https://www.nhsemployers.org/system/files/2026-02/2026%20AfC%20pay%20scales.pdf", "status": "registered"},
         {"id": "nhs-prb", "name": "NHS Pay Review Body reports", "kind": "periodic", "cadence": "annual", "url": "https://www.gov.uk/government/organisations/nhs-pay-review-body", "status": "registered"},
-        {"id": "nhsemp-circulars", "name": "NHS Employers pay circulars", "kind": "listing", "cadence": "weekly", "url": "https://www.nhsemployers.org/news", "status": "live"},
+        {"id": "nhsemp-circulars", "name": "NHS Employers pay circulars", "kind": "listing", "cadence": "weekly", "url": "https://www.nhsemployers.org/news", "status": "live", "scraperKey": "nhsemp"},
+        {"id": "rcn-news", "name": "RCN news and events", "kind": "listing", "cadence": "daily", "url": "https://www.rcn.org.uk/news-and-events/news", "status": "live", "scraperKey": "rcn", "note": "The college's own news listing \u2014 pay campaigning, workforce and professional stories. Live-scraped since the 4-source setup; registered here 28/08/2026, having been published on Stay Current without a registry entry."},
         {"id": "rcn-pay", "name": "RCN pay campaigning and reward", "kind": "periodic", "cadence": "daily", "url": "https://www.rcn.org.uk/get-help/rcn-advice/agenda-for-change", "status": "registered"}
       ]
     },
     {
       "id": "clinical-guidance", "label": "Clinical Guidance",
       "sources": [
-        {"id": "nice-news", "name": "NICE published guidance and quality standards", "kind": "listing", "cadence": "daily", "url": "https://www.nice.org.uk/news/articles", "status": "live"},
+        {"id": "nice-news", "name": "NICE published guidance and quality standards", "kind": "listing", "cadence": "daily", "url": "https://www.nice.org.uk/news/articles", "status": "live", "scraperKey": "nice"},
         {"id": "nice-consult", "name": "NICE in development and consultations", "kind": "periodic", "cadence": "weekly", "url": "https://www.nice.org.uk/guidance/inconsultation", "status": "registered"},
-        {"id": "ukhsa-news", "name": "UKHSA", "kind": "govuk_api", "cadence": "daily", "url": "https://www.gov.uk/government/organisations/uk-health-security-agency", "status": "live"},
+        {"id": "ukhsa-news", "name": "UKHSA", "kind": "govuk_api", "cadence": "daily", "url": "https://www.gov.uk/government/organisations/uk-health-security-agency", "status": "live", "scraperKey": "ukhsa"},
         {"id": "specialty-colleges", "name": "Specialty college guidance", "kind": "periodic", "cadence": "weekly", "url": "https://www.rcplondon.ac.uk/news", "status": "registered", "note": "Placeholder college (RCP); no single listing covers every specialty college."}
       ]
     },
@@ -45,9 +46,9 @@
         {"id": "nhsed-workforce", "name": "NHS England Digital, NHS Workforce Statistics", "kind": "periodic", "cadence": "monthly", "url": "https://digital.nhs.uk/data-and-information/publications/statistical/nhs-workforce-statistics", "status": "registered", "note": "Nothing on the Hub used this before 28/08/2026."},
         {"id": "govuk-workforce", "name": "GOV.UK NHS Workforce Statistics", "kind": "periodic", "cadence": "monthly", "url": "https://www.gov.uk/government/collections/nhs-workforce-statistics", "status": "registered"},
         {"id": "hoc-library", "name": "House of Commons Library research briefings", "kind": "periodic", "cadence": "on publication", "url": "https://commonslibrary.parliament.uk/nhs-workforce/", "status": "registered"},
-        {"id": "dhsc-news", "name": "DHSC", "kind": "govuk_api", "cadence": "daily", "url": "https://www.gov.uk/government/organisations/department-of-health-and-social-care", "status": "live"},
+        {"id": "dhsc-news", "name": "DHSC", "kind": "govuk_api", "cadence": "daily", "url": "https://www.gov.uk/government/organisations/department-of-health-and-social-care", "status": "live", "scraperKey": "dhsc"},
         {"id": "skillsforcare", "name": "Skills for Care", "kind": "periodic", "cadence": "weekly", "url": "https://www.skillsforcare.org.uk/news", "status": "registered"},
-        {"id": "nhsemployers-home", "name": "NHS Employers", "kind": "listing", "cadence": "daily", "url": "https://www.nhsemployers.org/news", "status": "live", "note": "Same source as nhsemp-circulars above; one scraper feeds both."}
+        {"id": "nhsemployers-home", "name": "NHS Employers", "kind": "listing", "cadence": "daily", "url": "https://www.nhsemployers.org/news", "status": "live", "scraperKey": "nhsemp", "note": "Same source as nhsemp-circulars above; one scraper feeds both."}
       ]
     },
     {
@@ -64,7 +65,7 @@
     {
       "id": "nursing-press", "label": "Nursing Press",
       "sources": [
-        {"id": "rcni", "name": "RCNi / Nursing Standard", "kind": "outlook", "cadence": "weekly", "url": "https://rcni.com/", "status": "live", "note": "rcni.com blocks non-browser clients (Akamai). Read from Lou's Outlook briefing by tools/rcni_from_outlook.py, staged in rcni-inbox.json."},
+        {"id": "rcni", "name": "RCNi / Nursing Standard", "kind": "outlook", "cadence": "weekly", "url": "https://rcni.com/", "status": "live", "scraperKey": "rcni", "note": "rcni.com blocks non-browser clients (Akamai). Read from Lou's Outlook briefing by tools/rcni_from_outlook.py, staged in rcni-inbox.json."},
         {"id": "nursing-times", "name": "Nursing Times", "kind": "periodic", "cadence": "daily", "url": "https://www.nursingtimes.net/news/", "status": "registered", "note": "News listing is client-rendered; article links did not resolve from raw HTML on 28/08/2026 — needs a JS-aware fetch, not a plain scrape."},
         {"id": "nursing-in-practice", "name": "Nursing in Practice", "kind": "periodic", "cadence": "daily", "url": "https://www.nursinginpractice.com/latest-news/", "status": "registered", "note": "Same client-rendered-listing issue as Nursing Times."}
       ]

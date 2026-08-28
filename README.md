@@ -40,6 +40,26 @@ they are resolved to canonical URLs and de-tracked before publication, and the
 staged raw email (`_inbox-staging.json`) is gitignored. Full detail:
 `02-Elevate-and-Thrive/Process flows for all brands/clinical-hub-news-and-roles-pipeline.md`.
 
+## The gate
+
+`python3 tools/clinical_verify.py` — **run it before any push.** It reads the
+published files offline in about a second and exits 1 on a finding.
+
+It answers two questions nothing else does: does `sources-registry.json` still
+describe what `tools/refresh_stay_current.py` actually scrapes, and is
+`stay-current.html`'s data fit to be on the page? Every live source names the
+`scraperKey` that feeds it, so a source can no longer be scraped and published
+without a registry entry (the RCN listing was, until 28/08/2026), and a source
+cannot be marked live with nothing behind it. On the data side it catches a
+refresher that has stopped, a duplicate link, a date in the future, a blank
+page, and any source that has quietly fallen out of the page — the refresher
+carries the previous items when a source yields nothing, so nothing else would
+show that.
+
+`python3 tools/test_clinical_verify.py` proves the gate still catches what it was
+built for: 14 cases, each a real failure this Hub has had or the one the check
+exists to stop.
+
 ## Status
 Preview. The AI-assisted features (reading certificates, reflection and CV rewriting) are labelled "coming soon" until the AI backend is connected. Everything else works.
 
