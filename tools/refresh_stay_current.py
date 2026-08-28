@@ -43,7 +43,24 @@ SOURCES = [
     {'key': 'nhsemp', 'label': 'NHS Employers',
      'listing': 'https://www.nhsemployers.org/news',
      'item': re.compile(r'^https://www\.nhsemployers\.org/articles/[a-z0-9][a-z0-9\-]{15,}$')},
+    {'key': 'ciw', 'label': 'CIW',
+     'listing': 'https://www.careinspectorate.wales/news',
+     'item': re.compile(r'^https://www\.careinspectorate\.wales/[a-z0-9][a-z0-9\-]{19,}$')},
+    {'key': 'ihpn', 'label': 'IHPN',
+     'listing': 'https://www.ihpn.org.uk/news/',
+     'item': re.compile(r'^https://www\.ihpn\.org\.uk/blog/[a-z0-9][a-z0-9\-]{15,}$')},
+    {'key': 'scw', 'label': 'Social Care Wales',
+     'listing': 'https://socialcare.wales/news-stories',
+     'item': re.compile(r'^https://socialcare\.wales/news-stories/[a-z0-9][a-z0-9\-]{15,}$')},
+    {'key': 'rqia', 'label': 'RQIA',
+     'listing': 'https://www.rqia.org.uk/category/news/',
+     'item': re.compile(r'^https://www\.rqia\.org\.uk/[a-z0-9][a-z0-9\-]{19,}$')},
 ]
+# NISCC (niscc.info/news/) was tried 28/08/2026 and dropped: its URLs are flat
+# (no /news/ path segment), so the same item pattern that works for RQIA pulls in
+# old archived pages sitting near the top of the listing HTML — a dry run returned
+# items dated December 2024 as the "top" result. Left as a periodic check in
+# sources-registry.json instead of a live scrape until a better pattern is found.
 
 # GOV.UK Search API sources — structured JSON, no HTML parsing needed. Added 28/08/2026
 # as part of the source registry expansion (sources-registry.json). Each entry filters
@@ -79,6 +96,19 @@ def strip_tags(s):
           .replace('&rsquo;', "’").replace('&lsquo;', "‘")
           .replace('&quot;', '"').replace('&ndash;', '–').replace('&mdash;', '—'))
     return re.sub(r'\s+', ' ', s).strip()
+
+
+# Some card-style listings (CIW, Social Care Wales) wrap heading + summary + a
+# "DD Month YYYY" byline + category tag all inside one <a>, so strip_tags()
+# concatenates the lot into the title. Cut the title at the first such byline —
+# harmless on sources that don't have one, since the pattern simply never matches.
+DATE_TAIL = re.compile(
+    r'\s+\d{1,2}\s+(January|February|March|April|May|June|July|August|September|'
+    r'October|November|December)\s+\d{4}\b.*$', re.I)
+
+
+def clean_title(s):
+    return DATE_TAIL.sub('', s).strip()
 
 
 def absolutise(href, base):
@@ -122,7 +152,7 @@ def scrape(source):
         probe = url + '/' if source['key'] == 'nmc' else url
         if not source['item'].match(probe):
             continue
-        title = strip_tags(m.group(2))
+        title = clean_title(strip_tags(m.group(2)))
         if len(title) < 20 or SKIP_TITLES.match(title) or probe in seen:
             continue
         seen.add(probe)

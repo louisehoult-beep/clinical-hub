@@ -2,6 +2,22 @@
   "refreshed": "2026-08-28",
   "items": [
     {
+      "url": "https://www.careinspectorate.wales/office-hours-during-public-holiday-10",
+      "title": "Office hours during public holiday Details about our office opening hours over the bank holiday.",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-08-28",
+      "date": "28 Aug"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/we-would-hear-your-views-conwy-county-councils-childrens-social-services",
+      "title": "We would like to hear your views on Conwy County Council&#039;s children’s social services During September, we will be carrying out an assurance check of Conwy County Council&#039;s children’s social services.",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-08-28",
+      "date": "28 Aug"
+    },
+    {
       "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/",
       "title": "NMC tech upgrades to enable more timely Fitness to Practise hearings",
       "src": "nmc",
@@ -106,6 +122,14 @@
       "date": "20 Aug"
     },
     {
+      "url": "https://www.careinspectorate.wales/care-inspectorate-wales-and-healthcare-inspectorate-wales-conclude-joint-assurance-check-neath-port",
+      "title": "Care Inspectorate Wales and Healthcare Inspectorate Wales conclude joint assurance check of Neath Port Talbot learning disability services The inspection, which took place between 9 and",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-08-20",
+      "date": "20 Aug"
+    },
+    {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766",
       "title": "Nurses face extra 12.5-hour shift to make-up for unpaid breaks",
       "iso": "2026-08-17",
@@ -186,6 +210,14 @@
       "date": "05 Aug"
     },
     {
+      "url": "https://socialcare.wales/news-stories/cardiff-nursery-and-out-of-school-club-manager-wins-2026-caring-in-welsh-award",
+      "title": "Cardiff nursery and out-of-school club manager wins 2026 Caring in Welsh award",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-08-04",
+      "date": "04 Aug"
+    },
+    {
       "url": "https://www.gov.uk/government/publications/keep-britain-working-review-update-june-2026",
       "title": "Keep Britain Working review update: June 2026",
       "src": "dhsc",
@@ -250,6 +282,14 @@
       "date": "30 Jul"
     },
     {
+      "url": "https://socialcare.wales/news-stories/new-report-reveals-career-progression-barriers-for-minority-ethnic-social-care-workforce",
+      "title": "New report reveals career progression barriers for Minority Ethnic social care workforce",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-07-30",
+      "date": "30 Jul"
+    },
+    {
       "url": "https://www.gov.uk/government/news/nhs-and-industry-join-forces-on-next-generation-of-hospitals",
       "title": "NHS and industry join forces on next generation of hospitals",
       "src": "dhsc",
@@ -266,8 +306,88 @@
       "date": "28 Jul"
     },
     {
+      "url": "https://socialcare.wales/news-stories/join-our-new-project-to-help-us-develop-positive-cultures-across-social-care",
+      "title": "Join our new project to help us develop positive cultures across social care",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-07-22",
+      "date": "22 Jul"
+    },
+    {
+      "url": "https://socialcare.wales/news-stories/new-report-estimates-84-908-people-work-in-social-care-in-wales",
+      "title": "New report estimates 84,908 people work in social care in Wales",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-07-21",
+      "date": "21 Jul"
+    },
+    {
+      "url": "https://socialcare.wales/news-stories/vote-for-the-winner-of-the-2026-caring-in-welsh-award",
+      "title": "Vote for the winner of the 2026 Caring in Welsh award",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-07-15",
+      "date": "15 Jul"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/important-updates-section-5-wales-safeguarding-procedures",
+      "title": "Important updates to Section 5 of the Wales Safeguarding Procedures These revised procedures strengthen the way safeguarding allegations against practitioners and those in positions of trust are managed across Wales",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-07-13",
+      "date": "13 Jul"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/care-inspectorate-wales-concludes-assurance-check-merthyr-tydfil-county-borough-council-childrens",
+      "title": "Care Inspectorate Wales concludes assurance check of Merthyr Tydfil County Borough Council children&#039;s services Merthyr Tydfil&#039;s children&#039;s services benefit from compassionate leadership and a motivated workforce, but the voice of the child is not yet consistently heard in practice and further work is needed to strengthen assessment quality and threshold application.",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-07-10",
+      "date": "10 Jul"
+    },
+    {
+      "url": "https://www.rqia.org.uk/muckamore-abbey-hospital-inquiry-report-rqia-statement",
+      "title": "Muckamore Abbey Hospital Inquiry Report &#8211; RQIA statement",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-06-18",
+      "date": "18 Jun"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-publishes-inspection-reports-of-services-registered-by-the-presbyterian-church-in-ireland-presbyterian-council-of-social-witness",
+      "title": "RQIA Publishes Inspection Reports of Services Registered by the Presbyterian Church in Ireland, Presbyterian Council of Social Witness",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-06-18",
+      "date": "18 Jun"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-publishes-report-of-inspection-of-the-emergency-general-surgery-egs-pathways-in-the-western-trust-following-the-temporary-suspension-of-services-at-swah",
+      "title": "RQIA publishes Report of Inspection of the Emergency General Surgery (EGS) Pathways in the Western Trust, following the temporary suspension of services at SWAH",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-06-15",
+      "date": "15 Jun"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-publishes-an-independent-follow-up-report-a-whole-system-approach-following-review-conducted-in-2024-working-collaboratively-to-reduce-harm",
+      "title": "RQIA publishes an independent follow-up report “A Whole-System Approach”, following Review conducted in 2024, “Working Collaboratively to Reduce Harm”",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-06-10",
+      "date": "10 Jun"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-publishes-winter-plan-25-26",
+      "title": "RQIA Publishes Winter Plan and Statement 2025-26",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-04-17",
+      "date": "17 Apr"
+    },
+    {
       "url": "https://www.nhsemployers.org/articles/lets-think-about-flex",
-      "title": "Blog Let’s think about flex Enabling managerial mindsets towards decent, agile approaches to flexible work arrangements. 3 July 2026",
+      "title": "Blog Let’s think about flex Enabling managerial mindsets towards decent, agile approaches to flexible work arrangements.",
       "src": "nhsemp",
       "label": "NHS Employers",
       "iso": null,
@@ -275,7 +395,7 @@
     },
     {
       "url": "https://www.nhsemployers.org/articles/ockenden-report-nottingham-maternity-services-next-steps-chief-people-officers",
-      "title": "Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety. 26 June 2026",
+      "title": "Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety.",
       "src": "nhsemp",
       "label": "NHS Employers",
       "iso": null,
@@ -283,9 +403,49 @@
     },
     {
       "url": "https://www.nhsemployers.org/articles/understanding-and-supporting-military-children",
-      "title": "Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees 26 June 2026",
+      "title": "Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees",
       "src": "nhsemp",
       "label": "NHS Employers",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/zero-hours-contract-reforms-must-protect-workers-without-compromising-patient-care",
+      "title": "Blog Zero-hours contract reforms must protect workers without compromising patient care 27/08/2026 IHPN supports stronger protections for workers but is calling for zero-hours contract reforms to reflect the realities of healthcare delivery. Flexible staffing arrangements are essential to responding to changing patient demand, covering unexpected absences and maintaining safe, responsive care. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/the-uks-healthy-life-expectancy-challenge-how-can-independent-healthcare-help",
+      "title": "Blog The UK’s Healthy Life Expectancy Challenge - How can Independent Healthcare Help? 11/08/2026 Healthy life expectancy in the UK has stalled, leaving millions of people living more years in poor health. In this blog, we explore the reasons behind the decline and the four key ways the independent sector can help improve outcomes, reduce inequalities, and deliver timely, high-quality care. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/understanding-independent-diagnostics-services",
+      "title": "Blog The Missing Picture: Why NHS Data Underestimates the Independent Sector's Role in Diagnostics 06/08/2026 The latest NHS Diagnostic Imaging Dataset provides an important snapshot of imaging activity, but it doesn't tell the whole story. Our latest analysis reveals independent sector diagnostics providers delivered around 4 million NHS scans in 2025/26 (over 2.3 million more than official data report) and explores why greater transparency is needed to support future NHS planning. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/workplace-healthcare-schemes",
+      "title": "Blog Could workplace healthcare schemes become part of the answer to getting Britain working again? 28/07/2026 Could workplace healthcare schemes help tackle economic inactivity? As employers play a greater role in supporting workforce health, workplace healthcare is becoming more than just an employee benefit. This blog explores how employer-funded healthcare, mutual schemes and partnerships with independent healthcare providers could help people stay in work, return to work sooner and reduce pressure on the NHS. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/before-patient-power-payments-fixing-the-foundations-of-patient-choice",
+      "title": "Blog Before Patient Power Payments: fixing the foundations of patient choice 15/07/2026 In a guest blog for IHPN, Olli Potter - Policy and Public Affairs Manager, Picker Group - looks at the recent Government proposals to pilot Patient Power Payments (PPPs) and argues that the foundations of patient choice must be fixed if PPPs are to make a meaningful difference. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
       "iso": null,
       "date": ""
     }

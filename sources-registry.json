@@ -16,9 +16,9 @@
       "sources": [
         {"id": "cqc-news", "name": "CQC news and releases", "kind": "listing", "cadence": "daily", "url": "https://www.cqc.org.uk/news", "status": "live", "scraperKey": "cqc"},
         {"id": "cqc-soc", "name": "CQC State of Care", "kind": "periodic", "cadence": "annual", "url": "https://www.cqc.org.uk/publications/major-report/state-care", "status": "registered"},
-        {"id": "ci-scotland", "name": "Care Inspectorate (Scotland)", "kind": "periodic", "cadence": "weekly", "url": "https://www.careinspectorate.com/index.php/news", "status": "registered"},
-        {"id": "ciw-wales", "name": "Care Inspectorate Wales (CIW)", "kind": "periodic", "cadence": "weekly", "url": "https://www.careinspectorate.wales/news", "status": "registered"},
-        {"id": "rqia-ni", "name": "RQIA (Northern Ireland)", "kind": "periodic", "cadence": "weekly", "url": "https://www.rqia.org.uk/news/", "status": "registered"}
+        {"id": "ci-scotland", "name": "Care Inspectorate (Scotland)", "kind": "periodic", "cadence": "weekly", "url": "https://www.careinspectorate.com/news-and-media", "status": "registered", "note": "Listing found 28/08/2026 (index.php/news was wrong); item pattern not yet built."},
+        {"id": "ciw-wales", "name": "Care Inspectorate Wales (CIW)", "kind": "listing", "cadence": "weekly", "url": "https://www.careinspectorate.wales/news", "status": "live", "scraperKey": "ciw"},
+        {"id": "rqia-ni", "name": "RQIA (Northern Ireland)", "kind": "listing", "cadence": "weekly", "url": "https://www.rqia.org.uk/category/news/", "status": "live", "scraperKey": "rqia"}
       ]
     },
     {
@@ -54,9 +54,9 @@
     {
       "id": "your-nation", "label": "Your Nation",
       "sources": [
-        {"id": "sssc-scotland", "name": "SSSC (Scotland)", "kind": "periodic", "cadence": "weekly", "url": "https://www.sssc.uk.com/news-events/news/", "status": "registered"},
-        {"id": "scw-wales", "name": "Social Care Wales", "kind": "periodic", "cadence": "weekly", "url": "https://socialcare.wales/news", "status": "registered"},
-        {"id": "niscc-ni", "name": "NISCC (Northern Ireland)", "kind": "periodic", "cadence": "weekly", "url": "https://niscc.info/news/", "status": "registered"},
+        {"id": "sssc-scotland", "name": "SSSC (Scotland)", "kind": "periodic", "cadence": "weekly", "url": "https://news.sssc.uk.com", "status": "registered", "note": "news.sssc.uk.com is JS-rendered — raw HTML has almost no links. Needs a JS-aware fetch, not a plain scrape."},
+        {"id": "scw-wales", "name": "Social Care Wales", "kind": "listing", "cadence": "weekly", "url": "https://socialcare.wales/news-stories", "status": "live", "scraperKey": "scw"},
+        {"id": "niscc-ni", "name": "NISCC (Northern Ireland)", "kind": "periodic", "cadence": "weekly", "url": "https://niscc.info/news/", "status": "registered", "note": "Tried 28/08/2026 and reverted: URLs are flat (no /news/ path segment), so the item pattern that works for RQIA pulled in old archived pages — a dry run returned items dated December 2024 as the \"top\" result. Needs a different pattern before it can go live."},
         {"id": "nhs-scotland-workforce", "name": "NHS Scotland workforce statistics", "kind": "periodic", "cadence": "monthly", "url": "https://publichealthscotland.scot/publications/", "status": "registered"},
         {"id": "nhs-wales-workforce", "name": "NHS Wales workforce statistics", "kind": "periodic", "cadence": "monthly", "url": "https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Staff", "status": "registered"},
         {"id": "hsc-ni-workforce", "name": "HSC NI workforce statistics", "kind": "periodic", "cadence": "monthly", "url": "https://www.health-ni.gov.uk/topics/health-and-social-care-workforce", "status": "registered"}
@@ -76,7 +76,7 @@
         {"id": "nihr-careers", "name": "NIHR career development and research roles", "kind": "periodic", "cadence": "weekly", "url": "https://www.nihr.ac.uk/career-development/support-by-profession/nurses-and-midwives/research-roles", "status": "registered"},
         {"id": "nihr-rdn", "name": "NIHR Research Delivery Network", "kind": "periodic", "cadence": "weekly", "url": "https://local.nihr.ac.uk/", "status": "registered"},
         {"id": "recruiters", "name": "Industry recruiters (Xcellin, CHASE, Evolve, Star OUTiCO, Prospect Health, Phrec, eMedCareers)", "kind": "periodic", "cadence": "weekly", "url": "https://www.xcellin.co.uk/nurse-advisor-talent-pool/", "status": "registered", "note": "Already published as a static list on Careers & Pay; see section 3 of the deep-dive for all seven."},
-        {"id": "ihpn", "name": "Independent Healthcare Providers Network", "kind": "periodic", "cadence": "weekly", "url": "https://www.ihpn.org.uk/news/", "status": "registered"},
+        {"id": "ihpn", "name": "Independent Healthcare Provider Network", "kind": "listing", "cadence": "weekly", "url": "https://www.ihpn.org.uk/news/", "status": "live", "scraperKey": "ihpn", "note": "Correct current name is \"Provider\", singular, not \"Providers\" as in the original deep-dive."},
         {"id": "hmrc-p87", "name": "HMRC employment income manual and P87 guidance", "kind": "periodic", "cadence": "on change", "url": "https://www.gov.uk/tax-relief-for-employees/professional-fees-and-subscriptions", "status": "registered"}
       ]
     }

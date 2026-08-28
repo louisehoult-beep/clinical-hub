@@ -41,6 +41,10 @@
   .src.nhsemp{background:#e2f0ec;color:#1f6b52;}
   .src.ukhsa{background:#fdeada;color:#a15a10;}
   .src.dhsc{background:#f3e3e6;color:#8a2c3a;}
+  .src.ciw{background:#e6f2ec;color:#1e6b47;}
+  .src.ihpn{background:#e9e6f5;color:#4a3a8a;}
+  .src.scw{background:#fdf0da;color:#8a5a10;}
+  .src.rqia{background:#eafaf5;color:#0d7a5f;}
   .item h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;color:var(--ink);margin:0 0 5px;line-height:1.25;}
   .item .why{font-size:12.5px;color:#6b7078;line-height:1.5;}
   .item .why b{color:var(--slate);}
@@ -76,10 +80,10 @@
   <header>
     <div class="eyebrow">The Clinical Hub</div>
     <h1>Stay Current</h1>
-    <div class="tag">What's changed this week for carers and nurses — from the NMC, RCN, CQC, NICE, NHS Employers, UKHSA, DHSC and RCNi.</div>
+    <div class="tag">What's changed this week for carers and nurses — from the NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA, DHSC and RCNi.</div>
   </header>
 
-  <div class="trust"><span class="shield">✓</span> Straight from the official <b>NMC, RCN, CQC, NICE, NHS Employers, UKHSA &amp; DHSC</b> news pages, plus nursing journalism from <b>RCNi</b> · last refreshed <span id="refreshedOn">—</span></div>
+  <div class="trust"><span class="shield">✓</span> Straight from the official <b>NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA &amp; DHSC</b> news pages, plus nursing journalism from <b>RCNi</b> · last refreshed <span id="refreshedOn">—</span></div>
 
   <div class="tabs" id="srcTabs" style="flex-wrap:wrap;">
     <button class="on" data-src="all">All</button>
@@ -88,6 +92,10 @@
     <button data-src="cqc">CQC</button>
     <button data-src="nice">NICE</button>
     <button data-src="nhsemp">NHS Employers</button>
+    <button data-src="ciw">CIW</button>
+    <button data-src="ihpn">IHPN</button>
+    <button data-src="scw">Social Care Wales</button>
+    <button data-src="rqia">RQIA</button>
     <button data-src="ukhsa">UKHSA</button>
     <button data-src="dhsc">DHSC</button>
     <button data-src="rcni">RCNi</button>
@@ -96,6 +104,16 @@
   <section>
     <div class="eb">This week</div>
     <!-- AUTO:ITEMS:START -->
+    <a class="item" data-src="ciw" href="https://www.careinspectorate.wales/office-hours-during-public-holiday-10" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">28 Aug</span><span class="src ciw">CIW</span></div>
+      <h3>Office hours during public holiday Details about our office opening hours over the bank holiday. <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ciw" href="https://www.careinspectorate.wales/we-would-hear-your-views-conwy-county-councils-childrens-social-services" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">28 Aug</span><span class="src ciw">CIW</span></div>
+      <h3>We would like to hear your views on Conwy County Council&amp;#039;s children’s social services During September, we will be carrying out an assurance check of Conwy County Council&amp;#039;s children’s social services. <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="nmc" href="https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/" target="_blank" rel="noopener">
       <div class="row1"><span class="date">27 Aug</span><span class="src nmc">NMC</span></div>
       <h3>NMC tech upgrades to enable more timely Fitness to Practise hearings <span class="arrow">&rarr;</span></h3>
@@ -161,6 +179,11 @@
       <h3>Hundreds to benefit from new treatment option for mantle cell lymphoma and chronic lymphocytic leukaemia <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="ciw" href="https://www.careinspectorate.wales/care-inspectorate-wales-and-healthcare-inspectorate-wales-conclude-joint-assurance-check-neath-port" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">20 Aug</span><span class="src ciw">CIW</span></div>
+      <h3>Care Inspectorate Wales and Healthcare Inspectorate Wales conclude joint assurance check of Neath Port Talbot learning disability services The inspection, which took place between 9 and <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="rcni" href="https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766" target="_blank" rel="noopener">
       <div class="row1"><span class="date">17 Aug</span><span class="src rcni">RCNi</span></div>
       <h3>Nurses face extra 12.5-hour shift to make-up for unpaid breaks <span class="arrow">&rarr;</span></h3>
@@ -211,6 +234,11 @@
       <h3>Patients with motor neurone disease set for fast-tracked care <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="scw" href="https://socialcare.wales/news-stories/cardiff-nursery-and-out-of-school-club-manager-wins-2026-caring-in-welsh-award" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">04 Aug</span><span class="src scw">Social Care Wales</span></div>
+      <h3>Cardiff nursery and out-of-school club manager wins 2026 Caring in Welsh award <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="dhsc" href="https://www.gov.uk/government/publications/keep-britain-working-review-update-june-2026" target="_blank" rel="noopener">
       <div class="row1"><span class="date">04 Aug</span><span class="src dhsc">DHSC</span></div>
       <h3>Keep Britain Working review update: June 2026 <span class="arrow">&rarr;</span></h3>
@@ -251,6 +279,11 @@
       <h3>New lung preservation machine could make hundreds of unused donor lungs available for transplant <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="scw" href="https://socialcare.wales/news-stories/new-report-reveals-career-progression-barriers-for-minority-ethnic-social-care-workforce" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">30 Jul</span><span class="src scw">Social Care Wales</span></div>
+      <h3>New report reveals career progression barriers for Minority Ethnic social care workforce <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="dhsc" href="https://www.gov.uk/government/news/nhs-and-industry-join-forces-on-next-generation-of-hospitals" target="_blank" rel="noopener">
       <div class="row1"><span class="date">30 Jul</span><span class="src dhsc">DHSC</span></div>
       <h3>NHS and industry join forces on next generation of hospitals <span class="arrow">&rarr;</span></h3>
@@ -261,26 +294,101 @@
       <h3>Thousands eligible for new chronic heart failure treatment following NICE recommendation <span class="arrow">&rarr;</span></h3>
     </a>
 
+    <a class="item" data-src="scw" href="https://socialcare.wales/news-stories/join-our-new-project-to-help-us-develop-positive-cultures-across-social-care" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">22 Jul</span><span class="src scw">Social Care Wales</span></div>
+      <h3>Join our new project to help us develop positive cultures across social care <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="scw" href="https://socialcare.wales/news-stories/new-report-estimates-84-908-people-work-in-social-care-in-wales" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">21 Jul</span><span class="src scw">Social Care Wales</span></div>
+      <h3>New report estimates 84,908 people work in social care in Wales <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="scw" href="https://socialcare.wales/news-stories/vote-for-the-winner-of-the-2026-caring-in-welsh-award" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">15 Jul</span><span class="src scw">Social Care Wales</span></div>
+      <h3>Vote for the winner of the 2026 Caring in Welsh award <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ciw" href="https://www.careinspectorate.wales/important-updates-section-5-wales-safeguarding-procedures" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">13 Jul</span><span class="src ciw">CIW</span></div>
+      <h3>Important updates to Section 5 of the Wales Safeguarding Procedures These revised procedures strengthen the way safeguarding allegations against practitioners and those in positions of trust are managed across Wales <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ciw" href="https://www.careinspectorate.wales/care-inspectorate-wales-concludes-assurance-check-merthyr-tydfil-county-borough-council-childrens" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">10 Jul</span><span class="src ciw">CIW</span></div>
+      <h3>Care Inspectorate Wales concludes assurance check of Merthyr Tydfil County Borough Council children&amp;#039;s services Merthyr Tydfil&amp;#039;s children&amp;#039;s services benefit from compassionate leadership and a motivated workforce, but the voice of the child is not yet consistently heard in practice and further work is needed to strengthen assessment quality and threshold application. <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="rqia" href="https://www.rqia.org.uk/muckamore-abbey-hospital-inquiry-report-rqia-statement" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">18 Jun</span><span class="src rqia">RQIA</span></div>
+      <h3>Muckamore Abbey Hospital Inquiry Report &amp;#8211; RQIA statement <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="rqia" href="https://www.rqia.org.uk/rqia-publishes-inspection-reports-of-services-registered-by-the-presbyterian-church-in-ireland-presbyterian-council-of-social-witness" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">18 Jun</span><span class="src rqia">RQIA</span></div>
+      <h3>RQIA Publishes Inspection Reports of Services Registered by the Presbyterian Church in Ireland, Presbyterian Council of Social Witness <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="rqia" href="https://www.rqia.org.uk/rqia-publishes-report-of-inspection-of-the-emergency-general-surgery-egs-pathways-in-the-western-trust-following-the-temporary-suspension-of-services-at-swah" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">15 Jun</span><span class="src rqia">RQIA</span></div>
+      <h3>RQIA publishes Report of Inspection of the Emergency General Surgery (EGS) Pathways in the Western Trust, following the temporary suspension of services at SWAH <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="rqia" href="https://www.rqia.org.uk/rqia-publishes-an-independent-follow-up-report-a-whole-system-approach-following-review-conducted-in-2024-working-collaboratively-to-reduce-harm" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">10 Jun</span><span class="src rqia">RQIA</span></div>
+      <h3>RQIA publishes an independent follow-up report “A Whole-System Approach”, following Review conducted in 2024, “Working Collaboratively to Reduce Harm” <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="rqia" href="https://www.rqia.org.uk/rqia-publishes-winter-plan-25-26" target="_blank" rel="noopener">
+      <div class="row1"><span class="date">17 Apr</span><span class="src rqia">RQIA</span></div>
+      <h3>RQIA Publishes Winter Plan and Statement 2025-26 <span class="arrow">&rarr;</span></h3>
+    </a>
+
     <a class="item" data-src="nhsemp" href="https://www.nhsemployers.org/articles/lets-think-about-flex" target="_blank" rel="noopener">
       <div class="row1"><span class="date"></span><span class="src nhsemp">NHS Employers</span></div>
-      <h3>Blog Let’s think about flex Enabling managerial mindsets towards decent, agile approaches to flexible work arrangements. 3 July 2026 <span class="arrow">&rarr;</span></h3>
+      <h3>Blog Let’s think about flex Enabling managerial mindsets towards decent, agile approaches to flexible work arrangements. <span class="arrow">&rarr;</span></h3>
     </a>
 
     <a class="item" data-src="nhsemp" href="https://www.nhsemployers.org/articles/ockenden-report-nottingham-maternity-services-next-steps-chief-people-officers" target="_blank" rel="noopener">
       <div class="row1"><span class="date"></span><span class="src nhsemp">NHS Employers</span></div>
-      <h3>Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety. 26 June 2026 <span class="arrow">&rarr;</span></h3>
+      <h3>Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety. <span class="arrow">&rarr;</span></h3>
     </a>
 
     <a class="item" data-src="nhsemp" href="https://www.nhsemployers.org/articles/understanding-and-supporting-military-children" target="_blank" rel="noopener">
       <div class="row1"><span class="date"></span><span class="src nhsemp">NHS Employers</span></div>
-      <h3>Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees 26 June 2026 <span class="arrow">&rarr;</span></h3>
+      <h3>Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ihpn" href="https://www.ihpn.org.uk/blog/zero-hours-contract-reforms-must-protect-workers-without-compromising-patient-care" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src ihpn">IHPN</span></div>
+      <h3>Blog Zero-hours contract reforms must protect workers without compromising patient care 27/08/2026 IHPN supports stronger protections for workers but is calling for zero-hours contract reforms to reflect the realities of healthcare delivery. Flexible staffing arrangements are essential to responding to changing patient demand, covering unexpected absences and maintaining safe, responsive care. Read more <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ihpn" href="https://www.ihpn.org.uk/blog/the-uks-healthy-life-expectancy-challenge-how-can-independent-healthcare-help" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src ihpn">IHPN</span></div>
+      <h3>Blog The UK’s Healthy Life Expectancy Challenge - How can Independent Healthcare Help? 11/08/2026 Healthy life expectancy in the UK has stalled, leaving millions of people living more years in poor health. In this blog, we explore the reasons behind the decline and the four key ways the independent sector can help improve outcomes, reduce inequalities, and deliver timely, high-quality care. Read more <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ihpn" href="https://www.ihpn.org.uk/blog/understanding-independent-diagnostics-services" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src ihpn">IHPN</span></div>
+      <h3>Blog The Missing Picture: Why NHS Data Underestimates the Independent Sector's Role in Diagnostics 06/08/2026 The latest NHS Diagnostic Imaging Dataset provides an important snapshot of imaging activity, but it doesn't tell the whole story. Our latest analysis reveals independent sector diagnostics providers delivered around 4 million NHS scans in 2025/26 (over 2.3 million more than official data report) and explores why greater transparency is needed to support future NHS planning. Read more <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ihpn" href="https://www.ihpn.org.uk/blog/workplace-healthcare-schemes" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src ihpn">IHPN</span></div>
+      <h3>Blog Could workplace healthcare schemes become part of the answer to getting Britain working again? 28/07/2026 Could workplace healthcare schemes help tackle economic inactivity? As employers play a greater role in supporting workforce health, workplace healthcare is becoming more than just an employee benefit. This blog explores how employer-funded healthcare, mutual schemes and partnerships with independent healthcare providers could help people stay in work, return to work sooner and reduce pressure on the NHS. Read more <span class="arrow">&rarr;</span></h3>
+    </a>
+
+    <a class="item" data-src="ihpn" href="https://www.ihpn.org.uk/blog/before-patient-power-payments-fixing-the-foundations-of-patient-choice" target="_blank" rel="noopener">
+      <div class="row1"><span class="date"></span><span class="src ihpn">IHPN</span></div>
+      <h3>Blog Before Patient Power Payments: fixing the foundations of patient choice 15/07/2026 In a guest blog for IHPN, Olli Potter - Policy and Public Affairs Manager, Picker Group - looks at the recent Government proposals to pilot Patient Power Payments (PPPs) and argues that the foundations of patient choice must be fixed if PPPs are to make a meaningful difference. Read more <span class="arrow">&rarr;</span></h3>
     </a>
     <!-- AUTO:ITEMS:END -->
   </section>
 
-  <div class="note"><b>How this works:</b> rebuilt automatically each week — headlines and links straight from the source, not commentary. <b>NMC</b>, <b>RCN</b>, <b>CQC</b>, <b>NICE</b> and <b>NHS Employers</b> items come from those bodies' own news pages; <b>UKHSA</b> and <b>DHSC</b> items come from GOV.UK's own search index. <b>RCNi</b> items are nursing journalism from <i>Nursing Standard</i>, so they report on the sector rather than speaking for a regulator. Every link goes to the publisher's own page.</div>
+  <div class="note"><b>How this works:</b> rebuilt automatically each week — headlines and links straight from the source, not commentary. <b>NMC</b>, <b>RCN</b>, <b>CQC</b>, <b>NICE</b>, <b>NHS Employers</b>, <b>CIW</b>, <b>IHPN</b>, <b>Social Care Wales</b> and <b>RQIA</b> items come from those bodies' own news pages; <b>UKHSA</b> and <b>DHSC</b> items come from GOV.UK's own search index. <b>RCNi</b> items are nursing journalism from <i>Nursing Standard</i>, so they report on the sector rather than speaking for a regulator. Every link goes to the publisher's own page.</div>
 
-  <footer>The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN, CQC, NICE, NHS Employers, UKHSA, DHSC or RCNi. Always verify anything time-critical on the source site.</footer>
+  <footer>The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA, DHSC or RCNi. Always verify anything time-critical on the source site.</footer>
 
 </div></div>
 
