@@ -89,6 +89,16 @@ body{
   border-bottom:4px solid var(--gold-antique);
 }
 .ch-masthead .ch-in{padding-top:52px;padding-bottom:46px;}
+
+/* Photo variant — a real photo behind the same navy gradient, for pages that
+   read as flat text/card walls with no visual anchor. Same gradient angle
+   and stops as the plain masthead so the two read as one family, just with
+   a photograph showing through where the gradient thins. */
+.ch-masthead.photo{
+  background-image:linear-gradient(135deg,rgba(11,28,51,.93) 0%,rgba(19,43,74,.86) 45%,rgba(27,58,95,.74) 100%),var(--photo);
+  background-size:cover;
+  background-position:center 30%;
+}
 .ch-eyebrow{
   font-size:11px;letter-spacing:3px;text-transform:uppercase;
   color:var(--gold-light);font-weight:700;margin:0 0 12px;
