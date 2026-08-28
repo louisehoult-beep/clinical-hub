@@ -92,7 +92,8 @@ def fetch(url):
 
 def strip_tags(s):
     s = re.sub(r'<[^>]+>', ' ', s)
-    s = (s.replace('&amp;', '&').replace('&nbsp;', ' ').replace('&#39;', "'")
+    s = (s.replace('&amp;', '&').replace('&nbsp;', ' ')
+          .replace('&#39;', "'").replace('&#039;', "'")
           .replace('&rsquo;', "’").replace('&lsquo;', "‘")
           .replace('&quot;', '"').replace('&ndash;', '–').replace('&mdash;', '—'))
     return re.sub(r'\s+', ' ', s).strip()
