@@ -6,104 +6,77 @@
 <meta name="stay-current-refreshed" content="28/08/2026">
 <title>Stay Current — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hub-shell.css">
 <style>
-  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
-  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
-  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
-  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
-  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
-  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
-  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
-  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
-  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
-  .trust b{color:var(--slate);font-weight:700;}
-  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
-  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
-  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
-  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
-
-  section{padding:16px 16px 4px;}
-  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:6px 4px 8px;}
-
-  a.item{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-bottom:11px;box-shadow:var(--shadow);transition:.12s;}
-  a.item:active{transform:scale(.99)}
+  /* Page-specific only. Everything structural lives in hub-shell.css. */
+  .items-cols{columns:2;column-gap:16px;}
+  a.item{display:block;break-inside:avoid;text-decoration:none;background:var(--white);border:1px solid var(--bone);border-radius:12px;padding:14px 16px;margin:0 0 14px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease;}
+  a.item:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
   .item .row1{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
   .date{font-size:11px;font-weight:700;color:var(--ox);letter-spacing:.3px;}
   .src{font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;}
   .src.nmc{background:#e6ecf5;color:#2c4a8a;}
   .src.rcn{background:#eaf1fb;color:#0c3a78;}
-  .src.cqc{background:var(--okbg);color:var(--ok);}
+  .src.cqc{background:#e5efe5;color:#2F6B57;}
   .src.rcni{background:#f6ecd8;color:#8a6414;}
   .src.nice{background:#eee5f4;color:#5c2d7a;}
   .src.nhsemp{background:#e2f0ec;color:#1f6b52;}
   .src.ukhsa{background:#fdeada;color:#a15a10;}
-  .src.dhsc{background:#f3e3e6;color:#8a2c3a;}
+  .src.dhsc{background:var(--blush-fill);color:var(--ox);}
   .src.ciw{background:#e6f2ec;color:#1e6b47;}
   .src.ihpn{background:#e9e6f5;color:#4a3a8a;}
   .src.scw{background:#fdf0da;color:#8a5a10;}
   .src.rqia{background:#eafaf5;color:#0d7a5f;}
-  .item h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;color:var(--ink);margin:0 0 5px;line-height:1.25;}
-  .item .why{font-size:12.5px;color:#6b7078;line-height:1.5;}
-  .item .why b{color:var(--slate);}
-  .item .arrow{float:right;color:var(--ox);font-weight:700;}
+  .item h3{font-family:var(--serif);font-weight:600;font-size:16.5px;color:var(--navy);margin:0;line-height:1.3;}
+  .item .arrow{float:right;color:var(--gold);font-weight:700;padding-left:8px;}
   .aud-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#8a8f96;margin-top:7px;}
-
-  .note{background:var(--cool);border-left:4px solid var(--slate);border-radius:8px;padding:11px 13px;font-size:12px;color:#33404d;margin:6px 16px 12px;line-height:1.5;}
-  .note b{color:var(--slate);}
-
-  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
-  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
   a.item.hidden{display:none;}
 
-  @media(min-width:860px){
-    .mocklabel{max-width:900px;}
-    .phone{max-width:900px;border-radius:22px;}
-    .scroll{height:auto;max-height:none;overflow-y:visible;}
-    header{padding:26px 34px 24px;}
-    .tabs{padding-left:32px;padding-right:32px;}
-    section{padding:18px 32px 4px;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
-    section .eb{grid-column:1/-1;}
-    a.item{margin-bottom:12px;}
-    .note{margin-left:32px;margin-right:32px;}
-    footer{padding:22px 32px 32px;}
-  }
+  @media(min-width:1080px){.items-cols{columns:3;}}
+  @media(max-width:680px){.items-cols{columns:1;}}
 </style>
-<link rel="stylesheet" href="hub-shell.css">
 </head>
 <body>
-<div class="mocklabel">Refreshed automatically every Monday from the official news pages</div>
-<div class="phone"><div class="scroll">
 
-  <header>
-    <div class="eyebrow">The Clinical Hub</div>
+<!-- MASTHEAD -->
+<header class="ch-masthead ch-band" style="padding-bottom:0">
+  <div class="ch-in">
+    <p class="ch-eyebrow">The Clinical Hub</p>
     <h1>Stay Current</h1>
-    <div class="tag">What's changed this week for carers and nurses — from the NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA, DHSC and RCNi.</div>
-  </header>
-
-  <div class="trust"><span class="shield">✓</span> Straight from the official <b>NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA &amp; DHSC</b> news pages, plus nursing journalism from <b>RCNi</b> · last refreshed <span id="refreshedOn">—</span></div>
-
-  <div class="tabs" id="srcTabs" style="flex-wrap:wrap;">
-    <button class="on" data-src="all">All</button>
-    <button data-src="nmc">NMC</button>
-    <button data-src="rcn">RCN</button>
-    <button data-src="cqc">CQC</button>
-    <button data-src="nice">NICE</button>
-    <button data-src="nhsemp">NHS Employers</button>
-    <button data-src="ciw">CIW</button>
-    <button data-src="ihpn">IHPN</button>
-    <button data-src="scw">Social Care Wales</button>
-    <button data-src="rqia">RQIA</button>
-    <button data-src="ukhsa">UKHSA</button>
-    <button data-src="dhsc">DHSC</button>
-    <button data-src="rcni">RCNi</button>
+    <p class="tag">What's changed this week for carers and nurses — from the Nursing and Midwifery Council (NMC), Royal College of Nursing (RCN), Care Quality Commission (CQC), National Institute for Health and Care Excellence (NICE), NHS Employers, Care Inspectorate Wales (CIW), Independent Healthcare Providers Network (IHPN), Social Care Wales, Regulation and Quality Improvement Authority (RQIA), UK Health Security Agency (UKHSA) and Department of Health and Social Care (DHSC).</p>
+    <div class="ch-badges">
+      <span class="ch-badge"><svg viewBox="0 0 24 24"><use href="#ic-check"></use></svg>Straight from the official <b>NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA &amp; DHSC</b> news pages, plus nursing journalism from <b>RCNi</b></span>
+      <span class="ch-badge">Last refreshed <span id="refreshedOn">—</span></span>
+    </div>
   </div>
+</header>
 
-  <section>
-    <div class="eb">This week</div>
-    <!-- AUTO:ITEMS:START -->
+<!-- SOURCE TABS -->
+<section class="ch-band" style="padding-top:26px">
+  <div class="ch-in">
+    <div class="ch-chips" id="srcTabs">
+      <button class="ch-chip on" type="button" data-src="all">All</button>
+      <button class="ch-chip" type="button" data-src="nmc">NMC</button>
+      <button class="ch-chip" type="button" data-src="rcn">RCN</button>
+      <button class="ch-chip" type="button" data-src="cqc">CQC</button>
+      <button class="ch-chip" type="button" data-src="nice">NICE</button>
+      <button class="ch-chip" type="button" data-src="nhsemp">NHS Employers</button>
+      <button class="ch-chip" type="button" data-src="ciw">CIW</button>
+      <button class="ch-chip" type="button" data-src="ihpn">IHPN</button>
+      <button class="ch-chip" type="button" data-src="scw">Social Care Wales</button>
+      <button class="ch-chip" type="button" data-src="rqia">RQIA</button>
+      <button class="ch-chip" type="button" data-src="ukhsa">UKHSA</button>
+      <button class="ch-chip" type="button" data-src="dhsc">DHSC</button>
+      <button class="ch-chip" type="button" data-src="rcni">RCNi</button>
+    </div>
+  </div>
+</section>
+
+<!-- THIS WEEK -->
+<section class="ch-section ch-band" style="padding-top:18px">
+  <div class="ch-in">
+    <p class="ch-kicker">This week</p>
+    <div class="items-cols"><!-- AUTO:ITEMS:START -->
     <a class="item" data-src="ciw" href="https://www.careinspectorate.wales/office-hours-during-public-holiday-10" target="_blank" rel="noopener">
       <div class="row1"><span class="date">28 Aug</span><span class="src ciw">CIW</span></div>
       <h3>Office hours during public holiday Details about our office opening hours over the bank holiday. <span class="arrow">&rarr;</span></h3>
@@ -383,14 +356,27 @@
       <div class="row1"><span class="date"></span><span class="src ihpn">IHPN</span></div>
       <h3>Blog Before Patient Power Payments: fixing the foundations of patient choice 15/07/2026 In a guest blog for IHPN, Olli Potter - Policy and Public Affairs Manager, Picker Group - looks at the recent Government proposals to pilot Patient Power Payments (PPPs) and argues that the foundations of patient choice must be fixed if PPPs are to make a meaningful difference. Read more <span class="arrow">&rarr;</span></h3>
     </a>
-    <!-- AUTO:ITEMS:END -->
-  </section>
+    <!-- AUTO:ITEMS:END --></div>
+  </div>
+</section>
 
-  <div class="note"><b>How this works:</b> rebuilt automatically each week — headlines and links straight from the source, not commentary. <b>NMC</b>, <b>RCN</b>, <b>CQC</b>, <b>NICE</b>, <b>NHS Employers</b>, <b>CIW</b>, <b>IHPN</b>, <b>Social Care Wales</b> and <b>RQIA</b> items come from those bodies' own news pages; <b>UKHSA</b> and <b>DHSC</b> items come from GOV.UK's own search index. <b>RCNi</b> items are nursing journalism from <i>Nursing Standard</i>, so they report on the sector rather than speaking for a regulator. Every link goes to the publisher's own page.</div>
+<!-- HOW THIS WORKS -->
+<section class="ch-section ch-band" style="padding-top:0">
+  <div class="ch-in">
+    <div class="ch-banner show">
+      <h3>How this works</h3>
+      <p style="font-size:14px;color:#5c6675;line-height:1.6;padding:0 0 8px">Rebuilt automatically each week — headlines and links straight from the source, not commentary. <b>NMC</b>, <b>RCN</b>, <b>CQC</b>, <b>NICE</b>, <b>NHS Employers</b>, <b>CIW</b>, <b>IHPN</b>, <b>Social Care Wales</b> and <b>RQIA</b> items come from those bodies' own news pages; <b>UKHSA</b> and <b>DHSC</b> items come from GOV.UK's own search index. <b>RCNi</b> items are nursing journalism from <i>Nursing Standard</i>, so they report on the sector rather than speaking for a regulator. Every link goes to the publisher's own page.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>The Clinical Hub · Stay Current<br>Not affiliated with the NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA, DHSC or RCNi. Always verify anything time-critical on the source site.</footer>
-
-</div></div>
+<!-- FOOTER -->
+<footer class="ch-footer ch-band">
+  <div class="ch-in">
+    <p style="margin:0">The Clinical Hub · Stay Current</p>
+    <p class="legal">Not affiliated with the NMC, RCN, CQC, NICE, NHS Employers, CIW, IHPN, Social Care Wales, RQIA, UKHSA, DHSC or RCNi. Always verify anything time-critical on the source site.</p>
+  </div>
+</footer>
 
 <script>
   document.querySelectorAll('#srcTabs button').forEach(function(b){

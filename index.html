@@ -27,6 +27,43 @@
   .offer-card h3{font-family:var(--serif);font-size:22px;color:#5c2028;margin:0 0 8px;}
   .offer-card p{font-size:14.5px;color:var(--blush-text);margin:0 0 18px;line-height:1.6;}
   @media(max-width:1080px){.offer-grid{grid-template-columns:1fr;gap:26px;}}
+
+  /* Today panel — spotlight + compact grid, replaces the flat 8-tile row */
+  .today-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:22px;align-items:stretch;}
+  a.today-spotlight{
+    display:flex;flex-direction:column;justify-content:space-between;gap:18px;
+    background:linear-gradient(150deg,var(--navy) 0%,var(--navy-mid) 100%);
+    border:1px solid var(--navy);border-left:4px solid var(--gold-antique);
+    border-radius:var(--radius);padding:28px 26px;text-decoration:none;
+    box-shadow:var(--shadow);transition:transform .16s ease,box-shadow .16s ease;
+  }
+  a.today-spotlight:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  .today-spotlight .live{
+    display:inline-flex;align-items:center;gap:7px;width:fit-content;
+    font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--gold-light);background:rgba(255,255,255,.08);
+    border:1px solid rgba(224,190,142,.3);border-radius:20px;padding:5px 12px;
+  }
+  .today-spotlight .live::before{content:'';width:7px;height:7px;border-radius:50%;background:#7CC08A;box-shadow:0 0 0 3px rgba(124,192,138,.25);}
+  .today-spotlight .ic{display:block;width:30px;height:30px;margin-top:18px;stroke:var(--gold-light);color:var(--gold-light);}
+  .today-spotlight .t{font-family:var(--serif);font-weight:600;font-size:26px;color:#fff;line-height:1.15;}
+  .today-spotlight .d{font-size:14.5px;color:var(--ice);line-height:1.55;}
+  .today-spotlight .go{font-size:13px;font-weight:700;color:var(--gold-light);}
+  .today-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  a.today-tile{
+    display:flex;flex-direction:column;gap:7px;background:var(--white);
+    border:1px solid var(--bone);border-left:4px solid var(--gold-antique);
+    border-radius:var(--radius);padding:18px 18px;text-decoration:none;
+    box-shadow:var(--shadow);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+  }
+  .today-grid a.today-tile:nth-child(even){border-left-color:var(--ox);}
+  a.today-tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  a.today-tile .ic{width:22px;height:22px;stroke:var(--gold);color:var(--gold);stroke-width:1.6;fill:none;}
+  .today-grid a.today-tile:nth-child(even) .ic{stroke:var(--ox);color:var(--ox);}
+  a.today-tile .t{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--navy);line-height:1.15;}
+  a.today-tile .d{font-size:13px;color:#66707d;line-height:1.5;}
+  @media(max-width:1080px){.today-layout{grid-template-columns:1fr;}.today-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:680px){.today-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -80,49 +117,58 @@
 <!-- TOOLS -->
 <section class="ch-section ch-band" style="padding-top:0">
   <div class="ch-in">
-    <p class="ch-kicker">Use it on shift</p>
+    <p class="ch-kicker">Straight in</p>
     <h2>What do you need today?</h2>
-    <div class="ch-grid">
-      <a class="ch-tile dark" href="stay-current.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-news"></use></svg>
-        <span class="t">What's changed</span>
-        <span class="d">This week from the NMC, RCN, CQC and the nursing press, in one place.</span>
+    <p class="lede">One thing leads, the rest are a tap away.</p>
+    <div class="today-layout">
+      <a class="today-spotlight" href="stay-current.html">
+        <div>
+          <span class="live">Updated weekly</span>
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-news"></use></svg>
+        </div>
+        <div>
+          <div class="t">What's changed</div>
+          <div class="d">This week from the NMC, RCN, CQC and the nursing press, in one place.</div>
+        </div>
+        <div class="go">Read this week's update &rarr;</div>
       </a>
-      <a class="ch-tile" href="clinical-roles.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-search"></use></svg>
-        <span class="t">Live Clinical Roles</span>
-        <span class="d">Nursing and care vacancies open right now, straight from NHS Jobs.</span>
-      </a>
-      <a class="ch-tile" href="careers.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-chart"></use></svg>
-        <span class="t">Careers &amp; Pay</span>
-        <span class="d">Agenda for Change bands, the routes up, and what each one really pays.</span>
-      </a>
-      <a class="ch-tile" href="cv-tailor.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-doc"></use></svg>
-        <span class="t">CV Tailor</span>
-        <span class="d">Reshape your CV for the job you want, without changing a single fact.</span>
-      </a>
-      <a class="ch-tile" href="cv-mistake.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-idea"></use></svg>
-        <span class="t">The CV Mistake</span>
-        <span class="d">The one fix most clinical candidates miss, and how to undo it.</span>
-      </a>
-      <a class="ch-tile" href="resources.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-book"></use></svg>
-        <span class="t">Trusted Resources</span>
-        <span class="d">The official NMC, RCN and NICE material worth knowing, gathered once.</span>
-      </a>
-      <a class="ch-tile" href="clinical-currency.html">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-steth"></use></svg>
-        <span class="t">Clinical Currency</span>
-        <span class="d">NICE guidance and specialist updates that touch your practice.</span>
-      </a>
-      <a class="ch-tile" href="#essentials">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-compass"></use></svg>
-        <span class="t">Registration &amp; must-dos</span>
-        <span class="d">Revalidation, the Code, DBS and what your nation requires of you.</span>
-      </a>
+      <div class="today-grid">
+        <a class="today-tile" href="clinical-roles.html">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-search"></use></svg>
+          <span class="t">Live Clinical Roles</span>
+          <span class="d">Nursing and care vacancies open right now, from NHS Jobs.</span>
+        </a>
+        <a class="today-tile" href="careers.html">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-chart"></use></svg>
+          <span class="t">Careers &amp; Pay</span>
+          <span class="d">Agenda for Change bands, the routes up, and what each one pays.</span>
+        </a>
+        <a class="today-tile" href="cv-tailor.html">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-doc"></use></svg>
+          <span class="t">CV Tailor</span>
+          <span class="d">Reshape your CV for the job you want, without changing a fact.</span>
+        </a>
+        <a class="today-tile" href="cv-mistake.html">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-idea"></use></svg>
+          <span class="t">The CV Mistake</span>
+          <span class="d">The one fix most clinical candidates miss, and how to undo it.</span>
+        </a>
+        <a class="today-tile" href="resources.html">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-book"></use></svg>
+          <span class="t">Trusted Resources</span>
+          <span class="d">Official NMC, RCN and NICE material worth knowing, gathered once.</span>
+        </a>
+        <a class="today-tile" href="clinical-currency.html">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-steth"></use></svg>
+          <span class="t">Clinical Currency</span>
+          <span class="d">NICE guidance and specialist updates that touch your practice.</span>
+        </a>
+        <a class="today-tile" href="#essentials">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#ic-compass"></use></svg>
+          <span class="t">Registration &amp; must-dos</span>
+          <span class="d">Revalidation, the Code, DBS and what your nation requires.</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -46,12 +46,17 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* ---------- the shell: full bleed, contained content ---------- */
+/* ---------- the shell: genuinely full width, margins from padding only ----------
+   No max-width cap here — on a wide monitor a fixed 1280px box centred with
+   auto margins reads as "not full width", it reads as a narrow column floating
+   on a lot of dead space either side. .ch-in fills the whole band and only
+   --pad keeps text off the edge. */
 .ch-band{width:100%;}
-.ch-in{max-width:var(--container);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+.ch-in{width:100%;padding-left:var(--pad);padding-right:var(--pad);}
 
-/* Prose stays narrower than the shell so long text is still readable. */
-.ch-prose{max-width:1080px;}
+/* Prose stays narrower than the shell so long text is still readable — this is
+   the one deliberate exception, centred on its own. */
+.ch-prose{max-width:1080px;margin-left:auto;margin-right:auto;}
 
 /* ---------- top nav ---------- */
 .ch-nav{

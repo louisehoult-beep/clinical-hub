@@ -5,206 +5,243 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Career Wins — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
-  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
-  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
-  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
-  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
-  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
-  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
-  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
-  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
-  .trust b{color:var(--slate);font-weight:700;}
-  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
-  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
-  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
-  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
-
-  section{padding:16px 20px 4px;}
-  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 4px;}
-  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
-
-  .win{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:13px;padding:14px 15px;margin-bottom:11px;box-shadow:var(--shadow);}
-  .win .wn{font-weight:700;font-size:14.5px;color:var(--ink);}
-  .win .wc{font-size:12px;color:var(--ox);font-weight:600;margin-top:2px;}
-  .win .wd{font-size:12.5px;color:#6b7078;margin-top:5px;line-height:1.5;}
-  .win .wsrc{font-size:10.5px;color:#a7acb3;margin-top:6px;}
-  .win .wsrc a{color:#a7acb3;}
-
-  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
-  a.card:active{transform:scale(.99)}
-  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
-  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
-  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
-  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;background:var(--okbg);color:var(--ok);}
-
-  .funnel{margin:8px 20px 6px;background:linear-gradient(160deg,#6B2A34,#54212a);color:#fff;border-radius:15px;padding:18px 16px 16px;box-shadow:var(--shadow);}
-  .funnel .fe{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
-  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin:5px 0 5px;}
-  .funnel p{font-size:12.5px;color:#eadfe0;line-height:1.5;margin:0 0 11px;}
-  .funnel a{display:block;text-align:center;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:12px;border-radius:10px;font-size:14px;}
-
-  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
-  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
-  .hidden{display:none;}
-
-  @media(min-width:860px){
-    .mocklabel{max-width:900px;}
-    .phone{max-width:900px;border-radius:22px;}
-    .scroll{height:auto;max-height:none;overflow-y:visible;}
-    header{padding:26px 34px 24px;}
-    .tabs{padding-left:32px;padding-right:32px;}
-    section{padding:18px 32px 4px;}
-    .funnel{margin-left:32px;margin-right:32px;}
-    footer{padding:22px 32px 32px;}
-  }
-</style>
 <link rel="stylesheet" href="hub-shell.css">
+<style>
+  /* Page-specific only. Everything structural lives in hub-shell.css. */
+  .win-cols{columns:2;column-gap:16px;}
+  .win{break-inside:avoid;background:var(--white);border:1px solid var(--bone);border-left:4px solid var(--gold-antique);border-radius:12px;padding:15px 17px;margin:0 0 14px;box-shadow:var(--shadow);}
+  .win-cols .win:nth-child(even){border-left-color:var(--ox);}
+  .win .wn{font-weight:700;font-size:14.5px;color:var(--navy);}
+  .win .wc{font-size:12.5px;color:var(--ox);font-weight:600;margin-top:3px;}
+  .win .wd{font-size:13px;color:#66707d;margin-top:6px;line-height:1.5;}
+  .win .wsrc{font-size:11px;color:#9aa2ab;margin-top:8px;}
+  .win .wsrc a{color:#9aa2ab;}
+  .win-flat{background:var(--white);border:1px solid var(--bone);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);}
+  .win-flat .wd{font-size:13.5px;color:#66707d;line-height:1.55;}
+
+  /* Industry recognition sits on an oxblood band — repaint the win cards to match. */
+  .ch-band.ox .win{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);border-left-color:var(--blush);}
+  .ch-band.ox .win-cols .win:nth-child(even){border-left-color:var(--gold-light);}
+  .ch-band.ox .win .wn{color:#fff;}
+  .ch-band.ox .win .wc{color:var(--gold-light);}
+  .ch-band.ox .win .wd{color:#e6d7d9;}
+  .ch-band.ox .win .wsrc{color:#d9c3c5;}
+  .ch-band.ox .win .wsrc a{color:#d9c3c5;}
+
+  .ch-cardgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  a.card{display:block;text-decoration:none;background:var(--white);border:1px solid var(--bone);border-left:4px solid var(--gold-antique);border-radius:12px;padding:15px 17px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease;}
+  .ch-cardgrid a.card:nth-child(even){border-left-color:var(--ox);}
+  a.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  a.card .ct{font-weight:700;font-size:15px;color:var(--navy);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  a.card .ct .arrow{color:var(--gold);font-weight:700;flex:0 0 auto;}
+  a.card .cd{font-size:13px;color:#66707d;margin-top:5px;line-height:1.5;}
+  .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:5px;text-transform:uppercase;margin-top:8px;background:#e5efe5;color:#2F6B57;}
+
+  .funnel-cta{background:linear-gradient(150deg,var(--ox) 0%,var(--ox-deep) 100%);color:#fff;border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+  .funnel-cta .fe{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blush);font-weight:700;}
+  .funnel-cta h3{font-family:var(--serif);font-weight:500;font-size:23px;margin:6px 0 6px;}
+  .funnel-cta p{font-size:14.5px;color:#eadfe0;line-height:1.5;margin:0;max-width:520px;}
+  .funnel-cta a{display:inline-block;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:13px 22px;border-radius:10px;font-size:14.5px;white-space:nowrap;}
+
+  @media(max-width:900px){.win-cols{columns:1;}.ch-cardgrid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-<div class="mocklabel">Preview · winners sourced from official award bodies only · verified 20/07/2026</div>
-<div class="phone"><div class="scroll">
 
-  <header>
-    <div class="eyebrow">The Clinical Hub</div>
+<!-- MASTHEAD -->
+<header class="ch-masthead ch-band" style="padding-bottom:0">
+  <div class="ch-in">
+    <p class="ch-eyebrow">The Clinical Hub</p>
     <h1>Career Wins</h1>
-    <div class="tag">Real nurses, real carers, doing brilliant things — celebrated properly.</div>
-  </header>
-
-  <div class="trust"><span class="shield">✓</span> Every name here is from an <b>official award ceremony or NHS trust announcement</b> — never scraped from social media</div>
-
-  <div class="tabs" id="audTabs">
-    <button class="on" data-aud="all">Everyone</button>
-    <button data-aud="carer">Carers</button>
-    <button data-aud="nurse">Nurses</button>
+    <p class="tag">Real nurses, real carers, doing brilliant things — celebrated properly.</p>
+    <div class="ch-badges">
+      <span class="ch-badge"><svg viewBox="0 0 24 24"><use href="#ic-check"></use></svg>Every name here is from an <b>official award ceremony or NHS trust announcement</b> — never scraped from social media</span>
+      <span class="ch-badge">Verified July 2026</span>
+    </div>
   </div>
+</header>
 
-  <section data-aud="nurse">
-    <div class="eb">Recent winners</div>
+<!-- AUDIENCE TABS -->
+<section class="ch-band" style="padding-top:26px">
+  <div class="ch-in">
+    <div class="ch-chips" id="audTabs">
+      <button class="ch-chip on" type="button" data-aud="all">Everyone</button>
+      <button class="ch-chip" type="button" data-aud="carer">Carers</button>
+      <button class="ch-chip" type="button" data-aud="nurse">Nurses</button>
+    </div>
+  </div>
+</section>
+
+<!-- NURSING WINNERS -->
+<div class="ch-band ch-section" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">Recent winners</p>
     <h2>Nursing</h2>
-    <div class="win"><div class="wn">Teresa O'Nwere-Tan</div><div class="wc">Nurse of the Year — Nursing Times Awards 2025</div><div class="wd">Advanced Nurse Practitioner, Nexus Health Group / NHS South East London ICB.</div><div class="wsrc">Source: nursingtimes.net</div></div>
-    <div class="win"><div class="wn">Emma Firth</div><div class="wc">Nurse Leader of the Year — Nursing Times Awards 2025</div><div class="wd">Practice Plus Group, prison nursing.</div><div class="wsrc">Source: nursingtimes.net</div></div>
-    <div class="win"><div class="wn">Dr Crystal Oldman</div><div class="wc">Lifetime Achievement — Chief Nursing Officers' Award, Nursing Times Awards 2025</div><div class="wd">Recognised for a career in district and community nursing.</div><div class="wsrc">Source: nursingtimes.net</div></div>
-    <div class="win"><div class="wn">Beth Dennis</div><div class="wc">Student Nurse of the Year: Children — Student Nursing Times Awards 2025</div><div class="wd">Birmingham City University.</div><div class="wsrc">Source: nursingtimes.net</div></div>
-    <div class="win"><div class="wn">Siofra Mckeon Erskine</div><div class="wc">Apprentice Nurse of the Year (inaugural) — Student Nursing Times Awards 2025</div><div class="wd">Leeds Teaching Hospitals NHS Trust.</div><div class="wsrc">Source: nursingtimes.net</div></div>
-    <div class="win"><div class="wn">Christina Abarno, Cyril Mathew &amp; Martha Stepney</div><div class="wc">NHS Chief Nursing Officer Award 2025</div><div class="wd">Healthcare Support Workers, Oxford University Hospitals NHS FT.</div><div class="wsrc">Source: ouh.nhs.uk</div></div>
-  </section>
-
-  <section data-aud="carer">
-    <div class="eb">Recent winners</div>
-    <h2>Care</h2>
-    <div class="win"><div class="wn">Heman Kiyanga</div><div class="wc">Care Home Worker Award — Great British Care Awards National Final 2025</div><div class="wd">Anchor.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
-    <div class="win"><div class="wn">Endurance Onichabor</div><div class="wc">Home Care Worker Award — Great British Care Awards National Final 2025</div><div class="wd">Ivolve Care and Support.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
-    <div class="win"><div class="wn">Nina Stephens</div><div class="wc">Care Home Registered Manager Award — Great British Care Awards National Final 2025</div><div class="wd">RMBI Care Co.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
-    <div class="win"><div class="wn">Jill Davies</div><div class="wc">Leadership Award — Markel 3rd Sector Care Awards 2025</div><div class="wd">Palliative Care Clinical Lead, DHU Healthcare's Palliative Care Urgent Response Service.</div><div class="wsrc">Source: dhuhealthcare.com</div></div>
-  </section>
-
-  <!-- CARER IN THE NEWS -->
-  <section data-aud="carer">
-    <div class="eb">Good news, for once</div>
-    <h2>In the news</h2>
-    <p class="sub">Real stories from the national and local press — nothing sourced from social media.</p>
-    <a class="card" href="https://www.ross-shirejournal.co.uk/news/muir-of-ord-care-home-staff-scale-mountains-to-raise-funds-f-436936/" target="_blank" rel="noopener"><div class="ct"><span>Care home staff climb a mountain for residents' comfort fund</span><span class="arrow">→</span></div><div class="cd">Four staff from Urray House Care Home, Muir of Ord, climbed Ben Wyvis and hosted a community fun day. Ross-shire Journal, 6 June 2026.</div><span class="badge">Went above and beyond</span></a>
-    <a class="card" href="https://fermanaghherald.com/2026/07/carers-turn-care-home-into-a-place-of-joy-and-fun/" target="_blank" rel="noopener"><div class="ct"><span>Carers turn a care home into a place of joy</span><span class="arrow">→</span></div><div class="cd">Activity staff at The Tilery Nursing Home use humour, animals and crafts to enrich residents' daily lives. Fermanagh Herald, 5 July 2026.</div><span class="badge">Went above and beyond</span></a>
-    <a class="card" href="https://www.barrheadnews.com/news/25807638.care-home-residents-surprise-90th-birthday/" target="_blank" rel="noopener"><div class="ct"><span>Care home staff arrange a 90th birthday surprise</span><span class="arrow">→</span></div><div class="cd">Staff at Newton House, Newton Mearns, arranged a surprise band and reunited a resident with her son, flown in from Singapore. Barrhead News, 29 January 2026.</div><span class="badge">Went above and beyond</span></a>
-  </section>
-
-  <!-- HOSPITAL & TRUST NEWS -->
-  <section data-aud="nurse">
-    <div class="eb">Straight from the trust</div>
-    <h2>Hospital &amp; trust news</h2>
-    <p class="sub">Announcements from NHS trusts' own newsrooms, across all four nations.</p>
-    <div class="win"><div class="wn">Mike Spall-Hancy &amp; Daisy Sandeman</div><div class="wc">RCN Scotland Nurse of the Year Awards 2026 — finalists</div><div class="wd">NHS Lothian — sexual health/HIV, and advanced practice at the Royal Infirmary of Edinburgh.</div><div class="wsrc">Source: news.nhslothian.scot, 26/02/2026</div></div>
-    <div class="win"><div class="wn">Carolann McLaughlin, Micky Glenn &amp; Marie Donnelly</div><div class="wc">RCN Northern Ireland Nurse of the Year Awards 2026 — winners, 3 categories</div><div class="wd">Western Health &amp; Social Care Trust.</div><div class="wsrc">Source: westerntrust.hscni.net, 09/06/2026</div></div>
-    <div class="win"><div class="wn">Melanie Hayward</div><div class="wc">Liz Baker Award for Excellence in Renal Nursing</div><div class="wd">Glan Clwyd Hospital — expanded home haemodialysis access. Betsi Cadwaladr University Health Board.</div><div class="wsrc">Source: bcuhb.nhs.wales</div></div>
-    <div class="win"><div class="wn">Paula Heycock &amp; Hayley Taylor</div><div class="wc">RCN Wales Community and Primary Care Nursing Award — winner &amp; runner-up</div><div class="wd">Swansea Bay University Health Board — transforming heart failure services.</div><div class="wsrc">Source: sbuhb.nhs.wales</div></div>
-    <div class="win"><div class="wn">Madeleine Lee &amp; Cathi Lang</div><div class="wc">British Journal of Nursing Awards 2026 — nominees</div><div class="wd">Nutrition and vascular access nurse specialists, Northumbria Healthcare NHS Foundation Trust.</div><div class="wsrc">Source: northumbria.nhs.uk, 23/02/2026</div></div>
-    <div class="win"><div class="wn">Oxford Health District Nursing Service</div><div class="wc">HSJ Patient Safety Awards 2026 — shortlisted</div><div class="wd">Improving Medicines Safety category, for a collaborative insulin-review programme.</div><div class="wsrc">Source: oxfordhealth.nhs.uk, 08/06/2026</div></div>
-    <div class="win"><div class="wn">Denise Fraser</div><div class="wc">40 years' service recognised</div><div class="wd">Emergency Nurse Practitioner, Walsall Healthcare NHS Trust — serving since 1985.</div><div class="wsrc">Source: walsallhealthcare.nhs.uk, 03/06/2026</div></div>
-    <div class="win"><div class="wn">Jenny Nops</div><div class="wc">Lifetime Achievement Award</div><div class="wd">Clinical Service Matron for Mid and North Hampshire, Hampshire and Isle of Wight Healthcare NHS FT.</div><div class="wsrc">Source: hiowhealthcare.nhs.uk, 10/07/2026</div></div>
-    <div class="win"><div class="wn">Rachael Corser</div><div class="wc">Appointed Group Chief Nursing Officer</div><div class="wd">Barts Health NHS Trust, London.</div><div class="wsrc">Source: bartshealth.nhs.uk</div></div>
-    <div class="win"><div class="wn">Sarah Smyth</div><div class="wc">Appointed Executive Director of Nursing, AHPs &amp; Social Care</div><div class="wd">Humber Teaching NHS Foundation Trust.</div><div class="wsrc">Source: humber.nhs.uk</div></div>
-  </section>
-
-  <!-- INDUSTRY RECOGNITION -->
-  <section data-aud="nurse">
-    <div class="eb">Nurses in industry</div>
-    <h2>Industry recognition</h2>
-    <p class="sub">Nurses working in medical devices, pharma and commercial healthcare — recognised by their own sector's awards, sourced from company and trade-press announcements only.</p>
-    <div class="win"><div class="wn">Hollie Murphy &amp; the Oncology Nurse Advisor Team</div><div class="wc">Improving Patient Experience Award + Overall Team of the Year — PharmaTimes Nursing Industry Excellence Awards 2026</div><div class="wd">Lloyds Clinical.</div><div class="wsrc">Source: lloydsclinical.com</div></div>
-    <div class="win"><div class="wn">Dominique Muir</div><div class="wc">Leadership Excellence Award — PharmaTimes NIEA 2025</div><div class="wd">IQVIA.</div><div class="wsrc">Source: niea.pharmatimes.com</div></div>
-    <div class="win"><div class="wn">Abigail Morris &amp; Kirsty Bennett</div><div class="wc">Innovation Excellence Award + Overall Nurse/Team of the Year — PharmaTimes NIEA 2025</div><div class="wd">Lloyds Clinical.</div><div class="wsrc">Source: niea.pharmatimes.com</div></div>
-    <div class="win"><div class="wn">Caroline McGlynn</div><div class="wc">Overall Nurse of the Year + Leadership Excellence Award — PharmaTimes 2024</div><div class="wd">Inizio.</div><div class="wsrc">Source: pharmatimes.com</div></div>
-    <div class="win"><div class="wn">Natalie Bingham, Jade Mickelsen &amp; Hollie Murphy</div><div class="wc">Innovation Excellence Award + Overall Team of the Year — PharmaTimes 2024</div><div class="wd">Lloydspharmacy Clinical Homecare.</div><div class="wsrc">Source: pharmatimes.com</div></div>
-  </section>
-
-  <!-- IN THE NEWS -->
-  <section data-aud="nurse">
-    <div class="eb">Good news, for once</div>
-    <h2>In the news</h2>
-    <p class="sub">Real stories from the national and local press — nothing sourced from social media.</p>
-    <a class="card" href="https://www.stratford-herald.com/news/warwickshire-nhs-workers-included-in-king-s-birthday-honours-9469983/" target="_blank" rel="noopener"><div class="ct"><span>BEM for a mental health nurse's perinatal support work</span><span class="arrow">→</span></div><div class="cd">Leanne Howlett, 39, honoured for seven years of mostly voluntary support for families affected by perinatal mental illness. Stratford Herald, 12 June 2026.</div><span class="badge">Honours</span></a>
-    <a class="card" href="https://www.nursingtimes.net/leadership/contribution-of-nursing-celebrated-in-2026-new-years-honours-list-09-01-2026/" target="_blank" rel="noopener"><div class="ct"><span>~20 nurses &amp; midwives in the New Year Honours</span><span class="arrow">→</span></div><div class="cd">Including an OBE for a chief nurse who turned around a "requires improvement" CQC rating. Nursing Times, 9 January 2026.</div><span class="badge">Honours</span></a>
-    <a class="card" href="https://www.thehullstory.com/allarticles/nurse-janet-retires-after-66-years" target="_blank" rel="noopener"><div class="ct"><span>Midwifery nurse retires at 83, after 66 years</span><span class="arrow">→</span></div><div class="cd">Janet Harley started her career in Perthshire in 1959. The Hull Story, 7 May 2026.</div><span class="badge">Retirement</span></a>
-    <a class="card" href="https://www.thehullstory.com/allarticles/nurse-retires-after-60-years" target="_blank" rel="noopener"><div class="ct"><span>"Mamma Cath" retires after 60 years in A&amp;E</span><span class="arrow">→</span></div><div class="cd">Cath Lyon started as a 16-year-old cadet in 1962. The Hull Story, 4 February 2026.</div><span class="badge">Retirement</span></a>
-    <a class="card" href="https://www.lowestoftjournal.co.uk/news/25933148.nurse-retires-40-years-james-paget/" target="_blank" rel="noopener"><div class="ct"><span>Neonatal nurse retires after 41 years</span><span class="arrow">→</span></div><div class="cd">Sarah Todd cared for "thousands of babies" since 1985. Lowestoft Journal, 16 March 2026.</div><span class="badge">Retirement</span></a>
-    <a class="card" href="https://www.gazette-news.co.uk/news/26276421.colchester-nhs-nurse-steps-50-years-role/" target="_blank" rel="noopener"><div class="ct"><span>Children's ward sister retires after 50 years</span><span class="arrow">→</span></div><div class="cd">Kim Ness qualified in 1982 and rose to ward sister. Colchester Gazette, 18 July 2026.</div><span class="badge">Retirement</span></a>
-    <a class="card" href="https://www.westcoasttoday.co.uk/news/off-duty-nurse-praised-as-a-hero-after-saving-choking-diner" target="_blank" rel="noopener"><div class="ct"><span>Off-duty nurse saves choking diner</span><span class="arrow">→</span></div><div class="cd">Roxanna Macculloch stepped in while out for lunch with her son. West Coast Today, 11 February 2026.</div><span class="badge">Went above and beyond</span></a>
-    <a class="card" href="https://www.gazetteherald.co.uk/news/26221349.m-s-team-save-york-mans-life-heart-attack-caf/" target="_blank" rel="noopener"><div class="ct"><span>Off-duty nurse helps save café heart-attack victim</span><span class="arrow">→</span></div><div class="cd">An off-duty nurse and M&amp;S staff performed CPR and used a defibrillator to restart a customer's heart. Gazette &amp; Herald, June 2026.</div><span class="badge">Went above and beyond</span></a>
-    <a class="card" href="https://www.itv.com/news/anglia/2026-05-05/nurse-helps-to-shape-future-breast-cancer-care-for-other-patients" target="_blank" rel="noopener"><div class="ct"><span>Nurse who had breast cancer joins trial to help others</span><span class="arrow">→</span></div><div class="cd">Heidi Jones, diagnosed in 2025, now shares her experience with patients going through treatment. ITV News Anglia, 5 May 2026.</div><span class="badge">Patient advocate</span></a>
-  </section>
-
-  <!-- AWARD PROGRAMMES -->
-  <section data-aud="nurse">
-    <div class="eb">Could be you next</div>
-    <h2>Nursing award programmes</h2>
-    <a class="card" href="https://www.nursingtimes.net/events/nursingtimesawards/" target="_blank" rel="noopener"><div class="ct"><span>Nursing Times Awards</span><span class="arrow">→</span></div><div class="cd">The sector's flagship awards — ~25 categories, annual ceremony each October.</div><span class="badge">Enter</span></a>
-    <a class="card" href="https://studentawards.nursingtimes.net/" target="_blank" rel="noopener"><div class="ct"><span>Student Nursing Times Awards</span><span class="arrow">→</span></div><div class="cd">For student and apprentice nurses — ~24 categories, annual each spring.</div><span class="badge">Enter</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Get-Involved/RCN-awards" target="_blank" rel="noopener"><div class="ct"><span>RCN Awards</span><span class="arrow">→</span></div><div class="cd">Presented at RCN Congress — includes the Award of Merit.</div><span class="badge">Enter</span></a>
-    <a class="card" href="https://www.england.nhs.uk/nursingmidwifery/chief-nursing-officer-for-england/awards/" target="_blank" rel="noopener"><div class="ct"><span>NHS Chief Nursing Officer Awards</span><span class="arrow">→</span></div><div class="cd">Rolling recognition for nurses, midwives &amp; support workers who go above and beyond — nominated via your trust.</div><span class="badge">Enter</span></a>
-  </section>
-
-  <section data-aud="carer">
-    <div class="eb">Could be you next</div>
-    <h2>Care award programmes</h2>
-    <a class="card" href="https://www.care-awards.co.uk/" target="_blank" rel="noopener"><div class="ct"><span>Great British Care Awards</span><span class="arrow">→</span></div><div class="cd">Regional heats each autumn feeding a national final — the biggest recognition event in UK care.</div><span class="badge">Enter</span></a>
-    <a class="card" href="https://uk.markel.com/about-us/news-and-insights/markel-3rd-sector-care-awards-2025" target="_blank" rel="noopener"><div class="ct"><span>Markel 3rd Sector Care Awards</span><span class="arrow">→</span></div><div class="cd">Recognises charity and not-for-profit care and support providers.</div><span class="badge">Enter</span></a>
-    <div class="win"><div class="wd" style="margin-top:0">Plus: many NHS trusts and care providers run their own annual staff awards (STAR Awards, Staff Recognition Awards, "Golden Stars" and similar) — ask your employer what's running.</div></div>
-  </section>
-
-  <!-- SUBMISSION -->
-  <section data-aud="all">
-    <div class="eb">Your turn</div>
-    <h2>Tell us your news</h2>
-    <p class="sub">Been promoted? Won an award? Passed a big qualification? We'd love to celebrate it here.</p>
-    <a class="card" id="tellUsCard" href="#"><div class="ct"><span>Share your win</span><span class="arrow">→</span></div><div class="cd">Opens your email app with a short prompt — takes two minutes.</div><span class="badge">Free</span></a>
-  </section>
-
-  <div class="funnel">
-    <div class="fe">Building toward your next win?</div>
-    <h3>See what's possible next</h3>
-    <p>The What's Next page maps real routes — clinical, leadership, teaching and beyond.</p>
-    <a href="whats-next.html">Explore What's Next →</a>
+    <div class="win-cols">
+      <div class="win"><div class="wn">Teresa O'Nwere-Tan</div><div class="wc">Nurse of the Year — Nursing Times Awards 2025</div><div class="wd">Advanced Nurse Practitioner, Nexus Health Group / NHS South East London ICB.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+      <div class="win"><div class="wn">Emma Firth</div><div class="wc">Nurse Leader of the Year — Nursing Times Awards 2025</div><div class="wd">Practice Plus Group, prison nursing.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+      <div class="win"><div class="wn">Dr Crystal Oldman</div><div class="wc">Lifetime Achievement — Chief Nursing Officers' Award, Nursing Times Awards 2025</div><div class="wd">Recognised for a career in district and community nursing.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+      <div class="win"><div class="wn">Beth Dennis</div><div class="wc">Student Nurse of the Year: Children — Student Nursing Times Awards 2025</div><div class="wd">Birmingham City University.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+      <div class="win"><div class="wn">Siofra Mckeon Erskine</div><div class="wc">Apprentice Nurse of the Year (inaugural) — Student Nursing Times Awards 2025</div><div class="wd">Leeds Teaching Hospitals NHS Trust.</div><div class="wsrc">Source: nursingtimes.net</div></div>
+      <div class="win"><div class="wn">Christina Abarno, Cyril Mathew &amp; Martha Stepney</div><div class="wc">NHS Chief Nursing Officer Award 2025</div><div class="wd">Healthcare Support Workers, Oxford University Hospitals NHS FT.</div><div class="wsrc">Source: ouh.nhs.uk</div></div>
+    </div>
   </div>
+</div>
 
-  <footer>Prototype · The Clinical Hub · Career Wins<br>All winners sourced from official award-body or NHS trust pages — never social media. Verified July 2026.</footer>
+<!-- CARE WINNERS -->
+<div class="ch-band blush ch-section" style="padding-top:0" data-aud="carer">
+  <div class="ch-in">
+    <p class="ch-kicker">Recent winners</p>
+    <h2>Care</h2>
+    <div class="win-cols">
+      <div class="win"><div class="wn">Heman Kiyanga</div><div class="wc">Care Home Worker Award — Great British Care Awards National Final 2025</div><div class="wd">Anchor.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
+      <div class="win"><div class="wn">Endurance Onichabor</div><div class="wc">Home Care Worker Award — Great British Care Awards National Final 2025</div><div class="wd">Ivolve Care and Support.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
+      <div class="win"><div class="wn">Nina Stephens</div><div class="wc">Care Home Registered Manager Award — Great British Care Awards National Final 2025</div><div class="wd">RMBI Care Co.</div><div class="wsrc">Source: care-awards.co.uk</div></div>
+      <div class="win"><div class="wn">Jill Davies</div><div class="wc">Leadership Award — Markel 3rd Sector Care Awards 2025</div><div class="wd">Palliative Care Clinical Lead, DHU Healthcare's Palliative Care Urgent Response Service.</div><div class="wsrc">Source: dhuhealthcare.com</div></div>
+    </div>
+  </div>
+</div>
 
-</div></div>
+<!-- CARER IN THE NEWS -->
+<div class="ch-band ch-section" data-aud="carer">
+  <div class="ch-in">
+    <p class="ch-kicker">Good news, for once</p>
+    <h2>In the news</h2>
+    <p class="lede">Real stories from the national and local press — nothing sourced from social media.</p>
+    <div class="ch-cardgrid">
+      <a class="card" href="https://www.ross-shirejournal.co.uk/news/muir-of-ord-care-home-staff-scale-mountains-to-raise-funds-f-436936/" target="_blank" rel="noopener"><div class="ct"><span>Care home staff climb a mountain for residents' comfort fund</span><span class="arrow">&rarr;</span></div><div class="cd">Four staff from Urray House Care Home, Muir of Ord, climbed Ben Wyvis and hosted a community fun day. Ross-shire Journal, 6 June 2026.</div><span class="badge">Went above and beyond</span></a>
+      <a class="card" href="https://fermanaghherald.com/2026/07/carers-turn-care-home-into-a-place-of-joy-and-fun/" target="_blank" rel="noopener"><div class="ct"><span>Carers turn a care home into a place of joy</span><span class="arrow">&rarr;</span></div><div class="cd">Activity staff at The Tilery Nursing Home use humour, animals and crafts to enrich residents' daily lives. Fermanagh Herald, 5 July 2026.</div><span class="badge">Went above and beyond</span></a>
+      <a class="card" href="https://www.barrheadnews.com/news/25807638.care-home-residents-surprise-90th-birthday/" target="_blank" rel="noopener"><div class="ct"><span>Care home staff arrange a 90th birthday surprise</span><span class="arrow">&rarr;</span></div><div class="cd">Staff at Newton House, Newton Mearns, arranged a surprise band and reunited a resident with her son, flown in from Singapore. Barrhead News, 29 January 2026.</div><span class="badge">Went above and beyond</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- HOSPITAL & TRUST NEWS -->
+<div class="ch-band ch-section" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">Straight from the trust</p>
+    <h2>Hospital &amp; trust news</h2>
+    <p class="lede">Announcements from NHS trusts' own newsrooms, across all four nations.</p>
+    <div class="win-cols">
+      <div class="win"><div class="wn">Mike Spall-Hancy &amp; Daisy Sandeman</div><div class="wc">RCN Scotland Nurse of the Year Awards 2026 — finalists</div><div class="wd">NHS Lothian — sexual health/HIV, and advanced practice at the Royal Infirmary of Edinburgh.</div><div class="wsrc">Source: news.nhslothian.scot, 26/02/2026</div></div>
+      <div class="win"><div class="wn">Carolann McLaughlin, Micky Glenn &amp; Marie Donnelly</div><div class="wc">RCN Northern Ireland Nurse of the Year Awards 2026 — winners, 3 categories</div><div class="wd">Western Health &amp; Social Care Trust.</div><div class="wsrc">Source: westerntrust.hscni.net, 09/06/2026</div></div>
+      <div class="win"><div class="wn">Melanie Hayward</div><div class="wc">Liz Baker Award for Excellence in Renal Nursing</div><div class="wd">Glan Clwyd Hospital — expanded home haemodialysis access. Betsi Cadwaladr University Health Board.</div><div class="wsrc">Source: bcuhb.nhs.wales</div></div>
+      <div class="win"><div class="wn">Paula Heycock &amp; Hayley Taylor</div><div class="wc">RCN Wales Community and Primary Care Nursing Award — winner &amp; runner-up</div><div class="wd">Swansea Bay University Health Board — transforming heart failure services.</div><div class="wsrc">Source: sbuhb.nhs.wales</div></div>
+      <div class="win"><div class="wn">Madeleine Lee &amp; Cathi Lang</div><div class="wc">British Journal of Nursing Awards 2026 — nominees</div><div class="wd">Nutrition and vascular access nurse specialists, Northumbria Healthcare NHS Foundation Trust.</div><div class="wsrc">Source: northumbria.nhs.uk, 23/02/2026</div></div>
+      <div class="win"><div class="wn">Oxford Health District Nursing Service</div><div class="wc">HSJ Patient Safety Awards 2026 — shortlisted</div><div class="wd">Improving Medicines Safety category, for a collaborative insulin-review programme.</div><div class="wsrc">Source: oxfordhealth.nhs.uk, 08/06/2026</div></div>
+      <div class="win"><div class="wn">Denise Fraser</div><div class="wc">40 years' service recognised</div><div class="wd">Emergency Nurse Practitioner, Walsall Healthcare NHS Trust — serving since 1985.</div><div class="wsrc">Source: walsallhealthcare.nhs.uk, 03/06/2026</div></div>
+      <div class="win"><div class="wn">Jenny Nops</div><div class="wc">Lifetime Achievement Award</div><div class="wd">Clinical Service Matron for Mid and North Hampshire, Hampshire and Isle of Wight Healthcare NHS FT.</div><div class="wsrc">Source: hiowhealthcare.nhs.uk, 10/07/2026</div></div>
+      <div class="win"><div class="wn">Rachael Corser</div><div class="wc">Appointed Group Chief Nursing Officer</div><div class="wd">Barts Health NHS Trust, London.</div><div class="wsrc">Source: bartshealth.nhs.uk</div></div>
+      <div class="win"><div class="wn">Sarah Smyth</div><div class="wc">Appointed Executive Director of Nursing, AHPs &amp; Social Care</div><div class="wd">Humber Teaching NHS Foundation Trust.</div><div class="wsrc">Source: humber.nhs.uk</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INDUSTRY RECOGNITION -->
+<div class="ch-band ox ch-section" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">Nurses in industry</p>
+    <h2>Industry recognition</h2>
+    <p class="lede">Nurses working in medical devices, pharma and commercial healthcare — recognised by their own sector's awards, sourced from company and trade-press announcements only.</p>
+    <div class="win-cols">
+      <div class="win"><div class="wn">Hollie Murphy &amp; the Oncology Nurse Advisor Team</div><div class="wc">Improving Patient Experience Award + Overall Team of the Year — PharmaTimes Nursing Industry Excellence Awards 2026</div><div class="wd">Lloyds Clinical.</div><div class="wsrc">Source: lloydsclinical.com</div></div>
+      <div class="win"><div class="wn">Dominique Muir</div><div class="wc">Leadership Excellence Award — PharmaTimes NIEA 2025</div><div class="wd">IQVIA.</div><div class="wsrc">Source: niea.pharmatimes.com</div></div>
+      <div class="win"><div class="wn">Abigail Morris &amp; Kirsty Bennett</div><div class="wc">Innovation Excellence Award + Overall Nurse/Team of the Year — PharmaTimes NIEA 2025</div><div class="wd">Lloyds Clinical.</div><div class="wsrc">Source: niea.pharmatimes.com</div></div>
+      <div class="win"><div class="wn">Caroline McGlynn</div><div class="wc">Overall Nurse of the Year + Leadership Excellence Award — PharmaTimes 2024</div><div class="wd">Inizio.</div><div class="wsrc">Source: pharmatimes.com</div></div>
+      <div class="win"><div class="wn">Natalie Bingham, Jade Mickelsen &amp; Hollie Murphy</div><div class="wc">Innovation Excellence Award + Overall Team of the Year — PharmaTimes 2024</div><div class="wd">Lloydspharmacy Clinical Homecare.</div><div class="wsrc">Source: pharmatimes.com</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- IN THE NEWS -->
+<div class="ch-band ch-section" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">Good news, for once</p>
+    <h2>In the news</h2>
+    <p class="lede">Real stories from the national and local press — nothing sourced from social media.</p>
+    <div class="ch-cardgrid">
+      <a class="card" href="https://www.stratford-herald.com/news/warwickshire-nhs-workers-included-in-king-s-birthday-honours-9469983/" target="_blank" rel="noopener"><div class="ct"><span>BEM for a mental health nurse's perinatal support work</span><span class="arrow">&rarr;</span></div><div class="cd">Leanne Howlett, 39, honoured for seven years of mostly voluntary support for families affected by perinatal mental illness. Stratford Herald, 12 June 2026.</div><span class="badge">Honours</span></a>
+      <a class="card" href="https://www.nursingtimes.net/leadership/contribution-of-nursing-celebrated-in-2026-new-years-honours-list-09-01-2026/" target="_blank" rel="noopener"><div class="ct"><span>~20 nurses &amp; midwives in the New Year Honours</span><span class="arrow">&rarr;</span></div><div class="cd">Including an OBE for a chief nurse who turned around a "requires improvement" CQC rating. Nursing Times, 9 January 2026.</div><span class="badge">Honours</span></a>
+      <a class="card" href="https://www.thehullstory.com/allarticles/nurse-janet-retires-after-66-years" target="_blank" rel="noopener"><div class="ct"><span>Midwifery nurse retires at 83, after 66 years</span><span class="arrow">&rarr;</span></div><div class="cd">Janet Harley started her career in Perthshire in 1959. The Hull Story, 7 May 2026.</div><span class="badge">Retirement</span></a>
+      <a class="card" href="https://www.thehullstory.com/allarticles/nurse-retires-after-60-years" target="_blank" rel="noopener"><div class="ct"><span>"Mamma Cath" retires after 60 years in A&amp;E</span><span class="arrow">&rarr;</span></div><div class="cd">Cath Lyon started as a 16-year-old cadet in 1962. The Hull Story, 4 February 2026.</div><span class="badge">Retirement</span></a>
+      <a class="card" href="https://www.lowestoftjournal.co.uk/news/25933148.nurse-retires-40-years-james-paget/" target="_blank" rel="noopener"><div class="ct"><span>Neonatal nurse retires after 41 years</span><span class="arrow">&rarr;</span></div><div class="cd">Sarah Todd cared for "thousands of babies" since 1985. Lowestoft Journal, 16 March 2026.</div><span class="badge">Retirement</span></a>
+      <a class="card" href="https://www.gazette-news.co.uk/news/26276421.colchester-nhs-nurse-steps-50-years-role/" target="_blank" rel="noopener"><div class="ct"><span>Children's ward sister retires after 50 years</span><span class="arrow">&rarr;</span></div><div class="cd">Kim Ness qualified in 1982 and rose to ward sister. Colchester Gazette, 18 July 2026.</div><span class="badge">Retirement</span></a>
+      <a class="card" href="https://www.westcoasttoday.co.uk/news/off-duty-nurse-praised-as-a-hero-after-saving-choking-diner" target="_blank" rel="noopener"><div class="ct"><span>Off-duty nurse saves choking diner</span><span class="arrow">&rarr;</span></div><div class="cd">Roxanna Macculloch stepped in while out for lunch with her son. West Coast Today, 11 February 2026.</div><span class="badge">Went above and beyond</span></a>
+      <a class="card" href="https://www.gazetteherald.co.uk/news/26221349.m-s-team-save-york-mans-life-heart-attack-caf/" target="_blank" rel="noopener"><div class="ct"><span>Off-duty nurse helps save café heart-attack victim</span><span class="arrow">&rarr;</span></div><div class="cd">An off-duty nurse and M&amp;S staff performed CPR and used a defibrillator to restart a customer's heart. Gazette &amp; Herald, June 2026.</div><span class="badge">Went above and beyond</span></a>
+      <a class="card" href="https://www.itv.com/news/anglia/2026-05-05/nurse-helps-to-shape-future-breast-cancer-care-for-other-patients" target="_blank" rel="noopener"><div class="ct"><span>Nurse who had breast cancer joins trial to help others</span><span class="arrow">&rarr;</span></div><div class="cd">Heidi Jones, diagnosed in 2025, now shares her experience with patients going through treatment. ITV News Anglia, 5 May 2026.</div><span class="badge">Patient advocate</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- AWARD PROGRAMMES -->
+<div class="ch-band ch-section" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">Could be you next</p>
+    <h2>Nursing award programmes</h2>
+    <div class="ch-cardgrid">
+      <a class="card" href="https://www.nursingtimes.net/events/nursingtimesawards/" target="_blank" rel="noopener"><div class="ct"><span>Nursing Times Awards</span><span class="arrow">&rarr;</span></div><div class="cd">The sector's flagship awards — ~25 categories, annual ceremony each October.</div><span class="badge">Enter</span></a>
+      <a class="card" href="https://studentawards.nursingtimes.net/" target="_blank" rel="noopener"><div class="ct"><span>Student Nursing Times Awards</span><span class="arrow">&rarr;</span></div><div class="cd">For student and apprentice nurses — ~24 categories, annual each spring.</div><span class="badge">Enter</span></a>
+      <a class="card" href="https://www.rcn.org.uk/Get-Involved/RCN-awards" target="_blank" rel="noopener"><div class="ct"><span>RCN Awards</span><span class="arrow">&rarr;</span></div><div class="cd">Presented at RCN Congress — includes the Award of Merit.</div><span class="badge">Enter</span></a>
+      <a class="card" href="https://www.england.nhs.uk/nursingmidwifery/chief-nursing-officer-for-england/awards/" target="_blank" rel="noopener"><div class="ct"><span>NHS Chief Nursing Officer Awards</span><span class="arrow">&rarr;</span></div><div class="cd">Rolling recognition for nurses, midwives &amp; support workers who go above and beyond — nominated via your trust.</div><span class="badge">Enter</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- CARE AWARD PROGRAMMES -->
+<div class="ch-band blush ch-section" data-aud="carer">
+  <div class="ch-in">
+    <p class="ch-kicker">Could be you next</p>
+    <h2>Care award programmes</h2>
+    <div class="ch-cardgrid">
+      <a class="card" href="https://www.care-awards.co.uk/" target="_blank" rel="noopener"><div class="ct"><span>Great British Care Awards</span><span class="arrow">&rarr;</span></div><div class="cd">Regional heats each autumn feeding a national final — the biggest recognition event in UK care.</div><span class="badge">Enter</span></a>
+      <a class="card" href="https://uk.markel.com/about-us/news-and-insights/markel-3rd-sector-care-awards-2025" target="_blank" rel="noopener"><div class="ct"><span>Markel 3rd Sector Care Awards</span><span class="arrow">&rarr;</span></div><div class="cd">Recognises charity and not-for-profit care and support providers.</div><span class="badge">Enter</span></a>
+    </div>
+    <div class="win-flat" style="margin-top:14px"><div class="wd">Plus: many NHS trusts and care providers run their own annual staff awards (STAR Awards, Staff Recognition Awards, "Golden Stars" and similar) — ask your employer what's running.</div></div>
+  </div>
+</div>
+
+<!-- SUBMISSION -->
+<div class="ch-band ch-section" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">Your turn</p>
+    <h2>Tell us your news</h2>
+    <p class="lede">Been promoted? Won an award? Passed a big qualification? We'd love to celebrate it here.</p>
+    <a class="card" id="tellUsCard" href="#" style="max-width:420px"><div class="ct"><span>Share your win</span><span class="arrow">&rarr;</span></div><div class="cd">Opens your email app with a short prompt — takes two minutes.</div><span class="badge">Free</span></a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="ch-section ch-band" style="padding-top:0">
+  <div class="ch-in">
+    <div class="funnel-cta">
+      <div>
+        <div class="fe">Building toward your next win?</div>
+        <h3>See what's possible next</h3>
+        <p>The What's Next page maps real routes — clinical, leadership, teaching and beyond.</p>
+      </div>
+      <a href="whats-next.html">Explore What's Next &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ch-footer ch-band">
+  <div class="ch-in">
+    <p style="margin:0">The Clinical Hub · Career Wins</p>
+    <p class="legal">All winners sourced from official award-body or NHS trust pages — never social media. Verified July 2026.</p>
+  </div>
+</footer>
 
 <script>
-  document.querySelectorAll('#audTabs button').forEach(function(b){
+  document.querySelectorAll('#audTabs .ch-chip').forEach(function(b){
     b.addEventListener('click',function(){
-      document.querySelectorAll('#audTabs button').forEach(function(x){x.classList.remove('on');});
+      document.querySelectorAll('#audTabs .ch-chip').forEach(function(x){x.classList.remove('on');});
       b.classList.add('on');
       var f=b.dataset.aud;
-      document.querySelectorAll('section[data-aud]').forEach(function(s){
+      document.querySelectorAll('[data-aud]').forEach(function(s){
+        if(s.id==='audTabs' || s.closest('#audTabs')) return;
         var aud=s.dataset.aud;
-        s.classList.toggle('hidden', !(f==='all' || aud==='all' || aud===f));
+        s.style.display = (f==='all' || aud==='all' || aud===f) ? '' : 'none';
       });
     });
   });

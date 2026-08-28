@@ -5,149 +5,145 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Care Standard Portfolio Builder — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--stone:#CBBFAE;--greige:#D8D2C8;--line:#E4DED4;--ok:#3f6b3f;--okbg:#e5efe5;--shadow:0 2px 10px rgba(30,27,24,.08);}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
-  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
-  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
-  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
-  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
-  header{background:var(--ox);color:#fff;padding:18px 20px 20px;}
-  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:#f0d9a8;font-weight:600;}
-  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
-  header .tag{font-size:12.5px;color:#e9d3d6;}
-  .idcard{display:flex;gap:12px;margin-top:14px;background:rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;align-items:center;}
-  .avatar{width:46px;height:46px;border-radius:50%;background:#f0d9a8;color:var(--ox);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;flex:0 0 auto;}
-  .idcard input{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:8px;padding:7px 9px;font-size:13.5px;font-family:inherit;width:100%;margin-bottom:5px;}
-  .idcard input::placeholder{color:#e9d3d6;}
-
-  .overall{padding:16px 20px 6px;}
-  .bar{height:12px;background:var(--greige);border-radius:20px;overflow:hidden;}
-  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--ox));width:0;transition:width .5s;}
-  .overall .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
-  .overall h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;margin:0;color:var(--ink);}
-  .overall .pct{font-weight:700;color:var(--ox);font-size:15px;}
-  .banner{background:#efe9dd;border-radius:10px;padding:10px 12px;font-size:12px;color:#7a5f1f;margin:2px 16px 8px;line-height:1.45;}
-
-  .hero{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:12px 16px 4px;}
-  .hero .h{grid-column:1/-1;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:6px;}
-  .act{background:var(--ox);color:#fff;border:0;border-radius:16px;padding:15px 13px;text-align:left;cursor:pointer;box-shadow:var(--shadow);transition:.15s;}
-  .act:active{transform:scale(.98)}
-  .act.alt{background:#fff;color:var(--body);border:1px solid var(--line);}
-  .act .ic{font-size:23px}
-  .act .t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;line-height:1.1;margin-top:7px}
-  .act .d{font-size:11.5px;opacity:.85;margin-top:3px;line-height:1.35}
-  .act.alt .d{color:#8a8278;opacity:1}
-  .ai{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 6px;border-radius:5px;margin-top:8px;text-transform:uppercase}
-
-  .reqs{padding:6px 16px 2px}
-  .reqs .h{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:12px 4px 8px}
-  .req{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
-  .tick{width:30px;height:30px;border-radius:50%;flex:0 0 auto;border:2px solid var(--greige);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;cursor:pointer}
-  .tick.done{background:var(--ok);border-color:var(--ok)}
-  .req .body{flex:1}
-  .req .name{font-weight:600;font-size:14.5px;color:var(--ink)}
-  .req .meta{font-size:12px;color:#8a8278;margin-top:2px}
-  .req .prog{font-size:12px;color:var(--ox);font-weight:600}
-  .mini{height:6px;background:var(--greige);border-radius:10px;overflow:hidden;margin-top:6px}
-  .mini>i{display:block;height:100%;background:var(--gold);width:0;transition:width .4s}
-
-  .overlay{position:fixed;inset:0;background:rgba(30,27,24,.55);display:none;align-items:flex-end;justify-content:center;z-index:50}
-  .overlay.show{display:flex}
-  .sheet{background:var(--cream);width:100%;max-width:440px;border-radius:22px 22px 0 0;max-height:88vh;overflow-y:auto;padding:20px 20px 30px;animation:up .25s ease}
-  @keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
-  .sheet h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 4px;color:var(--ink)}
-  .sheet .lead{font-size:13px;color:#7a7368;margin:0 0 14px;line-height:1.5}
-  label{display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin:12px 0 5px}
-  input[type=text],input[type=email],input[type=number],input[type=date],textarea,select{width:100%;border:1.5px solid var(--greige);border-radius:10px;padding:11px 12px;font-size:15px;font-family:inherit;color:var(--body);background:#fff}
-  textarea{min-height:74px;resize:vertical;line-height:1.5}
-  .btn{width:100%;background:var(--ox);color:#fff;border:0;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;font-family:inherit}
-  .btn.ghost{background:#fff;color:var(--body);border:1.5px solid var(--greige)}
-  .btn:active{transform:scale(.99)}
-  .simnote{background:#fff;border-left:3px solid var(--gold);border-radius:8px;padding:9px 11px;font-size:11.5px;color:#7a7368;margin:10px 0;line-height:1.45;font-style:italic}
-  .extract{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 0;margin-top:8px}
-  .extract .r{display:flex;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--line);font-size:13.5px}
-  .extract .r:last-child{border-bottom:0}
-  .extract .r b{color:var(--ink)}
-  .draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px;line-height:1.6;white-space:pre-wrap;color:#4a4238;margin-top:8px}
-  .close{float:right;background:none;border:0;font-size:24px;color:#9a9186;cursor:pointer;line-height:1}
-  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:80;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}
-  .toast.show{opacity:1}
-  .gate{background:#F3E2E4;border-radius:12px;padding:14px;margin-top:6px}
-  .gate b{color:var(--ox)}
-  .chk{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
-  .chk button{background:#fff;border:1.5px solid var(--greige);border-radius:22px;padding:9px 13px;font-size:13px;font-weight:600;color:var(--body);cursor:pointer}
-  .chk button.on{background:var(--ok);border-color:var(--ok);color:#fff}
-  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186}
-  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase}
-
-  /* Desktop: widen the card and let it flow with the page instead of a phone-height scroll box. */
-  @media(min-width:860px){
-    .mocklabel{max-width:900px;}
-    .phone{max-width:900px;border-radius:22px;}
-    .scroll{height:auto;max-height:none;overflow-y:visible;}
-    header{padding:26px 34px 26px;}
-    .overall,.reqs,.hero{padding-left:32px;padding-right:32px;}
-    .hero{grid-template-columns:repeat(3,1fr);gap:14px;}
-    footer{padding:22px 30px 32px;}
-  }
-</style>
 <link rel="stylesheet" href="hub-shell.css">
+<style>
+  /* Page-specific only. Everything structural lives in hub-shell.css. */
+  .panel{background:var(--white);border:1px solid var(--bone);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);}
+  .idpanel{display:flex;gap:14px;align-items:center;}
+  .avatar{width:52px;height:52px;border-radius:50%;background:var(--ivory);color:var(--ox);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;font-weight:600;flex:0 0 auto;}
+  .idpanel .fields{flex:1;display:flex;flex-direction:column;gap:8px;}
+  .idpanel input{border:1.5px solid var(--sand);border-radius:8px;padding:10px 12px;font-size:14.5px;font-family:inherit;color:var(--ink-mid);background:var(--white);}
+  .progresspanel .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+  .progresspanel h2{font-family:var(--serif);font-weight:600;font-size:20px;margin:0;color:var(--navy);}
+  .progresspanel .pct{font-weight:700;color:var(--ox);font-size:15px;}
+  .bar{height:12px;background:var(--bone);border-radius:20px;overflow:hidden;}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--ox));width:0;transition:width .5s;}
+  .progresspanel .note{font-size:13px;color:#6b7480;margin:12px 0 0;line-height:1.55;}
+
+  .act-grid{align-items:stretch;}
+  .act{background:var(--white);border:1px solid var(--bone);border-left:4px solid var(--gold-antique);border-radius:var(--radius);padding:20px 18px;text-align:left;cursor:pointer;box-shadow:var(--shadow);font-family:inherit;transition:transform .15s ease,box-shadow .15s ease;}
+  .act:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  .act.alt{background:var(--ivory);border-left-color:var(--ox);}
+  .act .ic{font-size:24px;}
+  .act .t{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--navy);margin-top:8px;line-height:1.15;}
+  .act .d{font-size:13px;color:#66707d;margin-top:4px;line-height:1.5;}
+  .act .ai{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 6px;border-radius:5px;margin-top:8px;text-transform:uppercase;}
+
+  .reqlist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0 26px;}
+  .req{background:var(--white);border:1px solid var(--bone);border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);}
+  .tick{width:30px;height:30px;border-radius:50%;flex:0 0 auto;border:2px solid var(--bone);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;cursor:pointer;}
+  .tick.done{background:#3f6b3f;border-color:#3f6b3f;}
+  .req .body{flex:1;}
+  .req .name{font-weight:600;font-size:14.5px;color:var(--navy);}
+  .req .meta{font-size:12px;color:#8a8f96;margin-top:2px;}
+  .req .prog{font-size:12px;color:var(--ox);font-weight:600;}
+  .mini{height:6px;background:var(--bone);border-radius:10px;overflow:hidden;margin-top:6px;}
+  .mini>i{display:block;height:100%;background:var(--gold);width:0;transition:width .4s;}
+
+  .overlay{position:fixed;inset:0;background:rgba(11,28,51,.55);display:none;align-items:flex-end;justify-content:center;z-index:950;}
+  .overlay.show{display:flex;}
+  .sheet{background:var(--white);width:100%;max-width:560px;border-radius:22px 22px 0 0;max-height:88vh;overflow-y:auto;padding:24px 24px 32px;animation:up .25s ease;}
+  @keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+  .sheet h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 6px;color:var(--navy);}
+  .sheet .lead{font-size:13.5px;color:#6b7480;margin:0 0 16px;line-height:1.55;}
+  label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin:14px 0 6px;}
+  input[type=text],input[type=email],input[type=number],input[type=date],textarea,select{width:100%;border:1.5px solid var(--bone);border-radius:10px;padding:11px 12px;font-size:15px;font-family:inherit;color:var(--ink-mid);background:var(--white);}
+  textarea{min-height:74px;resize:vertical;line-height:1.5;}
+  .btn{width:100%;background:var(--ox);color:#fff;border:0;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;font-family:inherit;}
+  .btn.ghost{background:var(--white);color:var(--ink-mid);border:1.5px solid var(--bone);}
+  .btn:active{transform:scale(.99);}
+  .simnote{background:var(--ivory);border-left:3px solid var(--gold);border-radius:8px;padding:10px 12px;font-size:11.5px;color:#6b7480;margin:10px 0;line-height:1.5;font-style:italic;}
+  .extract{background:var(--white);border:1px solid var(--bone);border-radius:12px;padding:6px 0;margin-top:8px;}
+  .extract .r{display:flex;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--bone);font-size:13.5px;}
+  .extract .r:last-child{border-bottom:0;}
+  .extract .r b{color:var(--navy);}
+  .draft{background:var(--ivory);border:1px solid var(--bone);border-radius:12px;padding:14px;font-size:13.5px;line-height:1.6;white-space:pre-wrap;color:var(--ink-mid);margin-top:8px;}
+  .close{float:right;background:none;border:0;font-size:24px;color:#9aa2ab;cursor:pointer;line-height:1;}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;font-size:13.5px;z-index:980;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.3);}
+  .toast.show{opacity:1;}
+  .gate{background:var(--blush-fill);border-radius:12px;padding:14px;margin-top:8px;}
+  .gate b{color:var(--ox);}
+  .chk{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .chk button{background:var(--white);border:1.5px solid var(--bone);border-radius:22px;padding:9px 13px;font-size:13px;font-weight:600;color:var(--ink-mid);cursor:pointer;}
+  .chk button.on{background:#3f6b3f;border-color:#3f6b3f;color:#fff;}
+
+  @media(max-width:900px){.reqlist{grid-template-columns:1fr;}.idpanel{flex-direction:column;align-items:flex-start;}}
+</style>
 </head>
 <body>
-<div class="mocklabel">Your passport stays on this device · download it any time</div>
-<div class="phone"><div class="scroll">
 
-  <header>
-    <div class="eyebrow">The Clinical Hub · Elevate Care</div>
+<!-- MASTHEAD -->
+<header class="ch-masthead ch-band" style="padding-bottom:0">
+  <div class="ch-in">
+    <p class="ch-eyebrow">The Clinical Hub · Elevate Care</p>
     <h1>Care Standard Portfolio Builder</h1>
-    <div class="tag">Your proof of good practice — in your pocket, wherever you work.</div>
-    <div class="idcard">
-      <div class="avatar" id="initial">?</div>
-      <div style="flex:1">
-        <input type="text" id="cName" placeholder="Your name">
-        <input type="text" id="cRole" placeholder="Your role · e.g. Senior Care Assistant">
+    <p class="tag">Your proof of good practice — in your pocket, wherever you work.</p>
+  </div>
+</header>
+
+<!-- PROFILE + PROGRESS -->
+<section class="ch-band ch-section tight">
+  <div class="ch-in">
+    <div class="ch-grid two">
+      <div class="panel idpanel">
+        <div class="avatar" id="initial">?</div>
+        <div class="fields">
+          <input type="text" id="cName" placeholder="Your name">
+          <input type="text" id="cRole" placeholder="Your role · e.g. Senior Care Assistant">
+        </div>
+      </div>
+      <div class="panel progresspanel">
+        <div class="row"><h2>My Care Standard</h2><span class="pct" id="overallPct">0% met</span></div>
+        <div class="bar"><i id="overallBar"></i></div>
+        <p class="note">Not a legal requirement — a <b>voluntary standard of what good looks like</b>. Meeting it shows any employer you take your practice seriously. Reflections stay in your own words.</p>
       </div>
     </div>
-  </header>
-
-  <div class="overall">
-    <div class="row"><h2>My Care Standard</h2><span class="pct" id="overallPct">0% met</span></div>
-    <div class="bar"><i id="overallBar"></i></div>
   </div>
+</section>
 
-  <div class="banner">Not a legal requirement — a <b>voluntary standard of what good looks like</b>. Meeting it shows any employer you take your practice seriously. Reflections stay in your own words.</div>
-
-  <div class="hero">
-    <div class="h">Build your passport</div>
-    <button class="act" onclick="openCert()">
-      <div class="ic">📷</div><div class="t">Add training from a certificate</div>
-      <div class="d">Log it and track the expiry</div>
-    </button>
-    <button class="act" onclick="gateThen(openReflect)">
-      <div class="ic">✍️</div><div class="t">Reflection coach</div>
-      <div class="d">Turn a shift into a reflection</div><span class="ai">AI-guided</span>
-    </button>
-    <button class="act alt" onclick="openRec()">
-      <div class="ic">🌟</div><div class="t">Ask for a recommendation</div>
-      <div class="d">Manager, client or family — you send it</div>
-    </button>
-    <button class="act alt" onclick="openSkills()">
-      <div class="ic">✅</div><div class="t">Tick off my skills</div>
-      <div class="d">The competencies of good care</div>
-    </button>
+<!-- BUILD YOUR PASSPORT -->
+<section class="ch-section ch-band ox" style="padding-top:0">
+  <div class="ch-in">
+    <p class="ch-kicker">Build your passport</p>
+    <h2>Four ways to add to it</h2>
+    <div class="ch-grid two act-grid">
+      <button class="act" type="button" onclick="openCert()">
+        <div class="ic">📷</div><div class="t">Add training from a certificate</div>
+        <div class="d">Log it and track the expiry</div>
+      </button>
+      <button class="act" type="button" onclick="gateThen(openReflect)">
+        <div class="ic">✍️</div><div class="t">Reflection coach</div>
+        <div class="d">Turn a shift into a reflection</div><span class="ai">AI-guided</span>
+      </button>
+      <button class="act alt" type="button" onclick="openRec()">
+        <div class="ic">🌟</div><div class="t">Ask for a recommendation</div>
+        <div class="d">Manager, client or family — you send it</div>
+      </button>
+      <button class="act alt" type="button" onclick="openSkills()">
+        <div class="ic">✅</div><div class="t">Tick off my skills</div>
+        <div class="d">The competencies of good care</div>
+      </button>
+    </div>
   </div>
+</section>
 
-  <div class="reqs">
-    <div class="h">The Care Standard — 8 marks of good practice</div>
-    <div id="reqList"></div>
-    <button class="btn ghost" style="margin-bottom:10px" onclick="openProfile()">👤 View my shareable passport profile</button>
+<!-- THE 8 MARKS -->
+<section class="ch-section ch-band">
+  <div class="ch-in">
+    <p class="ch-kicker">The Care Standard</p>
+    <h2>8 marks of good practice</h2>
+    <div id="reqList" class="reqlist"></div>
+    <a class="ch-btn" href="javascript:void(0)" onclick="openProfile()">View my shareable passport profile</a>
   </div>
+</section>
 
-  <footer>Prototype · Care Standard Portfolio Builder · Elevate Care<br>A voluntary standard. Based on the Care Certificate 16 standards + good-practice framework.</footer>
-
-</div></div>
+<!-- FOOTER -->
+<footer class="ch-footer ch-band">
+  <div class="ch-in">
+    <p style="margin:0">Prototype · Care Standard Portfolio Builder · Elevate Care</p>
+    <p class="legal">A voluntary standard. Based on the Care Certificate 16 standards + good-practice framework.</p>
+  </div>
+</footer>
 
 <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"></div>

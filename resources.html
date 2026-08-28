@@ -5,254 +5,340 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Resources — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
-  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
-  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
-  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
-  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
-  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
-  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
-  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
-  .filters{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
-  .filters button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
-  .filters button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
-  .grp{padding:14px 16px 2px;}
-  .grp h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;color:var(--ink);margin:6px 0 2px;}
-  .grp .gsub{font-size:12px;color:#8a8f96;margin:0 0 10px;}
-  .grp .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
-  a.card:active{transform:scale(.99)}
-  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
-  .card .cd{font-size:12.5px;color:#6b7078;margin-top:3px;line-height:1.45;}
-  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
-  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:7px;}
-  .b-free{background:var(--okbg);color:var(--ok);}
-  .b-mem{background:#f3ece0;color:#8a6d1f;}
-  .b-doc{background:var(--cool);color:var(--slate);}
-  .src{font-size:10.5px;color:#a7acb3;font-weight:600;letter-spacing:.5px;}
-  .funnel{margin:8px 16px 6px;background:linear-gradient(160deg,#6B2A34,#54212a);color:#fff;border-radius:15px;padding:16px 16px 14px;box-shadow:var(--shadow);}
-  .funnel .fe{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e9c48a;font-weight:600;}
-  .funnel h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:19px;margin:5px 0 5px;}
-  .funnel p{font-size:12.5px;color:#eadfe0;line-height:1.5;margin:0 0 11px;}
-  .funnel a{display:block;text-align:center;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:12px;border-radius:10px;font-size:14px;}
-  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
-  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
-  .hidden{display:none;}
-
-  /* Desktop: widen the card, let it flow with the page, and lay resource cards out two-up. */
-  @media(min-width:860px){
-    .mocklabel{max-width:900px;}
-    .phone{max-width:900px;border-radius:22px;}
-    .scroll{height:auto;max-height:none;overflow-y:visible;}
-    header{padding:26px 34px 24px;}
-    .filters{padding-left:32px;padding-right:32px;}
-    .grp{padding:18px 32px 2px;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-content:start;}
-    .grp>.eb,.grp>h2,.grp>.gsub{grid-column:1/-1;}
-    a.card{margin-bottom:12px;}
-    .funnel{margin-left:32px;margin-right:32px;}
-    footer{padding:22px 32px 32px;}
-  }
-</style>
 <link rel="stylesheet" href="hub-shell.css">
+<style>
+  /* Page-specific only. Everything structural lives in hub-shell.css. */
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .res-grid.two{grid-template-columns:repeat(2,1fr);}
+  .res-grid.one{grid-template-columns:1fr;}
+  a.res-card{display:block;text-decoration:none;background:var(--white);border:1px solid var(--bone);border-left:4px solid var(--gold-antique);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease;}
+  .res-grid a.res-card:nth-child(even){border-left-color:var(--ox);}
+  a.res-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  a.res-card .ct{font-weight:700;font-size:14.5px;color:var(--navy);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  a.res-card .ct .arrow{color:var(--gold);font-weight:700;flex:0 0 auto;}
+  a.res-card .cd{font-size:12.5px;color:#66707d;margin-top:5px;line-height:1.5;}
+  a.res-card .src{font-size:10.5px;color:#9aa2ab;font-weight:600;letter-spacing:.4px;}
+  .badges-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:5px;text-transform:uppercase;}
+  .b-free{background:#E4F2EA;color:#1F6F52;}
+  .b-mem{background:var(--ivory);color:var(--gold-muted);}
+  .b-doc{background:var(--ice);color:var(--navy);}
+
+  .res-note{font-size:13px;color:#6b7480;margin-top:14px;line-height:1.6;max-width:760px;}
+
+  .funnel-cta{background:linear-gradient(150deg,var(--ox) 0%,var(--ox-deep) 100%);color:#fff;border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+  .funnel-cta .fe{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blush);font-weight:700;}
+  .funnel-cta h3{font-family:var(--serif);font-weight:500;font-size:23px;margin:6px 0 6px;}
+  .funnel-cta p{font-size:14.5px;color:#eadfe0;line-height:1.5;margin:0;max-width:520px;}
+  .funnel-cta a{display:inline-block;background:#fff;color:var(--ox);font-weight:700;text-decoration:none;padding:13px 22px;border-radius:10px;font-size:14.5px;white-space:nowrap;}
+
+  @media(max-width:900px){.res-grid,.res-grid.two{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-<div class="mocklabel">Every link opens the official source · verified 28/08/2026</div>
-<div class="phone"><div class="scroll">
 
-  <header>
-    <div class="eyebrow">The Clinical Hub</div>
+<!-- MASTHEAD -->
+<header class="ch-masthead ch-band" style="padding-bottom:0">
+  <div class="ch-in">
+    <p class="ch-eyebrow">The Clinical Hub</p>
     <h1>Trusted Resources</h1>
-    <div class="tag">The official NMC &amp; RCN resources worth knowing — in one place, always the real source.</div>
-  </header>
-
-  <div class="filters" id="filters">
-    <button class="on" data-f="all">Everyone</button>
-    <button data-f="nurse">Nurses</button>
-    <button data-f="carer">Carers &amp; HCAs</button>
+    <p class="tag">The official NMC &amp; RCN resources worth knowing — in one place, always the real source.</p>
+    <div class="ch-badges">
+      <span class="ch-badge"><svg viewBox="0 0 24 24"><use href="#ic-check"></use></svg>Every link opens the <b>official source</b></span>
+      <span class="ch-badge">Verified 28/08/2026</span>
+    </div>
   </div>
+</header>
 
-  <!-- REVALIDATION -->
-  <div class="grp" data-aud="nurse">
-    <div class="eb">For registered nurses</div>
+<!-- AUDIENCE TABS -->
+<section class="ch-band" style="padding-top:26px">
+  <div class="ch-in">
+    <div class="ch-chips" id="audTabs">
+      <button class="ch-chip on" type="button" data-aud="all">Everyone</button>
+      <button class="ch-chip" type="button" data-aud="nurse">Nurses</button>
+      <button class="ch-chip" type="button" data-aud="carer">Carers &amp; HCAs</button>
+    </div>
+  </div>
+</section>
+
+<!-- REVALIDATION -->
+<section class="ch-section ch-band" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For registered nurses</p>
     <h2>Revalidation</h2>
-    <p class="gsub">Everything the NMC needs, every 3 years.</p>
-    <a class="card" href="https://www.nmc.org.uk/revalidation/" target="_blank" rel="noopener"><div class="ct"><span>NMC Revalidation home <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The whole process explained.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/registration/your-guide-to-mynmc/" target="_blank" rel="noopener"><div class="ct"><span>Check your renewal date on MyNMC <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Your own account is the only accurate place to see when you're due — sign in to check.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/registration/search-the-register/" target="_blank" rel="noopener"><div class="ct"><span>Search the register <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Confirm anyone's current registration by name or PIN — shows status &amp; registration expiry date.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/revalidation/resources/forms-and-templates/" target="_blank" rel="noopener"><div class="ct"><span>Official forms &amp; templates <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Practice hours, CPD, feedback, reflective accounts, reflective discussion &amp; confirmation forms.</div><span class="badge b-free">Free</span> <span class="badge b-doc">Word .doc</span></a>
-    <a class="card" href="https://www.nmc.org.uk/globalassets/sitedocuments/revalidation/how-to-revalidate-booklet.pdf" target="_blank" rel="noopener"><div class="ct"><span>How to revalidate (booklet) <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The full step-by-step guide (PDF).</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/globalassets/sitedocuments/revalidation/completed-revalidation-forms-and-templates.pdf" target="_blank" rel="noopener"><div class="ct"><span>Completed example forms <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Worked examples of every form — see what "good" looks like.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Revalidation/The-most-common-myths-about-revalidation" target="_blank" rel="noopener"><div class="ct"><span>Common revalidation myths <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Clears up what you do and don't need to do.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Revalidation/Eight-ways-to-improve-your-reflection" target="_blank" rel="noopener"><div class="ct"><span>8 ways to improve your reflection <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Write stronger reflective accounts.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Revalidation/10-ways-agency-workers-can-prepare-for-revalidation" target="_blank" rel="noopener"><div class="ct"><span>Revalidation tips for agency staff <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">If you don't have one regular employer.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">Everything the NMC needs, every 3 years.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.nmc.org.uk/revalidation/" target="_blank" rel="noopener"><div class="ct"><span>NMC Revalidation home <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The whole process explained.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/registration/your-guide-to-mynmc/" target="_blank" rel="noopener"><div class="ct"><span>Check your renewal date on MyNMC <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Your own account is the only accurate place to see when you're due — sign in to check.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/registration/search-the-register/" target="_blank" rel="noopener"><div class="ct"><span>Search the register <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Confirm anyone's current registration by name or PIN — shows status &amp; registration expiry date.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/revalidation/resources/forms-and-templates/" target="_blank" rel="noopener"><div class="ct"><span>Official forms &amp; templates <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Practice hours, CPD, feedback, reflective accounts, reflective discussion &amp; confirmation forms.</div><div class="badges-row"><span class="badge b-free">Free</span><span class="badge b-doc">Word .doc</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/globalassets/sitedocuments/revalidation/how-to-revalidate-booklet.pdf" target="_blank" rel="noopener"><div class="ct"><span>How to revalidate (booklet) <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The full step-by-step guide (PDF).</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/globalassets/sitedocuments/revalidation/completed-revalidation-forms-and-templates.pdf" target="_blank" rel="noopener"><div class="ct"><span>Completed example forms <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Worked examples of every form — see what "good" looks like.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Revalidation/The-most-common-myths-about-revalidation" target="_blank" rel="noopener"><div class="ct"><span>Common revalidation myths <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Clears up what you do and don't need to do.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Revalidation/Eight-ways-to-improve-your-reflection" target="_blank" rel="noopener"><div class="ct"><span>8 ways to improve your reflection <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Write stronger reflective accounts.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Revalidation/10-ways-agency-workers-can-prepare-for-revalidation" target="_blank" rel="noopener"><div class="ct"><span>Revalidation tips for agency staff <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">If you don't have one regular employer.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- STANDARDS -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- STANDARDS -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Standards &amp; The Code</h2>
-    <p class="gsub">The rules you're held to.</p>
-    <a class="card" href="https://www.nmc.org.uk/standards/code/" target="_blank" rel="noopener"><div class="ct"><span>The Code <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Professional standards for nurses, midwives &amp; nursing associates.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Accountability-and-delegation" target="_blank" rel="noopener"><div class="ct"><span>Accountability &amp; delegation <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Who is responsible for what — essential for carers &amp; support workers.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/clinical-topics" target="_blank" rel="noopener"><div class="ct"><span>Clinical topics &amp; subject guides <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Evidence-based guidance across clinical areas.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/standards/standards-for-nursing-associates/" target="_blank" rel="noopener" data-aud="nurse"><div class="ct"><span>Standards for nursing associates <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">If you're a nursing associate or heading that way.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">The rules you're held to.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.nmc.org.uk/standards/code/" target="_blank" rel="noopener"><div class="ct"><span>The Code <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Professional standards for nurses, midwives &amp; nursing associates.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Accountability-and-delegation" target="_blank" rel="noopener"><div class="ct"><span>Accountability &amp; delegation <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Who is responsible for what — essential for carers &amp; support workers.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/clinical-topics" target="_blank" rel="noopener"><div class="ct"><span>Clinical topics &amp; subject guides <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Evidence-based guidance across clinical areas.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/standards/standards-for-nursing-associates/" target="_blank" rel="noopener" data-aud="nurse"><div class="ct"><span>Standards for nursing associates <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">If you're a nursing associate or heading that way.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- NURSING BY NUMBERS -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- NURSING BY NUMBERS -->
+<section class="ch-section ch-band blush" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Nursing by numbers</h2>
-    <p class="gsub">The register in plain figures, straight from the NMC.</p>
-    <a class="card" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener"><div class="ct"><span>867,935 on the register <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">A record high — around 2.5% of the UK working population. 41,542 joined this year against 30,323 who left.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener"><div class="ct"><span>Growth has nearly halved <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The register grew 1.7% between April 2025 and March 2026, against 3.3% the year before.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener"><div class="ct"><span>International recruitment is falling <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Internationally-educated professionals were 26.4% of new joiners this year, down from 39.1% the year before and a high of 49.4% in 2023–24. UK-educated joiners also fell, by 4.9%.</div><span class="badge b-free">Free</span></a>
-    <p class="gsub" style="margin-top:2px">Figures verified against the NMC's own registration statistics page on 28/08/2026. The NMC publishes a fuller breakdown by field of practice and nation in its linked reports — worth a look if you want the detail behind these headlines.</p>
+    <p class="lede">The register in plain figures, straight from the NMC.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener"><div class="ct"><span>867,935 on the register <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">A record high — around 2.5% of the UK working population. 41,542 joined this year against 30,323 who left.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener"><div class="ct"><span>Growth has nearly halved <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The register grew 1.7% between April 2025 and March 2026, against 3.3% the year before.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/" target="_blank" rel="noopener"><div class="ct"><span>International recruitment is falling <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Internationally-educated professionals were 26.4% of new joiners this year, down from 39.1% the year before and a high of 49.4% in 2023–24. UK-educated joiners also fell, by 4.9%.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
+    <p class="res-note">Figures verified against the NMC's own registration statistics page on 28/08/2026. The NMC publishes a fuller breakdown by field of practice and nation in its linked reports — worth a look if you want the detail behind these headlines.</p>
   </div>
+</section>
 
-  <!-- WORKING FOR YOURSELF -->
-  <div class="grp" data-aud="nurse">
-    <div class="eb">For registered nurses</div>
+<!-- WORKING FOR YOURSELF -->
+<section class="ch-section ch-band" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For registered nurses</p>
     <h2>Working for yourself</h2>
-    <p class="gsub">Self-employed or independent practice — two compliance traps worth knowing before you start.</p>
-    <a class="card" href="https://www.nmc.org.uk/registration/joining-the-register/professional-indemnity-arrangement/" target="_blank" rel="noopener"><div class="ct"><span>Indemnity covers your actual practice <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The Code requires an indemnity arrangement that provides appropriate cover for whatever practice you take on. It's self-declared at registration and renewal, and it's each registrant's own responsibility to check the cover fits the work — an employer's policy won't automatically extend to work done outside that employment.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Get-Help/RCN-advice/self-employment" target="_blank" rel="noopener"><div class="ct"><span>Ear wax removal needs CQC registration <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">The RCN's own self-employment guide names this as the example that catches people out: it's a regulated activity requiring CQC registration when carried out by a listed healthcare professional, including registered nurses. Doing it unregistered is a criminal offence.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Get-Help/RCN-advice/self-employment" target="_blank" rel="noopener"><div class="ct"><span>The full self-employment guide <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Tax, insurance, contracts and what counts as a "regulated activity" for other independent nursing work.</div><span class="badge b-free">Free</span></a>
-    <p class="gsub" style="margin-top:2px">Verified against the RCN and NMC's own pages, 28/08/2026. This isn't a substitute for checking your own specific scope of practice against the CQC's regulated activities list before you start.</p>
+    <p class="lede">Self-employed or independent practice — two compliance traps worth knowing before you start.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.nmc.org.uk/registration/joining-the-register/professional-indemnity-arrangement/" target="_blank" rel="noopener"><div class="ct"><span>Indemnity covers your actual practice <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">The Code requires an indemnity arrangement that provides appropriate cover for whatever practice you take on. It's self-declared at registration and renewal, and it's each registrant's own responsibility to check the cover fits the work — an employer's policy won't automatically extend to work done outside that employment.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Get-Help/RCN-advice/self-employment" target="_blank" rel="noopener"><div class="ct"><span>Ear wax removal needs CQC registration <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">The RCN's own self-employment guide names this as the example that catches people out: it's a regulated activity requiring CQC registration when carried out by a listed healthcare professional, including registered nurses. Doing it unregistered is a criminal offence.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Get-Help/RCN-advice/self-employment" target="_blank" rel="noopener"><div class="ct"><span>The full self-employment guide <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Tax, insurance, contracts and what counts as a "regulated activity" for other independent nursing work.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
+    <p class="res-note">Verified against the RCN and NMC's own pages, 28/08/2026. This isn't a substitute for checking your own specific scope of practice against the CQC's regulated activities list before you start.</p>
   </div>
+</section>
 
-  <!-- RESEARCH NURSING -->
-  <div class="grp" data-aud="nurse">
-    <div class="eb">For registered nurses</div>
+<!-- RESEARCH NURSING -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For registered nurses</p>
     <h2>Research nursing</h2>
-    <p class="gsub">The best-documented non-hospital route, and NIHR publishes its own map of it.</p>
-    <a class="card" href="https://www.nihr.ac.uk/career-development/support-by-profession/nurses-and-midwives/research-roles" target="_blank" rel="noopener"><div class="ct"><span>NIHR's research roles for nurses &amp; midwives <span class="src">· NIHR</span></span><span class="arrow">→</span></div><div class="cd">Sets out the whole ladder: research nurse/midwife, clinician researcher, hybrid or joint roles, Research Advanced Clinical Practitioner, and clinical academic — each explained, with what each involves.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://local.nihr.ac.uk/" target="_blank" rel="noopener"><div class="ct"><span>NIHR Research Delivery Network <span class="src">· NIHR</span></span><span class="arrow">→</span></div><div class="cd">Regional research posts and training — where the actual vacancies and local research teams sit.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/professional-development/research-and-innovation/research-training-and-careers/clinical-research-nurses" target="_blank" rel="noopener"><div class="ct"><span>Clinical research nurses <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">The RCN's own section for the specialty, with training and career pathway detail.</div><span class="badge b-free">Free</span></a>
-    <p class="gsub" style="margin-top:2px">Confirmed against the NIHR's own page, 28/08/2026.</p>
+    <p class="lede">The best-documented non-hospital route, and NIHR publishes its own map of it.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.nihr.ac.uk/career-development/support-by-profession/nurses-and-midwives/research-roles" target="_blank" rel="noopener"><div class="ct"><span>NIHR's research roles for nurses &amp; midwives <span class="src">· NIHR</span></span><span class="arrow">→</span></div><div class="cd">Sets out the whole ladder: research nurse/midwife, clinician researcher, hybrid or joint roles, Research Advanced Clinical Practitioner, and clinical academic — each explained, with what each involves.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://local.nihr.ac.uk/" target="_blank" rel="noopener"><div class="ct"><span>NIHR Research Delivery Network <span class="src">· NIHR</span></span><span class="arrow">→</span></div><div class="cd">Regional research posts and training — where the actual vacancies and local research teams sit.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/professional-development/research-and-innovation/research-training-and-careers/clinical-research-nurses" target="_blank" rel="noopener"><div class="ct"><span>Clinical research nurses <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">The RCN's own section for the specialty, with training and career pathway detail.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
+    <p class="res-note">Confirmed against the NIHR's own page, 28/08/2026.</p>
   </div>
+</section>
 
-  <!-- PRIVATE SECTOR NURSING -->
-  <div class="grp" data-aud="nurse">
-    <div class="eb">For registered nurses</div>
+<!-- PRIVATE SECTOR NURSING -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For registered nurses</p>
     <h2>Private sector nursing</h2>
-    <p class="gsub">Independent providers run to different rules and a different employer body than the NHS.</p>
-    <a class="card" href="https://www.ihpn.org.uk/about-us/" target="_blank" rel="noopener"><div class="ct"><span>Independent Healthcare Provider Network <span class="src">· IHPN</span></span><span class="arrow">→</span></div><div class="cd">The membership network for independent healthcare providers — acute, primary, community, home healthcare and diagnostics. 120+ members across all four nations. The employer-side voice for the private sector, equivalent to what NHS Employers is on the NHS side.</div><span class="badge b-free">Free</span></a>
-    <p class="gsub" style="margin-top:2px">Confirmed against IHPN's own page, 28/08/2026.</p>
+    <p class="lede">Independent providers run to different rules and a different employer body than the NHS.</p>
+    <div class="res-grid one">
+      <a class="res-card" href="https://www.ihpn.org.uk/about-us/" target="_blank" rel="noopener"><div class="ct"><span>Independent Healthcare Provider Network <span class="src">· IHPN</span></span><span class="arrow">→</span></div><div class="cd">The membership network for independent healthcare providers — acute, primary, community, home healthcare and diagnostics. 120+ members across all four nations. The employer-side voice for the private sector, equivalent to what NHS Employers is on the NHS side.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
+    <p class="res-note">Confirmed against IHPN's own page, 28/08/2026.</p>
   </div>
+</section>
 
-  <!-- WHAT YOU CAN CLAIM -->
-  <div class="grp" data-aud="nurse">
-    <div class="eb">For registered nurses</div>
+<!-- WHAT YOU CAN CLAIM -->
+<section class="ch-section ch-band" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For registered nurses</p>
     <h2>What you can claim</h2>
-    <p class="gsub">Tax relief most nurses are owed and don't claim — figures checked against HMRC's own pages, not a rebate company.</p>
-    <a class="card" href="https://www.gov.uk/tax-relief-for-employees/professional-fees-and-subscriptions" target="_blank" rel="noopener"><div class="ct"><span>NMC fee &amp; RCN membership are deductible <span class="src">· HMRC</span></span><span class="arrow">→</span></div><div class="cd">Both the NMC and RCN are on HMRC's own approved list, so their fees qualify for tax relief when you pay them yourself. You can claim for the current tax year and the 4 previous tax years.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.gov.uk/guidance/job-expenses-for-uniforms-work-clothing-and-tools" target="_blank" rel="noopener"><div class="ct"><span>&pound;125 a year for uniform &amp; laundering <span class="src">· HMRC</span></span><span class="arrow">→</span></div><div class="cd">HMRC's flat-rate expense for nurses, midwives, healthcare assistants and other therapists — covers laundering your own uniform and includes the shoes/tights allowance where a specific colour or style is required. Ambulance staff on active service have a separate, higher rate (&pound;185).</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.gov.uk/tax-relief-for-employees/how-to-claim" target="_blank" rel="noopener"><div class="ct"><span>How to claim <span class="src">· HMRC</span></span><span class="arrow">→</span></div><div class="cd">Send copies of receipts or other evidence of what you paid. If you complete Self Assessment, claim through your tax return instead of the online service.</div><span class="badge b-free">Free</span></a>
-    <p class="gsub" style="margin-top:2px">Checked against gov.uk's own pages on 28/08/2026 — not a tax-rebate company's figures. HMRC's published flat rate for this group is £125, not the higher ambulance-staff rate of £185 that's sometimes quoted for nurses in error.</p>
+    <p class="lede">Tax relief most nurses are owed and don't claim — figures checked against HMRC's own pages, not a rebate company.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.gov.uk/tax-relief-for-employees/professional-fees-and-subscriptions" target="_blank" rel="noopener"><div class="ct"><span>NMC fee &amp; RCN membership are deductible <span class="src">· HMRC</span></span><span class="arrow">→</span></div><div class="cd">Both the NMC and RCN are on HMRC's own approved list, so their fees qualify for tax relief when you pay them yourself. You can claim for the current tax year and the 4 previous tax years.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.gov.uk/guidance/job-expenses-for-uniforms-work-clothing-and-tools" target="_blank" rel="noopener"><div class="ct"><span>&pound;125 a year for uniform &amp; laundering <span class="src">· HMRC</span></span><span class="arrow">→</span></div><div class="cd">HMRC's flat-rate expense for nurses, midwives, healthcare assistants and other therapists — covers laundering your own uniform and includes the shoes/tights allowance where a specific colour or style is required. Ambulance staff on active service have a separate, higher rate (&pound;185).</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.gov.uk/tax-relief-for-employees/how-to-claim" target="_blank" rel="noopener"><div class="ct"><span>How to claim <span class="src">· HMRC</span></span><span class="arrow">→</span></div><div class="cd">Send copies of receipts or other evidence of what you paid. If you complete Self Assessment, claim through your tax return instead of the online service.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
+    <p class="res-note">Checked against gov.uk's own pages on 28/08/2026 — not a tax-rebate company's figures. HMRC's published flat rate for this group is £125, not the higher ambulance-staff rate of £185 that's sometimes quoted for nurses in error.</p>
   </div>
+</section>
 
-  <!-- LEARNING -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- LEARNING -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Learning &amp; CPD</h2>
-    <p class="gsub">Mostly free — build your hours.</p>
-    <a class="card" href="https://rcnlearn.rcn.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>RCN Learn <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Hundreds of quality-assured e-learning resources.</div><span class="badge b-free">Free account</span></a>
-    <a class="card" href="https://www.nmc.org.uk/news/news-and-updates/code-in-action/" target="_blank" rel="noopener"><div class="ct"><span>Caring with Confidence <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Free bite-sized animations on delegation, speaking up &amp; professional judgement.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Nursing-Support-Workers/Learning-resources" target="_blank" rel="noopener" data-aud="carer"><div class="ct"><span>Support worker learning <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Curated learning for the carer / HCA role.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://rcnilearning.com/online-learning-for-nurses/free/course" target="_blank" rel="noopener"><div class="ct"><span>RCNi free courses <span class="src">· RCNi</span></span><span class="arrow">→</span></div><div class="cd">A set of free CPD modules (bulk needs RCNi Plus).</div><span class="badge b-free">Free account</span></a>
+    <p class="lede">Mostly free — build your hours.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://rcnlearn.rcn.org.uk/" target="_blank" rel="noopener"><div class="ct"><span>RCN Learn <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Hundreds of quality-assured e-learning resources.</div><div class="badges-row"><span class="badge b-free">Free account</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/news/news-and-updates/code-in-action/" target="_blank" rel="noopener"><div class="ct"><span>Caring with Confidence <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Free bite-sized animations on delegation, speaking up &amp; professional judgement.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Nursing-Support-Workers/Learning-resources" target="_blank" rel="noopener" data-aud="carer"><div class="ct"><span>Support worker learning <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Curated learning for the carer / HCA role.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://rcnilearning.com/online-learning-for-nurses/free/course" target="_blank" rel="noopener"><div class="ct"><span>RCNi free courses <span class="src">· RCNi</span></span><span class="arrow">→</span></div><div class="cd">A set of free CPD modules (bulk needs RCNi Plus).</div><div class="badges-row"><span class="badge b-free">Free account</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- CAREERS -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- CAREERS -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Careers, CVs &amp; interviews</h2>
-    <p class="gsub">Get the job, then go further.</p>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Your-career/CV-writing" target="_blank" rel="noopener"><div class="ct"><span>CV writing advice <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">How to build a strong nursing/care CV.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Interviews/Sample-Interview-questions" target="_blank" rel="noopener"><div class="ct"><span>Sample interview questions <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Practise the questions you'll be asked.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Job-applications" target="_blank" rel="noopener"><div class="ct"><span>Applications &amp; supporting statements <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Write a statement that gets you shortlisted.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Nursing-careers-resource" target="_blank" rel="noopener"><div class="ct"><span>Careers &amp; job profiles <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Explore roles, pay and progression.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">Get the job, then go further.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Your-career/CV-writing" target="_blank" rel="noopener"><div class="ct"><span>CV writing advice <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">How to build a strong nursing/care CV.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Interviews/Sample-Interview-questions" target="_blank" rel="noopener"><div class="ct"><span>Sample interview questions <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Practise the questions you'll be asked.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Job-applications" target="_blank" rel="noopener"><div class="ct"><span>Applications &amp; supporting statements <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Write a statement that gets you shortlisted.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Nursing-careers-resource" target="_blank" rel="noopener"><div class="ct"><span>Careers &amp; job profiles <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Explore roles, pay and progression.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- GROW -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- GROW -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Grow &amp; connect</h2>
-    <p class="gsub">Beyond the basics — what's possible next.</p>
-    <a class="card" href="whats-next.html"><div class="ct"><span>What's Next</span><span class="arrow">→</span></div><div class="cd">Real career routes — clinical, leadership, teaching &amp; beyond.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="career-wins.html"><div class="ct"><span>Career Wins</span><span class="arrow">→</span></div><div class="cd">Real nurses &amp; carers, celebrated properly — plus award programmes you can enter.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="courses.html"><div class="ct"><span>Courses</span><span class="arrow">→</span></div><div class="cd">Free &amp; paid learning, verified and current.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="conferences.html"><div class="ct"><span>Conferences</span><span class="arrow">→</span></div><div class="cd">Real UK events with real, checked dates.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="podcasts.html"><div class="ct"><span>Podcasts</span><span class="arrow">→</span></div><div class="cd">Real voices, real careers — for your commute.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="webinars.html"><div class="ct"><span>Webinars</span><span class="arrow">→</span></div><div class="cd">Free professional development, online.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="clinical-currency.html"><div class="ct"><span>Clinical Currency</span><span class="arrow">→</span></div><div class="cd">NICE guidance and specialty-specific updates, verified live.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">Beyond the basics — what's possible next.</p>
+    <div class="ch-grid three">
+      <a class="ch-tile" href="whats-next.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-growth"></use></svg>
+        <span class="t">What's Next</span>
+        <span class="d">Real career routes — clinical, leadership, teaching &amp; beyond.</span>
+        <span class="flag">Free</span>
+      </a>
+      <a class="ch-tile" href="career-wins.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-trophy"></use></svg>
+        <span class="t">Career Wins</span>
+        <span class="d">Real nurses &amp; carers, celebrated properly — plus award programmes you can enter.</span>
+        <span class="flag">Free</span>
+      </a>
+      <a class="ch-tile" href="courses.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-book"></use></svg>
+        <span class="t">Courses</span>
+        <span class="d">Free &amp; paid learning, verified and current.</span>
+        <span class="flag">Free</span>
+      </a>
+      <a class="ch-tile" href="conferences.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-calendar"></use></svg>
+        <span class="t">Conferences</span>
+        <span class="d">Real UK events with real, checked dates.</span>
+        <span class="flag">Free</span>
+      </a>
+      <a class="ch-tile" href="podcasts.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-audio"></use></svg>
+        <span class="t">Podcasts</span>
+        <span class="d">Real voices, real careers — for your commute.</span>
+        <span class="flag">Free</span>
+      </a>
+      <a class="ch-tile" href="webinars.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-screen"></use></svg>
+        <span class="t">Webinars</span>
+        <span class="d">Free professional development, online.</span>
+        <span class="flag">Free</span>
+      </a>
+      <a class="ch-tile" href="clinical-currency.html">
+        <svg class="ic" viewBox="0 0 24 24"><use href="#ic-doc"></use></svg>
+        <span class="t">Clinical Currency</span>
+        <span class="d">NICE guidance and specialty-specific updates, verified live.</span>
+        <span class="flag">Free</span>
+      </a>
+    </div>
   </div>
+</section>
 
-  <!-- FUNNEL: interview prep -> Clinical to Commercial -->
-  <div class="funnel">
-    <div class="fe">Moving into commercial healthcare?</div>
-    <h3>Interview prep that lands the role</h3>
-    <p>If you're a clinician moving into medical devices, pharma or commercial healthcare, Lou's Clinical to Commercial Playbook prepares you for those specific interviews.</p>
-    <a href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener">Explore the Clinical to Commercial Playbook →</a>
+<!-- FUNNEL: interview prep -> Clinical to Commercial -->
+<section class="ch-section ch-band" style="padding-top:0">
+  <div class="ch-in">
+    <div class="funnel-cta">
+      <div>
+        <div class="fe">Moving into commercial healthcare?</div>
+        <h3>Interview prep that lands the role</h3>
+        <p>If you're a clinician moving into medical devices, pharma or commercial healthcare, Lou's Clinical to Commercial Playbook prepares you for those specific interviews.</p>
+      </div>
+      <a href="https://elevateandthrive.uk/training-courses/" target="_blank" rel="noopener">Explore the Clinical to Commercial Playbook →</a>
+    </div>
   </div>
+</section>
 
-  <!-- CARERS / HCAs -->
-  <div class="grp" data-aud="carer">
-    <div class="eb">For carers, HCAs &amp; support workers</div>
+<!-- CARERS / HCAs -->
+<section class="ch-section ch-band" data-aud="carer">
+  <div class="ch-in">
+    <p class="ch-kicker">For carers, HCAs &amp; support workers</p>
     <h2>Starting &amp; growing in care</h2>
-    <p class="gsub">Free resources built for you.</p>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Educational-programmes-and-services/First-Steps" target="_blank" rel="noopener"><div class="ct"><span>First Steps <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">RCN's flagship free e-learning for HCAs &amp; support workers — checklists, reflective diary &amp; a certificate.</div><span class="badge b-free">Free account</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Nursing-Support-Workers" target="_blank" rel="noopener"><div class="ct"><span>Nursing Support Workers hub <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Everything for the support-worker role in one place.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Nursing-careers-resource/Nursing-support-workers" target="_blank" rel="noopener"><div class="ct"><span>Careers for HCAs &amp; support workers <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Where a care role can take you.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/library/Subject-Guides/hcas-aps-and-snas" target="_blank" rel="noopener"><div class="ct"><span>HCA library guide <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Books, reports &amp; articles for support staff.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">Free resources built for you.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Educational-programmes-and-services/First-Steps" target="_blank" rel="noopener"><div class="ct"><span>First Steps <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">RCN's flagship free e-learning for HCAs &amp; support workers — checklists, reflective diary &amp; a certificate.</div><div class="badges-row"><span class="badge b-free">Free account</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Nursing-Support-Workers" target="_blank" rel="noopener"><div class="ct"><span>Nursing Support Workers hub <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Everything for the support-worker role in one place.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Nursing-careers-resource/Nursing-support-workers" target="_blank" rel="noopener"><div class="ct"><span>Careers for HCAs &amp; support workers <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Where a care role can take you.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/library/Subject-Guides/hcas-aps-and-snas" target="_blank" rel="noopener"><div class="ct"><span>HCA library guide <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Books, reports &amp; articles for support staff.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- STUDENTS -->
-  <div class="grp" data-aud="nurse">
-    <div class="eb">For students</div>
+<!-- STUDENTS -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For students</p>
     <h2>Student nurses</h2>
-    <p class="gsub">Getting qualified &amp; job-ready.</p>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Student/Be-job-ready" target="_blank" rel="noopener"><div class="ct"><span>Getting job-ready <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Prepare for your first registered role.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Student/Student-nurse-CV-writing" target="_blank" rel="noopener"><div class="ct"><span>Student nurse CV writing <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Build your first professional CV.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/get-help/rcn-advice/student-nurses" target="_blank" rel="noopener"><div class="ct"><span>Student advice <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Placements, accountability &amp; raising concerns.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">Getting qualified &amp; job-ready.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Student/Be-job-ready" target="_blank" rel="noopener"><div class="ct"><span>Getting job-ready <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Prepare for your first registered role.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Professional-Development/Your-career/Student/Student-nurse-CV-writing" target="_blank" rel="noopener"><div class="ct"><span>Student nurse CV writing <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Build your first professional CV.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/get-help/rcn-advice/student-nurses" target="_blank" rel="noopener"><div class="ct"><span>Student advice <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Placements, accountability &amp; raising concerns.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- ADVICE & WELLBEING -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- ADVICE & WELLBEING -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Advice &amp; wellbeing</h2>
-    <p class="gsub">Support when work is hard.</p>
-    <a class="card" href="https://www.rcn.org.uk/Get-Help/RCN-advice" target="_blank" rel="noopener"><div class="ct"><span>RCN advice guides <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">A–Z on sickness, bullying, discrimination, health &amp; safety, menopause at work &amp; more.</div><span class="badge b-free">Mostly free</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Get-Help/Member-support-services/Counselling-Service" target="_blank" rel="noopener"><div class="ct"><span>Counselling service <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Confidential support for members.</div><span class="badge b-mem">Members</span></a>
-    <a class="card" href="https://www.rcn.org.uk/Get-Help/Indemnity-scheme" target="_blank" rel="noopener" data-aud="nurse"><div class="ct"><span>Indemnity scheme <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Professional indemnity cover (a revalidation requirement).</div><span class="badge b-mem">Members</span></a>
+    <p class="lede">Support when work is hard.</p>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.rcn.org.uk/Get-Help/RCN-advice" target="_blank" rel="noopener"><div class="ct"><span>RCN advice guides <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">A–Z on sickness, bullying, discrimination, health &amp; safety, menopause at work &amp; more.</div><div class="badges-row"><span class="badge b-free">Mostly free</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Get-Help/Member-support-services/Counselling-Service" target="_blank" rel="noopener"><div class="ct"><span>Counselling service <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Confidential support for members.</div><div class="badges-row"><span class="badge b-mem">Members</span></div></a>
+      <a class="res-card" href="https://www.rcn.org.uk/Get-Help/Indemnity-scheme" target="_blank" rel="noopener" data-aud="nurse"><div class="ct"><span>Indemnity scheme <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Professional indemnity cover (a revalidation requirement).</div><div class="badges-row"><span class="badge b-mem">Members</span></div></a>
+    </div>
   </div>
+</section>
 
-  <!-- LIBRARY -->
-  <div class="grp" data-aud="all">
-    <div class="eb">For everyone</div>
+<!-- LIBRARY -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">For everyone</p>
     <h2>Library &amp; news</h2>
-    <p class="gsub">Stay informed.</p>
-    <a class="card" href="https://www.rcn.org.uk/library/" target="_blank" rel="noopener"><div class="ct"><span>RCN Library <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Subject guides, catalogue &amp; physical libraries.</div><span class="badge b-free">Free</span></a>
-    <a class="card" href="https://www.nmc.org.uk/news/news-and-updates/" target="_blank" rel="noopener"><div class="ct"><span>NMC news &amp; updates <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Changes to standards &amp; the register, straight from the source.</div><span class="badge b-free">Free</span></a>
+    <p class="lede">Stay informed.</p>
+    <div class="res-grid two">
+      <a class="res-card" href="https://www.rcn.org.uk/library/" target="_blank" rel="noopener"><div class="ct"><span>RCN Library <span class="src">· RCN</span></span><span class="arrow">→</span></div><div class="cd">Subject guides, catalogue &amp; physical libraries.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+      <a class="res-card" href="https://www.nmc.org.uk/news/news-and-updates/" target="_blank" rel="noopener"><div class="ct"><span>NMC news &amp; updates <span class="src">· NMC</span></span><span class="arrow">→</span></div><div class="cd">Changes to standards &amp; the register, straight from the source.</div><div class="badges-row"><span class="badge b-free">Free</span></div></a>
+    </div>
   </div>
+</section>
 
-  <footer>Prototype · The Clinical Hub<br>Links go to the official NMC &amp; RCN sites. Verified 17/07/2026 — always check the live page for the latest.</footer>
-
-</div></div>
+<!-- FOOTER -->
+<footer class="ch-footer ch-band">
+  <div class="ch-in">
+    <p style="margin:0">Prototype · The Clinical Hub</p>
+    <p class="legal">Links go to the official NMC &amp; RCN sites. Verified 17/07/2026 — always check the live page for the latest.</p>
+  </div>
+</footer>
 
 <script>
-  document.querySelectorAll('#filters button').forEach(function(b){
+  document.querySelectorAll('#audTabs .ch-chip').forEach(function(b){
     b.addEventListener('click',function(){
-      document.querySelectorAll('#filters button').forEach(function(x){x.classList.remove('on');});
+      document.querySelectorAll('#audTabs .ch-chip').forEach(function(x){x.classList.remove('on');});
       b.classList.add('on');
-      var f=b.dataset.f;
-      document.querySelectorAll('.grp').forEach(function(g){
-        var aud=g.dataset.aud;
-        var showGrp = (f==='all') || (aud==='all') || (aud===f);
-        g.classList.toggle('hidden', !showGrp);
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.style.display = (f==='all' || aud==='all' || aud===f) ? '' : 'none';
       });
     });
   });

@@ -3,123 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="roles-refreshed" content="24/08/2026">
+<meta name="roles-refreshed" content="28/08/2026">
 <title>Live Clinical Roles — The Clinical Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{--cream:#F7F5F2;--ink:#1E1B18;--body:#3D362E;--gold:#9A7A2E;--ox:#6B2A34;--slate:#2B3440;--greige:#DCE1E7;--line:#DDE3E9;--cool:#EDF0F4;--ok:#2F6B57;--okbg:#e5efe5;--shadow:0 2px 12px rgba(43,52,64,.09);}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(107,42,52,.12);}
-  body{margin:0;background:#E8E4DD;font-family:'Raleway',-apple-system,Segoe UI,sans-serif;color:var(--body);padding:22px 12px;}
-  .phone{max-width:440px;margin:0 auto;background:var(--cream);border-radius:32px;overflow:hidden;box-shadow:0 18px 50px rgba(30,27,24,.28);border:1px solid #d8d2c8;}
-  @media(max-width:480px){body{padding:0}.phone{border-radius:0;border:0;box-shadow:none}}
-  .scroll{height:880px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  @media(max-width:480px){.scroll{height:100vh;max-height:none}}
-  header{background:linear-gradient(160deg,#2B3440,#20272F);color:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--gold);}
-  .eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  header h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:27px;letter-spacing:1px;margin:4px 0 2px;}
-  header .tag{font-size:12.5px;color:#a9b4c1;line-height:1.4;}
-  .trust{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;font-size:11.5px;color:#4a5663;line-height:1.4;}
-  .trust b{color:var(--slate);font-weight:700;}
-  .trust .shield{color:var(--ok);font-weight:700;margin-right:5px;}
-  .tabs{display:flex;gap:7px;padding:12px 16px 4px;position:sticky;top:0;background:var(--cream);z-index:10;border-bottom:1px solid var(--line);}
-  .tabs button{flex:1;padding:9px 4px;border-radius:22px;border:1.5px solid var(--greige);background:#fff;font-size:13px;font-weight:600;color:var(--body);cursor:pointer;}
-  .tabs button.on{background:var(--slate);color:#fff;border-color:var(--slate);}
-
-  section{padding:16px 20px 4px;}
-  .eb{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;}
-  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);margin:5px 0 10px;}
-  .sub{font-size:12.5px;color:#7a7368;margin:0 0 12px;line-height:1.5;}
-  .empty{font-size:12.5px;color:#7a7368;line-height:1.55;background:var(--cool);border-left:4px solid var(--greige);border-radius:8px;padding:11px 13px;margin:0 0 11px;}
-
-  a.card{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.12s;}
-  a.card:active{transform:scale(.99)}
-  .card .ct{font-weight:700;font-size:14.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
-  .card .cd{font-size:12.5px;color:#6b7078;margin-top:4px;line-height:1.45;}
-  .card .arrow{color:var(--ox);font-weight:700;flex:0 0 auto;}
-  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:5px;text-transform:uppercase;margin-top:8px;background:var(--okbg);color:var(--ok);}
-
-  .note{background:var(--cool);border-left:4px solid var(--slate);border-radius:8px;padding:11px 13px;font-size:12px;color:#33404d;margin:6px 20px 12px;line-height:1.5;}
-  .note b{color:var(--slate);}
-
-  footer{padding:16px 20px 26px;text-align:center;font-size:11px;color:#9a9186;line-height:1.5;}
-  .mocklabel{max-width:440px;margin:0 auto 12px;text-align:center;font-size:11px;color:#6b645a;letter-spacing:1px;text-transform:uppercase;}
-  .hidden{display:none;}
-
-  @media(min-width:860px){
-    .mocklabel{max-width:900px;}
-    .phone{max-width:900px;border-radius:22px;}
-    .scroll{height:auto;max-height:none;overflow-y:visible;}
-    header{padding:26px 34px 24px;}
-    .tabs{padding-left:32px;padding-right:32px;}
-    section{padding:18px 32px 4px;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
-    section .eb,section h2,section .empty{grid-column:1/-1;}
-    .note{margin-left:32px;margin-right:32px;}
-    footer{padding:22px 32px 32px;}
-  }
-</style>
 <link rel="stylesheet" href="hub-shell.css">
+<style>
+  /* Page-specific only. Everything structural lives in hub-shell.css.
+     The rules below restyle the exact class names the roles refresh script
+     emits inside the auto-generated block below — do not rename those classes. */
+  .roles-grid section[data-group]{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:38px;
+  }
+  .roles-grid section[data-group]:last-child{margin-bottom:0;}
+  .roles-grid section[data-group] .eb,
+  .roles-grid section[data-group] h2{grid-column:1/-1;}
+
+  .roles-grid .eb{
+    font-size:11px;letter-spacing:2.4px;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin:0 0 6px;
+  }
+  .roles-grid h2{
+    font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.6vw,28px);
+    color:var(--navy);margin:0 0 4px;line-height:1.15;
+  }
+
+  a.card{
+    display:block;text-decoration:none;background:var(--white);
+    border:1px solid var(--bone);border-left:4px solid var(--gold-antique);
+    border-radius:12px;padding:15px 17px;box-shadow:var(--shadow);
+    transition:transform .14s ease,box-shadow .14s ease;
+  }
+  .roles-grid section[data-group] a.card:nth-of-type(even){border-left-color:var(--ox);}
+  a.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  a.card .ct{font-weight:700;font-size:14.5px;color:var(--navy);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  a.card .cd{font-size:12.5px;color:#66707d;margin-top:5px;line-height:1.5;}
+  a.card .arrow{color:var(--gold);font-weight:700;flex:0 0 auto;}
+  .badge{
+    display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;
+    padding:3px 8px;border-radius:5px;text-transform:uppercase;margin-top:9px;
+    background:#e5efe5;color:#2F6B57;
+  }
+
+  @media(max-width:1080px){.roles-grid section[data-group]{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:680px){.roles-grid section[data-group]{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-<div class="mocklabel">Rebuilt automatically every Monday from live NHS Jobs listings</div>
-<div class="phone"><div class="scroll">
 
-  <header>
-    <div class="eyebrow">The Clinical Hub</div>
+<!-- MASTHEAD -->
+<header class="ch-masthead ch-band" style="padding-bottom:0">
+  <div class="ch-in">
+    <p class="ch-eyebrow">The Clinical Hub</p>
     <h1>Live Clinical Roles</h1>
-    <div class="tag">Nursing and care vacancies that are open right now — straight from NHS Jobs.</div>
-  </header>
-
-  <div class="trust"><span class="shield">✓</span> A sample of <span id="roleShown">24</span> from <span id="roleCount">1,155</span> live nursing and care vacancies on <b>NHS Jobs</b> · last refreshed <span id="refreshedOn">—</span></div>
-
-  <div class="tabs" id="grpTabs">
-    <button class="on" data-group="all">All</button>
-    <button data-group="nurse">Nursing</button>
-    <button data-group="care">Care</button>
-    <button data-group="leader">Leadership</button>
+    <p class="tag">Nursing and care vacancies that are open right now — straight from NHS Jobs.</p>
+    <div class="ch-badges">
+      <span class="ch-badge"><svg viewBox="0 0 24 24"><use href="#ic-check"></use></svg>A sample of <b id="roleShown">24</b> from <b id="roleCount">1,155</b> live nursing and care vacancies on <b>NHS Jobs</b> · last refreshed <b id="refreshedOn">—</b></span>
+    </div>
   </div>
+</header>
 
-  <!-- AUTO:ROLES:START -->
+<!-- FILTER TABS -->
+<section class="ch-band" style="padding-top:26px">
+  <div class="ch-in">
+    <div class="ch-chips" id="grpTabs">
+      <button class="ch-chip on" type="button" data-group="all">All</button>
+      <button class="ch-chip" type="button" data-group="nurse">Nursing</button>
+      <button class="ch-chip" type="button" data-group="care">Care</button>
+      <button class="ch-chip" type="button" data-group="leader">Leadership</button>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE ROLES -->
+<section class="ch-section ch-band" style="padding-top:0">
+  <div class="ch-in">
+    <div class="roles-grid"><!-- AUTO:ROLES:START -->
     <section data-group="nurse">
       <div class="eb">Open now</div>
       <h2>Nursing roles</h2>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Merseyside/St_Helens/Mersey_West_Lancashire_Teaching_Hospitals_NHS_Trust/SACT_Services/SACT_Services-v8071337" target="_blank" rel="noopener">
-        <div class="ct"><span>Assistant Lead Systemic Anti-Cancer Therapies (SACT) Nurse (Annex 21)</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Mersey West Lancashire Teaching Hospitals NHS Trust · St Helens, Merseyside</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Devon/Paignton/Torbay_South_Devon_NHS_Foundation_Trust/Urology_Nurse_Specialist/Urology_Nurse_Specialist-v8021420" target="_blank" rel="noopener">
+        <div class="ct"><span>Urology Nurse Practitioner</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Torbay South Devon NHS Foundation Trust · Paignton, Devon</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/London/London/Great_Ormond_Street_Hospital_Children_NHS_Foundation_Trust/Respiratory/Respiratory-v8175505" target="_blank" rel="noopener">
-        <div class="ct"><span>Staff Nurse in Respiratory</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Great Ormond Street Hospital Children NHS Foundation Trust · London, London</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Essex/Chelmsford/Mid_South_Essex_NHS_Foundation_Trust/Neonatal_Intensive_Care_Unit/Neonatal_Intensive_Care_Unit-v8040916" target="_blank" rel="noopener">
+        <div class="ct"><span>Charge Nurse - NICU</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Mid South Essex NHS Foundation Trust · Chelmsford, Essex</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Essex/Basildon/Mid_South_Essex_NHS_Foundation_Trust/Critical_Care/Critical_Care-v8189434" target="_blank" rel="noopener">
-        <div class="ct"><span>Matron for Critical Care Unit</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Mid South Essex NHS Foundation Trust · Basildon, Essex</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Essex/Chelmsford/Mid_South_Essex_NHS_Foundation_Trust/General_Medicine/General_Medicine-v8107776" target="_blank" rel="noopener">
+        <div class="ct"><span>Charge Nurse - Tiptree Ward</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Mid South Essex NHS Foundation Trust · Chelmsford, Essex</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/London/London/Lewisham_Greenwich_NHS_Trust/district_nursing/district_nursing-v8191437" target="_blank" rel="noopener">
-        <div class="ct"><span>Community Staff nurse</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Lewisham Greenwich NHS Trust · London, London</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Merseyside/Ormskirk/Mersey_West_Lancashire_Teaching_Hospitals_NHS_Trust/Sister_Charge_Nurse_Band_A/Sister_Charge_Nurse_Band_A-v8115675" target="_blank" rel="noopener">
+        <div class="ct"><span>Sister/Charge Nurse - Ward D</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Mersey West Lancashire Teaching Hospitals NHS Trust · Ormskirk, Merseyside</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/London/Kingston_Upon_Thames/Kingston_Richmond_NHS_Foundation_Trust/Emergency_Department/Emergency_Department-v8194143" target="_blank" rel="noopener">
-        <div class="ct"><span>Senior Sister/Charge Nurse</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Kingston Richmond NHS Foundation Trust · Kingston Upon Thames, London</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Merseyside/Ormskirk/Mersey_West_Lancashire_Teaching_Hospitals_NHS_Trust/Ward_Ready_Discharge/Ward_Ready_Discharge-v8115747" target="_blank" rel="noopener">
+        <div class="ct"><span>Staff Nurse - Ward D</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Mersey West Lancashire Teaching Hospitals NHS Trust · Ormskirk, Merseyside</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Merseyside/Liverpool/Liverpool_University_Hospitals_NHS_Foundation_Trust/Diabetes_specialist_nurse/Diabetes_specialist_nurse-v8204888" target="_blank" rel="noopener">
-        <div class="ct"><span>Diabetes Inpatient Specialist Nurse</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Liverpool University Hospitals NHS Foundation Trust · Liverpool, Merseyside</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/London/London/University_College_London_Hospitals_NHS_Foundation_Trust/Stroke/Stroke-v8184015" target="_blank" rel="noopener">
+        <div class="ct"><span>Clinical Research Practitioner/ Research Nurse</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">University College London Hospitals NHS Foundation Trust · London, London</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Cambridgeshire/Norwich/East_England_Community_Health_Care_NHS_Trust_Cambridgeshire/Sexual_Health_Nurse/Sexual_Health_Nurse-v8212678" target="_blank" rel="noopener">
-        <div class="ct"><span>Sexual Health Clinical Nurse Specialist</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">East England Community Health Care NHS Trust Cambridgeshire · Norwich, Cambridgeshire</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Hertfordshire/Welwyn_Garden_City_Hertfordshire/Hertfordshire_Partnership_NHS_Foundation_Trust/Nursing_Midwifery/Nursing_Midwifery-v8190232" target="_blank" rel="noopener">
+        <div class="ct"><span>Clinical Matron - MHUCC/MHL</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Hertfordshire Partnership NHS Foundation Trust · Welwyn Garden City Hertfordshire, Hertfordshire</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/East_Yorkshire/Hull/City_Health_Care_Partnership_CIC/School_Health_Plus_Service/School_Health_Plus_Service-v8216123" target="_blank" rel="noopener">
-        <div class="ct"><span>School Health Plus Nurse</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">City Health Care Partnership CIC · Hull, East Yorkshire</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Nottinghamshire/SuttoninAshfield/Sherwood_Forest_Hospitals_NHS_Foundation_Trust/Breast_Screening/Breast_Screening-v8192855" target="_blank" rel="noopener">
+        <div class="ct"><span>Breast Clinical Nurse Specialist</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Sherwood Forest Hospitals NHS Foundation Trust · SuttoninAshfield, Nottinghamshire</div>
         <span class="badge">NHS Jobs</span>
       </a>
     </section>
@@ -127,44 +126,44 @@
     <section data-group="care">
       <div class="eb">Open now</div>
       <h2>Care &amp; support roles</h2>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/London/Thornton_Heath/Croydon_Health_Services_NHS_Trust/Maternity_Support_Worker/Maternity_Support_Worker-v8122224" target="_blank" rel="noopener">
-        <div class="ct"><span>Maternity Support Worker ( MSW)</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Croydon Health Services NHS Trust · Thornton Heath, London</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Merseyside/Liverpool/Liverpool_University_Hospitals_NHS_Foundation_Trust/Stroke_Transitional_Unit/Stroke_Transitional_Unit-v8096026" target="_blank" rel="noopener">
+        <div class="ct"><span>Healthcare Assistant - Ward 8 Broadgreen</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Liverpool University Hospitals NHS Foundation Trust · Liverpool, Merseyside</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Lancashire/Leigh/Wrightington_Wigan_Leigh_Teaching_Hospitals_NHS_Foundation_Trust/Specialist_Services/Specialist_Services-v8174010" target="_blank" rel="noopener">
-        <div class="ct"><span>Senior Health Care Support Worker - Outpatients</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Wrightington Wigan Leigh Teaching Hospitals NHS Foundation Trust · Leigh, Lancashire</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Dorset/Bournemouth/University_Hospitals_Dorset_NHS_Foundation_Trust/Medical_Specialities_Respiratory/Medical_Specialities_Respiratory-v8228537" target="_blank" rel="noopener">
+        <div class="ct"><span>Healthcare Support Worker - A11R</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">University Hospitals Dorset NHS Foundation Trust · Bournemouth, Dorset</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Surrey/Frimley/Frimley_Health_NHS_Foundation_Trust/GB_FPH/GB_FPH-v8221658" target="_blank" rel="noopener">
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/East_Sussex/Crawley/Sussex_Community_NHS_Foundation_Trust/Unplanned_Care/Unplanned_Care-v8260240" target="_blank" rel="noopener">
+        <div class="ct"><span>Bank Health Care Assistant</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Sussex Community NHS Foundation Trust · Crawley, East Sussex</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Bristol/Bristol/Bristol_NHS_Foundation_Trust_BFT/Imaging/Imaging-v8261342" target="_blank" rel="noopener">
+        <div class="ct"><span>Imaging Support Worker</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Bristol NHS Foundation Trust BFT · Bristol, Bristol</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Norfolk/Norwich/Norfolk_Norwich_University_Hospitals_NHS_Foundation_Trust/Patholgy_Specimen_Reception/Patholgy_Specimen_Reception-v8090492" target="_blank" rel="noopener">
+        <div class="ct"><span>Biomedical Science Support Worker</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Norfolk Norwich University Hospitals NHS Foundation Trust · Norwich, Norfolk</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Powys/Builth_Wells/Powys_Teaching_Health_Board/District_Nursing/District_Nursing-v8116178" target="_blank" rel="noopener">
+        <div class="ct"><span>Health Care Support Worker Builth &amp;amp; Rhayader District Nurses</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Powys Teaching Health Board · Builth Wells, Powys</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Lancashire/Preston/Lancashire_Teaching_Hospitals_NHS_Foundation_Trust/Paediatrics/Paediatrics-v8117177" target="_blank" rel="noopener">
+        <div class="ct"><span>Senior Healthcare Assistant - Paediatric Assessment Unit</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Lancashire Teaching Hospitals NHS Foundation Trust · Preston, Lancashire</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Lancashire/Blackpool/Blackpool_Teaching_Hospitals_NHS_Foundation_Trust/Cardiothoracic_Theatres/Cardiothoracic_Theatres-v8127178" target="_blank" rel="noopener">
         <div class="ct"><span>Healthcare Assistant</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Frimley Health NHS Foundation Trust · Frimley, Surrey</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Nottinghamshire/Nottingham/Nottinghamshire_Healthcare_NHS_Foundation_Trust/Perinatal_Mental_Health/Perinatal_Mental_Health-v8231752" target="_blank" rel="noopener">
-        <div class="ct"><span>Healthcare Assistant</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Nottinghamshire Healthcare NHS Foundation Trust · Nottingham, Nottinghamshire</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/East_Yorkshire/Hull_East_Riding/Humber_Teaching_NHS_Foundation_Trust/Mental_Health_Services/Mental_Health_Services-v8248338" target="_blank" rel="noopener">
-        <div class="ct"><span>Bank Healthcare Assistant</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Humber Teaching NHS Foundation Trust · Hull East Riding, East Yorkshire</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Manchester/Ashton_UnderLyne/Pennine_Care_NHS_Foundation_Trust/Mental_health/Mental_health-v8248860" target="_blank" rel="noopener">
-        <div class="ct"><span>Liaison Support Worker</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Pennine Care NHS Foundation Trust · Ashton UnderLyne, Manchester</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Cambridgeshire/Huntingdon/East_England_Community_Health_Care_NHS_Trust_Cambridgeshire/Contraception_Sexual_Health/Contraception_Sexual_Health-v8248890" target="_blank" rel="noopener">
-        <div class="ct"><span>Healthcare Assistant</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">East England Community Health Care NHS Trust Cambridgeshire · Huntingdon, Cambridgeshire</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Bristol/Bristol/Bristol_NHS_Foundation_Trust/Nursing_Midwifery/Nursing_Midwifery-v8249135" target="_blank" rel="noopener">
-        <div class="ct"><span>Bank Senior Healthcare Support Worker</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Bristol NHS Foundation Trust · Bristol, Bristol</div>
+        <div class="cd">Blackpool Teaching Hospitals NHS Foundation Trust · Blackpool, Lancashire</div>
         <span class="badge">NHS Jobs</span>
       </a>
     </section>
@@ -172,65 +171,72 @@
     <section data-group="leader">
       <div class="eb">Open now</div>
       <h2>Leadership &amp; management</h2>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Tyne_Wear/Freeman_Hospital/The_Newcastle_upon_Tyne_Hospitals_NHS_Foundation_Trust/Audiology_FH/Audiology_FH-v8079175" target="_blank" rel="noopener">
-        <div class="ct"><span>Deputy Clinical Lead - Audiology</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">The Newcastle upon Tyne Hospitals NHS Foundation Trust · Freeman Hospital, Tyne Wear</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Shropshire/Shrewsbury/Shropshire_Community_Health_NHS_Trust/Occupational_therapy/Occupational_therapy-v8174450" target="_blank" rel="noopener">
+        <div class="ct"><span>Clinical Lead Occupational Therapist - Experts at Hand</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Shropshire Community Health NHS Trust · Shrewsbury, Shropshire</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/East_Yorkshire/Hull/Humber_Teaching_NHS_Foundation_Trust/Children_Young_Peoples_Intensive_Mental_Health_Services/Children_Young_Peoples_Intensive_Mental_Health_Services-v8203265" target="_blank" rel="noopener">
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Carmarthenshire/Across_Health_Board/Hywel_Dda_University_Health_Board/Nutrition_Dietetics/Nutrition_Dietetics-v8235606" target="_blank" rel="noopener">
+        <div class="ct"><span>Clinical Lead Dietitian - Type 2 Diabetes</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Hywel Dda University Health Board · Across Health Board, Carmarthenshire</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Derbyshire/Chesterfield_Derby/Derbyshire_Community_Health_Services_NHS_Foundation_Trust/Advancing_Practice/Advancing_Practice-v8244207" target="_blank" rel="noopener">
+        <div class="ct"><span>Senior Clinical Lead - Advancing Practice</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Derbyshire Community Health Services NHS Foundation Trust · Chesterfield Derby, Derbyshire</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/London/London/NHS_North_East_London_Integrated_Care_Board/Commissioning/Commissioning-v8258370" target="_blank" rel="noopener">
+        <div class="ct"><span>Complex Care Manager</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">NHS North East London Integrated Care Board · London, London</div>
+        <span class="badge">NHS Jobs</span>
+      </a>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Northamptonshire/Kettering/Northamptonshire_Healthcare_NHS_Foundation_Trust/Adult_Mental_Health/Adult_Mental_Health-v8189258" target="_blank" rel="noopener">
         <div class="ct"><span>Clinical Lead</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Humber Teaching NHS Foundation Trust · Hull, East Yorkshire</div>
+        <div class="cd">Northamptonshire Healthcare NHS Foundation Trust · Kettering, Northamptonshire</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Warwickshire/Warwick/Coventry_Warwickshire_Partnership_NHS_Trust/Clinical_Lead/Clinical_Lead-v8244387" target="_blank" rel="noopener">
-        <div class="ct"><span>Eating Disorder Clinical Lead - Band 6</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Coventry Warwickshire Partnership NHS Trust · Warwick, Warwickshire</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Lancashire/Lytham/Blackpool_Teaching_Hospitals_NHS_Foundation_Trust/Allied_Health_Professions/Allied_Health_Professions-v8189680" target="_blank" rel="noopener">
+        <div class="ct"><span>Band 7 Occupational Therapist Clinical Lead</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Blackpool Teaching Hospitals NHS Foundation Trust · Lytham, Lancashire</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/West_Yorkshire/Leeds/Leeds_York_Partnership_NHS_Foundation_Trust/Healthy_Living_Service/Healthy_Living_Service-v8245733" target="_blank" rel="noopener">
-        <div class="ct"><span>Clinical Lead Dietitian</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Leeds York Partnership NHS Foundation Trust · Leeds, West Yorkshire</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Hertfordshire/Welwyn/Hertfordshire_Community_NHS_Trust/Speech_Language_Therapy/Speech_Language_Therapy-v8256214" target="_blank" rel="noopener">
+        <div class="ct"><span>Clinical Lead Speech and Language Therapist</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">Hertfordshire Community NHS Trust · Welwyn, Hertfordshire</div>
         <span class="badge">NHS Jobs</span>
       </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Carmarthenshire/Carmarthen/Hywel_Dda_University_Health_Board/Occupational_Therapy/Occupational_Therapy-v8245954" target="_blank" rel="noopener">
-        <div class="ct"><span>Clinical Lead Occupational Therapist - Medical</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Hywel Dda University Health Board · Carmarthen, Carmarthenshire</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Warwickshire/Marston_Green/Coventry_Warwickshire_Partnership_NHS_Trust/Learning_Disability_Autism/Learning_Disability_Autism-v8246208" target="_blank" rel="noopener">
-        <div class="ct"><span>Clinical Lead - Onyx Ward</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Coventry Warwickshire Partnership NHS Trust · Marston Green, Warwickshire</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/South_Yorkshire/Doncaster/Rotherham_Doncaster_South_Humber_NHS_Foundation_Trust/Mental_Health/Mental_Health-v8248213" target="_blank" rel="noopener">
-        <div class="ct"><span>Crisis Team Clinical Lead</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Rotherham Doncaster South Humber NHS Foundation Trust · Doncaster, South Yorkshire</div>
-        <span class="badge">NHS Jobs</span>
-      </a>
-      <a class="card" href="https://www.healthjobsuk.com/job/UK/Powys/Newtown/Powys_Teaching_Health_Board/Physiotherapy/Physiotherapy-v8227398" target="_blank" rel="noopener">
-        <div class="ct"><span>Physiotherapy Clinical lead - Neurorehabilitation</span><span class="arrow">&rarr;</span></div>
-        <div class="cd">Powys Teaching Health Board · Newtown, Powys</div>
+      <a class="card" href="https://www.healthjobsuk.com/job/UK/Manchester/Central_Lancashire_Sector/North_West_Ambulance_Service_NHS_Trust/Clinical_Lead/Clinical_Lead-v8257352" target="_blank" rel="noopener">
+        <div class="ct"><span>Sector Clinical Lead</span><span class="arrow">&rarr;</span></div>
+        <div class="cd">North West Ambulance Service NHS Trust · Central Lancashire Sector, Manchester</div>
         <span class="badge">NHS Jobs</span>
       </a>
     </section>
-    <!-- AUTO:ROLES:END -->
+    <!-- AUTO:ROLES:END --></div>
 
-  <div class="note"><b>How this works:</b> this is a live sample of what is currently advertised, not the whole market — always search NHS Jobs directly as well. Vacancies close without notice, so a listing that has gone by the time you click it has simply been filled or withdrawn. Nothing here is an endorsement of an employer.</div>
+    <p class="ch-note"><b>How this works:</b> this is a live sample of what is currently advertised, not the whole market — always search NHS Jobs directly as well. Vacancies close without notice, so a listing that has gone by the time you click it has simply been filled or withdrawn. Nothing here is an endorsement of an employer.</p>
 
-  <div class="note"><b>Looking for something specific?</b> The <a href="careers.html">Careers &amp; Pay</a> page has the full list of job boards, nursing and care agencies, and recruiters for clinical roles outside the NHS.</div>
+    <p class="ch-note"><b>Looking for something specific?</b> The <a href="careers.html" style="color:var(--ox);font-weight:600">Careers &amp; Pay</a> page has the full list of job boards, nursing and care agencies, and recruiters for clinical roles outside the NHS.</p>
+  </div>
+</section>
 
-  <footer>The Clinical Hub · Live Clinical Roles<br>Listings syndicated from NHS Jobs. Not affiliated with NHS England, the NMC, CQC or RCN.</footer>
-
-</div></div>
+<!-- FOOTER -->
+<footer class="ch-footer ch-band">
+  <div class="ch-in">
+    <p style="margin:0">The Clinical Hub · Live Clinical Roles</p>
+    <p class="legal">Listings syndicated from NHS Jobs. Not affiliated with NHS England, the NMC, CQC or RCN.</p>
+  </div>
+</footer>
 
 <script>
-  document.querySelectorAll('#grpTabs button').forEach(function(b){
+  document.querySelectorAll('#grpTabs .ch-chip').forEach(function(b){
     b.addEventListener('click',function(){
-      document.querySelectorAll('#grpTabs button').forEach(function(x){x.classList.remove('on');});
+      document.querySelectorAll('#grpTabs .ch-chip').forEach(function(x){x.classList.remove('on');});
       b.classList.add('on');
       var f=b.dataset.group;
       document.querySelectorAll('section[data-group]').forEach(function(s){
-        s.classList.toggle('hidden', !(f==='all' || s.dataset.group===f));
+        var g=s.dataset.group;
+        s.style.display = (f==='all' || g===f) ? '' : 'none';
       });
     });
   });
