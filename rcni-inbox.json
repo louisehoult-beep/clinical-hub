@@ -1,6 +1,30 @@
 {
-  "written": "2026-08-24",
+  "written": "2026-08-31",
   "items": [
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-struck-for-accessing-medical-records-including-fathers-223911",
+      "title": "Nurse struck off for accessing 22 medical records including her fathers",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/80-community-nurse-jobs-under-threat-no-longer-affordable-223946",
+      "title": "80 community nurse jobs under threat as 'no longer affordable'",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/apply-now-for-a-cpd-or-learning-grant-of-to-ps2500-223896",
+      "title": "Apply now for a CPD or learning grant of up to £2,500",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/band-5-role-reviews-most-of-trusts-nurses-will-not-be-upbanded-predicts-hr-boss-223841",
       "title": "Band 5 role reviews: most of trust's nurses will not be upbanded, predicts HR boss",
@@ -24,30 +48,6 @@
       "src": "rcni",
       "label": "RCNi",
       "date": "24 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766",
-      "title": "Nurses face extra 12.5-hour shift to make-up for unpaid breaks",
-      "iso": "2026-08-17",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "17 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nursing-graduate-jobs-lack-of-evidence-guarantee-scheme-worked-223751",
-      "title": "Nursing graduate jobs: lack of evidence 'guarantee' scheme worked",
-      "iso": "2026-08-17",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "17 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/advanced-practitioners-doing-more-without-support-they-need-223696",
-      "title": "Advanced practitioners doing more, but without support they need",
-      "iso": "2026-08-17",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "17 Aug"
     }
   ]
 }

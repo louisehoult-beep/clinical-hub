@@ -1,6 +1,30 @@
 {
-  "refreshed": "2026-08-28",
+  "refreshed": "2026-08-31",
   "items": [
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-struck-for-accessing-medical-records-including-fathers-223911",
+      "title": "Nurse struck off for accessing 22 medical records including her fathers",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/80-community-nurse-jobs-under-threat-no-longer-affordable-223946",
+      "title": "80 community nurse jobs under threat as 'no longer affordable'",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/apply-now-for-a-cpd-or-learning-grant-of-to-ps2500-223896",
+      "title": "Apply now for a CPD or learning grant of up to £2,500",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
     {
       "url": "https://www.careinspectorate.wales/office-hours-during-public-holiday-10",
       "title": "Office hours during public holiday Details about our office opening hours over the bank holiday.",
@@ -98,14 +122,6 @@
       "date": "24 Aug"
     },
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/ftp-cases-record-high-nmcs-long-delays-affecting-well-being-223816",
-      "title": "FtP cases at record high: NMC's long delays 'affecting well-being'",
-      "iso": "2026-08-24",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "24 Aug"
-    },
-    {
       "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
       "title": "Weekly insulin jab could cut injections from 365 a year to just 52",
       "src": "nice",
@@ -128,22 +144,6 @@
       "label": "CIW",
       "iso": "2026-08-20",
       "date": "20 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurses-face-extra-125-hour-shift-to-make-for-unpaid-breaks-223766",
-      "title": "Nurses face extra 12.5-hour shift to make-up for unpaid breaks",
-      "iso": "2026-08-17",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "17 Aug"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nursing-graduate-jobs-lack-of-evidence-guarantee-scheme-worked-223751",
-      "title": "Nursing graduate jobs: lack of evidence 'guarantee' scheme worked",
-      "iso": "2026-08-17",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "17 Aug"
     },
     {
       "url": "https://www.gov.uk/government/news/ukhsa-updates-heat-health-alerts-across-england",
