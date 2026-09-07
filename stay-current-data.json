@@ -1,6 +1,94 @@
 {
-  "refreshed": "2026-08-31",
+  "refreshed": "2026-09-07",
   "items": [
+    {
+      "url": "https://www.gov.uk/government/news/only-around-half-of-primary-school-children-got-their-flu-vaccine-last-year",
+      "title": "Only around half of primary school children got their flu vaccine last year",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-09-07",
+      "date": "07 Sep"
+    },
+    {
+      "url": "https://www.rqia.org.uk/publication-of-rqia-reviews-of-urology-services-in-the-southern-hsc-trust",
+      "title": "Publication of RQIA Reviews of Urology Services in the Southern HSC Trust",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-09-04",
+      "date": "04 Sep"
+    },
+    {
+      "url": "https://www.rqia.org.uk/muckamore-abbey-hospital-inquiry-report-rqia-statement",
+      "title": "Muckamore Abbey Hospital Inquiry Report &#8211; RQIA statement",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-09-04",
+      "date": "04 Sep"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/our-statement-on-racist-or-discriminatory-behaviour/",
+      "title": "Our statement on racist or discriminatory behaviour",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-09-03",
+      "date": "03 Sep"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/",
+      "title": "NMC tech upgrades to enable more timely Fitness to Practise hearings",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-09-03",
+      "date": "03 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/invasive-mosquito-species-detected-in-east-london",
+      "title": "Invasive mosquito species detected in east London",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-09-03",
+      "date": "03 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/ai-sleep-data-could-provide-one-week-early-warning-of-flu-and-covid-19",
+      "title": "AI sleep data could provide one-week early warning of flu and COVID-19",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-09-03",
+      "date": "03 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/salmonella-outbreak-update",
+      "title": "Salmonella outbreak update",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-09-03",
+      "date": "03 Sep"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/we-would-hear-your-views-torfaen-county-borough-councils-childrens-social-services",
+      "title": "We would like to hear your views on Torfaen County Borough Council's children’s social services During October, we will be carrying out an assurance check of Torfaen County Borough Council's children’s social services.",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-09-02",
+      "date": "02 Sep"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/office-hours-during-public-holiday-10",
+      "title": "Office hours during public holiday Details about our office opening hours over the bank holiday.",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-09-02",
+      "date": "02 Sep"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-nursing-students-to-receive-upfront-placement-expenses-payments-010926",
+      "title": "Nursing students to receive upfront placement expenses payments",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-09-01",
+      "date": "01 Sep"
+    },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-struck-for-accessing-medical-records-including-fathers-223911",
       "title": "Nurse struck off for accessing 22 medical records including her fathers",
@@ -26,12 +114,12 @@
       "date": "31 Aug"
     },
     {
-      "url": "https://www.careinspectorate.wales/office-hours-during-public-holiday-10",
-      "title": "Office hours during public holiday Details about our office opening hours over the bank holiday.",
-      "src": "ciw",
-      "label": "CIW",
-      "iso": "2026-08-28",
-      "date": "28 Aug"
+      "url": "https://www.gov.uk/government/news/upfront-help-cuts-placement-costs-for-healthcare-students",
+      "title": "Upfront help cuts placement costs for healthcare students",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-08-31",
+      "date": "31 Aug"
     },
     {
       "url": "https://www.careinspectorate.wales/we-would-hear-your-views-conwy-county-councils-childrens-social-services",
@@ -40,14 +128,6 @@
       "label": "CIW",
       "iso": "2026-08-28",
       "date": "28 Aug"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/",
-      "title": "NMC tech upgrades to enable more timely Fitness to Practise hearings",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-08-27",
-      "date": "27 Aug"
     },
     {
       "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-safeguarding-team-supports-more-than-700-peoples-wellbeing/",
@@ -80,22 +160,6 @@
       "label": "UKHSA",
       "iso": "2026-08-27",
       "date": "27 Aug"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/salmonella-outbreak-update",
-      "title": "Salmonella outbreak update",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-08-27",
-      "date": "27 Aug"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/giardia-cases-in-england-reach-highest-level-since-2016",
-      "title": "Giardia cases in England reach highest level since 2016",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-08-26",
-      "date": "26 Aug"
     },
     {
       "url": "https://www.nmc.org.uk/news/news-and-updates/south-asian-heritage-month-walter-burog-reflects-on-unity-in-diversity/",
@@ -146,28 +210,12 @@
       "date": "20 Aug"
     },
     {
-      "url": "https://www.gov.uk/government/news/ukhsa-updates-heat-health-alerts-across-england",
-      "title": "UKHSA updates heat health alerts across England",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-08-14",
-      "date": "14 Aug"
-    },
-    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-heatwave-nursing-staff-working-in-impossible-and-inhumane-conditions-130826",
       "title": "UK heatwave: nursing staff working in 'impossible and inhumane' conditions",
       "src": "rcn",
       "label": "RCN",
       "iso": "2026-08-13",
       "date": "13 Aug"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/newborn-icu-admissions-drop-50-in-first-full-year-of-rsv-maternal-vaccine-programme",
-      "title": "Newborn ICU admissions drop 50% in first full year of RSV maternal vaccine programme",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-08-12",
-      "date": "12 Aug"
     },
     {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-calls-for-end-to-grotesque-exploitation-of-migrant-nursing-staff-070826",
@@ -242,22 +290,6 @@
       "date": "31 Jul"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-welcomes-call-for-evidence-to-support-protection-of-nurse-title/",
-      "title": "NMC welcomes call for evidence to support protection of 'nurse' title",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-campaign-to-protect-the-title-nurse-moves-closer-to-becoming-law-300726",
-      "title": "Campaign to protect the title 'nurse' moves closer to becoming law",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
-    },
-    {
       "url": "https://www.cqc.org.uk/news/learning-practice-innovation-primary-and-community-care",
       "title": "Learning from practice: innovation in primary and community care",
       "src": "cqc",
@@ -286,14 +318,6 @@
       "title": "New report reveals career progression barriers for Minority Ethnic social care workforce",
       "src": "scw",
       "label": "Social Care Wales",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/nhs-and-industry-join-forces-on-next-generation-of-hospitals",
-      "title": "NHS and industry join forces on next generation of hospitals",
-      "src": "dhsc",
-      "label": "DHSC",
       "iso": "2026-07-30",
       "date": "30 Jul"
     },
@@ -338,22 +362,6 @@
       "date": "13 Jul"
     },
     {
-      "url": "https://www.careinspectorate.wales/care-inspectorate-wales-concludes-assurance-check-merthyr-tydfil-county-borough-council-childrens",
-      "title": "Care Inspectorate Wales concludes assurance check of Merthyr Tydfil County Borough Council children's services Merthyr Tydfil's children's services benefit from compassionate leadership and a motivated workforce, but the voice of the child is not yet consistently heard in practice and further work is needed to strengthen assessment quality and threshold application.",
-      "src": "ciw",
-      "label": "CIW",
-      "iso": "2026-07-10",
-      "date": "10 Jul"
-    },
-    {
-      "url": "https://www.rqia.org.uk/muckamore-abbey-hospital-inquiry-report-rqia-statement",
-      "title": "Muckamore Abbey Hospital Inquiry Report &#8211; RQIA statement",
-      "src": "rqia",
-      "label": "RQIA",
-      "iso": "2026-06-18",
-      "date": "18 Jun"
-    },
-    {
       "url": "https://www.rqia.org.uk/rqia-publishes-inspection-reports-of-services-registered-by-the-presbyterian-church-in-ireland-presbyterian-council-of-social-witness",
       "title": "RQIA Publishes Inspection Reports of Services Registered by the Presbyterian Church in Ireland, Presbyterian Council of Social Witness",
       "src": "rqia",
@@ -370,20 +378,20 @@
       "date": "15 Jun"
     },
     {
-      "url": "https://www.rqia.org.uk/rqia-publishes-an-independent-follow-up-report-a-whole-system-approach-following-review-conducted-in-2024-working-collaboratively-to-reduce-harm",
-      "title": "RQIA publishes an independent follow-up report “A Whole-System Approach”, following Review conducted in 2024, “Working Collaboratively to Reduce Harm”",
+      "url": "https://www.rqia.org.uk/rqia-publishes-investigation-into-commissioning-arrangements-for-residential-learning-disability-services-in-the-south-eastern-and-the-belfast-trusts",
+      "title": "RQIA Publishes Investigation into Commissioning Arrangements for Residential Learning Disability Services in the South Eastern and the Belfast Trusts",
       "src": "rqia",
       "label": "RQIA",
-      "iso": "2026-06-10",
-      "date": "10 Jun"
+      "iso": "2026-04-08",
+      "date": "08 Apr"
     },
     {
-      "url": "https://www.rqia.org.uk/rqia-publishes-winter-plan-25-26",
-      "title": "RQIA Publishes Winter Plan and Statement 2025-26",
-      "src": "rqia",
-      "label": "RQIA",
-      "iso": "2026-04-17",
-      "date": "17 Apr"
+      "url": "https://www.nhsemployers.org/articles/talent-opportunity",
+      "title": "Blog From talent to opportunity Find out how clinical attachments are helping refugee doctors join the NHS workforce.",
+      "src": "nhsemp",
+      "label": "NHS Employers",
+      "iso": null,
+      "date": ""
     },
     {
       "url": "https://www.nhsemployers.org/articles/lets-think-about-flex",
@@ -396,14 +404,6 @@
     {
       "url": "https://www.nhsemployers.org/articles/ockenden-report-nottingham-maternity-services-next-steps-chief-people-officers",
       "title": "Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety.",
-      "src": "nhsemp",
-      "label": "NHS Employers",
-      "iso": null,
-      "date": ""
-    },
-    {
-      "url": "https://www.nhsemployers.org/articles/understanding-and-supporting-military-children",
-      "title": "Blog Understanding and supporting military children Gain an insight into the additional support that military children need as patients and their parents need as employees",
       "src": "nhsemp",
       "label": "NHS Employers",
       "iso": null,
