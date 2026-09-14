@@ -2,30 +2,6 @@
   "refreshed": "2026-09-14",
   "items": [
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nhs-pay-scales-call-to-restart-talks-could-lead-to-new-rates-for-nursing-staff-224141",
-      "title": "NHS pay scales call to restart talks that could lead to new rates for nursing staff",
-      "iso": "2026-09-14",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "14 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nhs-pension-remedy-thousands-of-nurses-stuck-financial-waiting-game-224101",
-      "title": "Pensions: thousands of nurses stuck in financial 'waiting game'",
-      "iso": "2026-09-14",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "14 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-who-bullied-and-body-shamed-hca-colleague-struck-224081",
-      "title": "Nurse who bullied and 'body-shamed' HCA colleague struck off",
-      "iso": "2026-09-14",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "14 Sep"
-    },
-    {
       "url": "https://www.careinspectorate.wales/we-would-hear-your-views-newport-county-councils-childrens-social-services",
       "title": "We would like to hear your views on Newport County Council's children’s social services During October, we will be carrying out an assurance check of Newport County Council’s children’s social services.",
       "src": "ciw",
@@ -146,22 +122,6 @@
       "date": "08 Sep"
     },
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-with-grudge-jailed-after-failing-to-check-on-patient-death-224021",
-      "title": "Nurse with 'grudge' jailed after failing to check on patient before death",
-      "iso": "2026-09-07",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "07 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/pay-dispute-trust-sent-dirty-tactics-letter-say-striking-nurses-223976",
-      "title": "Pay dispute: trust sent 'dirty tactics' letter, say striking nurses",
-      "iso": "2026-09-07",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "07 Sep"
-    },
-    {
       "url": "https://www.gov.uk/government/news/only-around-half-of-primary-school-children-got-their-flu-vaccine-last-year",
       "title": "Only around half of primary school children got their flu vaccine last year",
       "src": "ukhsa",
@@ -218,6 +178,30 @@
       "date": "01 Sep"
     },
     {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-struck-for-accessing-medical-records-including-fathers-223911",
+      "title": "Nurse struck off for accessing 22 medical records including her fathers",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/80-community-nurse-jobs-under-threat-no-longer-affordable-223946",
+      "title": "80 community nurse jobs under threat as 'no longer affordable'",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/apply-now-for-a-cpd-or-learning-grant-of-to-ps2500-223896",
+      "title": "Apply now for a CPD or learning grant of up to £2,500",
+      "iso": "2026-08-31",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "31 Aug"
+    },
+    {
       "url": "https://www.gov.uk/government/news/upfront-help-cuts-placement-costs-for-healthcare-students",
       "title": "Upfront help cuts placement costs for healthcare students",
       "src": "dhsc",
@@ -248,6 +232,22 @@
       "label": "CQC",
       "iso": "2026-08-27",
       "date": "27 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/band-5-role-reviews-most-of-trusts-nurses-will-not-be-upbanded-predicts-hr-boss-223841",
+      "title": "Band 5 role reviews: most of trust's nurses will not be upbanded, predicts HR boss",
+      "iso": "2026-08-24",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "24 Aug"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/30-senior-nurses-to-take-industrial-action-after-year-long-dispute-223836",
+      "title": "30 senior nurses to take industrial action after year-long dispute",
+      "iso": "2026-08-24",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "24 Aug"
     },
     {
       "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
