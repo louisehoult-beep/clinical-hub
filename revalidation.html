@@ -18,6 +18,15 @@
   .cycle input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:8px;font-size:13px;font-family:inherit;width:100%;}
   .mynmc-link{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(224,190,142,.4);}
 
+  /* ---------- account / cloud save ---------- */
+  .acct{background:var(--ivory);border:1px solid var(--bone);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);}
+  .acctlead{font-size:13.5px;color:var(--ink-mid);line-height:1.5;}
+  .acctlead b{color:var(--navy);}
+  .acctnote{font-size:11.5px;color:#77818c;margin-top:8px;line-height:1.45;}
+  .acctnote a{color:var(--ox);cursor:pointer;}
+  .acctrow button{flex:0 0 auto;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:11px 16px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .acctrow button.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--bone);}
+
   /* ---------- overall progress ---------- */
   .overall .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;}
   .overall h2{margin:0;}
@@ -120,8 +129,15 @@
   </div>
 </header>
 
-<!-- OVERALL PROGRESS -->
+<!-- ACCOUNT / CLOUD SAVE -->
 <section class="ch-band ch-section tight">
+  <div class="ch-in">
+    <div class="acct" id="acctBox"></div>
+  </div>
+</section>
+
+<!-- OVERALL PROGRESS -->
+<section class="ch-band ch-section tight" style="padding-top:0">
   <div class="ch-in overall">
     <div class="row"><h2>Your pack</h2><span class="pct" id="overallPct">0% ready</span></div>
     <div class="bar"><i id="overallBar"></i></div>
@@ -197,6 +213,8 @@
 <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="hub-cloud.js"></script>
 <script>
 // ---------- state ----------
 var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
@@ -205,9 +223,62 @@ var S = JSON.parse(localStorage.getItem('revalv1')||'null') || {
   cpdItems:[], reflItems:[], evidence:[], hoursItems:[], feedbackItems:[]
 };
 if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
-function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();}
+function save(){localStorage.setItem('revalv1',JSON.stringify(S));render();cloudPush();}
 
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// ---------- account / cloud save ----------
+// Nothing here can read anyone else's pack — Row Level Security on the database
+// means a signed-in person can only ever touch their own rows, and there is no
+// admin view that gets around that. Sign-in is a magic link, no password.
+var _pushTimer=null;
+function cloudPush(immediate){
+  if(!window.Hub || !Hub.signedIn()) return;
+  clearTimeout(_pushTimer);
+  var fn=function(){ Hub.save('revalidation', S).catch(function(){ toast('Could not save to your account'); }); };
+  if(immediate) fn(); else _pushTimer=setTimeout(fn, 900);
+}
+function cloudPull(){
+  Hub.load('revalidation').then(function(data){
+    if(data){
+      S=data;
+      if(!S.evidence)S.evidence=[]; if(!S.hoursItems)S.hoursItems=[]; if(!S.feedbackItems)S.feedbackItems=[];
+      localStorage.setItem('revalv1',JSON.stringify(S));
+      render();
+      toast('Loaded your saved pack ✓');
+    } else {
+      cloudPush(true);
+    }
+  }).catch(function(){ toast('Could not load your saved pack'); });
+}
+function renderAcct(){
+  var box=document.getElementById('acctBox');
+  if(!box || !window.Hub) return;
+  var u=Hub.user();
+  if(u){
+    box.innerHTML='<div class="acctlead">☁️ <b>Saved to your account</b> — '+esc(u.email)+'</div>'+
+      '<div class="acctrow"><button class="ghost" onclick="hubExport()">Download all my data</button><button class="ghost" onclick="hubSignOut()">Sign out</button></div>'+
+      '<div class="acctnote"><a onclick="hubDelete();return false;">Delete my account and everything in it</a></div>';
+  } else {
+    box.innerHTML='<div class="acctlead">☁️ <b>Sign in to keep your pack safe</b> — saved securely, and there on every device.</div>'+
+      '<div class="acctrow"><input type="email" id="acctEmail" placeholder="your@email.com" autocomplete="email"><button onclick="hubSignIn()">Email me a link</button></div>'+
+      '<div class="acctnote">No password to remember — we email you a link that signs you straight in. Only you can ever see your saved pack.</div>';
+  }
+}
+function hubSignIn(){
+  var email=val('acctEmail');
+  if(!email){ toast('Add your email first'); return; }
+  Hub.sendLink(email).then(function(){
+    document.getElementById('acctBox').innerHTML='<div class="acctlead">✓ Check your email — tap the link and you\'ll be signed in here, on this device.</div>';
+  }).catch(function(err){ toast((err&&err.message)||'Could not send the link'); });
+}
+function hubSignOut(){ Hub.signOut().then(renderAcct); }
+function hubExport(){ Hub.downloadAllMyData().catch(function(err){ toast((err&&err.message)||'Could not export'); }); }
+function hubDelete(){
+  if(!confirm('Delete your account and everything saved to it? This cannot be undone.')) return;
+  Hub.deleteMyAccount().then(function(){ toast('Account deleted'); renderAcct(); }).catch(function(err){ toast((err&&err.message)||'Could not delete account'); });
+}
 
 // ---------- requirements model ----------
 function reqs(){return [
@@ -451,6 +522,10 @@ function saveHours(){var h=parseFloat(val('hAdd'))||0;var n=val('hNote');S.hours
 
 function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
 render();
+if(window.Hub){
+  Hub.onChange(function(u){ renderAcct(); if(u) cloudPull(); });
+  Hub.init();
+}
 
 </script>
 <script src="analytics.js"></script>

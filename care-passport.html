@@ -9,6 +9,16 @@
 <style>
   /* Page-specific only. Everything structural lives in hub-shell.css. */
   .panel{background:var(--white);border:1px solid var(--bone);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);}
+  /* ---------- account / cloud save ---------- */
+  .acct{background:var(--ivory);border:1px solid var(--bone);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);margin-bottom:16px;}
+  .acctlead{font-size:13.5px;color:var(--ink-mid);line-height:1.5;}
+  .acctlead b{color:var(--navy);}
+  .acctnote{font-size:11.5px;color:#77818c;margin-top:8px;line-height:1.45;}
+  .acctnote a{color:var(--ox);cursor:pointer;}
+  .acctrow{display:flex;gap:8px;margin-top:9px;}
+  .acctrow input{flex:1;min-width:0;border:1.5px solid var(--sand);border-radius:8px;padding:10px 12px;font-size:14.5px;font-family:inherit;color:var(--ink-mid);background:var(--white);}
+  .acctrow button{flex:0 0 auto;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:11px 16px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .acctrow button.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--bone);}
   .idpanel{display:flex;gap:14px;align-items:center;}
   .avatar{width:52px;height:52px;border-radius:50%;background:var(--ivory);color:var(--ox);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;font-weight:600;flex:0 0 auto;}
   .idpanel .fields{flex:1;display:flex;flex-direction:column;gap:8px;}
@@ -84,6 +94,7 @@
 <!-- PROFILE + PROGRESS -->
 <section class="ch-band ch-section tight">
   <div class="ch-in">
+    <div class="acct" id="acctBox"></div>
     <div class="ch-grid two">
       <div class="panel idpanel">
         <div class="avatar" id="initial">?</div>
@@ -148,6 +159,8 @@
 <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="hub-cloud.js"></script>
 <script>
 var S=JSON.parse(localStorage.getItem('carepassv1')||'null')||{
   name:'',role:'',email:'',signed:false,
@@ -156,8 +169,59 @@ var S=JSON.parse(localStorage.getItem('carepassv1')||'null')||{
   trainingItems:[], reflItems:[]
 };
 var SKILLS=['Personal care & dignity','Safe moving & handling','Medication support','Safeguarding','Communication','Nutrition & hydration','Infection control','Dementia care','End-of-life care','LD & autism awareness'];
-function save(){localStorage.setItem('carepassv1',JSON.stringify(S));render();}
+function save(){localStorage.setItem('carepassv1',JSON.stringify(S));render();cloudPush();}
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// ---------- account / cloud save ----------
+// Row Level Security on the database means a signed-in person can only ever
+// touch their own rows — there is no admin view that gets around that.
+var _pushTimer=null;
+function cloudPush(immediate){
+  if(!window.Hub || !Hub.signedIn()) return;
+  clearTimeout(_pushTimer);
+  var fn=function(){ Hub.save('passport', S).catch(function(){ toast('Could not save to your account'); }); };
+  if(immediate) fn(); else _pushTimer=setTimeout(fn, 900);
+}
+function cloudPull(){
+  Hub.load('passport').then(function(data){
+    if(data){
+      S=data;
+      localStorage.setItem('carepassv1',JSON.stringify(S));
+      render();
+      toast('Loaded your saved passport ✓');
+    } else {
+      cloudPush(true);
+    }
+  }).catch(function(){ toast('Could not load your saved passport'); });
+}
+function renderAcct(){
+  var box=document.getElementById('acctBox');
+  if(!box || !window.Hub) return;
+  var u=Hub.user();
+  if(u){
+    box.innerHTML='<div class="acctlead">☁️ <b>Saved to your account</b> — '+esc(u.email)+'</div>'+
+      '<div class="acctrow"><button class="ghost" onclick="hubExport()">Download all my data</button><button class="ghost" onclick="hubSignOut()">Sign out</button></div>'+
+      '<div class="acctnote"><a onclick="hubDelete();return false;">Delete my account and everything in it</a></div>';
+  } else {
+    box.innerHTML='<div class="acctlead">☁️ <b>Sign in to keep your passport safe</b> — saved securely, and there on every device.</div>'+
+      '<div class="acctrow"><input type="email" id="acctEmail" placeholder="your@email.com" autocomplete="email"><button onclick="hubSignIn()">Email me a link</button></div>'+
+      '<div class="acctnote">No password to remember — we email you a link that signs you straight in. Only you can ever see your saved passport.</div>';
+  }
+}
+function hubSignIn(){
+  var email=val('acctEmail');
+  if(!email){ toast('Add your email first'); return; }
+  Hub.sendLink(email).then(function(){
+    document.getElementById('acctBox').innerHTML='<div class="acctlead">✓ Check your email — tap the link and you\'ll be signed in here, on this device.</div>';
+  }).catch(function(err){ toast((err&&err.message)||'Could not send the link'); });
+}
+function hubSignOut(){ Hub.signOut().then(renderAcct); }
+function hubExport(){ Hub.downloadAllMyData().catch(function(err){ toast((err&&err.message)||'Could not export'); }); }
+function hubDelete(){
+  if(!confirm('Delete your account and everything saved to it? This cannot be undone.')) return;
+  Hub.deleteMyAccount().then(function(){ toast('Account deleted'); renderAcct(); }).catch(function(err){ toast((err&&err.message)||'Could not delete account'); });
+}
 
 function reqs(){return [
   {name:'Care Certificate (16 standards)',toggle:'careCert',done:S.careCert,meta:'The induction baseline for good care'},
@@ -290,6 +354,10 @@ function openProfile(){
 
 function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
 render();
+if(window.Hub){
+  Hub.onChange(function(u){ renderAcct(); if(u) cloudPull(); });
+  Hub.init();
+}
 </script>
 <script src="analytics.js"></script>
 <script src="hub-nav.js"></script>
