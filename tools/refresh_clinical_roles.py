@@ -163,7 +163,7 @@ def render(roles):
                                   esc(meta) or 'Location on the listing',
                                   esc(r.get('source', 'NHS Jobs'))))
         out.append('\n    </section>\n')
-    return ''.join(out), shown
+    return ''.join(out), shown, buckets
 
 
 def main():
@@ -186,7 +186,7 @@ def main():
     today = datetime.date.today()
     stamp = today.strftime('%d/%m/%Y')
 
-    rendered, shown = render(roles)
+    rendered, shown, buckets = render(roles)
 
     page = open(PAGE, encoding='utf-8').read()
     block = '<!-- AUTO:ROLES:START -->%s    <!-- AUTO:ROLES:END -->' % rendered
@@ -208,6 +208,23 @@ def main():
     json.dump({'refreshed': today.isoformat(), 'matched': len(roles),
                'shown': shown, 'items': roles},
               open(DATA, 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
+
+    # Compact, shown-only payload for external consumption (the Hub's Jobs
+    # page fetches this client-side). clinical-roles-data.json carries all
+    # ~1,100+ matched roles and is unnecessarily large for a page that only
+    # ever renders the same 24. Grouped the same way the page itself groups
+    # them, so the Hub and the Clinical Hub can never show different splits.
+    SHOWN = os.path.join(HERE, 'clinical-roles-shown.json')
+    shown_payload = {
+        'refreshed': today.isoformat(),
+        'groups': [
+            {'key': key, 'label': label,
+             'items': buckets[key][:PER_GROUP]}
+            for key, label, _rx in GROUPS
+        ],
+    }
+    json.dump(shown_payload, open(SHOWN, 'w', encoding='utf-8'),
+              indent=2, ensure_ascii=False)
 
     print('Matched %d role(s), showing %d, refreshed %s' % (len(roles), shown, stamp))
     return 0
