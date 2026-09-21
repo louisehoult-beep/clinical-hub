@@ -1,35 +1,187 @@
 {
-  "refreshed": "2026-09-14",
+  "refreshed": "2026-09-21",
   "items": [
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nhs-pay-scales-call-to-restart-talks-could-lead-to-new-rates-for-nursing-staff-224141",
-      "title": "NHS pay scales call to restart talks that could lead to new rates for nursing staff",
-      "iso": "2026-09-14",
+      "url": "https://rcni.com/nursing-standard/newsroom/news/pay-win-for-nhs-nurses-employer-reverses-bank-shift-rate-decision-224186",
+      "title": "Pay win for NHS nurses as employer reverses bank shift rate decision",
+      "iso": "2026-09-21",
       "src": "rcni",
       "label": "RCNi",
-      "date": "14 Sep"
+      "date": "21 Sep"
     },
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nhs-pension-remedy-thousands-of-nurses-stuck-financial-waiting-game-224101",
-      "title": "Pensions: thousands of nurses stuck in financial 'waiting game'",
-      "iso": "2026-09-14",
+      "url": "https://rcni.com/nursing-standard/newsroom/news/lucy-letby-repeated-failures-senior-nurses-may-have-put-more-babies-risk-224171",
+      "title": "Lucy Letby: failures by senior nurses may have put more babies at risk",
+      "iso": "2026-09-21",
       "src": "rcni",
       "label": "RCNi",
-      "date": "14 Sep"
+      "date": "21 Sep"
     },
     {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-who-bullied-and-body-shamed-hca-colleague-struck-224081",
-      "title": "Nurse who bullied and 'body-shamed' HCA colleague struck off",
-      "iso": "2026-09-14",
+      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-suspended-after-refusing-to-start-cpr-on-patient-she-believed-had-died-224166",
+      "title": "Nurse suspended after refusing to start CPR on patient she believed had died",
+      "iso": "2026-09-21",
       "src": "rcni",
       "label": "RCNi",
-      "date": "14 Sep"
+      "date": "21 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/expert-team-to-drive-improvements-in-cancer-care",
+      "title": "Expert team to drive improvements in cancer care",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-20",
+      "date": "20 Sep"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-commits-to-develop-shared-principles-on-ai-with-psa-and-other-partners/",
+      "title": "NMC commits to develop shared principles on AI with PSA and other partners",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/how-the-nmc-responded-to-whistleblowing-disclosures-from-healthcare-workers-in-202526/",
+      "title": "How the NMC responded to whistleblowing disclosures from healthcare workers in 2025–26",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-statement-in-response-to-thirlwall-inquiry-report/",
+      "title": "NMC statement in response to Thirlwall Inquiry report",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.nice.org.uk/news/articles/nice-recommends-enhertu-for-people-with-her2-low-advanced-breast-cancer",
+      "title": "NICE recommends Enhertu for people with HER2-low advanced breast cancer",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.nice.org.uk/news/articles/draft-guidance-aims-to-improve-identification-of-ocd-and-body-dysmorphic-disorder",
+      "title": "Draft guidance aims to improve identification of OCD and body dysmorphic disorder",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.nice.org.uk/news/articles/faster-alignment-of-technology-appraisals-with-clinical-guidelines-trialled-in-type-2-diabetes-update",
+      "title": "Faster alignment of technology appraisals with clinical guidelines trialled in type 2 diabetes update",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/260917-national-thematic-review-adoption-services-published",
+      "title": "National thematic review of adoption services published National review of adoption services in Wales finds strong foundations across the system, and outlines where consistency needs to improve to ensure the best outcomes for every child and family",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
     },
     {
       "url": "https://www.careinspectorate.wales/we-would-hear-your-views-newport-county-councils-childrens-social-services",
       "title": "We would like to hear your views on Newport County Council's children’s social services During October, we will be carrying out an assurance check of Newport County Council’s children’s social services.",
       "src": "ciw",
       "label": "CIW",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/salmonella-outbreak-update",
+      "title": "Salmonella outbreak update",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/speeches/minister-of-state-for-social-care-and-mental-health-speech-on-dementia",
+      "title": "Minister of State for Social Care and Mental Health speech on dementia",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/chair-appointed-to-lead-tees-esk-and-wear-valleys-trust-inquiry",
+      "title": "Chair appointed to lead Tees, Esk and Wear Valleys Trust inquiry",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-17",
+      "date": "17 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/six-neighbourhood-health-trailblazers-to-transform-care",
+      "title": "Six neighbourhood health trailblazers to transform care",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-16",
+      "date": "16 Sep"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/maer-nmc-yn-chwilio-am-bedwar-aelod-newydd-ir-cyngor-ar-eu-taith-tuag-at-ddod-yn-rheoleiddiwr-cryfach/",
+      "title": "Mae'r NMC yn chwilio am bedwar aelod newydd i'r Cyngor ar eu taith tuag at ddod yn rheoleiddiwr cryfach",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-09-15",
+      "date": "15 Sep"
+    },
+    {
+      "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
+      "title": "Weekly insulin jab could cut injections from 365 a year to just 52",
+      "src": "nice",
+      "label": "NICE",
+      "iso": "2026-09-15",
+      "date": "15 Sep"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-statement-rqia-publishes-follow-up-inspection-report-on-the-temporary-emergency-general-surgery-egs-pathways-in-the-western-hsc-trust",
+      "title": "RQIA Statement: RQIA publishes follow-up Inspection Report on the temporary Emergency General Surgery (EGS) Pathways in the Western HSC Trust",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-09-15",
+      "date": "15 Sep"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-publishes-final-report-on-review-of-records-of-deceased-patients-neurology",
+      "title": "RQIA publishes final report on Review of Records of Deceased Patients (Neurology)",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-09-15",
+      "date": "15 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/speeches/government-response-to-the-thirlwall-inquiry",
+      "title": "Government response to the Thirlwall Inquiry",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-15",
+      "date": "15 Sep"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/mandatory-training-requirement-learning-disability-and-autism",
+      "title": "Mandatory training requirement on learning disability and autism",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-09-14",
+      "date": "14 Sep"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/new-guidance-providers-health-care-and-treatment-events",
+      "title": "New guidance for providers of health care and treatment at events",
+      "src": "cqc",
+      "label": "CQC",
       "iso": "2026-09-14",
       "date": "14 Sep"
     },
@@ -40,14 +192,6 @@
       "label": "CIW",
       "iso": "2026-09-14",
       "date": "14 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/maer-nmc-yn-chwilio-am-bedwar-aelod-newydd-ir-cyngor-ar-eu-taith-tuag-at-ddod-yn-rheoleiddiwr-cryfach/",
-      "title": "Mae'r NMC yn chwilio am bedwar aelod newydd i'r Cyngor ar eu taith tuag at ddod yn rheoleiddiwr cryfach",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-11",
-      "date": "11 Sep"
     },
     {
       "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-takes-next-step-towards-faster-and-fairer-fitness-to-practise-hearings/",
@@ -62,14 +206,6 @@
       "title": "We would like to hear your views on Torfaen County Borough Council's children’s social services During October, we will be carrying out an assurance check of Torfaen County Borough Council's children’s social services.",
       "src": "ciw",
       "label": "CIW",
-      "iso": "2026-09-10",
-      "date": "10 Sep"
-    },
-    {
-      "url": "https://www.rqia.org.uk/rqia-publishes-final-report-on-review-of-records-of-deceased-patients-neurology",
-      "title": "RQIA publishes final report on Review of Records of Deceased Patients (Neurology)",
-      "src": "rqia",
-      "label": "RQIA",
       "iso": "2026-09-10",
       "date": "10 Sep"
     },
@@ -90,30 +226,6 @@
       "date": "10 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/salmonella-outbreak-update",
-      "title": "Salmonella outbreak update",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-09-10",
-      "date": "10 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/major-expansion-of-community-mental-health-support-across-england",
-      "title": "Major expansion of community mental health support across England",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-09-10",
-      "date": "10 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-seeking-four-new-council-members-on-journey-towards-becoming-stronger-regulator2/",
-      "title": "NMC seeking four new Council members on journey towards becoming stronger regulator",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-09",
-      "date": "09 Sep"
-    },
-    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-nurse-to-patient-ratios-are-essential-to-safe-staffing-in-every-setting-rcn-says-090926",
       "title": "Nurse-to-patient ratios are essential to safe staffing in every setting, RCN says",
       "src": "rcn",
@@ -130,38 +242,6 @@
       "date": "09 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/over-15-billion-to-help-nhs-withstand-year-round-pressure",
-      "title": "Over £1.5 billion to help NHS withstand year-round pressure",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-09-09",
-      "date": "09 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/our-statement-on-racist-or-discriminatory-behaviour/",
-      "title": "Our statement on racist or discriminatory behaviour",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-08",
-      "date": "08 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-with-grudge-jailed-after-failing-to-check-on-patient-death-224021",
-      "title": "Nurse with 'grudge' jailed after failing to check on patient before death",
-      "iso": "2026-09-07",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "07 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/pay-dispute-trust-sent-dirty-tactics-letter-say-striking-nurses-223976",
-      "title": "Pay dispute: trust sent 'dirty tactics' letter, say striking nurses",
-      "iso": "2026-09-07",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "07 Sep"
-    },
-    {
       "url": "https://www.gov.uk/government/news/only-around-half-of-primary-school-children-got-their-flu-vaccine-last-year",
       "title": "Only around half of primary school children got their flu vaccine last year",
       "src": "ukhsa",
@@ -176,14 +256,6 @@
       "label": "RQIA",
       "iso": "2026-09-04",
       "date": "04 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-tech-upgrades-to-enable-more-timely-fitness-to-practise-hearings/",
-      "title": "NMC tech upgrades to enable more timely Fitness to Practise hearings",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-03",
-      "date": "03 Sep"
     },
     {
       "url": "https://www.gov.uk/government/news/invasive-mosquito-species-detected-in-east-london",
@@ -218,44 +290,12 @@
       "date": "01 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/upfront-help-cuts-placement-costs-for-healthcare-students",
-      "title": "Upfront help cuts placement costs for healthcare students",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-08-31",
-      "date": "31 Aug"
-    },
-    {
-      "url": "https://www.careinspectorate.wales/we-would-hear-your-views-conwy-county-councils-childrens-social-services",
-      "title": "We would like to hear your views on Conwy County Council's children’s social services During September, we will be carrying out an assurance check of Conwy County Council's children’s social services.",
-      "src": "ciw",
-      "label": "CIW",
-      "iso": "2026-08-28",
-      "date": "28 Aug"
-    },
-    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-nursing-students-face-unemployment-despite-nhs-vacancies-270826",
       "title": "Nursing students face unemployment despite NHS vacancies",
       "src": "rcn",
       "label": "RCN",
       "iso": "2026-08-27",
       "date": "27 Aug"
-    },
-    {
-      "url": "https://www.cqc.org.uk/news/new-guidance-providers-health-care-and-treatment-events",
-      "title": "New guidance for providers of health care and treatment at events",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-08-27",
-      "date": "27 Aug"
-    },
-    {
-      "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
-      "title": "Weekly insulin jab could cut injections from 365 a year to just 52",
-      "src": "nice",
-      "label": "NICE",
-      "iso": "2026-08-20",
-      "date": "20 Aug"
     },
     {
       "url": "https://www.nice.org.uk/news/articles/hundreds-of-people-are-set-to-benefit-from-new-treatment-option-for-newly-diagnosed-mantle-cell-lymphoma-and-chronic-lymphocytic-leukaemia",
@@ -274,34 +314,10 @@
       "date": "13 Aug"
     },
     {
-      "url": "https://www.nice.org.uk/news/articles/thousands-of-patients-to-benefit-from-new-daily-pill-for-serious-heart-condition",
-      "title": "Thousands of patients to benefit from new daily pill for serious heart condition",
-      "src": "nice",
-      "label": "NICE",
-      "iso": "2026-08-06",
-      "date": "06 Aug"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/patients-with-motor-neurone-disease-set-for-fast-tracked-care",
-      "title": "Patients with motor neurone disease set for fast-tracked care",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-08-05",
-      "date": "05 Aug"
-    },
-    {
       "url": "https://socialcare.wales/news-stories/cardiff-nursery-and-out-of-school-club-manager-wins-2026-caring-in-welsh-award",
       "title": "Cardiff nursery and out-of-school club manager wins 2026 Caring in Welsh award",
       "src": "scw",
       "label": "Social Care Wales",
-      "iso": "2026-08-04",
-      "date": "04 Aug"
-    },
-    {
-      "url": "https://www.gov.uk/government/publications/keep-britain-working-review-update-june-2026",
-      "title": "Keep Britain Working review update: June 2026",
-      "src": "dhsc",
-      "label": "DHSC",
       "iso": "2026-08-04",
       "date": "04 Aug"
     },
@@ -314,36 +330,12 @@
       "date": "30 Jul"
     },
     {
-      "url": "https://www.cqc.org.uk/news/how-cqc-regulates-during-local-government-reorganisation",
-      "title": "How CQC regulates during local government reorganisation",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
-    },
-    {
-      "url": "https://www.nice.org.uk/news/articles/lung-preservation-machine-could-help-rescue-four-in-five-donated-lungs-currently-unused-recommended",
-      "title": "New lung preservation machine could make hundreds of unused donor lungs available for transplant",
-      "src": "nice",
-      "label": "NICE",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
-    },
-    {
       "url": "https://socialcare.wales/news-stories/new-report-reveals-career-progression-barriers-for-minority-ethnic-social-care-workforce",
       "title": "New report reveals career progression barriers for Minority Ethnic social care workforce",
       "src": "scw",
       "label": "Social Care Wales",
       "iso": "2026-07-30",
       "date": "30 Jul"
-    },
-    {
-      "url": "https://www.nice.org.uk/news/articles/thousands-eligible-for-new-chronic-heart-failure-treatment-following-nice-recommendation",
-      "title": "Thousands eligible for new chronic heart failure treatment following NICE recommendation",
-      "src": "nice",
-      "label": "NICE",
-      "iso": "2026-07-28",
-      "date": "28 Jul"
     },
     {
       "url": "https://socialcare.wales/news-stories/join-our-new-project-to-help-us-develop-positive-cultures-across-social-care",
@@ -370,20 +362,12 @@
       "date": "15 Jul"
     },
     {
-      "url": "https://www.rqia.org.uk/rqia-publishes-inspection-reports-of-services-registered-by-the-presbyterian-church-in-ireland-presbyterian-council-of-social-witness",
-      "title": "RQIA Publishes Inspection Reports of Services Registered by the Presbyterian Church in Ireland, Presbyterian Council of Social Witness",
+      "url": "https://www.rqia.org.uk/rqia-publishes-report-of-inspection-of-the-emergency-general-surgery-egs-pathways-in-the-western-trust-following-the-temporary-suspension-of-services-at-swah",
+      "title": "RQIA publishes Report of Inspection of the Emergency General Surgery (EGS) Pathways in the Western Trust, following the temporary suspension of services at SWAH",
       "src": "rqia",
       "label": "RQIA",
-      "iso": "2026-06-18",
-      "date": "18 Jun"
-    },
-    {
-      "url": "https://www.rqia.org.uk/rqia-publishes-an-independent-follow-up-report-a-whole-system-approach-following-review-conducted-in-2024-working-collaboratively-to-reduce-harm",
-      "title": "RQIA publishes an independent follow-up report “A Whole-System Approach”, following Review conducted in 2024, “Working Collaboratively to Reduce Harm”",
-      "src": "rqia",
-      "label": "RQIA",
-      "iso": "2026-04-17",
-      "date": "17 Apr"
+      "iso": "2026-06-10",
+      "date": "10 Jun"
     },
     {
       "url": "https://www.nhsemployers.org/articles/talent-opportunity",
