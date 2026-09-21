@@ -26,6 +26,14 @@
       "date": "21 Sep"
     },
     {
+      "url": "https://www.gov.uk/government/news/thousands-invited-to-register-for-public-panel-for-independent-commission-on-adult-social-care",
+      "title": "Thousands invited to register for Public Panel for Independent Commission on Adult Social Care",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-21",
+      "date": "21 Sep"
+    },
+    {
       "url": "https://www.gov.uk/government/news/expert-team-to-drive-improvements-in-cancer-care",
       "title": "Expert team to drive improvements in cancer care",
       "src": "dhsc",
@@ -158,14 +166,6 @@
       "title": "RQIA publishes final report on Review of Records of Deceased Patients (Neurology)",
       "src": "rqia",
       "label": "RQIA",
-      "iso": "2026-09-15",
-      "date": "15 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/speeches/government-response-to-the-thirlwall-inquiry",
-      "title": "Government response to the Thirlwall Inquiry",
-      "src": "dhsc",
-      "label": "DHSC",
       "iso": "2026-09-15",
       "date": "15 Sep"
     },
