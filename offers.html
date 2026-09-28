@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offers &amp; Savings — The Clinical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hub-shell.css">
+<style>
+  /* Page-specific only. Everything structural lives in hub-shell.css. */
+  .ch-cardgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  a.ev-card{display:block;text-decoration:none;background:var(--white);border:1px solid var(--bone);border-left:4px solid var(--gold-antique);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease;}
+  .ch-cardgrid a.ev-card:nth-child(even){border-left-color:var(--ox);}
+  a.ev-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);}
+  a.ev-card .ct{font-weight:700;font-size:15.5px;color:var(--navy);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  a.ev-card .ct .arrow{color:var(--gold);font-weight:700;flex:0 0 auto;}
+  a.ev-card .cwho{font-size:12.5px;color:var(--ox);font-weight:700;margin-top:6px;}
+  a.ev-card .cd{font-size:13px;color:#66707d;margin-top:5px;line-height:1.5;}
+  .badge-free{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:5px;text-transform:uppercase;margin-top:9px;background:#e5efe5;color:#2F6B57;}
+  .badge-check{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:5px;text-transform:uppercase;margin-top:9px;background:var(--ivory);color:var(--gold-muted);}
+
+  @media(max-width:900px){.ch-cardgrid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="ch-masthead ch-band photo" style="padding-bottom:0;--photo:url('assets/lou-clinical-hero.jpg')">
+  <div class="ch-in">
+    <p class="ch-eyebrow">The Clinical Hub</p>
+    <h1>Offers &amp; Savings</h1>
+    <p class="tag">The staff discounts and money back that nurses and carers are entitled to.</p>
+    <div class="ch-badges">
+      <span class="ch-badge"><svg viewBox="0 0 24 24"><use href="#ic-check"></use></svg>Every link goes to the <b>provider's own page</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- AUDIENCE TABS -->
+<section class="ch-band" style="padding-top:26px">
+  <div class="ch-in">
+    <div class="ch-chips" id="audTabs">
+      <button class="ch-chip on" type="button" data-aud="all">Everyone</button>
+      <button class="ch-chip" type="button" data-aud="carer">Carers</button>
+      <button class="ch-chip" type="button" data-aud="nurse">Nurses</button>
+    </div>
+  </div>
+</section>
+
+<!-- FREE FOR ALL HEALTHCARE STAFF -->
+<section class="ch-section ch-band" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">Start here</p>
+    <h2>Free staff discounts</h2>
+    <div class="ch-cardgrid" style="grid-template-columns:1fr">
+      <a class="ev-card" href="https://healthservicediscounts.com/" target="_blank" rel="noopener">
+        <div class="ct"><span>Health Service Discounts</span><span class="arrow">&rarr;</span></div>
+        <div class="cwho">NHS, private and bank healthcare staff, retired staff and healthcare students</div>
+        <div class="cd">Discounts on the weekly shop, eating out, cinema tickets, fashion and holidays. Sign up with your work email, or upload a payslip or ID badge if you don't have one.</div>
+        <span class="badge-free">Free to join</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NURSES AND NHS STAFF -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">For nurses and NHS staff</p>
+    <h2>NHS staff discounts</h2>
+    <div class="ch-cardgrid">
+      <a class="ev-card" href="https://www.bluelightcard.co.uk/en/nhsdiscounts" target="_blank" rel="noopener">
+        <div class="ct"><span>Blue Light Card for NHS staff</span><span class="arrow">&rarr;</span></div>
+        <div class="cwho">Full-time, part-time and locum NHS staff</div>
+        <div class="cd">Discounts online and on the high street, from supermarkets and phone contracts to days out and travel.</div>
+        <span class="badge-check">Small fee, check the current price</span>
+      </a>
+      <a class="ev-card" href="https://www.rcn.org.uk/membership/Member-discounts" target="_blank" rel="noopener">
+        <div class="ct"><span>RCNXtra member discounts</span><span class="arrow">&rarr;</span></div>
+        <div class="cwho">Royal College of Nursing members</div>
+        <div class="cd">Brand discounts, cinema tickets and grocery e-codes through the Perks at Work app, plus financial and insurance services.</div>
+        <span class="badge-check">Members</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CARE HOME STAFF -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="carer">
+  <div class="ch-in">
+    <p class="ch-kicker">For carers</p>
+    <h2>Care home staff discounts</h2>
+    <div class="ch-cardgrid" style="grid-template-columns:1fr">
+      <a class="ev-card" href="https://www.bluelightcard.co.uk/en/discounts-for-residential-care-workers" target="_blank" rel="noopener">
+        <div class="ct"><span>Blue Light Card for care workers</span><span class="arrow">&rarr;</span></div>
+        <div class="cwho">Residential care workers and people who work in care homes</div>
+        <div class="cd">Blue Light Card names care home staff as eligible, so you don't need to work for the NHS to join. Discounts online and on the high street.</div>
+        <span class="badge-check">Small fee, check the current price</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MONEY YOU'RE OWED -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="all">
+  <div class="ch-in">
+    <p class="ch-kicker">Money back</p>
+    <h2>Tax relief you're owed</h2>
+    <div class="ch-cardgrid" style="grid-template-columns:1fr">
+      <a class="ev-card" href="resources.html#claim">
+        <div class="ct"><span>What you can claim from HMRC</span><span class="arrow">&rarr;</span></div>
+        <div class="cwho">Nurses, midwives and healthcare assistants</div>
+        <div class="cd">Tax relief on washing your own uniform, and on your NMC fee and RCN membership. You can claim for the current tax year and the four before it.</div>
+        <span class="badge-free">Free to claim</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FROM US -->
+<section class="ch-section ch-band" style="padding-top:0" data-aud="nurse">
+  <div class="ch-in">
+    <p class="ch-kicker">From us</p>
+    <h2>The Intelligence Hub, free for NHS staff</h2>
+    <div class="ch-cardgrid" style="grid-template-columns:1fr">
+      <a class="ev-card" href="index.html#nhs-offer">
+        <div class="ct"><span>Medical Sales Intelligence Hub</span><span class="arrow">&rarr;</span></div>
+        <div class="cwho">Anyone who works for the NHS</div>
+        <div class="cd">Our paid subscription platform, free for NHS staff. Email us from your NHS address and we'll set you up.</div>
+        <span class="badge-free">Free for NHS staff</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ch-footer ch-band">
+  <div class="ch-in">
+    <p style="margin:0">The Clinical Hub · Offers &amp; Savings</p>
+    <p class="legal">Checked against each provider's own page on 28/09/2026. Offers and prices change often, so always read the live terms before you sign up. We don't earn anything from these links.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('#audTabs .ch-chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#audTabs .ch-chip').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=b.dataset.aud;
+      document.querySelectorAll('section[data-aud]').forEach(function(s){
+        var aud=s.dataset.aud;
+        s.style.display = (f==='all' || aud==='all' || aud===f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+<script src="analytics.js"></script>
+<script src="hub-nav.js"></script>
+</body>
+</html>
