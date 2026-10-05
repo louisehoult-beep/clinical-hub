@@ -1,6 +1,86 @@
 {
-  "refreshed": "2026-09-28",
+  "refreshed": "2026-10-05",
   "items": [
+    {
+      "url": "https://www.rqia.org.uk/new-chair-appointed-to-the-regulation-and-quality-improvement-authority",
+      "title": "New Chair appointed to the Regulation and Quality Improvement Authority",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-10-05",
+      "date": "05 Oct"
+    },
+    {
+      "url": "https://www.rqia.org.uk/rqia-statement-rqia-publishes-follow-up-inspection-report-on-the-temporary-emergency-general-surgery-egs-pathways-in-the-western-hsc-trust",
+      "title": "RQIA Statement: RQIA publishes follow-up Inspection Report on the temporary Emergency General Surgery (EGS) Pathways in the Western HSC Trust",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-10-05",
+      "date": "05 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/government-joins-forces-with-breast-cancer-now",
+      "title": "Government joins forces with Breast Cancer Now",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-10-04",
+      "date": "04 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-listening-to-families-affected-by-maternity-failings-in-leeds/",
+      "title": "NMC listening to families affected by maternity failings in Leeds",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-02",
+      "date": "02 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-to-take-more-proactive-approach-to-education-quality-assurance/",
+      "title": "NMC to take more proactive approach to education quality assurance",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-02",
+      "date": "02 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/new-nmc-strategy-puts-safety-equity-and-anti-racism-centre-of-midwifery-regulation/",
+      "title": "New NMC strategy puts safety, equity and anti-racism centre of midwifery regulation",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-01",
+      "date": "01 Oct"
+    },
+    {
+      "url": "https://socialcare.wales/news-stories/celebrating-25-years-of-social-work-regulation",
+      "title": "Celebrating 25 years of social work regulation",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-10-01",
+      "date": "01 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/over-212000-get-the-first-menb-dose-but-almost-75-missing-out",
+      "title": "Over 212,000 get the first MenB dose but almost 75% missing out",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-01",
+      "date": "01 Oct"
+    },
+    {
+      "url": "https://socialcare.wales/news-stories/ymgeisiwch-ar-gyfer-gwobrau-2027",
+      "title": "Get your entries and nominations in for the 2027 Accolades!",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-09-30",
+      "date": "30 Sep"
+    },
+    {
+      "url": "https://socialcare.wales/news-stories/have-you-tried-using-values-to-find-the-best-candidates-for-your-roles",
+      "title": "Have you tried using values to find the best candidates for your roles?",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-09-30",
+      "date": "30 Sep"
+    },
     {
       "url": "https://socialcare.wales/news-stories/care-worker-card-coming-to-an-end",
       "title": "Care worker card coming to an end",
@@ -8,6 +88,30 @@
       "label": "Social Care Wales",
       "iso": "2026-09-30",
       "date": "30 Sep"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/support-for-families-and-babies-rolled-out-to-all-family-hubs",
+      "title": "Support for families and babies rolled out to all family hubs",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-09-30",
+      "date": "30 Sep"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-get-set-to-celebrate-as-rcn-nursing-support-workers-day-returns-290926",
+      "title": "Get set to celebrate as RCN Nursing Support Workers' Day returns",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-09-29",
+      "date": "29 Sep"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-national-care-service-vision-must-include-nursing-investment-says-rcn-290926",
+      "title": "National Care Service vision must include nursing investment, says RCN",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-09-29",
+      "date": "29 Sep"
     },
     {
       "url": "https://www.careinspectorate.wales/we-would-hear-your-views-swansea-councils-adult-social-services",
@@ -32,14 +136,6 @@
       "label": "DHSC",
       "iso": "2026-09-28",
       "date": "28 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/new-nmc-strategy-puts-safety-equity-and-anti-racism-centre-of-midwifery-regulation/",
-      "title": "New NMC strategy puts safety, equity and anti-racism centre of midwifery regulation",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-25",
-      "date": "25 Sep"
     },
     {
       "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-commits-to-develop-shared-principles-on-ai-with-psa-and-other-partners/",
@@ -178,32 +274,8 @@
       "date": "21 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/thousands-invited-to-register-for-public-panel-for-independent-commission-on-adult-social-care",
-      "title": "Thousands invited to register for public panel for independent commission on adult social care",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-09-21",
-      "date": "21 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/expert-team-to-drive-improvements-in-cancer-care",
-      "title": "Expert team to drive improvements in cancer care",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-09-20",
-      "date": "20 Sep"
-    },
-    {
       "url": "https://www.nmc.org.uk/news/news-and-updates/how-the-nmc-responded-to-whistleblowing-disclosures-from-healthcare-workers-in-202526/",
       "title": "How the NMC responded to whistleblowing disclosures from healthcare workers in 2025–26",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-17",
-      "date": "17 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-statement-in-response-to-thirlwall-inquiry-report/",
-      "title": "NMC statement in response to Thirlwall Inquiry report",
       "src": "nmc",
       "label": "NMC",
       "iso": "2026-09-17",
@@ -242,34 +314,10 @@
       "date": "17 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/salmonella-outbreak-update",
-      "title": "Salmonella outbreak update",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-09-17",
-      "date": "17 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/maer-nmc-yn-chwilio-am-bedwar-aelod-newydd-ir-cyngor-ar-eu-taith-tuag-at-ddod-yn-rheoleiddiwr-cryfach/",
-      "title": "Mae'r NMC yn chwilio am bedwar aelod newydd i'r Cyngor ar eu taith tuag at ddod yn rheoleiddiwr cryfach",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-15",
-      "date": "15 Sep"
-    },
-    {
       "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
       "title": "Weekly insulin jab could cut injections from 365 a year to just 52",
       "src": "nice",
       "label": "NICE",
-      "iso": "2026-09-15",
-      "date": "15 Sep"
-    },
-    {
-      "url": "https://www.rqia.org.uk/rqia-statement-rqia-publishes-follow-up-inspection-report-on-the-temporary-emergency-general-surgery-egs-pathways-in-the-western-hsc-trust",
-      "title": "RQIA Statement: RQIA publishes follow-up Inspection Report on the temporary Emergency General Surgery (EGS) Pathways in the Western HSC Trust",
-      "src": "rqia",
-      "label": "RQIA",
       "iso": "2026-09-15",
       "date": "15 Sep"
     },
@@ -306,30 +354,6 @@
       "date": "09 Sep"
     },
     {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-presidential-and-council-elections-results-announced-090926",
-      "title": "RCN Presidential and Council elections results announced",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-09-09",
-      "date": "09 Sep"
-    },
-    {
-      "url": "https://www.rqia.org.uk/muckamore-abbey-hospital-inquiry-report-rqia-statement",
-      "title": "Muckamore Abbey Hospital Inquiry Report &#8211; RQIA statement",
-      "src": "rqia",
-      "label": "RQIA",
-      "iso": "2026-09-04",
-      "date": "04 Sep"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-nursing-students-to-receive-upfront-placement-expenses-payments-010926",
-      "title": "Nursing students to receive upfront placement expenses payments",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-09-01",
-      "date": "01 Sep"
-    },
-    {
       "url": "https://www.nice.org.uk/news/articles/hundreds-of-people-are-set-to-benefit-from-new-treatment-option-for-newly-diagnosed-mantle-cell-lymphoma-and-chronic-lymphocytic-leukaemia",
       "title": "Hundreds to benefit from new treatment option for mantle cell lymphoma and chronic lymphocytic leukaemia",
       "src": "nice",
@@ -338,36 +362,12 @@
       "date": "20 Aug"
     },
     {
-      "url": "https://socialcare.wales/news-stories/cardiff-nursery-and-out-of-school-club-manager-wins-2026-caring-in-welsh-award",
-      "title": "Cardiff nursery and out-of-school club manager wins 2026 Caring in Welsh award",
-      "src": "scw",
-      "label": "Social Care Wales",
-      "iso": "2026-08-04",
-      "date": "04 Aug"
-    },
-    {
-      "url": "https://socialcare.wales/news-stories/new-report-reveals-career-progression-barriers-for-minority-ethnic-social-care-workforce",
-      "title": "New report reveals career progression barriers for Minority Ethnic social care workforce",
-      "src": "scw",
-      "label": "Social Care Wales",
-      "iso": "2026-07-30",
-      "date": "30 Jul"
-    },
-    {
-      "url": "https://socialcare.wales/news-stories/join-our-new-project-to-help-us-develop-positive-cultures-across-social-care",
-      "title": "Join our new project to help us develop positive cultures across social care",
-      "src": "scw",
-      "label": "Social Care Wales",
-      "iso": "2026-07-22",
-      "date": "22 Jul"
-    },
-    {
-      "url": "https://www.rqia.org.uk/rqia-publishes-report-of-inspection-of-the-emergency-general-surgery-egs-pathways-in-the-western-trust-following-the-temporary-suspension-of-services-at-swah",
-      "title": "RQIA publishes Report of Inspection of the Emergency General Surgery (EGS) Pathways in the Western Trust, following the temporary suspension of services at SWAH",
+      "url": "https://www.rqia.org.uk/rqia-publishes-inspection-reports-of-services-registered-by-the-presbyterian-church-in-ireland-presbyterian-council-of-social-witness",
+      "title": "RQIA Publishes Inspection Reports of Services Registered by the Presbyterian Church in Ireland, Presbyterian Council of Social Witness",
       "src": "rqia",
       "label": "RQIA",
-      "iso": "2026-06-10",
-      "date": "10 Jun"
+      "iso": "2026-06-15",
+      "date": "15 Jun"
     },
     {
       "url": "https://www.nhsemployers.org/articles/talent-opportunity",
@@ -390,6 +390,14 @@
       "title": "Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety.",
       "src": "nhsemp",
       "label": "NHS Employers",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/stop-planning-for-capacity-start-using-it",
+      "title": "Blog Stop planning for capacity. Start using it. 29/09/2026 Governments across Britain are developing ambitious plans to tackle waiting lists, but patients need action now. With independent providers already offering NHS-funded hospital, diagnostic and clinical capacity, the focus should be on removing the barriers preventing that capacity from being fully used. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
       "iso": null,
       "date": ""
     },
@@ -420,14 +428,6 @@
     {
       "url": "https://www.ihpn.org.uk/blog/workplace-healthcare-schemes",
       "title": "Blog Could workplace healthcare schemes become part of the answer to getting Britain working again? 28/07/2026 Could workplace healthcare schemes help tackle economic inactivity? As employers play a greater role in supporting workforce health, workplace healthcare is becoming more than just an employee benefit. This blog explores how employer-funded healthcare, mutual schemes and partnerships with independent healthcare providers could help people stay in work, return to work sooner and reduce pressure on the NHS. Read more",
-      "src": "ihpn",
-      "label": "IHPN",
-      "iso": null,
-      "date": ""
-    },
-    {
-      "url": "https://www.ihpn.org.uk/blog/before-patient-power-payments-fixing-the-foundations-of-patient-choice",
-      "title": "Blog Before Patient Power Payments: fixing the foundations of patient choice 15/07/2026 In a guest blog for IHPN, Olli Potter - Policy and Public Affairs Manager, Picker Group - looks at the recent Government proposals to pilot Patient Power Payments (PPPs) and argues that the foundations of patient choice must be fixed if PPPs are to make a meaningful difference. Read more",
       "src": "ihpn",
       "label": "IHPN",
       "iso": null,
