@@ -1,6 +1,150 @@
 {
-  "refreshed": "2026-10-05",
+  "refreshed": "2026-10-12",
   "items": [
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-victim-of-retaliation-speaks-out-about-six-year-ftp-ordeal-224456",
+      "title": "Nurse victim of retaliation describes seven year NMC case ordeal",
+      "iso": "2026-10-12",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "12 Oct"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/us-and-them-senior-nurses-warning-over-doctors-anp-stance-224396",
+      "title": "'Us and them': senior nurse's warning over doctors' ANP stance",
+      "iso": "2026-10-12",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "12 Oct"
+    },
+    {
+      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-who-injected-adrenaline-instead-of-flu-vaccine-struck-224436",
+      "title": "Nurse who injected adrenaline instead of flu vaccine struck off",
+      "iso": "2026-10-12",
+      "src": "rcni",
+      "label": "RCNi",
+      "date": "12 Oct"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/s-cabsec-corridor-care-091026",
+      "title": "Cabinet Secretary commits to publish data on corridor care",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/cqc-regulate-autism-and-adhd-diagnostic-assessments",
+      "title": "CQC to regulate autism and ADHD diagnostic assessments",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/registration-applications-now-open-event-healthcare-providers",
+      "title": "Registration applications now open for event healthcare providers",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/261009-we-would-hear-your-views-pembrokeshire-county-councils-childrens-social-services",
+      "title": "We would like to hear your views on Pembrokeshire County Council's children’s social services During November, we will be carrying out an improvement check of Pembrokeshire County Council's children’s social services",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.careinspectorate.wales/we-would-hear-your-views-swansea-councils-adult-social-services",
+      "title": "We would like to hear your views on Swansea Council's adult social services During November, we will be carrying out an improvement check of Swansea Council's adult social services.",
+      "src": "ciw",
+      "label": "CIW",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/speeches/minister-mcgovern-speech-on-mental-health-adhd-and-autism",
+      "title": "Minister McGovern speech on mental health, ADHD and autism",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/keep-britain-working-review-update-a-national-growth-opportunity-september-2026",
+      "title": "Keep Britain Working review update: a national growth opportunity, September 2026",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/government-pledges-earlier-support-to-tackle-mental-health-crises",
+      "title": "Government pledges earlier support to tackle mental health crises",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-10-09",
+      "date": "09 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/blog-a-day-in-the-life-of-an-employer-link-service-adviser/",
+      "title": "Blog: A Day in the Life of an Employer Link Service Adviser",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-08",
+      "date": "08 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/332m-to-protect-public-from-future-epidemics-and-pandemics",
+      "title": "£33.2 million to protect public from future epidemics and pandemics",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-08",
+      "date": "08 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/latest-ukhsa-weekly-winter-virus-surveillance-data",
+      "title": "Latest UKHSA weekly winter virus surveillance data",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-08",
+      "date": "08 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/flu-levels-low-at-start-of-season-but-higher-than-previous-4-years",
+      "title": "Flu levels low at start of season but higher than previous 4 years",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-08",
+      "date": "08 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/332m-to-protect-public-from-future-epidemics-and-pandemics",
+      "title": "£33.2 million to protect public from future epidemics and pandemics",
+      "src": "dhsc",
+      "label": "DHSC",
+      "iso": "2026-10-08",
+      "date": "08 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/ukhsa-appoints-chief-medical-advisor-and-chief-scientific-officer",
+      "title": "UKHSA appoints Chief Medical Advisor and Chief Scientific Officer",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-06",
+      "date": "06 Oct"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-rcn-awards-2027-nominations-open-051026",
+      "title": "Who inspires you? RCN Awards nominations open now",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-10-05",
+      "date": "05 Oct"
+    },
     {
       "url": "https://www.rqia.org.uk/new-chair-appointed-to-the-regulation-and-quality-improvement-authority",
       "title": "New Chair appointed to the Regulation and Quality Improvement Authority",
@@ -90,14 +234,6 @@
       "date": "30 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/support-for-families-and-babies-rolled-out-to-all-family-hubs",
-      "title": "Support for families and babies rolled out to all family hubs",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-09-30",
-      "date": "30 Sep"
-    },
-    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-get-set-to-celebrate-as-rcn-nursing-support-workers-day-returns-290926",
       "title": "Get set to celebrate as RCN Nursing Support Workers' Day returns",
       "src": "rcn",
@@ -114,26 +250,10 @@
       "date": "29 Sep"
     },
     {
-      "url": "https://www.careinspectorate.wales/we-would-hear-your-views-swansea-councils-adult-social-services",
-      "title": "We would like to hear your views on Swansea Council's adult social services During November, we will be carrying out an improvement check of Swansea Council's adult social services.",
-      "src": "ciw",
-      "label": "CIW",
-      "iso": "2026-09-28",
-      "date": "28 Sep"
-    },
-    {
       "url": "https://www.careinspectorate.wales/care-inspectorate-wales-concludes-assurance-check-bridgend-county-borough-councils-adult-services",
       "title": "Care Inspectorate Wales concludes assurance check of Bridgend County Borough Council's adult services Bridgend's adult social services benefit from effective leadership, strong corporate support and mature partnership arrangements, but further developments are needed with workforce resilience, assessment and review practice, support for carers, and care and support pathways.",
       "src": "ciw",
       "label": "CIW",
-      "iso": "2026-09-28",
-      "date": "28 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/leeds-review-sets-out-terms-of-reference-for-investigation",
-      "title": "Leeds review sets out terms of reference for investigation",
-      "src": "dhsc",
-      "label": "DHSC",
       "iso": "2026-09-28",
       "date": "28 Sep"
     },
@@ -146,34 +266,10 @@
       "date": "25 Sep"
     },
     {
-      "url": "https://www.cqc.org.uk/news/registration-applications-now-open-event-healthcare-providers",
-      "title": "Registration applications now open for event healthcare providers",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-09-24",
-      "date": "24 Sep"
-    },
-    {
       "url": "https://www.cqc.org.uk/news/mandatory-training-requirement-learning-disability-and-autism",
       "title": "Mandatory training requirement on learning disability and autism",
       "src": "cqc",
       "label": "CQC",
-      "iso": "2026-09-24",
-      "date": "24 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/publications/ukhsa-priorities-in-2026-to-2027",
-      "title": "UKHSA priorities in 2026 to 2027",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-09-24",
-      "date": "24 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/publications/ukhsa-priorities-in-2026-to-2027",
-      "title": "UKHSA priorities in 2026 to 2027",
-      "src": "dhsc",
-      "label": "DHSC",
       "iso": "2026-09-24",
       "date": "24 Sep"
     },
@@ -194,24 +290,8 @@
       "date": "23 Sep"
     },
     {
-      "url": "https://www.gov.uk/government/news/ukhsa-expands-wastewater-surveillance-to-strengthen-early-warning-system-for-dangerous-pathogens",
-      "title": "UKHSA expands wastewater surveillance to strengthen ‘early warning system’ for dangerous pathogens",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-09-23",
-      "date": "23 Sep"
-    },
-    {
       "url": "https://www.rcn.org.uk/news-and-events/news/uk-nurse-shortage-far-worse-than-first-thought-rcn-analysis-shows-220926",
       "title": "Nurse shortage far worse than first thought, RCN analysis shows",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-09-22",
-      "date": "22 Sep"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-have-your-say-on-the-future-of-rcn-branches-220926",
-      "title": "Have your say on the future of RCN branches",
       "src": "rcn",
       "label": "RCN",
       "iso": "2026-09-22",
@@ -224,62 +304,6 @@
       "label": "CIW",
       "iso": "2026-09-22",
       "date": "22 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/ukhsa-and-pace-make-new-bacteria-available-to-support-research-into-tackling-antimicrobial-resistance",
-      "title": "UKHSA and PACE make new bacteria available to support research into tackling antimicrobial resistance",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-09-22",
-      "date": "22 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/ukhsa-and-university-of-oxford-scientists-uncover-genetic-changes-in-the-bacteria-causing-severe-kent-meningococcal-disease-outbreak",
-      "title": "UKHSA and University of Oxford scientists uncover genetic changes in the bacteria causing severe Kent meningococcal disease outbreak",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-09-22",
-      "date": "22 Sep"
-    },
-    {
-      "url": "https://www.gov.uk/government/publications/keep-britain-working-review-update-a-national-growth-opportunity-september-2026",
-      "title": "Keep Britain Working review update: a national growth opportunity, September 2026",
-      "src": "dhsc",
-      "label": "DHSC",
-      "iso": "2026-09-22",
-      "date": "22 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/pay-win-for-nhs-nurses-employer-reverses-bank-shift-rate-decision-224186",
-      "title": "Pay win for NHS nurses as employer reverses bank shift rate decision",
-      "iso": "2026-09-21",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "21 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/lucy-letby-repeated-failures-senior-nurses-may-have-put-more-babies-risk-224171",
-      "title": "Lucy Letby: failures by senior nurses may have put more babies at risk",
-      "iso": "2026-09-21",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "21 Sep"
-    },
-    {
-      "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-suspended-after-refusing-to-start-cpr-on-patient-she-believed-had-died-224166",
-      "title": "Nurse suspended after refusing to start CPR on patient she believed had died",
-      "iso": "2026-09-21",
-      "src": "rcni",
-      "label": "RCNi",
-      "date": "21 Sep"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/how-the-nmc-responded-to-whistleblowing-disclosures-from-healthcare-workers-in-202526/",
-      "title": "How the NMC responded to whistleblowing disclosures from healthcare workers in 2025–26",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-17",
-      "date": "17 Sep"
     },
     {
       "url": "https://www.nice.org.uk/news/articles/nice-recommends-enhertu-for-people-with-her2-low-advanced-breast-cancer",
@@ -306,14 +330,6 @@
       "date": "17 Sep"
     },
     {
-      "url": "https://www.careinspectorate.wales/we-would-hear-your-views-newport-county-councils-childrens-social-services",
-      "title": "We would like to hear your views on Newport County Council's children’s social services During October, we will be carrying out an assurance check of Newport County Council’s children’s social services.",
-      "src": "ciw",
-      "label": "CIW",
-      "iso": "2026-09-17",
-      "date": "17 Sep"
-    },
-    {
       "url": "https://www.nice.org.uk/news/articles/nice-recommends-weekly-insulin-jab-that-could-cut-injections-from-365-a-year-to-just-52",
       "title": "Weekly insulin jab could cut injections from 365 a year to just 52",
       "src": "nice",
@@ -330,28 +346,12 @@
       "date": "15 Sep"
     },
     {
-      "url": "https://www.cqc.org.uk/news/new-guidance-providers-health-care-and-treatment-events",
-      "title": "New guidance for providers of health care and treatment at events",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-09-14",
-      "date": "14 Sep"
-    },
-    {
       "url": "https://www.rqia.org.uk/publication-of-rqia-reviews-of-urology-services-in-the-southern-hsc-trust",
       "title": "Publication of RQIA Reviews of Urology Services in the Southern HSC Trust",
       "src": "rqia",
       "label": "RQIA",
       "iso": "2026-09-10",
       "date": "10 Sep"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-nurse-to-patient-ratios-are-essential-to-safe-staffing-in-every-setting-rcn-says-090926",
-      "title": "Nurse-to-patient ratios are essential to safe staffing in every setting, RCN says",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-09-09",
-      "date": "09 Sep"
     },
     {
       "url": "https://www.nice.org.uk/news/articles/hundreds-of-people-are-set-to-benefit-from-new-treatment-option-for-newly-diagnosed-mantle-cell-lymphoma-and-chronic-lymphocytic-leukaemia",
@@ -412,22 +412,6 @@
     {
       "url": "https://www.ihpn.org.uk/blog/the-uks-healthy-life-expectancy-challenge-how-can-independent-healthcare-help",
       "title": "Blog The UK’s Healthy Life Expectancy Challenge - How can Independent Healthcare Help? 11/08/2026 Healthy life expectancy in the UK has stalled, leaving millions of people living more years in poor health. In this blog, we explore the reasons behind the decline and the four key ways the independent sector can help improve outcomes, reduce inequalities, and deliver timely, high-quality care. Read more",
-      "src": "ihpn",
-      "label": "IHPN",
-      "iso": null,
-      "date": ""
-    },
-    {
-      "url": "https://www.ihpn.org.uk/blog/understanding-independent-diagnostics-services",
-      "title": "Blog The Missing Picture: Why NHS Data Underestimates the Independent Sector's Role in Diagnostics 06/08/2026 The latest NHS Diagnostic Imaging Dataset provides an important snapshot of imaging activity, but it doesn't tell the whole story. Our latest analysis reveals independent sector diagnostics providers delivered around 4 million NHS scans in 2025/26 (over 2.3 million more than official data report) and explores why greater transparency is needed to support future NHS planning. Read more",
-      "src": "ihpn",
-      "label": "IHPN",
-      "iso": null,
-      "date": ""
-    },
-    {
-      "url": "https://www.ihpn.org.uk/blog/workplace-healthcare-schemes",
-      "title": "Blog Could workplace healthcare schemes become part of the answer to getting Britain working again? 28/07/2026 Could workplace healthcare schemes help tackle economic inactivity? As employers play a greater role in supporting workforce health, workplace healthcare is becoming more than just an employee benefit. This blog explores how employer-funded healthcare, mutual schemes and partnerships with independent healthcare providers could help people stay in work, return to work sooner and reduce pressure on the NHS. Read more",
       "src": "ihpn",
       "label": "IHPN",
       "iso": null,

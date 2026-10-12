@@ -5,3 +5,4 @@ _to_delete/
 # Adestra redirect keyed to her own subscriber record. Only the resolved,
 # de-tracked output (rcni-inbox.json) belongs in the repo.
 _inbox-staging.json
+tools/__pycache__/
