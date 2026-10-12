@@ -28,7 +28,7 @@ EXTRA = os.path.join(HERE, 'clinical-roles-extra.json')
 
 FEED = 'https://www.healthjobsuk.com/job_list/rss?JobSearch_re=NHSJobs'
 UA = 'Mozilla/5.0 (compatible; ClinicalHubBot/1.0; +https://clinicalhub.elevateandthrive.uk)'
-PER_GROUP = 8
+PER_GROUP = 40
 
 # The Clinical Hub is for carers, care managers and nurses. Everything else in
 # the feed — medical, estates, admin, AHP — is out of scope, so it is filtered
@@ -199,10 +199,13 @@ def main():
                   lambda m: m.group(1) + stamp + m.group(2), page)
     # Both numbers are published. The page shows a sample, and saying so is the
     # difference between a sample and a claim to be the whole market.
-    page = re.sub(r'(<span id="roleShown">)[^<]*(</span>)',
+    page, n_shown = re.subn(r'(<b id="roleShown">)[^<]*(</b>)',
                   lambda m: m.group(1) + str(shown) + m.group(2), page)
-    page = re.sub(r'(<span id="roleCount">)[^<]*(</span>)',
+    page, n_count = re.subn(r'(<b id="roleCount">)[^<]*(</b>)',
                   lambda m: m.group(1) + '{:,}'.format(len(roles)) + m.group(2), page)
+    if n_shown != 1 or n_count != 1:
+        print('ERROR: could not find the roleShown/roleCount badge markers in clinical-roles.html')
+        return 1
     open(PAGE, 'w', encoding='utf-8').write(page)
 
     json.dump({'refreshed': today.isoformat(), 'matched': len(roles),
