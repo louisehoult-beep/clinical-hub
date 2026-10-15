@@ -1,6 +1,110 @@
 {
-  "refreshed": "2026-10-12",
+  "refreshed": "2026-10-15",
   "items": [
+    {
+      "url": "https://www.cqc.org.uk/news/cqc-publishes-equality-objectives-annual-report-202526",
+      "title": "CQC publishes equality objectives annual report 2025/26",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-10-15",
+      "date": "15 Oct"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/cqcs-annual-report-enforcement-ionising-radiation-medical-exposure-regulations-england",
+      "title": "CQC’s annual report on enforcement of the Ionising Radiation (Medical Exposure) Regulations in England published",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-10-15",
+      "date": "15 Oct"
+    },
+    {
+      "url": "https://www.rqia.org.uk/chief-executive-recruitment",
+      "title": "Chief Executive Recruitment &#8211; Lead the Future of Health and Social Care Regulation and Improvement in Northern Ireland",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-10-15",
+      "date": "15 Oct"
+    },
+    {
+      "url": "https://www.rqia.org.uk/new-chair-appointed-to-the-regulation-and-quality-improvement-authority",
+      "title": "New Chair appointed to the Regulation and Quality Improvement Authority",
+      "src": "rqia",
+      "label": "RQIA",
+      "iso": "2026-10-15",
+      "date": "15 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/data-shows-almost-half-of-people-with-flu-like-symptoms-miss-work-or-school",
+      "title": "Data shows almost half of people with flu-like symptoms miss work or school",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-15",
+      "date": "15 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/latest-ukhsa-weekly-winter-virus-surveillance-data",
+      "title": "Latest weekly winter virus surveillance data",
+      "src": "ukhsa",
+      "label": "UKHSA",
+      "iso": "2026-10-15",
+      "date": "15 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-responds-to-new-skills-for-care-report-into-adult-social-care/",
+      "title": "NMC responds to new Skills for Care report into adult social care",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-14",
+      "date": "14 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-chief-executive-named-among-health-and-cares-most-influential-black-asian-and-minority-ethnic-leaders/",
+      "title": "NMC Chief Executive named among health and care’s most influential Black, Asian and minority ethnic leaders",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-14",
+      "date": "14 Oct"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/rcn-northern-ireland-opens-strike-ballot-over-absence-of-pay-award-14-oct-2026",
+      "title": "RCN Northern Ireland opens strike ballot over absence of pay award",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-10-14",
+      "date": "14 Oct"
+    },
+    {
+      "url": "https://www.nmc.org.uk/news/news-and-updates/lesley-maslen-to-step-down-as-executive-director-of-professional-regulation/",
+      "title": "Lesley Maslen to step down as Executive Director of Professional Regulation",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-13",
+      "date": "13 Oct"
+    },
+    {
+      "url": "https://www.rcn.org.uk/news-and-events/news/uk-chair-and-vice-chair-of-rcn-council-announced-131026",
+      "title": "Chair and Vice Chair of RCN Council announced",
+      "src": "rcn",
+      "label": "RCN",
+      "iso": "2026-10-13",
+      "date": "13 Oct"
+    },
+    {
+      "url": "https://www.cqc.org.uk/news/cqc-regulate-autism-and-adhd-diagnostic-assessments",
+      "title": "CQC to regulate autism and ADHD diagnostic assessments",
+      "src": "cqc",
+      "label": "CQC",
+      "iso": "2026-10-13",
+      "date": "13 Oct"
+    },
+    {
+      "url": "https://socialcare.wales/news-stories/have-your-say-2026-high-morale-and-strong-sense-of-purpose-sustain-social-care-workforce-but-retention-challenges-remain",
+      "title": "High morale and strong sense of purpose by the social care workforce, but retention challenges remain",
+      "src": "scw",
+      "label": "Social Care Wales",
+      "iso": "2026-10-13",
+      "date": "13 Oct"
+    },
     {
       "url": "https://rcni.com/nursing-standard/newsroom/news/nurse-victim-of-retaliation-speaks-out-about-six-year-ftp-ordeal-224456",
       "title": "Nurse victim of retaliation describes seven year NMC case ordeal",
@@ -26,28 +130,12 @@
       "date": "12 Oct"
     },
     {
-      "url": "https://www.rcn.org.uk/news-and-events/news/s-cabsec-corridor-care-091026",
-      "title": "Cabinet Secretary commits to publish data on corridor care",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-10-09",
-      "date": "09 Oct"
-    },
-    {
-      "url": "https://www.cqc.org.uk/news/cqc-regulate-autism-and-adhd-diagnostic-assessments",
-      "title": "CQC to regulate autism and ADHD diagnostic assessments",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-10-09",
-      "date": "09 Oct"
-    },
-    {
-      "url": "https://www.cqc.org.uk/news/registration-applications-now-open-event-healthcare-providers",
-      "title": "Registration applications now open for event healthcare providers",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-10-09",
-      "date": "09 Oct"
+      "url": "https://www.nmc.org.uk/news/news-and-updates/blog-a-day-in-the-life-of-an-employer-link-service-adviser/",
+      "title": "Blog: A Day in the Life of an Employer Link Service Adviser",
+      "src": "nmc",
+      "label": "NMC",
+      "iso": "2026-10-12",
+      "date": "12 Oct"
     },
     {
       "url": "https://www.careinspectorate.wales/261009-we-would-hear-your-views-pembrokeshire-county-councils-childrens-social-services",
@@ -90,24 +178,8 @@
       "date": "09 Oct"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/blog-a-day-in-the-life-of-an-employer-link-service-adviser/",
-      "title": "Blog: A Day in the Life of an Employer Link Service Adviser",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-10-08",
-      "date": "08 Oct"
-    },
-    {
       "url": "https://www.gov.uk/government/news/332m-to-protect-public-from-future-epidemics-and-pandemics",
       "title": "£33.2 million to protect public from future epidemics and pandemics",
-      "src": "ukhsa",
-      "label": "UKHSA",
-      "iso": "2026-10-08",
-      "date": "08 Oct"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/latest-ukhsa-weekly-winter-virus-surveillance-data",
-      "title": "Latest UKHSA weekly winter virus surveillance data",
       "src": "ukhsa",
       "label": "UKHSA",
       "iso": "2026-10-08",
@@ -118,6 +190,14 @@
       "title": "Flu levels low at start of season but higher than previous 4 years",
       "src": "ukhsa",
       "label": "UKHSA",
+      "iso": "2026-10-08",
+      "date": "08 Oct"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/332m-to-protect-public-from-future-epidemics-and-pandemics",
+      "title": "£33.2 million to protect public from future epidemics and pandemics",
+      "src": "dhsc",
+      "label": "DHSC",
       "iso": "2026-10-08",
       "date": "08 Oct"
     },
@@ -134,14 +214,6 @@
       "title": "Who inspires you? RCN Awards nominations open now",
       "src": "rcn",
       "label": "RCN",
-      "iso": "2026-10-05",
-      "date": "05 Oct"
-    },
-    {
-      "url": "https://www.rqia.org.uk/new-chair-appointed-to-the-regulation-and-quality-improvement-authority",
-      "title": "New Chair appointed to the Regulation and Quality Improvement Authority",
-      "src": "rqia",
-      "label": "RQIA",
       "iso": "2026-10-05",
       "date": "05 Oct"
     },
@@ -170,34 +242,10 @@
       "date": "02 Oct"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-to-take-more-proactive-approach-to-education-quality-assurance/",
-      "title": "NMC to take more proactive approach to education quality assurance",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-10-02",
-      "date": "02 Oct"
-    },
-    {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/new-nmc-strategy-puts-safety-equity-and-anti-racism-centre-of-midwifery-regulation/",
-      "title": "New NMC strategy puts safety, equity and anti-racism centre of midwifery regulation",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-10-01",
-      "date": "01 Oct"
-    },
-    {
       "url": "https://socialcare.wales/news-stories/celebrating-25-years-of-social-work-regulation",
       "title": "Celebrating 25 years of social work regulation",
       "src": "scw",
       "label": "Social Care Wales",
-      "iso": "2026-10-01",
-      "date": "01 Oct"
-    },
-    {
-      "url": "https://www.gov.uk/government/news/over-212000-get-the-first-menb-dose-but-almost-75-missing-out",
-      "title": "Over 212,000 get the first MenB dose but almost 75% missing out",
-      "src": "ukhsa",
-      "label": "UKHSA",
       "iso": "2026-10-01",
       "date": "01 Oct"
     },
@@ -250,44 +298,12 @@
       "date": "28 Sep"
     },
     {
-      "url": "https://www.nmc.org.uk/news/news-and-updates/nmc-commits-to-develop-shared-principles-on-ai-with-psa-and-other-partners/",
-      "title": "NMC commits to develop shared principles on AI with PSA and other partners",
-      "src": "nmc",
-      "label": "NMC",
-      "iso": "2026-09-25",
-      "date": "25 Sep"
-    },
-    {
-      "url": "https://www.cqc.org.uk/news/mandatory-training-requirement-learning-disability-and-autism",
-      "title": "Mandatory training requirement on learning disability and autism",
-      "src": "cqc",
-      "label": "CQC",
-      "iso": "2026-09-24",
-      "date": "24 Sep"
-    },
-    {
       "url": "https://www.careinspectorate.wales/monmouthshire-county-council-adult-services-improvement-check-ciw-findings-published",
       "title": "Monmouthshire County Council Adult Services Improvement Check: CIW findings published Care Inspectorate Wales (CIW) has published the findings of its Improvement Check of Monmouthshire County Council's Adult Services.",
       "src": "ciw",
       "label": "CIW",
       "iso": "2026-09-23",
       "date": "23 Sep"
-    },
-    {
-      "url": "https://socialcare.wales/news-stories/early-years-and-childcare-workforce-survey-now-open",
-      "title": "Early years and childcare workforce survey now open",
-      "src": "scw",
-      "label": "Social Care Wales",
-      "iso": "2026-09-23",
-      "date": "23 Sep"
-    },
-    {
-      "url": "https://www.rcn.org.uk/news-and-events/news/uk-nurse-shortage-far-worse-than-first-thought-rcn-analysis-shows-220926",
-      "title": "Nurse shortage far worse than first thought, RCN analysis shows",
-      "src": "rcn",
-      "label": "RCN",
-      "iso": "2026-09-22",
-      "date": "22 Sep"
     },
     {
       "url": "https://www.careinspectorate.wales/260917-national-thematic-review-adoption-services-published",
@@ -338,8 +354,8 @@
       "date": "15 Sep"
     },
     {
-      "url": "https://www.rqia.org.uk/publication-of-rqia-reviews-of-urology-services-in-the-southern-hsc-trust",
-      "title": "Publication of RQIA Reviews of Urology Services in the Southern HSC Trust",
+      "url": "https://www.rqia.org.uk/muckamore-abbey-hospital-inquiry-report-rqia-statement",
+      "title": "Muckamore Abbey Hospital Inquiry Report &#8211; RQIA statement",
       "src": "rqia",
       "label": "RQIA",
       "iso": "2026-09-10",
@@ -352,14 +368,6 @@
       "label": "NICE",
       "iso": "2026-08-20",
       "date": "20 Aug"
-    },
-    {
-      "url": "https://www.rqia.org.uk/rqia-publishes-inspection-reports-of-services-registered-by-the-presbyterian-church-in-ireland-presbyterian-council-of-social-witness",
-      "title": "RQIA Publishes Inspection Reports of Services Registered by the Presbyterian Church in Ireland, Presbyterian Council of Social Witness",
-      "src": "rqia",
-      "label": "RQIA",
-      "iso": "2026-06-15",
-      "date": "15 Jun"
     },
     {
       "url": "https://www.nhsemployers.org/articles/talent-opportunity",
@@ -382,6 +390,14 @@
       "title": "Blog The Ockenden report on Nottingham maternity services - next steps for chief people officers Dean Royles outlines key actions for chief people officers following the Ockenden Report, focusing on culture, leadership and patient safety.",
       "src": "nhsemp",
       "label": "NHS Employers",
+      "iso": null,
+      "date": ""
+    },
+    {
+      "url": "https://www.ihpn.org.uk/blog/choice-is-the-missing-ingredient-in-the-nhss-community-care-soup",
+      "title": "Blog Choice is the Missing Ingredient in the NHS’s Community Care “Soup” 15/10/2026 The NHS’s ambition to shift care into the community will only succeed if the right conditions are in place. This blog explores how national pricing, activity-based funding and greater patient choice can help unlock existing capacity, reduce waiting times and make care closer to home a reality. Read more",
+      "src": "ihpn",
+      "label": "IHPN",
       "iso": null,
       "date": ""
     },
