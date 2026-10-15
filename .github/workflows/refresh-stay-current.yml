@@ -1,6 +1,7 @@
 name: Weekly refresh
 
-# Rebuilds two pages each Monday:
+# Rebuilds two feeds each Monday (the Clinical Hub pages are redirect stubs since 15/10/2026;
+# the JSON files are what the Hub's Clinical Desk 710 and Jobs 4263 fetch):
 #   Stay Current        — NMC, RCN and CQC news (none of the three publish RSS,
 #                         so this reads their listing pages)
 #   Live Clinical Roles — nursing and care vacancies from the HealthJobsUK feed
@@ -49,7 +50,8 @@ jobs:
         run: |
           set -e
           CHANGED=$(git status --porcelain stay-current.html stay-current-data.json \
-                                           clinical-roles.html clinical-roles-data.json)
+                                           clinical-roles.html clinical-roles-data.json \
+                                           clinical-roles-shown.json)
           if [ -z "$CHANGED" ]; then
             echo "No change this week."
             exit 0
@@ -57,7 +59,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add stay-current.html stay-current-data.json \
-                  clinical-roles.html clinical-roles-data.json
+                  clinical-roles.html clinical-roles-data.json \
+                  clinical-roles-shown.json
           git commit -m "Weekly refresh: Stay Current and Live Clinical Roles"
           git push
 
