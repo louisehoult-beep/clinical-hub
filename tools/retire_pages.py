@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 H = 'https://medsalesintelligencehub.co.uk'
 M = {'index': '/clinical-hub/', 'stay-current': '/medical-sales-hub/clinical/',
      'clinical-roles': '/medical-sales-hub/clinical-jobs/', 'careers': '/medical-sales-hub/clinical-jobs/',
-     'revalidation': '/medical-sales-hub/clinical-portfolio/', 'care-passport': '/medical-sales-hub/clinical-portfolio/',
+     'revalidation': '/medical-sales-hub/clinical-portfolio/', 'care-passport': '/medical-sales-hub/care-standard-portfolio/',
      'cv-tailor': '/medical-sales-hub/clinical-cv/', 'cv-mistake': '/medical-sales-hub/clinical-cv/',
      'courses': '/medical-sales-hub/clinical-training/',
      'webinars': '/medical-sales-hub/clinical-listen-watch/', 'podcasts': '/medical-sales-hub/clinical-listen-watch/',
