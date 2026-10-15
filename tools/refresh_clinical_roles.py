@@ -189,24 +189,27 @@ def main():
     rendered, shown, buckets = render(roles)
 
     page = open(PAGE, encoding='utf-8').read()
-    block = '<!-- AUTO:ROLES:START -->%s    <!-- AUTO:ROLES:END -->' % rendered
-    page, n = re.subn(r'<!-- AUTO:ROLES:START -->.*?<!-- AUTO:ROLES:END -->',
-                      lambda _m: block, page, flags=re.S)
-    if n != 1:
-        print('ERROR: could not find the AUTO:ROLES markers in clinical-roles.html')
-        return 1
-    page = re.sub(r'(<meta name="roles-refreshed" content=")[^"]*(")',
-                  lambda m: m.group(1) + stamp + m.group(2), page)
-    # Both numbers are published. The page shows a sample, and saying so is the
-    # difference between a sample and a claim to be the whole market.
-    page, n_shown = re.subn(r'(<b id="roleShown">)[^<]*(</b>)',
-                  lambda m: m.group(1) + str(shown) + m.group(2), page)
-    page, n_count = re.subn(r'(<b id="roleCount">)[^<]*(</b>)',
-                  lambda m: m.group(1) + '{:,}'.format(len(roles)) + m.group(2), page)
-    if n_shown != 1 or n_count != 1:
-        print('ERROR: could not find the roleShown/roleCount badge markers in clinical-roles.html')
-        return 1
-    open(PAGE, 'w', encoding='utf-8').write(page)
+    if 'name="clinical-hub-retired"' in page:
+        print('  clinical-roles.html is a redirect stub (site retired) - writing the JSON only.')
+    else:
+        block = '<!-- AUTO:ROLES:START -->%s    <!-- AUTO:ROLES:END -->' % rendered
+        page, n = re.subn(r'<!-- AUTO:ROLES:START -->.*?<!-- AUTO:ROLES:END -->',
+                          lambda _m: block, page, flags=re.S)
+        if n != 1:
+            print('ERROR: could not find the AUTO:ROLES markers in clinical-roles.html')
+            return 1
+        page = re.sub(r'(<meta name="roles-refreshed" content=")[^"]*(")',
+                      lambda m: m.group(1) + stamp + m.group(2), page)
+        # Both numbers are published. The page shows a sample, and saying so is the
+        # difference between a sample and a claim to be the whole market.
+        page, n_shown = re.subn(r'(<b id="roleShown">)[^<]*(</b>)',
+                      lambda m: m.group(1) + str(shown) + m.group(2), page)
+        page, n_count = re.subn(r'(<b id="roleCount">)[^<]*(</b>)',
+                      lambda m: m.group(1) + '{:,}'.format(len(roles)) + m.group(2), page)
+        if n_shown != 1 or n_count != 1:
+            print('ERROR: could not find the roleShown/roleCount badge markers in clinical-roles.html')
+            return 1
+        open(PAGE, 'w', encoding='utf-8').write(page)
 
     json.dump({'refreshed': today.isoformat(), 'matched': len(roles),
                'shown': shown, 'items': roles},

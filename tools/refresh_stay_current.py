@@ -275,15 +275,18 @@ def main():
     stamp = today.strftime('%d/%m/%Y')
 
     page = open(PAGE, encoding='utf-8').read()
-    new_block = '<!-- AUTO:ITEMS:START -->%s    <!-- AUTO:ITEMS:END -->' % render(collected)
-    page, n = re.subn(r'<!-- AUTO:ITEMS:START -->.*?<!-- AUTO:ITEMS:END -->',
-                      lambda _m: new_block, page, flags=re.S)
-    if n != 1:
-        print('ERROR: could not find the AUTO:ITEMS markers in stay-current.html')
-        return 1
-    page = re.sub(r'(<meta name="stay-current-refreshed" content=")[^"]*(")',
-                  lambda m: m.group(1) + stamp + m.group(2), page)
-    open(PAGE, 'w', encoding='utf-8').write(page)
+    if 'name="clinical-hub-retired"' in page:
+        print('  stay-current.html is a redirect stub (site retired) - writing the JSON only.')
+    else:
+        new_block = '<!-- AUTO:ITEMS:START -->%s    <!-- AUTO:ITEMS:END -->' % render(collected)
+        page, n = re.subn(r'<!-- AUTO:ITEMS:START -->.*?<!-- AUTO:ITEMS:END -->',
+                          lambda _m: new_block, page, flags=re.S)
+        if n != 1:
+            print('ERROR: could not find the AUTO:ITEMS markers in stay-current.html')
+            return 1
+        page = re.sub(r'(<meta name="stay-current-refreshed" content=")[^"]*(")',
+                      lambda m: m.group(1) + stamp + m.group(2), page)
+        open(PAGE, 'w', encoding='utf-8').write(page)
 
     json.dump({'refreshed': today.isoformat(), 'items': collected},
               open(DATA, 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
