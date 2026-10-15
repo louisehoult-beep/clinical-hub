@@ -267,6 +267,10 @@ def main():
             collected += kept
 
     collected.sort(key=lambda i: i.get('iso') or '', reverse=True)
+    # The same story can come back from two sources (e.g. two GOV.UK organisations);
+    # keep the first so the page never lists one link twice.
+    _seen = set()
+    collected = [i for i in collected if not (i.get('url') in _seen or _seen.add(i.get('url')))]
     if not collected:
         print('ERROR: nothing at all to write; leaving the page untouched.')
         return 1
