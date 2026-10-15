@@ -1,3 +1,5 @@
+> **FEEDS MOVED (15/10/2026, later the same day):** the JSON feeds now live in `louisehoult-beep/msh-jobs-map` (`data/clinical/`); nothing reads this repo for data and its Action is disabled. It can be deleted with Lou's go-ahead.
+>
 > **Retired 15/10/2026.** The Clinical Hub now lives on the Medical Sales Intelligence Hub (Clinical Index: medsalesintelligencehub.co.uk/medical-sales-hub/clinical-index/). Every `.html` page here is a redirect stub to its Hub equivalent. This repo remains only as the DATA HOST: `stay-current-data.json`, `clinical-roles-data.json` and `clinical-roles-shown.json` are fetched by Hub pages 710 and 4263, refreshed every Monday by the Action below and the `clinical-hub-weekly` routine. Do not delete it until those feeds have a new home. Process: `Process flows for all brands/clinical-section-one-nav-bar.md`.
 
 # The Clinical Hub
