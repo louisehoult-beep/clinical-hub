@@ -232,6 +232,17 @@ def main():
     json.dump(shown_payload, open(SHOWN, 'w', encoding='utf-8'),
               indent=2, ensure_ascii=False)
 
+    # Every matched role, compact, for the Hub's "Browse all roles" search
+    # (clinical-roles-all.json). Short keys keep 1,400+ rows small:
+    # t title, u url, e employer, w town, c county, g group.
+    ALL = os.path.join(HERE, 'clinical-roles-all.json')
+    json.dump({'refreshed': today.isoformat(), 'matched': len(roles),
+               'groups': {k: l.replace('&amp;', 'and') for k, l, _r in GROUPS},
+               'items': [{'t': r['title'], 'u': r['url'], 'e': r.get('employer', ''),
+                          'w': r.get('town', ''), 'c': r.get('county', ''),
+                          'g': group_of(r)} for r in roles]},
+              open(ALL, 'w', encoding='utf-8'), separators=(',', ':'), ensure_ascii=False)
+
     print('Matched %d role(s), showing %d, refreshed %s' % (len(roles), shown, stamp))
     return 0
 
